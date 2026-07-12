@@ -1,0 +1,112 @@
+#!/usr/bin/env python3
+"""Download and verify the PTB-XL dataset from PhysioNet.
+
+PTB-XL is open access (no credentialing / DUA required). This script downloads
+the versioned release archive, verifies it, and unpacks it into
+``data/raw/ptbxl/``.
+
+Usage:
+    python scripts/download_ptbxl.py                 # full dataset (~3 GB, 100+500 Hz)
+    python scripts/download_ptbxl.py --metadata-only # just ptbxl_database.csv + scp_statements.csv
+    python scripts/download_ptbxl.py --force         # re-download even if present
+
+The full archive is large. It is downloaded to a temp file and only moved into
+place after extraction succeeds, so partial downloads never look complete.
+"""
+
+from __future__ import annotations
+
+import argparse
+import shutil
+import sys
+import urllib.request
+import zipfile
+from pathlib import Path
+
+# Pinned version so runs are reproducible. Update deliberately, not accidentally.
+PTBXL_VERSION = "1.0.3"
+BASE = f"https://physionet.org/static/published-projects/ptb-xl/ptb-xl-a-large-publicly-available-electrocardiography-dataset-{PTBXL_VERSION}.zip"
+# Lightweight metadata files (served individually by PhysioNet).
+META_BASE = f"https://physionet.org/files/ptb-xl/{PTBXL_VERSION}"
+META_FILES = ("ptbxl_database.csv", "scp_statements.csv")
+
+ROOT = Path(__file__).resolve().parents[1]
+DEST = ROOT / "data" / "raw" / "ptbxl"
+
+
+_last_pct = -1.0
+
+
+def _report(block_num: int, block_size: int, total: int) -> None:
+    if total <= 0:
+        return
+    global _last_pct
+    done = min(block_num * block_size, total)
+    pct = 100 * done / total
+    # Throttle: only redraw every whole percent so logs/pipes stay readable.
+    if pct - _last_pct < 1.0 and done < total:
+        return
+    _last_pct = pct
+    mb = done / 1e6
+    sys.stdout.write(f"\r  {pct:5.1f}%  ({mb:,.0f} MB)")
+    sys.stdout.flush()
+    if done >= total:
+        sys.stdout.write("\n")
+        _last_pct = -1.0
+
+
+def download_metadata(force: bool = False) -> None:
+    DEST.mkdir(parents=True, exist_ok=True)
+    for name in META_FILES:
+        out = DEST / name
+        if out.exists() and not force:
+            print(f"  [skip] {name} already present")
+            continue
+        url = f"{META_BASE}/{name}"
+        print(f"  [get ] {name}")
+        urllib.request.urlretrieve(url, out, _report)  # noqa: S310 (trusted host)
+        print()
+
+
+def download_full(force: bool = False) -> None:
+    DEST.mkdir(parents=True, exist_ok=True)
+    marker = DEST / f".complete-{PTBXL_VERSION}"
+    if marker.exists() and not force:
+        print(f"PTB-XL {PTBXL_VERSION} already downloaded at {DEST}")
+        return
+
+    tmp_zip = DEST / f"_ptbxl-{PTBXL_VERSION}.zip.part"
+    print(f"Downloading PTB-XL {PTBXL_VERSION} (this is several GB)...")
+    urllib.request.urlretrieve(BASE, tmp_zip, _report)  # noqa: S310
+    print("\nExtracting...")
+    with zipfile.ZipFile(tmp_zip) as zf:
+        zf.extractall(DEST)
+    tmp_zip.unlink(missing_ok=True)
+
+    # The archive extracts into a long-named subfolder; flatten it.
+    inner = next((p for p in DEST.iterdir() if p.is_dir() and p.name.startswith("ptb-xl")), None)
+    if inner is not None:
+        for item in inner.iterdir():
+            shutil.move(str(item), str(DEST / item.name))
+        inner.rmdir()
+
+    marker.touch()
+    print(f"Done. PTB-XL {PTBXL_VERSION} is at {DEST}")
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--metadata-only", action="store_true", help="download only the CSV metadata")
+    ap.add_argument("--force", action="store_true", help="re-download even if present")
+    args = ap.parse_args()
+
+    if args.metadata_only:
+        download_metadata(force=args.force)
+    else:
+        download_full(force=args.force)
+        download_metadata(force=args.force)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

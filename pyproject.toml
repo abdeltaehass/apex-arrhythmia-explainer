@@ -1,0 +1,17 @@
+[project]
+name = "apex-arrhythmia-explainer"
+version = "0.1.0"
+description = "APEX — reads 12-lead ECGs, detects abnormalities across 71 categories, and generates grounded plain-English explanations with confidence-based review gating."
+readme = "README.md"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

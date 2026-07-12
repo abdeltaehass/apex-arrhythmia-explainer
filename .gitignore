@@ -1,0 +1,35 @@
+# --- data (never commit the dataset) ---
+data/raw/*
+data/processed/*
+data/manifests/*
+!data/**/.gitkeep
+
+# --- python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.python-version
+
+# --- ml artifacts ---
+wandb/
+*.ckpt
+*.pt
+*.pth
+checkpoints/
+outputs/
+lightning_logs/
+
+# --- notebooks ---
+.ipynb_checkpoints/
+
+# --- secrets / env ---
+.env
+*.key
+
+# --- os / editor ---
+.DS_Store
+.idea/
+.vscode/

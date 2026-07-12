@@ -1,0 +1,29 @@
+# APEX dependencies.
+# NOTE: pin against a Python 3.11 venv (see README) — several of these (torch,
+# wfdb wheels) may not yet publish 3.14 wheels.
+
+# --- data / signal ---
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11
+wfdb>=4.1            # read PTB-XL waveforms
+scikit-learn>=1.4   # AUROC / F1 / calibration metrics
+
+# --- modeling ---
+torch>=2.2          # 1D CNN / transformer detector
+
+# --- experiment tracking ---
+wandb>=0.16
+
+# --- generation ---
+anthropic>=0.40     # Claude API backend for explanations
+
+# --- serving / UI ---
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic>=2.6
+gradio>=4.0
+
+# --- dev ---
+pytest>=8.0
+ruff>=0.3
