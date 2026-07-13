@@ -43,11 +43,49 @@ def build_label_space(ptbxl_dir: Path = PTBXL_DIR) -> list[str]:
     return sorted(scp.index.tolist())
 
 
-def encode(scp_codes: dict[str, float], label_space: list[str], min_likelihood: float = 0.0) -> np.ndarray:
-    """One record's scp_codes dict -> binary vector over `label_space`."""
+def present_codes(scp_codes: dict[str, float]) -> list[str]:
+    """The SCP codes considered *present* for a record.
+
+    PTB-XL convention (and the Strodthoff et al. benchmark): a statement is
+    present if it is a *key* of ``scp_codes``, regardless of the likelihood
+    value. A likelihood of ``0.0`` means "assigned, likelihood unstated" — it is
+    still a positive label (e.g. ``{'NORM': 100.0, 'SR': 0.0}`` has sinus rhythm
+    present). Do **not** filter on ``likelihood > 0`` or you silently drop labels.
+    """
+    return sorted(scp_codes.keys())
+
+
+def encode(scp_codes: dict[str, float], label_space: list[str]) -> np.ndarray:
+    """One record's scp_codes dict -> binary presence vector over `label_space`."""
     idx = {code: i for i, code in enumerate(label_space)}
     y = np.zeros(len(label_space), dtype=np.float32)
-    for code, likelihood in scp_codes.items():
-        if code in idx and likelihood > min_likelihood:
+    for code in present_codes(scp_codes):
+        if code in idx:
             y[idx[code]] = 1.0
     return y
+
+
+# --- Superclass / category structure (from scp_statements.csv) --------------
+# The 5 coarse diagnostic superclasses PTB-XL groups its diagnostic codes into.
+DIAGNOSTIC_SUPERCLASSES = ("NORM", "MI", "STTC", "CD", "HYP")
+
+
+def diagnostic_superclass_map(scp) -> dict[str, str]:
+    """Map each *diagnostic* SCP code -> its diagnostic superclass (NORM/MI/...)."""
+    diag = scp[scp["diagnostic"] == 1.0]
+    return diag["diagnostic_class"].dropna().to_dict()
+
+
+def category_members(scp) -> dict[str, set[str]]:
+    """Sets of SCP codes belonging to each category: diagnostic / form / rhythm."""
+    return {
+        "diagnostic": set(scp.index[scp["diagnostic"] == 1.0]),
+        "form": set(scp.index[scp["form"] == 1.0]),
+        "rhythm": set(scp.index[scp["rhythm"] == 1.0]),
+    }
+
+
+def aggregate_superclasses(scp_codes: dict[str, float], superclass_map: dict[str, str]) -> list[str]:
+    """A record's scp_codes -> sorted list of its diagnostic superclasses."""
+    out = {superclass_map[c] for c in scp_codes if c in superclass_map}
+    return sorted(out)

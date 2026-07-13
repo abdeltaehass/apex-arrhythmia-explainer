@@ -49,6 +49,14 @@ make data-meta      # just the metadata CSVs — fast, for EDA
 make data           # full dataset, several GB
 ```
 
+Run the EDA + build the patient-level splits (needs only `make data-meta`):
+
+```bash
+python -m src.data.manifests   # writes data/manifests/{train,val,test}.csv (split by patient)
+python scripts/run_eda.py      # writes docs/eda/ figures, prevalence tables, summary.md
+jupyter lab notebooks/01_eda.ipynb
+```
+
 Set up experiment tracking:
 
 ```bash
@@ -66,9 +74,13 @@ make ui     # Gradio UI
 
 ## Phase status
 
-- **Phase 0 (this):** problem statement, repo skeleton, target metrics, W&B init,
+- **Phase 0:** problem statement, repo skeleton, target metrics, W&B init,
   PTB-XL download tooling. ✅
-- Phase 1+: preprocessing pipeline, detector training, grounding, generation,
+- **Phase 1:** data acquisition + EDA — label distribution across the 71 SCP
+  statements, class-imbalance and demographic analysis, and patient-level
+  train/val/test manifests (see [`notebooks/01_eda.ipynb`](notebooks/01_eda.ipynb)
+  and [`docs/eda/summary.md`](docs/eda/summary.md)). ✅
+- Phase 2+: preprocessing pipeline, detector training, grounding, generation,
   evaluation harness, app wiring.
 
 ## Data & ethics

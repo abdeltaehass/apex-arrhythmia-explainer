@@ -1,0 +1,72 @@
+code,count,prevalence_%,description,diagnostic,form,rhythm
+SR,16748,76.829,sinus rhythm,False,False,True
+NORM,9514,43.644,normal ECG,True,False,False
+ABQRS,3327,15.262,abnormal QRS,False,True,False
+IMI,2676,12.276,inferior myocardial infarction,True,False,False
+ASMI,2357,10.812,anteroseptal myocardial infarction,True,False,False
+LVH,2132,9.78,left ventricular hypertrophy,True,False,False
+NDT,1825,8.372,non-diagnostic T abnormalities,True,True,False
+LAFB,1623,7.445,left anterior fascicular block,True,False,False
+AFIB,1514,6.945,atrial fibrillation,False,False,True
+ISC_,1272,5.835,non-specific ischemic,True,False,False
+PVC,1143,5.243,ventricular premature complex,False,True,False
+IRBBB,1118,5.129,incomplete right bundle branch block,True,False,False
+STD_,1009,4.629,non-specific ST depression,False,True,False
+VCLVH,875,4.014,voltage criteria (QRS) for left ventricular hypertrophy,False,True,False
+STACH,826,3.789,sinus tachycardia,False,False,True
+1AVB,793,3.638,first degree AV block,True,False,False
+IVCD,787,3.61,non-specific intraventricular conduction disturbance (block),True,False,False
+SARRH,772,3.541,sinus arrhythmia,False,False,True
+NST_,767,3.519,non-specific ST changes,True,True,False
+ISCAL,659,3.023,ischemic in anterolateral leads,True,False,False
+SBRAD,637,2.922,sinus bradycardia,False,False,True
+QWAVE,548,2.514,Q waves present,False,True,False
+CRBBB,541,2.482,complete right bundle branch block,True,False,False
+CLBBB,536,2.459,complete left bundle branch block,True,False,False
+ILMI,478,2.193,inferolateral myocardial infarction,True,False,False
+LOWT,438,2.009,low amplitude T-waves,False,True,False
+LAO/LAE,426,1.954,left atrial overload/enlargement,True,False,False
+NT_,423,1.94,non-specific T-wave changes,False,True,False
+PAC,398,1.826,atrial premature complex,False,True,False
+AMI,353,1.619,anterior myocardial infarction,True,False,False
+LPR,340,1.56,prolonged PR interval,False,True,False
+PACE,294,1.349,normal functioning artificial pacemaker,False,False,True
+INVT,294,1.349,inverted T-waves,False,True,False
+ALMI,288,1.321,anterolateral myocardial infarction,True,False,False
+ISCIN,218,1.0,ischemic in inferior leads,True,False,False
+INJAS,214,0.982,subendocardial injury in anteroseptal leads,True,False,False
+LMI,201,0.922,lateral myocardial infarction,True,False,False
+LVOLT,182,0.835,low QRS voltages in the frontal and horizontal leads,False,True,False
+DIG,181,0.83,digitalis-effect,True,True,False
+ISCIL,179,0.821,ischemic in inferolateral leads,True,False,False
+LPFB,177,0.812,left posterior fascicular block,True,False,False
+ISCAS,169,0.775,ischemic in anteroseptal leads,True,False,False
+SVARR,157,0.72,supraventricular arrhythmia,False,False,True
+INJAL,145,0.665,subendocardial injury in anterolateral leads,True,False,False
+ISCLA,140,0.642,ischemic in lateral leads,True,False,False
+RVH,126,0.578,right ventricular hypertrophy,True,False,False
+LNGQT,117,0.537,long QT-interval,True,True,False
+ANEUR,104,0.477,ST-T changes compatible with ventricular aneurysm,True,False,False
+RAO/RAE,99,0.454,right atrial overload/enlargement,True,False,False
+EL,96,0.44,electrolytic disturbance or drug (former EDIS),True,False,False
+BIGU,82,0.376,"bigeminal pattern (unknown origin, SV or Ventricular)",False,False,True
+WPW,79,0.362,Wolf-Parkinson-White syndrome,True,False,False
+ILBBB,77,0.353,incomplete left bundle branch block,True,False,False
+AFLT,73,0.335,atrial flutter,False,False,True
+HVOLT,62,0.284,high QRS voltage,False,True,False
+IPLMI,51,0.234,inferoposterolateral myocardial infarction,True,False,False
+ISCAN,44,0.202,ischemic in anterior leads,True,False,False
+TAB_,35,0.161,T-wave abnormality,False,True,False
+IPMI,33,0.151,inferoposterior myocardial infarction,True,False,False
+SEHYP,29,0.133,septal hypertrophy,True,False,False
+STE_,28,0.128,non-specific ST elevation,False,True,False
+SVTAC,27,0.124,supraventricular tachycardia,False,False,True
+PSVT,24,0.11,paroxysmal supraventricular tachycardia,False,False,True
+TRIGU,20,0.092,"trigeminal pattern (unknown origin, SV or Ventricular)",False,False,True
+INJIN,18,0.083,subendocardial injury in inferior leads,True,False,False
+INJLA,17,0.078,subendocardial injury in lateral leads,True,False,False
+PMI,17,0.078,posterior myocardial infarction,True,False,False
+3AVB,16,0.073,third degree AV block,True,False,False
+INJIL,15,0.069,subendocardial injury in inferolateral leads,True,False,False
+2AVB,14,0.064,second degree AV block,True,False,False
+PRC(S),10,0.046,premature complex(es),False,True,False
