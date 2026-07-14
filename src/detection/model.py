@@ -16,7 +16,6 @@ except ImportError:  # keep importable before torch is installed
 
 from src.config import NUM_LABELS, NUM_LEADS
 
-
 if torch is not None:
 
     class ResBlock1d(nn.Module):

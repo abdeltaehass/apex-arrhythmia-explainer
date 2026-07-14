@@ -12,7 +12,8 @@ import matplotlib
 matplotlib.use("Agg")  # headless: render figures to PNG without a display
 
 from src.config import ROOT
-from src.data import eda, labels as L
+from src.data import eda
+from src.data import labels as L
 
 OUT = ROOT / "docs" / "eda"
 FIG = OUT / "figures"

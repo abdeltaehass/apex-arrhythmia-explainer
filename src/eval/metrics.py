@@ -62,7 +62,7 @@ def expected_calibration_error(y_true: np.ndarray, y_prob: np.ndarray, n_bins: i
     bins = np.linspace(0.0, 1.0, n_bins + 1)
     ece = 0.0
     n = len(probs)
-    for lo, hi in zip(bins[:-1], bins[1:]):
+    for lo, hi in zip(bins[:-1], bins[1:], strict=True):
         mask = (probs >= lo) & (probs < hi)
         if not mask.any():
             continue

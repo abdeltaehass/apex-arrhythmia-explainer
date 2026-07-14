@@ -6,6 +6,10 @@ EDA and experiment logs.
   demographics, multi-label density, and the patient-level train/val/test split.
   Runs on metadata only (`make data-meta`). Committed with outputs so it can be
   reviewed without a kernel.
+- `02_preprocessing.ipynb` — Phase 2 sanity checks: raw vs. clean signals for 7
+  records across all six diagnostic groups, baseline-wander removal, 500→100 Hz
+  resampling, Pan-Tompkins internals, per-lead normalization, and the torch Dataset.
+  Needs the curated waveforms (`make data-sample`). Committed with plots.
 
 The reusable logic lives in `src/data/eda.py` (analysis + plots) and
 `src/data/manifests.py` (splits). Regenerate the static artifacts with:

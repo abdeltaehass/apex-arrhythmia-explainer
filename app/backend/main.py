@@ -10,8 +10,6 @@ from __future__ import annotations
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
-from src.config import CFG
-
 app = FastAPI(title="APEX", version="0.1.0", description="Arrhythmia Pattern Explainer")
 
 

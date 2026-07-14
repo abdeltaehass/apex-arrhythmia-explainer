@@ -8,6 +8,9 @@ requires-python = ">=3.11"
 [tool.ruff]
 line-length = 110
 target-version = "py311"
+# Notebooks follow their own conventions (semicolons to suppress output, top-heavy
+# setup cells); lint the library/scripts/tests, not the exploratory notebooks.
+extend-exclude = ["*.ipynb"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]

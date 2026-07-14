@@ -52,9 +52,16 @@ make data           # full dataset, several GB
 Run the EDA + build the patient-level splits (needs only `make data-meta`):
 
 ```bash
-python -m src.data.manifests   # writes data/manifests/{train,val,test}.csv (split by patient)
-python scripts/run_eda.py      # writes docs/eda/ figures, prevalence tables, summary.md
+make manifests                 # data/manifests/{train,val,test}.csv (split by patient)
+make eda                       # docs/eda/ figures, prevalence tables, summary.md
 jupyter lab notebooks/01_eda.ipynb
+```
+
+Preprocessing (resample → band-pass 0.5–40 Hz → Pan-Tompkins → z-score):
+
+```bash
+make data-sample               # a few MB of curated waveforms (no need for full data)
+jupyter lab notebooks/02_preprocessing.ipynb   # raw vs. clean across 6 diagnostic groups
 ```
 
 Set up experiment tracking:
@@ -80,8 +87,11 @@ make ui     # Gradio UI
   statements, class-imbalance and demographic analysis, and patient-level
   train/val/test manifests (see [`notebooks/01_eda.ipynb`](notebooks/01_eda.ipynb)
   and [`docs/eda/summary.md`](docs/eda/summary.md)). ✅
-- Phase 2+: preprocessing pipeline, detector training, grounding, generation,
-  evaluation harness, app wiring.
+- **Phase 2:** signal preprocessing — resample → band-pass 0.5–40 Hz → Pan-Tompkins
+  R-peak detection → per-lead z-score, wired into `PTBXLDataset`
+  ([`src/preprocessing/`](src/preprocessing/),
+  [`notebooks/02_preprocessing.ipynb`](notebooks/02_preprocessing.ipynb)). ✅
+- Phase 3+: detector training, grounding, generation, evaluation harness, app wiring.
 
 ## Data & ethics
 
