@@ -8,6 +8,7 @@ pandas>=2.1
 scipy>=1.11
 wfdb>=4.1            # read PTB-XL waveforms
 scikit-learn>=1.4   # AUROC / F1 / calibration metrics
+requests>=2.31      # parallel dataset download (S3 mirror)
 
 # --- modeling ---
 torch>=2.2          # 1D CNN / transformer detector

@@ -1,13 +1,15 @@
-.PHONY: help setup data data-meta data-sample eda manifests wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
 	@echo "  setup       create venv + install requirements"
 	@echo "  data-meta   download only PTB-XL metadata CSVs (fast)"
 	@echo "  data-sample download a small curated set of waveforms (Phase 2 notebook)"
-	@echo "  data        download full PTB-XL dataset (several GB)"
+	@echo "  data-100    download only the 100 Hz waveforms (~1.7 GB, needed to train)"
+	@echo "  data        download full PTB-XL dataset (both rates, ~20 GB)"
 	@echo "  manifests   build patient-level train/val/test manifests"
 	@echo "  eda         run EDA -> docs/eda/"
+	@echo "  train       train the baseline detector (20 epochs) -> docs/baseline/"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI backend"
 	@echo "  ui         run the Gradio frontend"
@@ -23,6 +25,9 @@ data-meta:
 data-sample:
 	python scripts/fetch_sample_records.py
 
+data-100:
+	python scripts/download_ptbxl.py --records 100
+
 data:
 	python scripts/download_ptbxl.py
 
@@ -31,6 +36,9 @@ manifests:
 
 eda:
 	python scripts/run_eda.py
+
+train:
+	python -m src.detection.train
 
 wandb-init:
 	python scripts/init_wandb.py

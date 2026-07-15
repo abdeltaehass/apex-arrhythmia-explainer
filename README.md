@@ -64,6 +64,14 @@ make data-sample               # a few MB of curated waveforms (no need for full
 jupyter lab notebooks/02_preprocessing.ipynb   # raw vs. clean across 6 diagnostic groups
 ```
 
+Train the baseline detector (needs the 100 Hz waveforms):
+
+```bash
+make data-100                  # ~0.5 GB of 100 Hz records (parallel, S3 mirror)
+make train                     # 20-epoch 1D-ResNet -> docs/baseline/ + outputs/baseline_best.pt
+# WANDB_MODE=offline is fine without a login; `wandb login && wandb sync wandb/latest-run` later
+```
+
 Set up experiment tracking:
 
 ```bash
@@ -91,7 +99,11 @@ make ui     # Gradio UI
   R-peak detection → per-lead z-score, wired into `PTBXLDataset`
   ([`src/preprocessing/`](src/preprocessing/),
   [`notebooks/02_preprocessing.ipynb`](notebooks/02_preprocessing.ipynb)). ✅
-- Phase 3+: detector training, grounding, generation, evaluation harness, app wiring.
+- **Phase 3:** baseline detector — 1D ResNet (residual blocks → global avg pool →
+  71-way sigmoid), class-weighted BCE, 20 epochs, W&B logging. **Val macro-AUROC 0.914**
+  ([`src/detection/`](src/detection/), table in
+  [`docs/baseline/`](docs/baseline/baseline_summary.md)). ✅
+- Phase 4+: grounding, generation, calibration, evaluation harness, app wiring.
 
 ## Data & ethics
 
