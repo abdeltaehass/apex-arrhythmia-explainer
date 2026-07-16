@@ -72,6 +72,13 @@ make train                     # 20-epoch 1D-ResNet -> docs/baseline/ + outputs/
 # WANDB_MODE=offline is fine without a login; `wandb login && wandb sync wandb/latest-run` later
 ```
 
+Model-improvement sweep (CNN vs. transformer × BCE vs. focal) + comparison table:
+
+```bash
+make experiments               # runs the sweep, logs to docs/model_comparison/runs.jsonl
+make compare                   # -> docs/model_comparison/comparison.md (vs. published PTB-XL)
+```
+
 Set up experiment tracking:
 
 ```bash
@@ -103,7 +110,12 @@ make ui     # Gradio UI
   71-way sigmoid), class-weighted BCE, 20 epochs, W&B logging. **Val macro-AUROC 0.914**
   ([`src/detection/`](src/detection/), table in
   [`docs/baseline/`](docs/baseline/baseline_summary.md)). ✅
-- Phase 4+: grounding, generation, calibration, evaluation harness, app wiring.
+- **Phase 4:** model improvement — swept CNN vs. PatchTST-style 1D transformer × BCE vs.
+  focal loss, all logged (arch/hparams/AUROC/time). **Best = class-weighted-BCE CNN at
+  test macro-AUROC 0.920** (matches published `resnet1d_wang`); transformer and focal
+  did not beat it. Comparison + published PTB-XL results in
+  [`docs/model_comparison/comparison.md`](docs/model_comparison/comparison.md). ✅
+- Phase 5+: grounding, generation, calibration, evaluation harness, app wiring.
 
 ## Data & ethics
 

@@ -87,5 +87,59 @@ if torch is not None:
             x = self.drop(x)
             return self.head(x)  # logits
 
+    class ECGPatchTransformer(nn.Module):
+        """PatchTST-style 1D transformer over the 12-lead signal.
+
+        A strided conv tokenizes the ``(B, 12, T)`` signal into non-overlapping patches
+        (mixing all 12 leads per patch, since ECG findings are lead-specific), adds a
+        learned positional embedding + CLS token, runs a Transformer encoder, and reads
+        the CLS token into a 71-way sigmoid head. Output: ``(B, 71)`` logits.
+        """
+
+        def __init__(
+            self,
+            num_leads: int = NUM_LEADS,
+            num_labels: int = NUM_LABELS,
+            patch: int = 25,
+            d_model: int = 128,
+            depth: int = 3,
+            heads: int = 4,
+            dropout: float = 0.2,
+            seq_len: int = 1000,
+        ):
+            super().__init__()
+            self.patch_embed = nn.Conv1d(num_leads, d_model, kernel_size=patch, stride=patch)
+            n_patches = seq_len // patch
+            self.cls = nn.Parameter(torch.zeros(1, 1, d_model))
+            self.pos = nn.Parameter(torch.zeros(1, n_patches + 1, d_model))
+            layer = nn.TransformerEncoderLayer(
+                d_model, heads, dim_feedforward=d_model * 4, dropout=dropout,
+                batch_first=True, activation="gelu",
+            )
+            self.encoder = nn.TransformerEncoder(layer, depth)
+            self.norm = nn.LayerNorm(d_model)
+            self.drop = nn.Dropout(dropout)
+            self.head = nn.Linear(d_model, num_labels)
+            nn.init.trunc_normal_(self.pos, std=0.02)
+            nn.init.trunc_normal_(self.cls, std=0.02)
+
+        def forward(self, x):
+            x = self.patch_embed(x).transpose(1, 2)          # (B, n_patches, d_model)
+            cls = self.cls.expand(x.size(0), -1, -1)
+            x = torch.cat([cls, x], dim=1) + self.pos        # prepend CLS + positions
+            x = self.encoder(x)
+            x = self.norm(x[:, 0])                            # CLS token
+            return self.head(self.drop(x))                   # logits
+
     def count_parameters(model: nn.Module) -> int:
         return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+    def build_model(name: str, **kwargs) -> nn.Module:
+        """Factory: 'cnn' -> ECGResNet1d, 'transformer' -> ECGPatchTransformer."""
+        if name == "cnn":
+            keep = ("width", "blocks", "dropout")
+            return ECGResNet1d(**{k: v for k, v in kwargs.items() if k in keep})
+        if name == "transformer":
+            keep = ("patch", "d_model", "depth", "heads", "dropout")
+            return ECGPatchTransformer(**{k: v for k, v in kwargs.items() if k in keep})
+        raise ValueError(f"unknown model: {name!r}")
