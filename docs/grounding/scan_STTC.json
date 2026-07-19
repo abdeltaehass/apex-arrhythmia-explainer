@@ -1,0 +1,1104 @@
+{
+  "target": "STTC",
+  "is_superclass": true,
+  "n_detected": 60,
+  "pool_size": 5235,
+  "summary": {
+    "n_total": 60,
+    "n_checked": 57,
+    "n_inconclusive": 3,
+    "n_consistent": 57,
+    "consistency_rate": 1.0
+  },
+  "region_means": {
+    "P": 0.1522933400916247,
+    "QRS": 0.12762410319667442,
+    "ST": 0.16277375547208228,
+    "T": 0.2604071481089189,
+    "baseline": 0.2969016531306997,
+    "repolarization": 0.4231809035810012,
+    "rr_cv": 0.09412793243986099
+  },
+  "rows": [
+    {
+      "ecg_id": 9654,
+      "label": "ISC_",
+      "prob": 0.959,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=32%) exceeds the P-wave window (P=20%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1959,
+        "QRS": 0.0898,
+        "ST": 0.1475,
+        "T": 0.1773,
+        "baseline": 0.3896,
+        "repolarization": 0.3247,
+        "rr_cv": 0.0142,
+        "bpm": 57.8158,
+        "n_beats": 10
+      }
+    },
+    {
+      "ecg_id": 15195,
+      "label": "NDT",
+      "prob": 0.559,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=42%) exceeds the P-wave window (P=17%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1704,
+        "QRS": 0.1044,
+        "ST": 0.1187,
+        "T": 0.2982,
+        "baseline": 0.3082,
+        "repolarization": 0.4169,
+        "rr_cv": 0.1685,
+        "bpm": 79.2952,
+        "n_beats": 13
+      }
+    },
+    {
+      "ecg_id": 12203,
+      "label": "NST_",
+      "prob": 0.936,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=54%) exceeds the P-wave window (P=17%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1662,
+        "QRS": 0.1854,
+        "ST": 0.1957,
+        "T": 0.3426,
+        "baseline": 0.1102,
+        "repolarization": 0.5383,
+        "rr_cv": 0.0248,
+        "bpm": 103.5599,
+        "n_beats": 17
+      }
+    },
+    {
+      "ecg_id": 19176,
+      "label": "NDT",
+      "prob": 0.962,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=45%) exceeds the P-wave window (P=16%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1585,
+        "QRS": 0.1323,
+        "ST": 0.1423,
+        "T": 0.3085,
+        "baseline": 0.2584,
+        "repolarization": 0.4508,
+        "rr_cv": 0.2551,
+        "bpm": 89.4569,
+        "n_beats": 15
+      }
+    },
+    {
+      "ecg_id": 6158,
+      "label": "ISC_",
+      "prob": 0.983,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=47%) exceeds the P-wave window (P=13%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1301,
+        "QRS": 0.1025,
+        "ST": 0.1517,
+        "T": 0.3217,
+        "baseline": 0.294,
+        "repolarization": 0.4735,
+        "rr_cv": 0.0146,
+        "bpm": 69.9301,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 3844,
+      "label": "ISC_",
+      "prob": 0.989,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=47%) exceeds the P-wave window (P=27%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.267,
+        "QRS": 0.1085,
+        "ST": 0.1634,
+        "T": 0.3024,
+        "baseline": 0.1586,
+        "repolarization": 0.4658,
+        "rr_cv": 0.0202,
+        "bpm": 94.9367,
+        "n_beats": 16
+      }
+    },
+    {
+      "ecg_id": 7270,
+      "label": "ISC_",
+      "prob": 0.941,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=52%) exceeds the P-wave window (P=17%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1722,
+        "QRS": 0.1447,
+        "ST": 0.1893,
+        "T": 0.3341,
+        "baseline": 0.1596,
+        "repolarization": 0.5235,
+        "rr_cv": 0.2017,
+        "bpm": 111.3402,
+        "n_beats": 19
+      }
+    },
+    {
+      "ecg_id": 13979,
+      "label": "NST_",
+      "prob": 0.708,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=63%) exceeds the P-wave window (P=4%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.0384,
+        "QRS": 0.2555,
+        "ST": 0.2538,
+        "T": 0.3744,
+        "baseline": 0.0779,
+        "repolarization": 0.6282,
+        "rr_cv": 0.2055,
+        "bpm": 132.7713,
+        "n_beats": 22
+      }
+    },
+    {
+      "ecg_id": 13388,
+      "label": "NST_",
+      "prob": 0.795,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=27%) exceeds the P-wave window (P=16%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1624,
+        "QRS": 0.0902,
+        "ST": 0.0847,
+        "T": 0.1851,
+        "baseline": 0.4777,
+        "repolarization": 0.2698,
+        "rr_cv": 0.1507,
+        "bpm": 71.7703,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 11756,
+      "label": "NST_",
+      "prob": 0.598,
+      "verdict": "inconclusive",
+      "detail": "repolarization (ST+T=26%) and P (24%) are comparable; QRS=13% \u2014 no clear ST/T localization",
+      "metrics": {
+        "P": 0.2447,
+        "QRS": 0.1312,
+        "ST": 0.1136,
+        "T": 0.1425,
+        "baseline": 0.3681,
+        "repolarization": 0.2561,
+        "rr_cv": 0.1226,
+        "bpm": 78.5169,
+        "n_beats": 13
+      }
+    },
+    {
+      "ecg_id": 1288,
+      "label": "NDT",
+      "prob": 0.524,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=26%) exceeds the P-wave window (P=19%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1914,
+        "QRS": 0.1728,
+        "ST": 0.1327,
+        "T": 0.1251,
+        "baseline": 0.3779,
+        "repolarization": 0.2578,
+        "rr_cv": 0.2515,
+        "bpm": 71.1974,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 9576,
+      "label": "ISCIL",
+      "prob": 0.956,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=47%) exceeds the P-wave window (P=8%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.0808,
+        "QRS": 0.0657,
+        "ST": 0.2051,
+        "T": 0.2686,
+        "baseline": 0.38,
+        "repolarization": 0.4736,
+        "rr_cv": 0.0575,
+        "bpm": 58.3333,
+        "n_beats": 8
+      }
+    },
+    {
+      "ecg_id": 20384,
+      "label": "ISCAL",
+      "prob": 0.78,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=32%) exceeds the P-wave window (P=17%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1736,
+        "QRS": 0.1658,
+        "ST": 0.1264,
+        "T": 0.1933,
+        "baseline": 0.341,
+        "repolarization": 0.3196,
+        "rr_cv": 0.018,
+        "bpm": 71.8954,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 14016,
+      "label": "ISC_",
+      "prob": 0.951,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=35%) exceeds the P-wave window (P=19%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1898,
+        "QRS": 0.1224,
+        "ST": 0.1443,
+        "T": 0.2107,
+        "baseline": 0.3327,
+        "repolarization": 0.355,
+        "rr_cv": 0.0056,
+        "bpm": 75.6881,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 21445,
+      "label": "NST_",
+      "prob": 0.967,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=53%) exceeds the P-wave window (P=16%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1564,
+        "QRS": 0.1456,
+        "ST": 0.207,
+        "T": 0.3226,
+        "baseline": 0.1684,
+        "repolarization": 0.5296,
+        "rr_cv": 0.2271,
+        "bpm": 109.0909,
+        "n_beats": 18
+      }
+    },
+    {
+      "ecg_id": 7157,
+      "label": "ISC_",
+      "prob": 0.804,
+      "verdict": "inconclusive",
+      "detail": "repolarization (ST+T=33%) and P (28%) are comparable; QRS=12% \u2014 no clear ST/T localization",
+      "metrics": {
+        "P": 0.2837,
+        "QRS": 0.1233,
+        "ST": 0.1119,
+        "T": 0.2134,
+        "baseline": 0.2677,
+        "repolarization": 0.3253,
+        "rr_cv": 0.0228,
+        "bpm": 84.2333,
+        "n_beats": 14
+      }
+    },
+    {
+      "ecg_id": 2112,
+      "label": "ISCAL",
+      "prob": 0.915,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=28%) exceeds the P-wave window (P=20%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.2001,
+        "QRS": 0.1118,
+        "ST": 0.1071,
+        "T": 0.1776,
+        "baseline": 0.4033,
+        "repolarization": 0.2848,
+        "rr_cv": 0.0179,
+        "bpm": 71.8172,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 14671,
+      "label": "NST_",
+      "prob": 0.953,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=36%) exceeds the P-wave window (P=13%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1312,
+        "QRS": 0.0786,
+        "ST": 0.135,
+        "T": 0.227,
+        "baseline": 0.4282,
+        "repolarization": 0.362,
+        "rr_cv": 0.1503,
+        "bpm": 69.0537,
+        "n_beats": 10
+      }
+    },
+    {
+      "ecg_id": 8965,
+      "label": "NST_",
+      "prob": 0.905,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=41%) exceeds the P-wave window (P=15%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1529,
+        "QRS": 0.1035,
+        "ST": 0.2021,
+        "T": 0.2067,
+        "baseline": 0.3348,
+        "repolarization": 0.4088,
+        "rr_cv": 0.0134,
+        "bpm": 77.3362,
+        "n_beats": 13
+      }
+    },
+    {
+      "ecg_id": 6965,
+      "label": "ISC_",
+      "prob": 0.983,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=53%) exceeds the P-wave window (P=18%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.178,
+        "QRS": 0.1199,
+        "ST": 0.2017,
+        "T": 0.3273,
+        "baseline": 0.1731,
+        "repolarization": 0.529,
+        "rr_cv": 0.2259,
+        "bpm": 100.1112,
+        "n_beats": 16
+      }
+    },
+    {
+      "ecg_id": 7452,
+      "label": "ISC_",
+      "prob": 0.98,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=29%) exceeds the P-wave window (P=21%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.2055,
+        "QRS": 0.1054,
+        "ST": 0.1171,
+        "T": 0.1733,
+        "baseline": 0.3986,
+        "repolarization": 0.2904,
+        "rr_cv": 0.0255,
+        "bpm": 55.4913,
+        "n_beats": 9
+      }
+    },
+    {
+      "ecg_id": 15479,
+      "label": "ISCAS",
+      "prob": 0.987,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=45%) exceeds the P-wave window (P=13%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1287,
+        "QRS": 0.0998,
+        "ST": 0.1811,
+        "T": 0.2665,
+        "baseline": 0.3239,
+        "repolarization": 0.4476,
+        "rr_cv": 0.0129,
+        "bpm": 69.4444,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 8266,
+      "label": "NST_",
+      "prob": 0.928,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=48%) exceeds the P-wave window (P=18%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1805,
+        "QRS": 0.1221,
+        "ST": 0.1915,
+        "T": 0.2911,
+        "baseline": 0.2148,
+        "repolarization": 0.4826,
+        "rr_cv": 0.0801,
+        "bpm": 89.7436,
+        "n_beats": 15
+      }
+    },
+    {
+      "ecg_id": 19275,
+      "label": "NDT",
+      "prob": 0.857,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=49%) exceeds the P-wave window (P=16%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1598,
+        "QRS": 0.2256,
+        "ST": 0.1794,
+        "T": 0.3068,
+        "baseline": 0.1284,
+        "repolarization": 0.4862,
+        "rr_cv": 0.0862,
+        "bpm": 105.1479,
+        "n_beats": 17
+      }
+    },
+    {
+      "ecg_id": 11882,
+      "label": "ISC_",
+      "prob": 0.982,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=37%) exceeds the P-wave window (P=16%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.158,
+        "QRS": 0.0844,
+        "ST": 0.1206,
+        "T": 0.2488,
+        "baseline": 0.3882,
+        "repolarization": 0.3693,
+        "rr_cv": 0.0168,
+        "bpm": 60.6742,
+        "n_beats": 10
+      }
+    },
+    {
+      "ecg_id": 13163,
+      "label": "ISC_",
+      "prob": 0.95,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=27%) exceeds the P-wave window (P=21%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.214,
+        "QRS": 0.1209,
+        "ST": 0.1267,
+        "T": 0.1452,
+        "baseline": 0.3932,
+        "repolarization": 0.2719,
+        "rr_cv": 0.2366,
+        "bpm": 65.9341,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 4200,
+      "label": "ISCIN",
+      "prob": 0.995,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=46%) exceeds the P-wave window (P=11%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1127,
+        "QRS": 0.1121,
+        "ST": 0.1743,
+        "T": 0.2841,
+        "baseline": 0.3169,
+        "repolarization": 0.4584,
+        "rr_cv": 0.0234,
+        "bpm": 73.9082,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 6507,
+      "label": "ISCIN",
+      "prob": 0.96,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=42%) exceeds the P-wave window (P=12%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1165,
+        "QRS": 0.0788,
+        "ST": 0.1619,
+        "T": 0.2575,
+        "baseline": 0.3853,
+        "repolarization": 0.4194,
+        "rr_cv": 0.0233,
+        "bpm": 63.9659,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 17267,
+      "label": "ISCAS",
+      "prob": 0.973,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=40%) exceeds the P-wave window (P=12%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1221,
+        "QRS": 0.0803,
+        "ST": 0.1625,
+        "T": 0.2388,
+        "baseline": 0.3964,
+        "repolarization": 0.4012,
+        "rr_cv": 0.0051,
+        "bpm": 62.2407,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 7524,
+      "label": "NDT",
+      "prob": 0.71,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=38%) exceeds the P-wave window (P=13%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1349,
+        "QRS": 0.1263,
+        "ST": 0.11,
+        "T": 0.2726,
+        "baseline": 0.3561,
+        "repolarization": 0.3826,
+        "rr_cv": 0.1833,
+        "bpm": 77.7538,
+        "n_beats": 13
+      }
+    },
+    {
+      "ecg_id": 3921,
+      "label": "ISCAL",
+      "prob": 0.977,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=47%) exceeds the P-wave window (P=16%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1572,
+        "QRS": 0.1177,
+        "ST": 0.1527,
+        "T": 0.3156,
+        "baseline": 0.2568,
+        "repolarization": 0.4683,
+        "rr_cv": 0.0267,
+        "bpm": 82.0046,
+        "n_beats": 13
+      }
+    },
+    {
+      "ecg_id": 20579,
+      "label": "ISC_",
+      "prob": 0.809,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=34%) exceeds the P-wave window (P=17%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1685,
+        "QRS": 0.1725,
+        "ST": 0.1337,
+        "T": 0.2048,
+        "baseline": 0.3205,
+        "repolarization": 0.3385,
+        "rr_cv": 0.0214,
+        "bpm": 61.0169,
+        "n_beats": 10
+      }
+    },
+    {
+      "ecg_id": 13873,
+      "label": "ISCAL",
+      "prob": 0.843,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=34%) exceeds the P-wave window (P=18%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1835,
+        "QRS": 0.1802,
+        "ST": 0.155,
+        "T": 0.1843,
+        "baseline": 0.2969,
+        "repolarization": 0.3393,
+        "rr_cv": 0.015,
+        "bpm": 75.5509,
+        "n_beats": 13
+      }
+    },
+    {
+      "ecg_id": 11398,
+      "label": "ISC_",
+      "prob": 0.947,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=34%) exceeds the P-wave window (P=23%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.2263,
+        "QRS": 0.1103,
+        "ST": 0.1113,
+        "T": 0.2245,
+        "baseline": 0.3277,
+        "repolarization": 0.3358,
+        "rr_cv": 0.0122,
+        "bpm": 63.0252,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 21574,
+      "label": "ISCAL",
+      "prob": 0.908,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=21%) exceeds the P-wave window (P=15%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1513,
+        "QRS": 0.1033,
+        "ST": 0.0785,
+        "T": 0.1283,
+        "baseline": 0.5386,
+        "repolarization": 0.2068,
+        "rr_cv": 0.0067,
+        "bpm": 58.0411,
+        "n_beats": 9
+      }
+    },
+    {
+      "ecg_id": 18550,
+      "label": "NDT",
+      "prob": 0.967,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=56%) exceeds the P-wave window (P=13%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1333,
+        "QRS": 0.1159,
+        "ST": 0.2505,
+        "T": 0.307,
+        "baseline": 0.1933,
+        "repolarization": 0.5574,
+        "rr_cv": 0.0129,
+        "bpm": 86.5088,
+        "n_beats": 15
+      }
+    },
+    {
+      "ecg_id": 1486,
+      "label": "ISC_",
+      "prob": 0.993,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=49%) exceeds the P-wave window (P=18%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1803,
+        "QRS": 0.1338,
+        "ST": 0.1718,
+        "T": 0.3154,
+        "baseline": 0.1987,
+        "repolarization": 0.4872,
+        "rr_cv": 0.1976,
+        "bpm": 95.037,
+        "n_beats": 16
+      }
+    },
+    {
+      "ecg_id": 19926,
+      "label": "ISCIL",
+      "prob": 0.977,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=64%) exceeds the P-wave window (P=14%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1369,
+        "QRS": 0.1347,
+        "ST": 0.3138,
+        "T": 0.3268,
+        "baseline": 0.0877,
+        "repolarization": 0.6406,
+        "rr_cv": 0.0192,
+        "bpm": 106.4718,
+        "n_beats": 18
+      }
+    },
+    {
+      "ecg_id": 14984,
+      "label": "ISC_",
+      "prob": 0.996,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=55%) exceeds the P-wave window (P=15%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.152,
+        "QRS": 0.168,
+        "ST": 0.1852,
+        "T": 0.3623,
+        "baseline": 0.1326,
+        "repolarization": 0.5475,
+        "rr_cv": 0.2056,
+        "bpm": 113.3263,
+        "n_beats": 19
+      }
+    },
+    {
+      "ecg_id": 11716,
+      "label": "ISCAL",
+      "prob": 0.97,
+      "verdict": "inconclusive",
+      "detail": "repolarization (ST+T=28%) and P (25%) are comparable; QRS=11% \u2014 no clear ST/T localization",
+      "metrics": {
+        "P": 0.2515,
+        "QRS": 0.1082,
+        "ST": 0.1033,
+        "T": 0.1742,
+        "baseline": 0.3628,
+        "repolarization": 0.2774,
+        "rr_cv": 0.017,
+        "bpm": 70.6638,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 19500,
+      "label": "NDT",
+      "prob": 0.939,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=56%) exceeds the P-wave window (P=18%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1787,
+        "QRS": 0.1409,
+        "ST": 0.2414,
+        "T": 0.318,
+        "baseline": 0.121,
+        "repolarization": 0.5594,
+        "rr_cv": 0.0221,
+        "bpm": 97.6139,
+        "n_beats": 16
+      }
+    },
+    {
+      "ecg_id": 11674,
+      "label": "ISCIN",
+      "prob": 0.996,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=46%) exceeds the P-wave window (P=13%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1292,
+        "QRS": 0.1141,
+        "ST": 0.2145,
+        "T": 0.2467,
+        "baseline": 0.2955,
+        "repolarization": 0.4612,
+        "rr_cv": 0.0072,
+        "bpm": 78.0911,
+        "n_beats": 13
+      }
+    },
+    {
+      "ecg_id": 2743,
+      "label": "ISCIN",
+      "prob": 0.967,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=42%) exceeds the P-wave window (P=9%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.0862,
+        "QRS": 0.1038,
+        "ST": 0.1739,
+        "T": 0.2455,
+        "baseline": 0.3907,
+        "repolarization": 0.4194,
+        "rr_cv": 0.2896,
+        "bpm": 64.5856,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 15555,
+      "label": "ISC_",
+      "prob": 0.964,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=41%) exceeds the P-wave window (P=14%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1437,
+        "QRS": 0.0989,
+        "ST": 0.1383,
+        "T": 0.2741,
+        "baseline": 0.345,
+        "repolarization": 0.4124,
+        "rr_cv": 0.0546,
+        "bpm": 49.7925,
+        "n_beats": 9
+      }
+    },
+    {
+      "ecg_id": 14474,
+      "label": "DIG",
+      "prob": 0.99,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=38%) exceeds the P-wave window (P=14%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1447,
+        "QRS": 0.0911,
+        "ST": 0.1715,
+        "T": 0.2039,
+        "baseline": 0.3888,
+        "repolarization": 0.3754,
+        "rr_cv": 0.206,
+        "bpm": 63.2244,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 20209,
+      "label": "NST_",
+      "prob": 0.913,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=50%) exceeds the P-wave window (P=20%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.2043,
+        "QRS": 0.1826,
+        "ST": 0.1884,
+        "T": 0.3098,
+        "baseline": 0.115,
+        "repolarization": 0.4981,
+        "rr_cv": 0.0194,
+        "bpm": 101.5873,
+        "n_beats": 17
+      }
+    },
+    {
+      "ecg_id": 12813,
+      "label": "ISC_",
+      "prob": 0.99,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=39%) exceeds the P-wave window (P=17%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1669,
+        "QRS": 0.1335,
+        "ST": 0.1617,
+        "T": 0.2308,
+        "baseline": 0.3071,
+        "repolarization": 0.3925,
+        "rr_cv": 0.0129,
+        "bpm": 66.5188,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 12456,
+      "label": "NDT",
+      "prob": 0.972,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=39%) exceeds the P-wave window (P=18%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1786,
+        "QRS": 0.0997,
+        "ST": 0.1211,
+        "T": 0.2661,
+        "baseline": 0.3344,
+        "repolarization": 0.3873,
+        "rr_cv": 0.2076,
+        "bpm": 78.7746,
+        "n_beats": 13
+      }
+    },
+    {
+      "ecg_id": 2808,
+      "label": "ISCLA",
+      "prob": 0.929,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=33%) exceeds the P-wave window (P=15%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1454,
+        "QRS": 0.1121,
+        "ST": 0.1134,
+        "T": 0.2158,
+        "baseline": 0.4134,
+        "repolarization": 0.3291,
+        "rr_cv": 0.1283,
+        "bpm": 70.6638,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 1820,
+      "label": "NST_",
+      "prob": 0.908,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=66%) exceeds the P-wave window (P=8%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.0755,
+        "QRS": 0.1576,
+        "ST": 0.1797,
+        "T": 0.4778,
+        "baseline": 0.1094,
+        "repolarization": 0.6575,
+        "rr_cv": 0.0097,
+        "bpm": 116.5644,
+        "n_beats": 20
+      }
+    },
+    {
+      "ecg_id": 14198,
+      "label": "NST_",
+      "prob": 0.881,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=10%) exceeds the P-wave window (P=4%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.0357,
+        "QRS": 0.0251,
+        "ST": 0.037,
+        "T": 0.0652,
+        "baseline": 0.8369,
+        "repolarization": 0.1022,
+        "rr_cv": 0.415,
+        "bpm": 37.2671,
+        "n_beats": 4
+      }
+    },
+    {
+      "ecg_id": 7063,
+      "label": "NST_",
+      "prob": 0.859,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=38%) exceeds the P-wave window (P=16%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1649,
+        "QRS": 0.123,
+        "ST": 0.1968,
+        "T": 0.1815,
+        "baseline": 0.3338,
+        "repolarization": 0.3783,
+        "rr_cv": 0.0078,
+        "bpm": 71.0441,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 10639,
+      "label": "NDT",
+      "prob": 0.932,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=50%) exceeds the P-wave window (P=8%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.0825,
+        "QRS": 0.0824,
+        "ST": 0.1701,
+        "T": 0.33,
+        "baseline": 0.3349,
+        "repolarization": 0.5002,
+        "rr_cv": 0.0081,
+        "bpm": 68.0412,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 18918,
+      "label": "ISCIL",
+      "prob": 0.983,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=48%) exceeds the P-wave window (P=15%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1493,
+        "QRS": 0.1367,
+        "ST": 0.2107,
+        "T": 0.2684,
+        "baseline": 0.2349,
+        "repolarization": 0.4791,
+        "rr_cv": 0.0153,
+        "bpm": 85.2459,
+        "n_beats": 14
+      }
+    },
+    {
+      "ecg_id": 3454,
+      "label": "ISC_",
+      "prob": 0.978,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=44%) exceeds the P-wave window (P=19%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1925,
+        "QRS": 0.1453,
+        "ST": 0.1837,
+        "T": 0.2599,
+        "baseline": 0.2186,
+        "repolarization": 0.4436,
+        "rr_cv": 0.2979,
+        "bpm": 103.8697,
+        "n_beats": 18
+      }
+    },
+    {
+      "ecg_id": 4828,
+      "label": "NDT",
+      "prob": 0.918,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=39%) exceeds the P-wave window (P=13%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.134,
+        "QRS": 0.1038,
+        "ST": 0.1145,
+        "T": 0.2768,
+        "baseline": 0.3709,
+        "repolarization": 0.3912,
+        "rr_cv": 0.0443,
+        "bpm": 65.5738,
+        "n_beats": 11
+      }
+    },
+    {
+      "ecg_id": 19259,
+      "label": "NST_",
+      "prob": 0.902,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=63%) exceeds the P-wave window (P=0%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.0008,
+        "QRS": 0.2931,
+        "ST": 0.2453,
+        "T": 0.3817,
+        "baseline": 0.0792,
+        "repolarization": 0.6269,
+        "rr_cv": 0.0106,
+        "bpm": 147.2393,
+        "n_beats": 25
+      }
+    },
+    {
+      "ecg_id": 4567,
+      "label": "ISCAL",
+      "prob": 0.98,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=30%) exceeds the P-wave window (P=20%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.2036,
+        "QRS": 0.1385,
+        "ST": 0.1274,
+        "T": 0.1755,
+        "baseline": 0.355,
+        "repolarization": 0.3029,
+        "rr_cv": 0.0941,
+        "bpm": 75.4286,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 5340,
+      "label": "ISCAL",
+      "prob": 0.935,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=37%) exceeds the P-wave window (P=14%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1412,
+        "QRS": 0.0908,
+        "ST": 0.1402,
+        "T": 0.2316,
+        "baseline": 0.3961,
+        "repolarization": 0.3718,
+        "rr_cv": 0.2444,
+        "bpm": 73.1707,
+        "n_beats": 12
+      }
+    },
+    {
+      "ecg_id": 11772,
+      "label": "NST_",
+      "prob": 0.868,
+      "verdict": "consistent",
+      "detail": "repolarization (ST+T=49%) exceeds the P-wave window (P=19%) \u2014 saliency is on the ST/T segment, as expected",
+      "metrics": {
+        "P": 0.1859,
+        "QRS": 0.2099,
+        "ST": 0.1623,
+        "T": 0.3273,
+        "baseline": 0.1146,
+        "repolarization": 0.4896,
+        "rr_cv": 0.0377,
+        "bpm": 107.5949,
+        "n_beats": 18
+      }
+    }
+  ]
+}

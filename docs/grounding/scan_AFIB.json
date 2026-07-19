@@ -1,0 +1,1224 @@
+{
+  "target": "AFIB",
+  "is_superclass": false,
+  "n_detected": 60,
+  "pool_size": 1514,
+  "summary": {
+    "n_total": 60,
+    "n_checked": 60,
+    "n_inconclusive": 0,
+    "n_consistent": 59,
+    "consistency_rate": 0.9833333333333333
+  },
+  "region_means": {
+    "P": 0.19443095032193952,
+    "QRS": 0.11623407480452022,
+    "ST": 0.12090790440579499,
+    "T": 0.22669634552996892,
+    "baseline": 0.3417307249377764,
+    "repolarization": 0.3476042499357639,
+    "rr_cv": 0.21766071180439492
+  },
+  "rows": [
+    {
+      "ecg_id": 16851,
+      "label": "AFIB",
+      "prob": 0.979,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=23%, dominant region 'T'=26%), consistent with absent P waves; RR CV=0.17 (irregular)",
+      "metrics": {
+        "P": 0.2256,
+        "QRS": 0.1357,
+        "ST": 0.1419,
+        "T": 0.2609,
+        "baseline": 0.2359,
+        "repolarization": 0.4029,
+        "rr_cv": 0.168,
+        "bpm": 95.037,
+        "n_beats": 16,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 18966,
+      "label": "AFIB",
+      "prob": 0.997,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=20%, dominant region 'T'=29%), consistent with absent P waves; RR CV=0.16 (irregular)",
+      "metrics": {
+        "P": 0.2029,
+        "QRS": 0.1411,
+        "ST": 0.1688,
+        "T": 0.2942,
+        "baseline": 0.193,
+        "repolarization": 0.463,
+        "rr_cv": 0.1601,
+        "bpm": 95.037,
+        "n_beats": 16,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 1755,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=17%, dominant region 'T'=37%), consistent with absent P waves; RR CV=0.15 (irregular)",
+      "metrics": {
+        "P": 0.1732,
+        "QRS": 0.1609,
+        "ST": 0.1525,
+        "T": 0.3677,
+        "baseline": 0.1457,
+        "repolarization": 0.5203,
+        "rr_cv": 0.1453,
+        "bpm": 111.5702,
+        "n_beats": 19,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 923,
+      "label": "AFIB",
+      "prob": 0.994,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=22%, dominant region 'baseline'=51%), consistent with absent P waves; RR CV=0.08 (regular)",
+      "metrics": {
+        "P": 0.2178,
+        "QRS": 0.0635,
+        "ST": 0.0558,
+        "T": 0.1537,
+        "baseline": 0.5093,
+        "repolarization": 0.2095,
+        "rr_cv": 0.0797,
+        "bpm": 68.4151,
+        "n_beats": 11,
+        "rr_irregular": false,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 16983,
+      "label": "AFIB",
+      "prob": 0.995,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=20%, dominant region 'baseline'=58%), consistent with absent P waves; RR CV=0.22 (irregular)",
+      "metrics": {
+        "P": 0.1978,
+        "QRS": 0.0599,
+        "ST": 0.0578,
+        "T": 0.1006,
+        "baseline": 0.5839,
+        "repolarization": 0.1584,
+        "rr_cv": 0.2248,
+        "bpm": 60.2007,
+        "n_beats": 10,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 13374,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=15%, dominant region 'T'=31%), consistent with absent P waves; RR CV=0.29 (irregular)",
+      "metrics": {
+        "P": 0.1546,
+        "QRS": 0.1285,
+        "ST": 0.1247,
+        "T": 0.3113,
+        "baseline": 0.281,
+        "repolarization": 0.4359,
+        "rr_cv": 0.2948,
+        "bpm": 88.4354,
+        "n_beats": 14,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 21435,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=2%, dominant region 'T'=39%), consistent with absent P waves; RR CV=0.14 (irregular)",
+      "metrics": {
+        "P": 0.0191,
+        "QRS": 0.2473,
+        "ST": 0.2694,
+        "T": 0.3858,
+        "baseline": 0.0784,
+        "repolarization": 0.6552,
+        "rr_cv": 0.1416,
+        "bpm": 155.9252,
+        "n_beats": 26,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 19518,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=21%, dominant region 'baseline'=51%), consistent with absent P waves; RR CV=0.30 (irregular)",
+      "metrics": {
+        "P": 0.2094,
+        "QRS": 0.0946,
+        "ST": 0.0753,
+        "T": 0.1156,
+        "baseline": 0.5052,
+        "repolarization": 0.1909,
+        "rr_cv": 0.3005,
+        "bpm": 65.9341,
+        "n_beats": 11,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 9068,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=27%, dominant region 'baseline'=48%), consistent with absent P waves; RR CV=0.42 (irregular)",
+      "metrics": {
+        "P": 0.2683,
+        "QRS": 0.0693,
+        "ST": 0.0619,
+        "T": 0.1182,
+        "baseline": 0.4822,
+        "repolarization": 0.1802,
+        "rr_cv": 0.4166,
+        "bpm": 78.4314,
+        "n_beats": 13,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 18592,
+      "label": "AFIB",
+      "prob": 0.858,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=24%, dominant region 'T'=30%), consistent with absent P waves; RR CV=0.20 (irregular)",
+      "metrics": {
+        "P": 0.2436,
+        "QRS": 0.1119,
+        "ST": 0.1259,
+        "T": 0.3005,
+        "baseline": 0.2182,
+        "repolarization": 0.4264,
+        "rr_cv": 0.202,
+        "bpm": 97.166,
+        "n_beats": 17,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 8354,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=21%, dominant region 'T'=29%), consistent with absent P waves; RR CV=0.16 (irregular)",
+      "metrics": {
+        "P": 0.2096,
+        "QRS": 0.1028,
+        "ST": 0.1429,
+        "T": 0.2902,
+        "baseline": 0.2544,
+        "repolarization": 0.4331,
+        "rr_cv": 0.1641,
+        "bpm": 90.5172,
+        "n_beats": 15,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 17183,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=19%, dominant region 'T'=34%), consistent with absent P waves; RR CV=0.19 (irregular)",
+      "metrics": {
+        "P": 0.1937,
+        "QRS": 0.1313,
+        "ST": 0.1737,
+        "T": 0.3366,
+        "baseline": 0.1647,
+        "repolarization": 0.5103,
+        "rr_cv": 0.1939,
+        "bpm": 111.4754,
+        "n_beats": 18,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 16548,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=20%, dominant region 'T'=31%), consistent with absent P waves; RR CV=0.22 (irregular)",
+      "metrics": {
+        "P": 0.2017,
+        "QRS": 0.1607,
+        "ST": 0.1328,
+        "T": 0.3119,
+        "baseline": 0.1928,
+        "repolarization": 0.4448,
+        "rr_cv": 0.2191,
+        "bpm": 106.4718,
+        "n_beats": 18,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 7289,
+      "label": "AFIB",
+      "prob": 0.659,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=18%, dominant region 'baseline'=43%), consistent with absent P waves; RR CV=0.24 (irregular)",
+      "metrics": {
+        "P": 0.1781,
+        "QRS": 0.1093,
+        "ST": 0.0966,
+        "T": 0.1824,
+        "baseline": 0.4336,
+        "repolarization": 0.279,
+        "rr_cv": 0.2426,
+        "bpm": 70.6714,
+        "n_beats": 11,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 608,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=10%, dominant region 'T'=42%), consistent with absent P waves; RR CV=0.22 (irregular)",
+      "metrics": {
+        "P": 0.1,
+        "QRS": 0.1658,
+        "ST": 0.1746,
+        "T": 0.4187,
+        "baseline": 0.1409,
+        "repolarization": 0.5933,
+        "rr_cv": 0.2248,
+        "bpm": 132.9114,
+        "n_beats": 22,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 2219,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=22%, dominant region 'baseline'=36%), consistent with absent P waves; RR CV=0.27 (irregular)",
+      "metrics": {
+        "P": 0.2181,
+        "QRS": 0.0814,
+        "ST": 0.0927,
+        "T": 0.2526,
+        "baseline": 0.3552,
+        "repolarization": 0.3453,
+        "rr_cv": 0.2724,
+        "bpm": 91.3043,
+        "n_beats": 15,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 2823,
+      "label": "AFIB",
+      "prob": 0.975,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=16%, dominant region 'T'=33%), consistent with absent P waves; RR CV=0.17 (irregular)",
+      "metrics": {
+        "P": 0.163,
+        "QRS": 0.1461,
+        "ST": 0.1472,
+        "T": 0.3314,
+        "baseline": 0.2124,
+        "repolarization": 0.4785,
+        "rr_cv": 0.174,
+        "bpm": 111.4754,
+        "n_beats": 18,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 9578,
+      "label": "AFIB",
+      "prob": 0.978,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=16%, dominant region 'baseline'=65%), consistent with absent P waves; RR CV=0.19 (irregular)",
+      "metrics": {
+        "P": 0.157,
+        "QRS": 0.067,
+        "ST": 0.0537,
+        "T": 0.0701,
+        "baseline": 0.652,
+        "repolarization": 0.1239,
+        "rr_cv": 0.1928,
+        "bpm": 46.4602,
+        "n_beats": 8,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 20239,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=21%, dominant region 'baseline'=51%), consistent with absent P waves; RR CV=0.22 (irregular)",
+      "metrics": {
+        "P": 0.2142,
+        "QRS": 0.0627,
+        "ST": 0.0678,
+        "T": 0.1474,
+        "baseline": 0.5079,
+        "repolarization": 0.2152,
+        "rr_cv": 0.22,
+        "bpm": 64.5856,
+        "n_beats": 11,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 4700,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=6%, dominant region 'T'=38%), consistent with absent P waves; RR CV=0.17 (irregular)",
+      "metrics": {
+        "P": 0.058,
+        "QRS": 0.2322,
+        "ST": 0.2135,
+        "T": 0.3847,
+        "baseline": 0.1115,
+        "repolarization": 0.5983,
+        "rr_cv": 0.1746,
+        "bpm": 142.7094,
+        "n_beats": 24,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 16509,
+      "label": "AFIB",
+      "prob": 0.956,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=19%, dominant region 'baseline'=46%), consistent with absent P waves; RR CV=0.12 (irregular)",
+      "metrics": {
+        "P": 0.1893,
+        "QRS": 0.0924,
+        "ST": 0.0912,
+        "T": 0.1652,
+        "baseline": 0.4619,
+        "repolarization": 0.2563,
+        "rr_cv": 0.1224,
+        "bpm": 75.7098,
+        "n_beats": 13,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 19216,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=17%, dominant region 'baseline'=37%), consistent with absent P waves; RR CV=0.41 (irregular)",
+      "metrics": {
+        "P": 0.1747,
+        "QRS": 0.1023,
+        "ST": 0.1161,
+        "T": 0.2335,
+        "baseline": 0.3734,
+        "repolarization": 0.3496,
+        "rr_cv": 0.406,
+        "bpm": 92.2131,
+        "n_beats": 16,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 21515,
+      "label": "AFIB",
+      "prob": 0.997,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=16%, dominant region 'baseline'=58%), consistent with absent P waves; RR CV=0.13 (irregular)",
+      "metrics": {
+        "P": 0.1567,
+        "QRS": 0.0749,
+        "ST": 0.0866,
+        "T": 0.1049,
+        "baseline": 0.5769,
+        "repolarization": 0.1915,
+        "rr_cv": 0.1304,
+        "bpm": 59.4059,
+        "n_beats": 10,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 10943,
+      "label": "AFIB",
+      "prob": 0.969,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=11%, dominant region 'T'=36%), consistent with absent P waves; RR CV=0.25 (irregular)",
+      "metrics": {
+        "P": 0.1096,
+        "QRS": 0.1333,
+        "ST": 0.1856,
+        "T": 0.3552,
+        "baseline": 0.2163,
+        "repolarization": 0.5408,
+        "rr_cv": 0.248,
+        "bpm": 110.5092,
+        "n_beats": 18,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 11330,
+      "label": "AFIB",
+      "prob": 0.998,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=22%, dominant region 'baseline'=48%), consistent with absent P waves; RR CV=0.23 (irregular)",
+      "metrics": {
+        "P": 0.2194,
+        "QRS": 0.0779,
+        "ST": 0.0759,
+        "T": 0.1468,
+        "baseline": 0.48,
+        "repolarization": 0.2226,
+        "rr_cv": 0.2342,
+        "bpm": 72.6872,
+        "n_beats": 12,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 16455,
+      "label": "AFIB",
+      "prob": 0.991,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=24%, dominant region 'baseline'=55%), consistent with absent P waves; RR CV=0.43 (irregular)",
+      "metrics": {
+        "P": 0.2376,
+        "QRS": 0.0802,
+        "ST": 0.0571,
+        "T": 0.0793,
+        "baseline": 0.5458,
+        "repolarization": 0.1364,
+        "rr_cv": 0.4257,
+        "bpm": 70.8915,
+        "n_beats": 12,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 3518,
+      "label": "AFIB",
+      "prob": 0.987,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=26%, dominant region 'baseline'=48%), consistent with absent P waves; RR CV=0.25 (irregular)",
+      "metrics": {
+        "P": 0.2571,
+        "QRS": 0.0719,
+        "ST": 0.0763,
+        "T": 0.1163,
+        "baseline": 0.4785,
+        "repolarization": 0.1926,
+        "rr_cv": 0.2457,
+        "bpm": 69.3642,
+        "n_beats": 11,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 1801,
+      "label": "AFIB",
+      "prob": 0.994,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=18%, dominant region 'baseline'=41%), consistent with absent P waves; RR CV=0.12 (regular)",
+      "metrics": {
+        "P": 0.1826,
+        "QRS": 0.0775,
+        "ST": 0.0919,
+        "T": 0.2381,
+        "baseline": 0.4099,
+        "repolarization": 0.33,
+        "rr_cv": 0.1194,
+        "bpm": 73.4967,
+        "n_beats": 12,
+        "rr_irregular": false,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 21337,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=24%, dominant region 'baseline'=51%), consistent with absent P waves; RR CV=0.34 (irregular)",
+      "metrics": {
+        "P": 0.2373,
+        "QRS": 0.0676,
+        "ST": 0.0605,
+        "T": 0.1256,
+        "baseline": 0.509,
+        "repolarization": 0.1861,
+        "rr_cv": 0.3376,
+        "bpm": 73.5786,
+        "n_beats": 12,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 7098,
+      "label": "AFIB",
+      "prob": 0.998,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=33%, dominant region 'baseline'=33%), consistent with absent P waves; RR CV=0.21 (irregular)",
+      "metrics": {
+        "P": 0.329,
+        "QRS": 0.1309,
+        "ST": 0.0833,
+        "T": 0.1265,
+        "baseline": 0.3304,
+        "repolarization": 0.2098,
+        "rr_cv": 0.2112,
+        "bpm": 83.7809,
+        "n_beats": 14,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 2446,
+      "label": "AFIB",
+      "prob": 0.99,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=15%, dominant region 'baseline'=61%), consistent with absent P waves; RR CV=0.49 (irregular)",
+      "metrics": {
+        "P": 0.1502,
+        "QRS": 0.0874,
+        "ST": 0.0606,
+        "T": 0.0945,
+        "baseline": 0.6073,
+        "repolarization": 0.1551,
+        "rr_cv": 0.4858,
+        "bpm": 60.1504,
+        "n_beats": 9,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 17794,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=24%, dominant region 'baseline'=42%), consistent with absent P waves; RR CV=0.12 (irregular)",
+      "metrics": {
+        "P": 0.2351,
+        "QRS": 0.0708,
+        "ST": 0.0786,
+        "T": 0.1974,
+        "baseline": 0.4182,
+        "repolarization": 0.276,
+        "rr_cv": 0.1244,
+        "bpm": 75.8693,
+        "n_beats": 13,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 20529,
+      "label": "AFIB",
+      "prob": 0.947,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=34%, dominant region 'P'=34%), consistent with absent P waves; RR CV=0.15 (irregular)",
+      "metrics": {
+        "P": 0.3355,
+        "QRS": 0.1354,
+        "ST": 0.0888,
+        "T": 0.1455,
+        "baseline": 0.2949,
+        "repolarization": 0.2342,
+        "rr_cv": 0.1482,
+        "bpm": 82.7147,
+        "n_beats": 14,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 13976,
+      "label": "AFIB",
+      "prob": 0.966,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=17%, dominant region 'T'=35%), consistent with absent P waves; RR CV=0.19 (irregular)",
+      "metrics": {
+        "P": 0.1699,
+        "QRS": 0.1649,
+        "ST": 0.1634,
+        "T": 0.3477,
+        "baseline": 0.154,
+        "repolarization": 0.5111,
+        "rr_cv": 0.187,
+        "bpm": 106.8063,
+        "n_beats": 18,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 8276,
+      "label": "AFIB",
+      "prob": 0.996,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=28%, dominant region 'baseline'=38%), consistent with absent P waves; RR CV=0.15 (irregular)",
+      "metrics": {
+        "P": 0.2833,
+        "QRS": 0.0887,
+        "ST": 0.0796,
+        "T": 0.1718,
+        "baseline": 0.3766,
+        "repolarization": 0.2514,
+        "rr_cv": 0.1546,
+        "bpm": 79.4702,
+        "n_beats": 13,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 21162,
+      "label": "AFIB",
+      "prob": 0.696,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=27%, dominant region 'baseline'=35%), consistent with absent P waves; RR CV=0.09 (regular)",
+      "metrics": {
+        "P": 0.274,
+        "QRS": 0.1007,
+        "ST": 0.0805,
+        "T": 0.1963,
+        "baseline": 0.3485,
+        "repolarization": 0.2768,
+        "rr_cv": 0.0884,
+        "bpm": 81.761,
+        "n_beats": 14,
+        "rr_irregular": false,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 7690,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=24%, dominant region 'T'=30%), consistent with absent P waves; RR CV=0.21 (irregular)",
+      "metrics": {
+        "P": 0.2439,
+        "QRS": 0.1032,
+        "ST": 0.1259,
+        "T": 0.3011,
+        "baseline": 0.2259,
+        "repolarization": 0.4269,
+        "rr_cv": 0.2128,
+        "bpm": 94.8081,
+        "n_beats": 15,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 3368,
+      "label": "AFIB",
+      "prob": 0.981,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=23%, dominant region 'baseline'=50%), consistent with absent P waves; RR CV=0.10 (regular)",
+      "metrics": {
+        "P": 0.2314,
+        "QRS": 0.0595,
+        "ST": 0.0722,
+        "T": 0.1364,
+        "baseline": 0.5005,
+        "repolarization": 0.2086,
+        "rr_cv": 0.1042,
+        "bpm": 71.4286,
+        "n_beats": 12,
+        "rr_irregular": false,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 2722,
+      "label": "AFIB",
+      "prob": 0.95,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=16%, dominant region 'baseline'=68%), consistent with absent P waves; RR CV=0.31 (irregular)",
+      "metrics": {
+        "P": 0.1591,
+        "QRS": 0.0398,
+        "ST": 0.0309,
+        "T": 0.0859,
+        "baseline": 0.6843,
+        "repolarization": 0.1168,
+        "rr_cv": 0.3136,
+        "bpm": 51.2195,
+        "n_beats": 8,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 7573,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=23%, dominant region 'T'=27%), consistent with absent P waves; RR CV=0.34 (irregular)",
+      "metrics": {
+        "P": 0.2346,
+        "QRS": 0.1318,
+        "ST": 0.1708,
+        "T": 0.2654,
+        "baseline": 0.1975,
+        "repolarization": 0.4361,
+        "rr_cv": 0.3439,
+        "bpm": 104.5082,
+        "n_beats": 18,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 13201,
+      "label": "AFIB",
+      "prob": 0.998,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=17%, dominant region 'T'=31%), consistent with absent P waves; RR CV=0.25 (irregular)",
+      "metrics": {
+        "P": 0.1698,
+        "QRS": 0.1487,
+        "ST": 0.1829,
+        "T": 0.3146,
+        "baseline": 0.184,
+        "repolarization": 0.4975,
+        "rr_cv": 0.2521,
+        "bpm": 108.0508,
+        "n_beats": 18,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 6142,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=18%, dominant region 'baseline'=52%), consistent with absent P waves; RR CV=0.19 (irregular)",
+      "metrics": {
+        "P": 0.1822,
+        "QRS": 0.0776,
+        "ST": 0.0833,
+        "T": 0.1348,
+        "baseline": 0.522,
+        "repolarization": 0.2182,
+        "rr_cv": 0.1925,
+        "bpm": 62.8931,
+        "n_beats": 11,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 11344,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=19%, dominant region 'T'=35%), consistent with absent P waves; RR CV=0.17 (irregular)",
+      "metrics": {
+        "P": 0.1857,
+        "QRS": 0.152,
+        "ST": 0.1913,
+        "T": 0.3459,
+        "baseline": 0.1251,
+        "repolarization": 0.5372,
+        "rr_cv": 0.171,
+        "bpm": 121.3483,
+        "n_beats": 19,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 19779,
+      "label": "AFIB",
+      "prob": 0.987,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=13%, dominant region 'baseline'=66%), consistent with absent P waves; RR CV=0.22 (irregular)",
+      "metrics": {
+        "P": 0.1285,
+        "QRS": 0.0484,
+        "ST": 0.0539,
+        "T": 0.1113,
+        "baseline": 0.6578,
+        "repolarization": 0.1652,
+        "rr_cv": 0.2192,
+        "bpm": 57.623,
+        "n_beats": 9,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 942,
+      "label": "AFIB",
+      "prob": 0.998,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=0%, dominant region 'ST'=33%), consistent with absent P waves; RR CV=0.07 (regular)",
+      "metrics": {
+        "P": 0.004,
+        "QRS": 0.2609,
+        "ST": 0.3309,
+        "T": 0.3298,
+        "baseline": 0.0744,
+        "repolarization": 0.6607,
+        "rr_cv": 0.0676,
+        "bpm": 171.0665,
+        "n_beats": 28,
+        "rr_irregular": false,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 21348,
+      "label": "AFIB",
+      "prob": 0.991,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=26%, dominant region 'baseline'=32%), consistent with absent P waves; RR CV=0.18 (irregular)",
+      "metrics": {
+        "P": 0.2561,
+        "QRS": 0.0906,
+        "ST": 0.102,
+        "T": 0.2314,
+        "baseline": 0.3199,
+        "repolarization": 0.3334,
+        "rr_cv": 0.1815,
+        "bpm": 85.1528,
+        "n_beats": 14,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 7270,
+      "label": "AFIB",
+      "prob": 0.999,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=19%, dominant region 'T'=32%), consistent with absent P waves; RR CV=0.20 (irregular)",
+      "metrics": {
+        "P": 0.1902,
+        "QRS": 0.1506,
+        "ST": 0.1718,
+        "T": 0.3165,
+        "baseline": 0.1711,
+        "repolarization": 0.4882,
+        "rr_cv": 0.2017,
+        "bpm": 111.3402,
+        "n_beats": 19,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 2527,
+      "label": "AFIB",
+      "prob": 0.993,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=10%, dominant region 'T'=41%), consistent with absent P waves; RR CV=0.18 (irregular)",
+      "metrics": {
+        "P": 0.096,
+        "QRS": 0.1787,
+        "ST": 0.2022,
+        "T": 0.4149,
+        "baseline": 0.1081,
+        "repolarization": 0.6172,
+        "rr_cv": 0.1827,
+        "bpm": 120.8908,
+        "n_beats": 20,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 3440,
+      "label": "AFIB",
+      "prob": 0.984,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=9%, dominant region 'T'=39%), consistent with absent P waves; RR CV=0.24 (irregular)",
+      "metrics": {
+        "P": 0.0872,
+        "QRS": 0.18,
+        "ST": 0.2129,
+        "T": 0.3873,
+        "baseline": 0.1326,
+        "repolarization": 0.6002,
+        "rr_cv": 0.243,
+        "bpm": 128.0683,
+        "n_beats": 21,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 8392,
+      "label": "AFIB",
+      "prob": 0.983,
+      "verdict": "inconsistent",
+      "detail": "saliency concentrates on the P-wave window (P=32%, the dominant region) despite AF's absent P waves \u2014 grounding disagrees with the finding; RR CV=0.15 (irregular)",
+      "metrics": {
+        "P": 0.3207,
+        "QRS": 0.1169,
+        "ST": 0.1171,
+        "T": 0.1904,
+        "baseline": 0.2548,
+        "repolarization": 0.3075,
+        "rr_cv": 0.1483,
+        "bpm": 86.4198,
+        "n_beats": 15,
+        "rr_irregular": true,
+        "p_dominant": true
+      }
+    },
+    {
+      "ecg_id": 697,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=24%, dominant region 'baseline'=35%), consistent with absent P waves; RR CV=0.29 (irregular)",
+      "metrics": {
+        "P": 0.2365,
+        "QRS": 0.1114,
+        "ST": 0.0838,
+        "T": 0.2167,
+        "baseline": 0.3517,
+        "repolarization": 0.3005,
+        "rr_cv": 0.2883,
+        "bpm": 87.8661,
+        "n_beats": 15,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 8513,
+      "label": "AFIB",
+      "prob": 0.992,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=20%, dominant region 'T'=31%), consistent with absent P waves; RR CV=0.13 (irregular)",
+      "metrics": {
+        "P": 0.1962,
+        "QRS": 0.2057,
+        "ST": 0.1584,
+        "T": 0.3093,
+        "baseline": 0.1304,
+        "repolarization": 0.4677,
+        "rr_cv": 0.1254,
+        "bpm": 107.4816,
+        "n_beats": 18,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 6594,
+      "label": "AFIB",
+      "prob": 0.998,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=22%, dominant region 'T'=29%), consistent with absent P waves; RR CV=0.19 (irregular)",
+      "metrics": {
+        "P": 0.2178,
+        "QRS": 0.1138,
+        "ST": 0.1277,
+        "T": 0.2913,
+        "baseline": 0.2494,
+        "repolarization": 0.419,
+        "rr_cv": 0.1911,
+        "bpm": 97.7199,
+        "n_beats": 16,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 7896,
+      "label": "AFIB",
+      "prob": 0.998,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=23%, dominant region 'baseline'=38%), consistent with absent P waves; RR CV=0.13 (irregular)",
+      "metrics": {
+        "P": 0.2255,
+        "QRS": 0.1138,
+        "ST": 0.0829,
+        "T": 0.1945,
+        "baseline": 0.3833,
+        "repolarization": 0.2774,
+        "rr_cv": 0.133,
+        "bpm": 76.1905,
+        "n_beats": 13,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 14130,
+      "label": "AFIB",
+      "prob": 0.995,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=1%, dominant region 'T'=36%), consistent with absent P waves; RR CV=0.19 (irregular)",
+      "metrics": {
+        "P": 0.0115,
+        "QRS": 0.2373,
+        "ST": 0.3442,
+        "T": 0.3624,
+        "baseline": 0.0447,
+        "repolarization": 0.7065,
+        "rr_cv": 0.1923,
+        "bpm": 163.3508,
+        "n_beats": 27,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 18783,
+      "label": "AFIB",
+      "prob": 0.986,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=19%, dominant region 'baseline'=52%), consistent with absent P waves; RR CV=0.46 (irregular)",
+      "metrics": {
+        "P": 0.1931,
+        "QRS": 0.087,
+        "ST": 0.0898,
+        "T": 0.1083,
+        "baseline": 0.522,
+        "repolarization": 0.198,
+        "rr_cv": 0.4568,
+        "bpm": 75.9494,
+        "n_beats": 13,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 16930,
+      "label": "AFIB",
+      "prob": 0.971,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=24%, dominant region 'baseline'=46%), consistent with absent P waves; RR CV=0.26 (irregular)",
+      "metrics": {
+        "P": 0.2411,
+        "QRS": 0.0662,
+        "ST": 0.0756,
+        "T": 0.157,
+        "baseline": 0.4601,
+        "repolarization": 0.2326,
+        "rr_cv": 0.2615,
+        "bpm": 69.2841,
+        "n_beats": 11,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 11288,
+      "label": "AFIB",
+      "prob": 0.998,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=15%, dominant region 'baseline'=56%), consistent with absent P waves; RR CV=0.25 (irregular)",
+      "metrics": {
+        "P": 0.1525,
+        "QRS": 0.0693,
+        "ST": 0.0824,
+        "T": 0.1341,
+        "baseline": 0.5618,
+        "repolarization": 0.2164,
+        "rr_cv": 0.2452,
+        "bpm": 74.7664,
+        "n_beats": 13,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 17477,
+      "label": "AFIB",
+      "prob": 0.998,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=25%, dominant region 'baseline'=33%), consistent with absent P waves; RR CV=0.22 (irregular)",
+      "metrics": {
+        "P": 0.2531,
+        "QRS": 0.1084,
+        "ST": 0.0997,
+        "T": 0.2116,
+        "baseline": 0.3272,
+        "repolarization": 0.3112,
+        "rr_cv": 0.2154,
+        "bpm": 88.0503,
+        "n_beats": 15,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    },
+    {
+      "ecg_id": 4154,
+      "label": "AFIB",
+      "prob": 1.0,
+      "verdict": "consistent",
+      "detail": "saliency does not concentrate on the P-wave window (P=30%, dominant region 'baseline'=48%), consistent with absent P waves; RR CV=0.24 (irregular)",
+      "metrics": {
+        "P": 0.3021,
+        "QRS": 0.0941,
+        "ST": 0.0568,
+        "T": 0.0716,
+        "baseline": 0.4755,
+        "repolarization": 0.1284,
+        "rr_cv": 0.2359,
+        "bpm": 57.6307,
+        "n_beats": 10,
+        "rr_irregular": true,
+        "p_dominant": false
+      }
+    }
+  ]
+}

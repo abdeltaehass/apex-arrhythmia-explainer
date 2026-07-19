@@ -1,0 +1,38 @@
+[
+  {
+    "ecg_id": 18550,
+    "label": "NDT",
+    "prob": 0.9673,
+    "true_label": true,
+    "top_lead": "V6",
+    "lead_importance": {
+      "I": 0.074,
+      "II": 0.077,
+      "III": 0.069,
+      "aVR": 0.098,
+      "aVL": 0.064,
+      "aVF": 0.069,
+      "V1": 0.086,
+      "V2": 0.085,
+      "V3": 0.076,
+      "V4": 0.082,
+      "V5": 0.094,
+      "V6": 0.127
+    },
+    "verdict": "consistent",
+    "kind": "repolarization",
+    "detail": "repolarization (ST+T=56%) exceeds the P-wave window (P=13%) \u2014 saliency is on the ST/T segment, as expected",
+    "metrics": {
+      "P": 0.1333,
+      "QRS": 0.1159,
+      "ST": 0.2505,
+      "T": 0.307,
+      "baseline": 0.1933,
+      "repolarization": 0.5574,
+      "rr_cv": 0.0129,
+      "bpm": 86.5088,
+      "n_beats": 15
+    },
+    "figure": "docs/grounding/figures/ecg18550_NDT.png"
+  }
+]

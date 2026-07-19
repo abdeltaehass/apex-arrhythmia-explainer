@@ -79,6 +79,14 @@ make experiments               # runs the sweep, logs to docs/model_comparison/r
 make compare                   # -> docs/model_comparison/comparison.md (vs. published PTB-XL)
 ```
 
+Grounding — per-lead saliency for a detected label, and the clinical sanity sweep:
+
+```bash
+python scripts/run_grounding.py --ecg-id 18550 --label NDT   # one record -> figure + JSON
+make grounding                                               # AFIB + STTC sanity sweep
+# -> docs/grounding/ (figures, scan JSONs, sanity_check.md)
+```
+
 Set up experiment tracking:
 
 ```bash
@@ -115,7 +123,14 @@ make ui     # Gradio UI
   test macro-AUROC 0.920** (matches published `resnet1d_wang`); transformer and focal
   did not beat it. Comparison + published PTB-XL results in
   [`docs/model_comparison/comparison.md`](docs/model_comparison/comparison.md). ✅
-- Phase 5+: grounding, generation, calibration, evaluation harness, app wiring.
+- **Phase 5:** grounding — a Grad-CAM equivalent for 1D ECG that returns a **per-lead
+  saliency trace** for any detected label (guided Grad-CAM: class-discriminative temporal
+  CAM × per-lead input gradients). Sanity-checked against clinical intuition: ST/T
+  findings ground on the ST/T segment (**57/57**), AF grounds off the P wave and on the
+  irregular baseline (**59/60**), with the one disagreement documented, not hidden
+  ([`src/grounding/`](src/grounding/),
+  [`docs/grounding/sanity_check.md`](docs/grounding/sanity_check.md)). ✅
+- Phase 6+: generation, calibration, evaluation harness, app wiring.
 
 ## Data & ethics
 

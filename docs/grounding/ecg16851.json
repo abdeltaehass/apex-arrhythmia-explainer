@@ -1,0 +1,40 @@
+[
+  {
+    "ecg_id": 16851,
+    "label": "AFIB",
+    "prob": 0.9787,
+    "true_label": true,
+    "top_lead": "V6",
+    "lead_importance": {
+      "I": 0.084,
+      "II": 0.096,
+      "III": 0.065,
+      "aVR": 0.097,
+      "aVL": 0.07,
+      "aVF": 0.076,
+      "V1": 0.092,
+      "V2": 0.083,
+      "V3": 0.066,
+      "V4": 0.077,
+      "V5": 0.082,
+      "V6": 0.113
+    },
+    "verdict": "consistent",
+    "kind": "rhythm_irregular",
+    "detail": "saliency does not concentrate on the P-wave window (P=23%, dominant region 'T'=26%), consistent with absent P waves; RR CV=0.17 (irregular)",
+    "metrics": {
+      "P": 0.2256,
+      "QRS": 0.1357,
+      "ST": 0.1419,
+      "T": 0.2609,
+      "baseline": 0.2359,
+      "repolarization": 0.4029,
+      "rr_cv": 0.168,
+      "bpm": 95.037,
+      "n_beats": 16,
+      "rr_irregular": true,
+      "p_dominant": false
+    },
+    "figure": "docs/grounding/figures/ecg16851_AFIB.png"
+  }
+]

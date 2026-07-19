@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -12,6 +12,7 @@ help:
 	@echo "  train       train the baseline detector (20 epochs) -> docs/baseline/"
 	@echo "  experiments run the Phase 4 model sweep (cnn/transformer x bce/focal)"
 	@echo "  compare     build docs/model_comparison/comparison.md from runs.jsonl"
+	@echo "  grounding   Phase 5 saliency sanity sweep (AFIB + STTC) -> docs/grounding/"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI backend"
 	@echo "  ui         run the Gradio frontend"
@@ -47,6 +48,10 @@ experiments:
 
 compare:
 	python scripts/build_comparison.py
+
+grounding:
+	python scripts/run_grounding.py --scan AFIB --n 60
+	python scripts/run_grounding.py --scan STTC --n 60
 
 wandb-init:
 	python scripts/init_wandb.py

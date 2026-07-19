@@ -1,0 +1,40 @@
+[
+  {
+    "ecg_id": 8392,
+    "label": "AFIB",
+    "prob": 0.9832,
+    "true_label": true,
+    "top_lead": "aVR",
+    "lead_importance": {
+      "I": 0.087,
+      "II": 0.107,
+      "III": 0.063,
+      "aVR": 0.11,
+      "aVL": 0.066,
+      "aVF": 0.071,
+      "V1": 0.09,
+      "V2": 0.079,
+      "V3": 0.068,
+      "V4": 0.071,
+      "V5": 0.087,
+      "V6": 0.101
+    },
+    "verdict": "inconsistent",
+    "kind": "rhythm_irregular",
+    "detail": "saliency concentrates on the P-wave window (P=32%, the dominant region) despite AF's absent P waves \u2014 grounding disagrees with the finding; RR CV=0.15 (irregular)",
+    "metrics": {
+      "P": 0.3207,
+      "QRS": 0.1169,
+      "ST": 0.1171,
+      "T": 0.1904,
+      "baseline": 0.2548,
+      "repolarization": 0.3075,
+      "rr_cv": 0.1483,
+      "bpm": 86.4198,
+      "n_beats": 15,
+      "rr_irregular": true,
+      "p_dominant": true
+    },
+    "figure": "docs/grounding/figures/ecg8392_AFIB.png"
+  }
+]
