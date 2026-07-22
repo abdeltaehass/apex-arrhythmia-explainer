@@ -65,6 +65,10 @@ class Config:
     sampling_rate: int = DEFAULT_SAMPLING_RATE
     # confidence below this routes a prediction to manual review
     review_threshold: float = 0.5
+    # a SEPARATE, higher bar (Phase 7): a label can clear `review_threshold` and still
+    # be surfaced/asserted, but if its confidence sits below this it is additionally
+    # tagged "low confidence — manual review recommended" by src/eval/reliability.py.
+    low_confidence_threshold: float = 0.7
     wandb: WandbConfig = field(default_factory=WandbConfig)
     targets: Targets = field(default_factory=Targets)
 

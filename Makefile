@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -16,6 +16,7 @@ help:
 	@echo "  gen-data    build the Phase 6 report dataset -> data/processed/generation/"
 	@echo "  gen-train   LoRA fine-tune (default Mistral-7B-Instruct; needs a GPU)"
 	@echo "  gen-train-smoke  tiny end-to-end LoRA smoke test, runs on CPU/MPS"
+	@echo "  reliability Phase 7 consistency/grounding/confidence/mutex report -> docs/reliability/"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI backend"
 	@echo "  ui         run the Gradio frontend"
@@ -64,6 +65,9 @@ gen-train:
 
 gen-train-smoke:
 	python -m src.generation.train_lora --smoke
+
+reliability:
+	python scripts/run_reliability_report.py
 
 wandb-init:
 	python scripts/init_wandb.py

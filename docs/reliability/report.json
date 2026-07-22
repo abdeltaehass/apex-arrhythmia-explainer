@@ -1,0 +1,180 @@
+{
+  "checkpoint": "/Users/abdeltaeha/Desktop/Coding/Personal Project/APEX(Arrhythmia Pattern Explainer)/outputs/final_best.pt",
+  "n_val": 2183,
+  "n_checked": 2183,
+  "n_skipped_empty": 0,
+  "review_threshold": 0.5,
+  "low_confidence_threshold": 0.7,
+  "summary": {
+    "n_total": 2183,
+    "consistency_warning_rate": 0.0,
+    "low_confidence_rate": 0.7590471827759964,
+    "mutual_exclusivity_rate": 0.33302794319743473,
+    "any_flag_rate": 0.798900595510765,
+    "n_consistency_warnings": 0,
+    "n_grounding_conflicts": 443,
+    "n_low_confidence_flags": 5352,
+    "n_mutual_exclusivity_conflicts": 1416,
+    "grounding_conflict_rate_per_record": 0.828,
+    "n_lead_citations_checked": 2823,
+    "grounding_conflict_rate_per_citation": 0.1569252568189869,
+    "grounding_sample_n": 250
+  },
+  "top_consistency_warning_codes": [],
+  "top_low_confidence_codes": [
+    [
+      "ABQRS",
+      315
+    ],
+    [
+      "IVCD",
+      302
+    ],
+    [
+      "VCLVH",
+      262
+    ],
+    [
+      "NST_",
+      249
+    ],
+    [
+      "SR",
+      239
+    ],
+    [
+      "QWAVE",
+      229
+    ],
+    [
+      "STD_",
+      218
+    ],
+    [
+      "IMI",
+      215
+    ],
+    [
+      "AMI",
+      204
+    ],
+    [
+      "NDT",
+      201
+    ]
+  ],
+  "top_mutual_exclusivity_pairs": [
+    [
+      [
+        "NORM",
+        "VCLVH"
+      ],
+      177
+    ],
+    [
+      [
+        "NDT",
+        "NORM"
+      ],
+      147
+    ],
+    [
+      [
+        "IMI",
+        "NORM"
+      ],
+      146
+    ],
+    [
+      [
+        "IVCD",
+        "NORM"
+      ],
+      111
+    ],
+    [
+      [
+        "LVH",
+        "NORM"
+      ],
+      101
+    ],
+    [
+      [
+        "CRBBB",
+        "IRBBB"
+      ],
+      76
+    ],
+    [
+      [
+        "NORM",
+        "NT_"
+      ],
+      64
+    ],
+    [
+      [
+        "IRBBB",
+        "NORM"
+      ],
+      64
+    ],
+    [
+      [
+        "NORM",
+        "NST_"
+      ],
+      59
+    ],
+    [
+      [
+        "LAO/LAE",
+        "NORM"
+      ],
+      50
+    ]
+  ],
+  "top_grounding_conflict_codes": [
+    [
+      "IMI",
+      121
+    ],
+    [
+      "ISCAL",
+      48
+    ],
+    [
+      "ILMI",
+      41
+    ],
+    [
+      "ISCIL",
+      35
+    ],
+    [
+      "AMI",
+      34
+    ],
+    [
+      "ISCIN",
+      32
+    ],
+    [
+      "ALMI",
+      23
+    ],
+    [
+      "ASMI",
+      22
+    ],
+    [
+      "ISCLA",
+      21
+    ],
+    [
+      "IPLMI",
+      14
+    ]
+  ]
+}

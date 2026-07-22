@@ -20,7 +20,7 @@ src/
   detection/          1D CNN / transformer model + dataset
   generation/         LLM prompting / fine-tuning + inference
   grounding/          attention / saliency explainability layer
-  eval/               metrics, consistency checker, hallucination flagging
+  eval/               metrics, consistency checker, hallucination flagging, reliability checks
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -95,6 +95,12 @@ make gen-train-smoke   # tiny end-to-end LoRA check, runs anywhere (no GPU neede
 make gen-train         # the real run: LoRA on mistralai/Mistral-7B-Instruct-v0.3, needs a GPU
 ```
 
+Reliability — consistency/grounding/confidence/mutual-exclusivity checks on the real detector:
+
+```bash
+make reliability   # runs the full validation set -> docs/reliability/report.md + report.json
+```
+
 Set up experiment tracking:
 
 ```bash
@@ -148,7 +154,20 @@ make ui     # Gradio UI
   reviewed examples** compare generated text against PTB-XL's own human report —
   [`docs/generation/examples_review.md`](docs/generation/examples_review.md) — and
   surfaced (and fixed) a real templater bug along the way. ✅
-- Phase 7+: calibration, evaluation harness, app wiring.
+- **Phase 7:** consistency & reliability checker — four checks
+  (`src/eval/reliability.py`) composed into one report: **consistency warnings**
+  (text asserts an unsurfaced finding), **grounding conflicts** (a cited lead ranks
+  among the least-important for that finding in the Phase-5 saliency, not just
+  "ungrounded" at the whole-finding level), a tunable **low-confidence flag**
+  (default 0.7, `CFG.low_confidence_threshold`), and a curated **mutual-exclusivity**
+  rule set (e.g. sinus rhythm + atrial fibrillation, complete + incomplete RBBB, AV
+  block degree). Run on the full validation set (2,183 records, real detector output):
+  consistency 0% (expected — the template backend can't hallucinate by construction),
+  low-confidence 75.9%, mutual-exclusivity 33.3% (dominated by `NORM` co-occurring with
+  real pathology — the same tension the Phase-6 review found, now confirmed at scale),
+  grounding-conflict 15.7% per cited lead.
+  [`docs/reliability/report.md`](docs/reliability/report.md). ✅
+- Phase 8+: calibration, app wiring.
 
 ## Data & ethics
 
