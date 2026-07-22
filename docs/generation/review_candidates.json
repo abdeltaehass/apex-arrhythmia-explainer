@@ -1,0 +1,370 @@
+[
+  {
+    "bucket": "normal",
+    "ecg_id": 19466,
+    "codes": [
+      "SR",
+      "NORM"
+    ],
+    "confidences": {
+      "SR": 0.8756486013090277,
+      "NORM": 0.3155505642531714
+    },
+    "structured_input": "Patient: 68y M\nrate 88 bpm\nReview threshold: 0.50\nDetected findings:\n- SR: confidence=0.88, leads=n/a\n- NORM: confidence=0.32, leads=n/a",
+    "template_findings": "Regular rhythm with normal P waves preceding each QRS. Rate approximately 88 bpm.",
+    "template_impression": "Normal ECG. No acute abnormality.",
+    "original_report_de": "sinusrhythmus lagetyp normal normales ekg"
+  },
+  {
+    "bucket": "normal",
+    "ecg_id": 11805,
+    "codes": [
+      "SR",
+      "NORM"
+    ],
+    "confidences": {
+      "SR": 0.8527475525343525,
+      "NORM": 0.463701053953096
+    },
+    "structured_input": "Patient: 40y M\nrate 52 bpm\nReview threshold: 0.50\nDetected findings:\n- SR: confidence=0.85, leads=n/a\n- NORM: confidence=0.46, leads=n/a",
+    "template_findings": "Regular rhythm with normal P waves preceding each QRS. Rate approximately 52 bpm.",
+    "template_impression": "Normal ECG. No acute abnormality.",
+    "original_report_de": "sinusrhythmus lagetyp normal unspezifische intraventrikul\u00c4re leitungsst\u00d6rung"
+  },
+  {
+    "bucket": "afib",
+    "ecg_id": 20085,
+    "codes": [
+      "AFIB",
+      "AFLT"
+    ],
+    "confidences": {
+      "AFIB": 0.8210721281981289,
+      "AFLT": 0.4424436622987982
+    },
+    "structured_input": "Patient: 74y F\nrate 87 bpm\nReview threshold: 0.50\nDetected findings:\n- AFIB: confidence=0.82, leads=n/a\n- AFLT: confidence=0.44, leads=n/a",
+    "template_findings": "Irregularly irregular rhythm without discernible P waves. Ventricular rate approximately 87 bpm.",
+    "template_impression": "Findings consistent with atrial fibrillation. Atrial flutter. No acute ischemic changes identified.",
+    "original_report_de": "vorhofflimmern/-flattern lagetyp normal st & t abnormal, wahrscheinlich    inferiore isch\u00c4mie oder linksbelastung"
+  },
+  {
+    "bucket": "afib",
+    "ecg_id": 15796,
+    "codes": [
+      "AFIB",
+      "NORM"
+    ],
+    "confidences": {
+      "AFIB": 0.33214968181509136,
+      "NORM": 0.9484530856414786
+    },
+    "structured_input": "Patient: 45y F\nrate 87 bpm\nReview threshold: 0.50\nDetected findings:\n- AFIB: confidence=0.33, leads=n/a\n- NORM: confidence=0.95, leads=n/a",
+    "template_findings": "Irregularly irregular rhythm without discernible P waves (requires clinician confirmation). Ventricular rate approximately 87 bpm.",
+    "template_impression": "Findings consistent with atrial fibrillation. Normal ECG. No acute ischemic changes identified.",
+    "original_report_de": "vorhofflimmern/-flattern lagetyp normal"
+  },
+  {
+    "bucket": "aflt",
+    "ecg_id": 10160,
+    "codes": [
+      "AFLT",
+      "NST_"
+    ],
+    "confidences": {
+      "AFLT": 0.846074024541022,
+      "NST_": 0.9587368980996911
+    },
+    "structured_input": "Patient: 72y M\nrate 135 bpm\nReview threshold: 0.50\nDetected findings:\n- AFLT: confidence=0.85, leads=n/a\n- NST_: confidence=0.96, leads=n/a",
+    "template_findings": "Regular atrial activity with a sawtooth flutter-wave baseline. Ventricular rate approximately 135 bpm. Non-specific ST-segment changes.",
+    "template_impression": "Findings consistent with atrial flutter. Non-specific ST changes. No acute ischemic changes identified.",
+    "original_report_de": "rhythm is atrial flutter with 2:1 av block. the flutter rate is slower than usual. this arrhythmia is usually associated with organic heart disease. non-specific st-t wave changes."
+  },
+  {
+    "bucket": "sttc_anterior",
+    "ecg_id": 4149,
+    "codes": [
+      "SR",
+      "LOWT",
+      "NST_",
+      "STD_"
+    ],
+    "confidences": {
+      "SR": 0.41596487734272036,
+      "LOWT": 0.9890503149686932,
+      "NST_": 0.9789313030071626,
+      "STD_": 0.3538866702189041
+    },
+    "structured_input": "Patient: 72y F\nrate 63 bpm\nReview threshold: 0.50\nDetected findings:\n- SR: confidence=0.42, leads=n/a\n- LOWT: confidence=0.99, leads=n/a\n- NST_: confidence=0.98, leads=n/a\n- STD_: confidence=0.35, leads=n/a",
+    "template_findings": "Regular rhythm with normal P waves preceding each QRS (requires clinician confirmation). Rate approximately 63 bpm. Low-amplitude T waves. Non-specific ST-segment changes. Non-specific ST-segment depression (requires clinician confirmation).",
+    "template_impression": "Findings consistent with sinus rhythm. Low T-wave amplitude. Non-specific ST changes. ST-segment depression. No acute ischemic changes identified.",
+    "original_report_de": "sinus rhythm. st segments are depressed in i, ii, avl, v3-6. t waves are low or flat in limb leads and v4,5,6. this may be due to lv strain or ischaemia."
+  },
+  {
+    "bucket": "sttc_inferior",
+    "ecg_id": 1175,
+    "codes": [
+      "SR",
+      "ISCIN",
+      "LOWT",
+      "STD_"
+    ],
+    "confidences": {
+      "SR": 0.9086719596695092,
+      "ISCIN": 0.9201914473680999,
+      "LOWT": 0.9644233329240227,
+      "STD_": 0.9346541092289342
+    },
+    "structured_input": "Patient: 63y M\nrate 69 bpm\nReview threshold: 0.50\nDetected findings:\n- SR: confidence=0.91, leads=n/a\n- ISCIN: confidence=0.92, leads=II,III,aVF\n- LOWT: confidence=0.96, leads=n/a\n- STD_: confidence=0.93, leads=n/a",
+    "template_findings": "Regular rhythm with normal P waves preceding each QRS. Rate approximately 69 bpm. T-wave inversion in the inferior (II, III, and aVF) leads. Low-amplitude T waves. Non-specific ST-segment depression.",
+    "template_impression": "Findings consistent with sinus rhythm. Inferior ischemia. Low T-wave amplitude. ST-segment depression.",
+    "original_report_de": "sinus rhythm. st segments are depressed in ii, iii, avf, v6. t waves are low in ii, v6 and inverted in iii, avf. appearances are suspicious of inferolateral myocardial ischaemia."
+  },
+  {
+    "bucket": "mi_inferior",
+    "ecg_id": 6794,
+    "codes": [
+      "SR",
+      "RAO/RAE",
+      "ASMI",
+      "IMI",
+      "QWAVE"
+    ],
+    "confidences": {
+      "SR": 0.8806257570710055,
+      "RAO/RAE": 0.920657799320564,
+      "ASMI": 0.3662334669559689,
+      "IMI": 0.827254502104003,
+      "QWAVE": 0.9339601245520742
+    },
+    "structured_input": "Patient: 84y F\nrate 87 bpm\nReview threshold: 0.50\nDetected findings:\n- SR: confidence=0.88, leads=n/a\n- RAO/RAE: confidence=0.92, leads=n/a\n- ASMI: confidence=0.37, leads=V1,V2,V3\n- IMI: confidence=0.83, leads=II,III,aVF\n- QWAVE: confidence=0.93, leads=n/a",
+    "template_findings": "Regular rhythm with normal P waves preceding each QRS. Rate approximately 87 bpm. Tall, peaked P waves. Pathological Q waves in the anteroseptal (V1, V2, and V3) and inferior (II, III, and aVF) leads (requires clinician confirmation).",
+    "template_impression": "Findings consistent with sinus rhythm. Right atrial enlargement. Anteroseptal myocardial infarction. Inferior myocardial infarction.",
+    "original_report_de": "sinusrhythmus lagetyp normal vorhofs\u00dcberlastung rechts t \u00dcberh\u00d6ht in v2-3 q in iii schlechte r-progression in v1-3 Edit: RAO, schlechte R-Progression V1-3, QSIII(ASMI 15, IMI 15, RAO)"
+  },
+  {
+    "bucket": "mi_inferior",
+    "ecg_id": 6404,
+    "codes": [
+      "AFIB",
+      "LAFB",
+      "ABQRS",
+      "AMI",
+      "IPLMI"
+    ],
+    "confidences": {
+      "AFIB": 0.8396508830991901,
+      "LAFB": 0.9083393166379212,
+      "ABQRS": 0.8914412076865704,
+      "AMI": 0.8386569234022786,
+      "IPLMI": 0.9383580125167522
+    },
+    "structured_input": "Patient: 80y M\nrate 97 bpm | axis extreme left axis deviation\nReview threshold: 0.50\nDetected findings:\n- AFIB: confidence=0.84, leads=n/a\n- LAFB: confidence=0.91, leads=n/a\n- ABQRS: confidence=0.89, leads=n/a\n- AMI: confidence=0.84, leads=V2,V3,V4\n- IPLMI: confidence=0.94, leads=II,III,aVF,V5,V6,V1,V2,V3",
+    "template_findings": "Irregularly irregular rhythm without discernible P waves. Ventricular rate approximately 97 bpm. Extreme left axis deviation. Left axis deviation with small q in aVL and rS in the inferior leads. Abnormal QRS morphology. Pathological Q waves in the anterior (V2, V3, and V4) leads. Pathological Q waves with reciprocal septal changes in the inferoposterolateral (II, III, aVF, V5, V6, V1, V2, and V3) leads.",
+    "template_impression": "Findings consistent with atrial fibrillation. Left anterior fascicular block. Anterior myocardial infarction. Inferoposterolateral myocardial infarction.",
+    "original_report_de": "tachykardes vorhofflimmern ueberdrehter linkstyp qrs(t) abnormal    anteroseptaler myokardschaden m\u00d6glich st & t abnormal, wahrscheinlich    anterolaterale isch\u00c4mie oder linksbelastung"
+  },
+  {
+    "bucket": "mi_anterior",
+    "ecg_id": 162,
+    "codes": [
+      "SR",
+      "LAFB",
+      "LVH",
+      "ISC_",
+      "ASMI"
+    ],
+    "confidences": {
+      "SR": 0.9498014064621305,
+      "LAFB": 0.33832254319598537,
+      "LVH": 0.35170578648852313,
+      "ISC_": 0.8581968802359564,
+      "ASMI": 0.9580357683548602
+    },
+    "structured_input": "Patient: 85y F\nrate 71 bpm\nReview threshold: 0.50\nDetected findings:\n- SR: confidence=0.95, leads=n/a\n- LAFB: confidence=0.34, leads=n/a\n- LVH: confidence=0.35, leads=n/a\n- ISC_: confidence=0.86, leads=n/a\n- ASMI: confidence=0.96, leads=V1,V2,V3",
+    "template_findings": "Regular rhythm with normal P waves preceding each QRS. Rate approximately 71 bpm. Left axis deviation with small q in aVL and rS in the inferior leads (requires clinician confirmation). Increased left-sided QRS voltage meeting hypertrophy criteria (requires clinician confirmation). Ischemic-type repolarization changes. Pathological Q waves in the anteroseptal (V1, V2, and V3) leads.",
+    "template_impression": "Findings consistent with sinus rhythm. Left anterior fascicular block. Left ventricular hypertrophy. Non-specific ischemia. Anteroseptal myocardial infarction.",
+    "original_report_de": "sinusrytm extrem v\u00c4nster el-axel ospecifikt sk\u00c4nkelblock"
+  },
+  {
+    "bucket": "mi_anterior",
+    "ecg_id": 19396,
+    "codes": [
+      "AFIB",
+      "ABQRS",
+      "ASMI",
+      "IMI"
+    ],
+    "confidences": {
+      "AFIB": 0.9849104331078897,
+      "ABQRS": 0.8964218952238352,
+      "ASMI": 0.378710799100086,
+      "IMI": 0.9030160519049552
+    },
+    "structured_input": "Patient: 87y M\nrate 126 bpm | axis left axis deviation\nReview threshold: 0.50\nDetected findings:\n- AFIB: confidence=0.98, leads=n/a\n- ABQRS: confidence=0.90, leads=n/a\n- ASMI: confidence=0.38, leads=V1,V2,V3\n- IMI: confidence=0.90, leads=II,III,aVF",
+    "template_findings": "Irregularly irregular rhythm without discernible P waves. Ventricular rate approximately 126 bpm. Left axis deviation. Abnormal QRS morphology. Pathological Q waves in the anteroseptal (V1, V2, and V3) and inferior (II, III, and aVF) leads (requires clinician confirmation).",
+    "template_impression": "Findings consistent with atrial fibrillation. Anteroseptal myocardial infarction. Inferior myocardial infarction.",
+    "original_report_de": "vorhofflimmern/-flattern linkstyp qrs(t) abnorm    anteriorer infarkt     alter unbest.    inferiorer infarkt     alter unbest. st & t abnorm, wahrscheinlich    laterale isch\u00c4mie oder linksbelastung 4.46                          unbest\u00c4tigter bericht"
+  },
+  {
+    "bucket": "mi_lateral",
+    "ecg_id": 17658,
+    "codes": [
+      "AFIB",
+      "ISCIN",
+      "STD_",
+      "ASMI",
+      "LMI"
+    ],
+    "confidences": {
+      "AFIB": 0.35315105548925646,
+      "ISCIN": 0.957889514896083,
+      "STD_": 0.948630546932117,
+      "ASMI": 0.840647801689582,
+      "LMI": 0.8488267952072347
+    },
+    "structured_input": "Patient: 80y F\nrate 73 bpm\nReview threshold: 0.50\nDetected findings:\n- AFIB: confidence=0.35, leads=n/a\n- ISCIN: confidence=0.96, leads=II,III,aVF\n- STD_: confidence=0.95, leads=n/a\n- ASMI: confidence=0.84, leads=V1,V2,V3\n- LMI: confidence=0.85, leads=I,aVL,V5,V6",
+    "template_findings": "Irregularly irregular rhythm without discernible P waves (requires clinician confirmation). Ventricular rate approximately 73 bpm. T-wave inversion in the inferior (II, III, and aVF) leads. Non-specific ST-segment depression. Pathological Q waves in the anteroseptal (V1, V2, and V3) and lateral (I, aVL, V5, and V6) leads.",
+    "template_impression": "Findings consistent with atrial fibrillation. Inferior ischemia. ST-segment depression. Anteroseptal myocardial infarction. Lateral myocardial infarction.",
+    "original_report_de": "atrial fibrillation. st segments are depressed in ii, iii, avf. non-specific but consistent with myocardial ischaemia."
+  },
+  {
+    "bucket": "crbbb",
+    "ecg_id": 3582,
+    "codes": [
+      "STACH",
+      "CRBBB",
+      "ABQRS",
+      "ASMI",
+      "IMI"
+    ],
+    "confidences": {
+      "STACH": 0.9160314659036792,
+      "CRBBB": 0.9262166179850178,
+      "ABQRS": 0.873242787033571,
+      "ASMI": 0.8610646972558357,
+      "IMI": 0.969457483245524
+    },
+    "structured_input": "Patient: 45y M\nrate 120 bpm | axis extreme right axis deviation\nReview threshold: 0.50\nDetected findings:\n- STACH: confidence=0.92, leads=n/a\n- CRBBB: confidence=0.93, leads=n/a\n- ABQRS: confidence=0.87, leads=n/a\n- ASMI: confidence=0.86, leads=V1,V2,V3\n- IMI: confidence=0.97, leads=II,III,aVF",
+    "template_findings": "Regular rhythm with normal P waves at a rate above 100 bpm. Rate approximately 120 bpm. Extreme right axis deviation. Broad QRS with an rSR' pattern in V1 and wide S waves laterally. Abnormal QRS morphology. Pathological Q waves in the anteroseptal (V1, V2, and V3) and inferior (II, III, and aVF) leads.",
+    "template_impression": "Findings consistent with sinus tachycardia. Complete right bundle branch block. Anteroseptal myocardial infarction. Inferior myocardial infarction.",
+    "original_report_de": "sinustachykardie extrem ueberdrehter rechtstyp unspezifischer intraventrikul\u00c4rer block rechtshypertrophie m\u00d6glich qrs(t) abnormal    inferiorer infarkt     m\u00d6gl. akut"
+  },
+  {
+    "bucket": "clbbb",
+    "ecg_id": 20100,
+    "codes": [
+      "AFIB",
+      "CLBBB"
+    ],
+    "confidences": {
+      "AFIB": 0.8868385375374873,
+      "CLBBB": 0.8216920908879841
+    },
+    "structured_input": "Patient: 57y F\nrate 85 bpm | axis left axis deviation\nReview threshold: 0.50\nDetected findings:\n- AFIB: confidence=0.89, leads=n/a\n- CLBBB: confidence=0.82, leads=n/a",
+    "template_findings": "Irregularly irregular rhythm without discernible P waves. Ventricular rate approximately 85 bpm. Left axis deviation. Broad QRS with a monophasic R wave in the lateral leads and absent septal Q waves.",
+    "template_impression": "Findings consistent with atrial fibrillation. Complete left bundle branch block. No acute ischemic changes identified.",
+    "original_report_de": "vorhofflimmern/-flattern linkstyp linksschenkelblock 4.46                          unbest\u00c4tigter bericht"
+  },
+  {
+    "bucket": "av_block",
+    "ecg_id": 2606,
+    "codes": [
+      "SR",
+      "1AVB",
+      "IMI"
+    ],
+    "confidences": {
+      "SR": 0.8277369476996402,
+      "1AVB": 0.9261981973492722,
+      "IMI": 0.41795125319641796
+    },
+    "structured_input": "Patient: 74y M\nrate 51 bpm\nReview threshold: 0.50\nDetected findings:\n- SR: confidence=0.83, leads=n/a\n- 1AVB: confidence=0.93, leads=n/a\n- IMI: confidence=0.42, leads=II,III,aVF",
+    "template_findings": "Regular rhythm with normal P waves preceding each QRS. Rate approximately 51 bpm. Prolonged PR interval beyond 200 ms with every P conducted. Pathological Q waves in the inferior (II, III, and aVF) leads (requires clinician confirmation).",
+    "template_impression": "Findings consistent with sinus rhythm. First-degree AV block. Inferior myocardial infarction.",
+    "original_report_de": "sinusrytm a-v block i p f\u00d6rl\u00c4ngd v\u00c4nster el-axel"
+  },
+  {
+    "bucket": "lvh",
+    "ecg_id": 8524,
+    "codes": [
+      "SR",
+      "LVH",
+      "VCLVH",
+      "STD_"
+    ],
+    "confidences": {
+      "SR": 0.8988625020017448,
+      "LVH": 0.8260436018276179,
+      "VCLVH": 0.9415204699933218,
+      "STD_": 0.8287368695055917
+    },
+    "structured_input": "Patient: 86y F\nrate 71 bpm\nReview threshold: 0.50\nDetected findings:\n- SR: confidence=0.90, leads=n/a\n- LVH: confidence=0.83, leads=n/a\n- VCLVH: confidence=0.94, leads=n/a\n- STD_: confidence=0.83, leads=n/a",
+    "template_findings": "Regular rhythm with normal P waves preceding each QRS. Rate approximately 71 bpm. Increased left-sided QRS voltage meeting hypertrophy criteria. QRS voltages meeting left ventricular hypertrophy criteria. Non-specific ST-segment depression.",
+    "template_impression": "Findings consistent with sinus rhythm. Left ventricular hypertrophy. Voltage criteria for left ventricular hypertrophy. ST-segment depression. No acute ischemic changes identified.",
+    "original_report_de": "sinus rhythm. voltages are high in limb leads suggesting lvh. minimal non-specific st segment depression in i, avl."
+  },
+  {
+    "bucket": "ectopy",
+    "ecg_id": 15897,
+    "codes": [
+      "PVC",
+      "NORM"
+    ],
+    "confidences": {
+      "PVC": 0.34535418005574253,
+      "NORM": 0.8253439198597241
+    },
+    "structured_input": "Patient: 63y F\nrate 64 bpm | axis left axis deviation\nReview threshold: 0.50\nDetected findings:\n- PVC: confidence=0.35, leads=n/a\n- NORM: confidence=0.83, leads=n/a",
+    "template_findings": "Rate approximately 64 bpm. Left axis deviation. Premature wide QRS complexes without a preceding P wave (requires clinician confirmation).",
+    "template_impression": "Findings consistent with ventricular premature complexes. Normal ECG. No acute ischemic changes identified.",
+    "original_report_de": "linkslagetyp                                            ventrikulaere extrasystolen multiform                   grenzbefund"
+  },
+  {
+    "bucket": "pacemaker",
+    "ecg_id": 5544,
+    "codes": [
+      "PACE"
+    ],
+    "confidences": {
+      "PACE": 0.964918220961819
+    },
+    "structured_input": "Patient: 83y F\nrate 70 bpm\nReview threshold: 0.50\nDetected findings:\n- PACE: confidence=0.96, leads=n/a",
+    "template_findings": "Pacing spikes preceding paced complexes. Rate approximately 70 bpm.",
+    "template_impression": "Findings consistent with normally functioning artificial pacemaker. No acute ischemic changes identified.",
+    "original_report_de": "schrittmacher ekg"
+  },
+  {
+    "bucket": "wpw",
+    "ecg_id": 10822,
+    "codes": [
+      "SARRH",
+      "SR",
+      "WPW"
+    ],
+    "confidences": {
+      "SARRH": 0.9256676102985102,
+      "SR": 0.8584453827651753,
+      "WPW": 0.36131540867927453
+    },
+    "structured_input": "Patient: 11y F\nrate 66 bpm\nReview threshold: 0.50\nDetected findings:\n- SARRH: confidence=0.93, leads=n/a\n- SR: confidence=0.86, leads=n/a\n- WPW: confidence=0.36, leads=n/a",
+    "template_findings": "Sinus rhythm with beat-to-beat variation in the P-P interval. Rate approximately 66 bpm. Short PR interval with a delta wave slurring the QRS upstroke (requires clinician confirmation).",
+    "template_impression": "Findings consistent with sinus arrhythmia. Sinus rhythm. Ventricular pre-excitation (Wolff-Parkinson-White). No acute ischemic changes identified.",
+    "original_report_de": "sinus rhythm, with sinus arrhythmia.. wolff-parkinson-white syndrome."
+  },
+  {
+    "bucket": "bradycardia",
+    "ecg_id": 4235,
+    "codes": [
+      "SBRAD",
+      "NORM"
+    ],
+    "confidences": {
+      "SBRAD": 0.9318337956392273,
+      "NORM": 0.9863669120553048
+    },
+    "structured_input": "Patient: 23y F\nrate 49 bpm | axis left axis deviation\nReview threshold: 0.50\nDetected findings:\n- SBRAD: confidence=0.93, leads=n/a\n- NORM: confidence=0.99, leads=n/a",
+    "template_findings": "Regular rhythm with normal P waves at a rate below 60 bpm. Rate approximately 49 bpm. Left axis deviation.",
+    "template_impression": "Normal ECG, with sinus bradycardia. No acute abnormality.",
+    "original_report_de": "sinusbradykardie linkstyp unspezifische intraventrikul\u00c4re leitungsst\u00d6rung"
+  }
+]

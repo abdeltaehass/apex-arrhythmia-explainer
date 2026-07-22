@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -13,6 +13,9 @@ help:
 	@echo "  experiments run the Phase 4 model sweep (cnn/transformer x bce/focal)"
 	@echo "  compare     build docs/model_comparison/comparison.md from runs.jsonl"
 	@echo "  grounding   Phase 5 saliency sanity sweep (AFIB + STTC) -> docs/grounding/"
+	@echo "  gen-data    build the Phase 6 report dataset -> data/processed/generation/"
+	@echo "  gen-train   LoRA fine-tune (default Mistral-7B-Instruct; needs a GPU)"
+	@echo "  gen-train-smoke  tiny end-to-end LoRA smoke test, runs on CPU/MPS"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI backend"
 	@echo "  ui         run the Gradio frontend"
@@ -52,6 +55,15 @@ compare:
 grounding:
 	python scripts/run_grounding.py --scan AFIB --n 60
 	python scripts/run_grounding.py --scan STTC --n 60
+
+gen-data:
+	python scripts/build_gen_dataset.py
+
+gen-train:
+	python -m src.generation.train_lora --load-in-4bit --bf16
+
+gen-train-smoke:
+	python -m src.generation.train_lora --smoke
 
 wandb-init:
 	python scripts/init_wandb.py

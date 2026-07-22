@@ -18,6 +18,14 @@ wandb>=0.16
 
 # --- generation ---
 anthropic>=0.40     # Claude API backend for explanations
+transformers>=4.56.2,<5.0  # trl needs >=4.56.2; pin below v5 -- 5.x's parallel weight-
+                            # loading (core_model_loading.py) segfaults on this Mac
+                            # (Python 3.11 / torch 2.13); 4.57.6 is the verified-working pin
+peft>=0.12          # LoRA adapters
+trl>=0.9            # SFTTrainer (supervised fine-tuning)
+datasets>=2.20      # JSONL -> HF Dataset for training
+accelerate>=0.33    # device placement / training loop backend
+# bitsandbytes>=0.43  # 4-bit QLoRA — CUDA only, install on the GPU box for --load-in-4bit
 
 # --- serving / UI ---
 fastapi>=0.110

@@ -87,6 +87,14 @@ make grounding                                               # AFIB + STTC sanit
 # -> docs/grounding/ (figures, scan JSONs, sanity_check.md)
 ```
 
+Generation — build the Findings/Impression report dataset, then LoRA fine-tune:
+
+```bash
+make gen-data          # PTB-XL SCP codes -> data/processed/generation/{train,val,test}.jsonl
+make gen-train-smoke   # tiny end-to-end LoRA check, runs anywhere (no GPU needed)
+make gen-train         # the real run: LoRA on mistralai/Mistral-7B-Instruct-v0.3, needs a GPU
+```
+
 Set up experiment tracking:
 
 ```bash
@@ -130,7 +138,17 @@ make ui     # Gradio UI
   irregular baseline (**59/60**), with the one disagreement documented, not hidden
   ([`src/grounding/`](src/grounding/),
   [`docs/grounding/sanity_check.md`](docs/grounding/sanity_check.md)). ✅
-- Phase 6+: generation, calibration, evaluation harness, app wiring.
+- **Phase 6:** generation — PTB-XL SCP codes → structured input → templated
+  **Findings/Impression** report (the SFT target; `src/generation/templater.py`,
+  71-code clinical vocabulary in `vocab.py`), a real measured heart rate per record
+  (Pan-Tompkins, not guessed), and a LoRA fine-tune pipeline
+  (`src/generation/train_lora.py`, `trl.SFTTrainer`, default
+  `mistralai/Mistral-7B-Instruct-v0.3`) verified end-to-end with a tiny local model
+  (loss 2.62 → 1.73 over one epoch) since this machine has no GPU. **20 manually
+  reviewed examples** compare generated text against PTB-XL's own human report —
+  [`docs/generation/examples_review.md`](docs/generation/examples_review.md) — and
+  surfaced (and fixed) a real templater bug along the way. ✅
+- Phase 7+: calibration, evaluation harness, app wiring.
 
 ## Data & ethics
 
