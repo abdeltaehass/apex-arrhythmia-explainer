@@ -1,0 +1,258 @@
+[
+  {
+    "ecg_id": 57,
+    "note": "clean normal ECG \u2014 detector confident, no review needed",
+    "true_scp_codes": [
+      "NORM",
+      "SR"
+    ],
+    "report": {
+      "findings": [
+        {
+          "label": "SR",
+          "description": "sinus rhythm",
+          "confidence": 0.9922,
+          "leads": [],
+          "flags": [],
+          "needs_review": false
+        },
+        {
+          "label": "NORM",
+          "description": "normal ECG",
+          "confidence": 0.9551,
+          "leads": [],
+          "flags": [],
+          "needs_review": false
+        }
+      ],
+      "impression": "Normal ECG. No acute abnormality.",
+      "explanation": "Findings:\nRegular rhythm with normal P waves preceding each QRS.\n\nImpression:\nNormal ECG. No acute abnormality.",
+      "consistency": {
+        "consistent": true,
+        "asserted": [
+          "NORM"
+        ],
+        "surfaced": [
+          "NORM",
+          "SR"
+        ],
+        "unsupported": []
+      },
+      "review_recommended": false,
+      "input_validation": {
+        "n_leads": 12,
+        "duration_s": 10.0,
+        "sampling_rate": 100,
+        "ok": true,
+        "reliable": true,
+        "errors": [],
+        "warnings": []
+      },
+      "disclaimer": "Decision support only \u2014 verify against the full clinical picture.",
+      "schema_version": "1.0"
+    }
+  },
+  {
+    "ecg_id": 17,
+    "note": "busy multi-finding record exercising all flag types (mutual-exclusivity, low-confidence, grounding-conflict)",
+    "true_scp_codes": [
+      "ABQRS",
+      "AFIB",
+      "AFLT"
+    ],
+    "report": {
+      "findings": [
+        {
+          "label": "AFIB",
+          "description": "atrial fibrillation",
+          "confidence": 0.9322,
+          "leads": [],
+          "flags": [
+            {
+              "type": "mutual_exclusivity",
+              "message": "AFIB and STACH fired together: a sinus-origin rhythm requires organized P waves, which AFIB defines as absent"
+            }
+          ],
+          "needs_review": true
+        },
+        {
+          "label": "AFLT",
+          "description": "atrial flutter",
+          "confidence": 0.9996,
+          "leads": [],
+          "flags": [
+            {
+              "type": "mutual_exclusivity",
+              "message": "AFLT and STACH fired together: a sinus-origin rhythm requires organized P waves, which AFLT defines as absent"
+            }
+          ],
+          "needs_review": true
+        },
+        {
+          "label": "PSVT",
+          "description": "paroxysmal supraventricular tachycardia",
+          "confidence": 0.9584,
+          "leads": [],
+          "flags": [],
+          "needs_review": false
+        },
+        {
+          "label": "STACH",
+          "description": "sinus tachycardia",
+          "confidence": 0.5272,
+          "leads": [],
+          "flags": [
+            {
+              "type": "low_confidence",
+              "message": "low confidence \u2014 manual review recommended"
+            },
+            {
+              "type": "mutual_exclusivity",
+              "message": "AFIB and STACH fired together: a sinus-origin rhythm requires organized P waves, which AFIB defines as absent"
+            },
+            {
+              "type": "mutual_exclusivity",
+              "message": "AFLT and STACH fired together: a sinus-origin rhythm requires organized P waves, which AFLT defines as absent"
+            }
+          ],
+          "needs_review": true
+        },
+        {
+          "label": "SVARR",
+          "description": "supraventricular arrhythmia",
+          "confidence": 0.8998,
+          "leads": [],
+          "flags": [],
+          "needs_review": false
+        },
+        {
+          "label": "SVTAC",
+          "description": "supraventricular tachycardia",
+          "confidence": 0.99,
+          "leads": [],
+          "flags": [],
+          "needs_review": false
+        },
+        {
+          "label": "2AVB",
+          "description": "second degree AV block",
+          "confidence": 0.7144,
+          "leads": [],
+          "flags": [],
+          "needs_review": false
+        },
+        {
+          "label": "LVOLT",
+          "description": "low QRS voltages in the frontal and horizontal leads",
+          "confidence": 0.7396,
+          "leads": [],
+          "flags": [],
+          "needs_review": false
+        },
+        {
+          "label": "NST_",
+          "description": "non-specific ST changes",
+          "confidence": 0.9241,
+          "leads": [],
+          "flags": [],
+          "needs_review": false
+        },
+        {
+          "label": "ABQRS",
+          "description": "abnormal QRS",
+          "confidence": 0.613,
+          "leads": [],
+          "flags": [
+            {
+              "type": "low_confidence",
+              "message": "low confidence \u2014 manual review recommended"
+            }
+          ],
+          "needs_review": true
+        },
+        {
+          "label": "AMI",
+          "description": "anterior myocardial infarction",
+          "confidence": 0.519,
+          "leads": [
+            "V2",
+            "V3",
+            "V4"
+          ],
+          "flags": [
+            {
+              "type": "low_confidence",
+              "message": "low confidence \u2014 manual review recommended"
+            }
+          ],
+          "needs_review": true
+        },
+        {
+          "label": "IMI",
+          "description": "inferior myocardial infarction",
+          "confidence": 0.5111,
+          "leads": [
+            "II",
+            "III",
+            "aVF"
+          ],
+          "flags": [
+            {
+              "type": "low_confidence",
+              "message": "low confidence \u2014 manual review recommended"
+            },
+            {
+              "type": "grounding_conflict",
+              "message": "IMI cites lead III, but it ranks 11/12 in the model's own per-lead saliency for this finding"
+            }
+          ],
+          "needs_review": true
+        }
+      ],
+      "impression": "Findings consistent with atrial fibrillation. Atrial flutter. Paroxysmal supraventricular tachycardia. Sinus tachycardia. Supraventricular arrhythmia. Supraventricular tachycardia. Second-degree AV block. Non-specific ST changes. Anterior myocardial infarction. Inferior myocardial infarction.",
+      "explanation": "Findings:\nIrregularly irregular rhythm without discernible P waves. Intermittent failure of P-wave conduction to the ventricles. Low QRS voltage in the frontal and precordial leads. Non-specific ST-segment changes. Abnormal QRS morphology. Pathological Q waves in the anterior (V2, V3, and V4) and inferior (II, III, and aVF) leads.\n\nImpression:\nFindings consistent with atrial fibrillation. Atrial flutter. Paroxysmal supraventricular tachycardia. Sinus tachycardia. Supraventricular arrhythmia. Supraventricular tachycardia. Second-degree AV block. Non-specific ST changes. Anterior myocardial infarction. Inferior myocardial infarction.",
+      "consistency": {
+        "consistent": true,
+        "asserted": [
+          "2AVB",
+          "AFIB",
+          "AFLT",
+          "AMI",
+          "IMI",
+          "NST_",
+          "PSVT",
+          "STACH",
+          "SVARR",
+          "SVTAC"
+        ],
+        "surfaced": [
+          "2AVB",
+          "ABQRS",
+          "AFIB",
+          "AFLT",
+          "AMI",
+          "IMI",
+          "LVOLT",
+          "NST_",
+          "PSVT",
+          "STACH",
+          "SVARR",
+          "SVTAC"
+        ],
+        "unsupported": []
+      },
+      "review_recommended": true,
+      "input_validation": {
+        "n_leads": 12,
+        "duration_s": 10.0,
+        "sampling_rate": 100,
+        "ok": true,
+        "reliable": true,
+        "errors": [],
+        "warnings": []
+      },
+      "disclaimer": "Decision support only \u2014 verify against the full clinical picture.",
+      "schema_version": "1.0"
+    }
+  }
+]

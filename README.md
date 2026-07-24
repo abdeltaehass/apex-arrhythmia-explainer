@@ -21,6 +21,7 @@ src/
   generation/         LLM prompting / fine-tuning + inference
   grounding/          attention / saliency explainability layer
   eval/               metrics, consistency checker, hallucination flagging, reliability checks
+  serving/            structured JSON output schema + serializer + input validation
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -109,10 +110,19 @@ wandb login
 make wandb-init           # creates the W&B project + logs target baselines
 ```
 
-Run the app skeleton:
+Structured output — wrap the whole pipeline into the Phase-8 JSON schema:
+
+```python
+from src.serving import analyze_signal
+report = analyze_signal(signal_12xT, sampling_rate=100, backend="template", with_grounding=True)
+report.model_dump()        # findings[] + impression + explanation + consistency + review_recommended
+report.review_recommended  # the single review gate
+```
+
+Run the app:
 
 ```bash
-make api    # FastAPI at http://localhost:8000  (/health, /analyze)
+make api    # FastAPI at http://localhost:8000  (/health, /validate, /analyze -> APEXReport)
 make ui     # Gradio UI
 ```
 
@@ -167,7 +177,17 @@ make ui     # Gradio UI
   real pathology — the same tension the Phase-6 review found, now confirmed at scale),
   grounding-conflict 15.7% per cited lead.
   [`docs/reliability/report.md`](docs/reliability/report.md). ✅
-- Phase 8+: calibration, app wiring.
+- **Phase 8:** structured JSON output layer — one Pydantic response schema
+  (`src/serving/schema.py`: `findings[]` with label/confidence/leads/flag-status,
+  `impression`, full `explanation`, `consistency` result, `review_recommended` gate)
+  and a serializer (`src/serving/serializer.py`) that folds detection + generation +
+  grounding + the Phase-7 reliability flags into it. Input validation rejects non-12-lead
+  recordings (HTTP 422) and flags sub-5s recordings as unreliable. The FastAPI backend
+  now returns real reports (`/analyze`, `/validate`); full pipeline runs in ~0.7 s with
+  grounding. Schema-validation test suite + sample outputs
+  ([`docs/serving/schema.md`](docs/serving/schema.md),
+  [`docs/serving/sample_report.json`](docs/serving/sample_report.json)). ✅
+- Phase 9+: calibration, frontend.
 
 ## Data & ethics
 
