@@ -119,11 +119,21 @@ report.model_dump()        # findings[] + impression + explanation + consistency
 report.review_recommended  # the single review gate
 ```
 
-Run the app:
+Run the API service (Phase 9):
 
 ```bash
-make api    # FastAPI at http://localhost:8000  (/health, /validate, /analyze -> APEXReport)
-make ui     # Gradio UI
+make api          # uvicorn at http://localhost:8000
+#   POST /analyze   signal file (.npy/.csv/.json) or JSON body -> APEXReport
+#   POST /validate  input gate only (no model load)
+#   GET  /health    model version + status
+#   GET  /metrics   request count + p50/p95/p99 latency since startup
+# Auth + rate limiting via env (APEX_API_KEYS, APEX_RATE_LIMIT); see .env.example.
+
+make benchmark    # latency/throughput table -> docs/serving/benchmark.md
+make ui           # Gradio UI
+
+# example: analyze an uploaded signal file
+curl -F file=@ecg.npy -F sampling_rate=100 http://localhost:8000/analyze
 ```
 
 ## Phase status
@@ -187,7 +197,15 @@ make ui     # Gradio UI
   grounding. Schema-validation test suite + sample outputs
   ([`docs/serving/schema.md`](docs/serving/schema.md),
   [`docs/serving/sample_report.json`](docs/serving/sample_report.json)). ✅
-- Phase 9+: calibration, frontend.
+- **Phase 9:** FastAPI service — `POST /analyze` (signal file **or** JSON body → the
+  Phase-8 report; ECG *images* are refused with a clear 415, digitization being out of
+  scope), `POST /validate`, `GET /health` (model version + status), `GET /metrics`
+  (request count + p50/p95/p99 latency since startup). API-key auth + a fixed-window
+  rate limiter (`src/serving/security.py`), the detector cached/warmed at startup so
+  warm requests skip the checkpoint load. **Benchmarked** on CPU + Apple MPS: pipeline
+  p50 **~6 ms** (168 req/s), through the HTTP stack **~12 ms** (80 req/s); grounding
+  adds ~64 ms ([`docs/serving/benchmark.md`](docs/serving/benchmark.md)). ✅
+- Phase 10+: calibration, frontend.
 
 ## Data & ethics
 

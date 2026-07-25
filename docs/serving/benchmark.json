@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "processor": "arm",
+    "python": "3.11.4",
+    "torch": "2.13.0",
+    "n": 300,
+    "with_grounding": false,
+    "backend": "template",
+    "signal_shape": [
+      12,
+      1000
+    ],
+    "sampling_rate": 100
+  },
+  "results": {
+    "pipeline/cpu": {
+      "n": 300,
+      "p50_ms": 5.91,
+      "p95_ms": 6.25,
+      "p99_ms": 6.59,
+      "mean_ms": 5.92,
+      "max_ms": 6.97,
+      "throughput_rps": 168.8
+    },
+    "http/cpu": {
+      "n": 300,
+      "p50_ms": 12.49,
+      "p95_ms": 12.98,
+      "p99_ms": 13.19,
+      "mean_ms": 12.5,
+      "max_ms": 13.25,
+      "throughput_rps": 80.0
+    },
+    "pipeline/mps": {
+      "n": 300,
+      "p50_ms": 7.33,
+      "p95_ms": 7.67,
+      "p99_ms": 7.79,
+      "mean_ms": 7.28,
+      "max_ms": 8.37,
+      "throughput_rps": 137.3
+    },
+    "http/mps": {
+      "n": 300,
+      "p50_ms": 12.94,
+      "p95_ms": 13.47,
+      "p99_ms": 13.67,
+      "mean_ms": 13.01,
+      "max_ms": 13.75,
+      "throughput_rps": 76.9
+    }
+  }
+}

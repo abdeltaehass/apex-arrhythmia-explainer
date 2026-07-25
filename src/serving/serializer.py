@@ -216,17 +216,15 @@ def analyze_signal(
     if not validation.ok:
         raise InputValidationError(validation)
 
-    from src.data.labels import load_scp_statements
     from src.generation.inference import generate_explanation
     from src.generation.templater import build_structured_input
-    from src.grounding import load_detector
     from src.preprocessing.pipeline import preprocess
+    from src.serving.model_cache import get_detector, get_scp_statements
 
     raw = np.asarray(signal, dtype=np.float32)
     clean, _ = preprocess(raw, fs_in=sampling_rate, fs_out=CFG.sampling_rate)
 
-    model, label_space, _ = load_detector(checkpoint, device=device) if checkpoint \
-        else load_detector(device=device)
+    model, label_space, _ = get_detector(checkpoint, device=device)
 
     import torch
 
@@ -235,7 +233,7 @@ def analyze_signal(
 
     surfaced = [label_space[j] for j in range(len(label_space)) if probs[j] >= CFG.review_threshold]
     confidences = {c: float(probs[label_space.index(c)]) for c in surfaced}
-    scp = load_scp_statements()
+    scp = get_scp_statements()
     descriptions = {c: (scp.loc[c, "description"] if c in scp.index else "") for c in surfaced}
 
     si = build_structured_input(
