@@ -22,6 +22,7 @@ src/
   grounding/          attention / saliency explainability layer
   eval/               metrics, consistency checker, hallucination flagging, reliability checks
   serving/            structured JSON output schema + serializer + input validation
+  digitization/       paper-ECG image <-> signal (render + digitize)
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -123,17 +124,20 @@ Run the API service (Phase 9):
 
 ```bash
 make api          # uvicorn at http://localhost:8000
-#   POST /analyze   signal file (.npy/.csv/.json) or JSON body -> APEXReport
+#   POST /analyze   signal file (.npy/.csv/.json), ECG image, or JSON body -> APEXReport
 #   POST /validate  input gate only (no model load)
 #   GET  /health    model version + status
 #   GET  /metrics   request count + p50/p95/p99 latency since startup
 # Auth + rate limiting via env (APEX_API_KEYS, APEX_RATE_LIMIT); see .env.example.
 
-make benchmark    # latency/throughput table -> docs/serving/benchmark.md
-make ui           # Gradio UI
+make benchmark      # latency/throughput table -> docs/serving/benchmark.md
+make digitize-eval  # paper-ECG digitization fidelity -> docs/digitization/report.md
+make ui             # Gradio UI
 
 # example: analyze an uploaded signal file
 curl -F file=@ecg.npy -F sampling_rate=100 http://localhost:8000/analyze
+# the Phase-10 demo: upload a *photo of a paper ECG* and get the same report back
+curl -F file=@paper_ecg_photo.jpg http://localhost:8000/analyze
 ```
 
 ## Phase status
@@ -197,15 +201,23 @@ curl -F file=@ecg.npy -F sampling_rate=100 http://localhost:8000/analyze
   grounding. Schema-validation test suite + sample outputs
   ([`docs/serving/schema.md`](docs/serving/schema.md),
   [`docs/serving/sample_report.json`](docs/serving/sample_report.json)). ✅
-- **Phase 9:** FastAPI service — `POST /analyze` (signal file **or** JSON body → the
-  Phase-8 report; ECG *images* are refused with a clear 415, digitization being out of
-  scope), `POST /validate`, `GET /health` (model version + status), `GET /metrics`
-  (request count + p50/p95/p99 latency since startup). API-key auth + a fixed-window
-  rate limiter (`src/serving/security.py`), the detector cached/warmed at startup so
-  warm requests skip the checkpoint load. **Benchmarked** on CPU + Apple MPS: pipeline
-  p50 **~6 ms** (168 req/s), through the HTTP stack **~12 ms** (80 req/s); grounding
-  adds ~64 ms ([`docs/serving/benchmark.md`](docs/serving/benchmark.md)). ✅
-- Phase 10+: calibration, frontend.
+- **Phase 9:** FastAPI service — `POST /analyze` (signal file or JSON body → the
+  Phase-8 report), `POST /validate`, `GET /health` (model version + status),
+  `GET /metrics` (request count + p50/p95/p99 latency since startup). API-key auth + a
+  fixed-window rate limiter (`src/serving/security.py`), the detector cached/warmed at
+  startup so warm requests skip the checkpoint load. **Benchmarked** on CPU + Apple MPS:
+  pipeline p50 **~6 ms** (168 req/s), through the HTTP stack **~12 ms** (80 req/s);
+  grounding adds ~64 ms ([`docs/serving/benchmark.md`](docs/serving/benchmark.md)). ✅
+- **Phase 10:** ECG image digitization — upload a *photo of a paper ECG* and get the
+  full report back. `src/digitization/` renders signals to realistic paper-ECG images
+  (grid + 12 labelled leads) and inverts them with a classical CV pipeline (grid-pitch
+  detection → adaptive trace extraction → mm/mV calibration → resample); `POST /analyze`
+  now accepts images (was 415). Round-trip fidelity on 100 PTB-XL records: **0.89 mean
+  per-lead correlation** on clean renders, degrading gracefully to 0.82 / 0.71 under
+  simulated phone-photo blur+noise+JPEG. Classical (no paired real-photo dataset exists
+  to train on); a learned segmentation model is the documented upgrade for real photos
+  ([`docs/digitization/report.md`](docs/digitization/report.md)). ✅
+- Phase 11+: calibration, frontend.
 
 ## Data & ethics
 

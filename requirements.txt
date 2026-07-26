@@ -13,6 +13,10 @@ requests>=2.31      # parallel dataset download (S3 mirror)
 # --- modeling ---
 torch>=2.2          # 1D CNN / transformer detector
 
+# --- image digitization (Phase 10) ---
+pillow>=10.0        # render/read paper-ECG images
+matplotlib>=3.7     # EDA/grounding figures + digitization overlays
+
 # --- experiment tracking ---
 wandb>=0.16
 

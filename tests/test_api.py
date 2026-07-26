@@ -117,8 +117,10 @@ def test_analyze_rejects_fewer_than_twelve_leads(client):
     assert resp.status_code == 422
 
 
-def test_analyze_rejects_image_upload(client):
-    resp = client.post("/analyze", files={"file": ("scan.png", b"\x89PNG\r\n", "image/png")})
+def test_analyze_rejects_corrupt_image(client):
+    # Phase 10 accepts real ECG images (see tests/test_digitization.py); undecodable
+    # bytes still get a clear 415 rather than a stack trace.
+    resp = client.post("/analyze", files={"file": ("scan.png", b"\x89PNG\r\nnotanimage", "image/png")})
     assert resp.status_code == 415
     assert "image" in resp.json()["detail"].lower()
 

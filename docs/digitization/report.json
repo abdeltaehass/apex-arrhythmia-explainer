@@ -1,0 +1,33 @@
+{
+  "results": {
+    "level_0.0": {
+      "photo_level": 0.0,
+      "n": 100,
+      "corr_mean": 0.8848,
+      "corr_std": 0.0336,
+      "corr_p10": 0.8278,
+      "nrmse_mean": 0.5101
+    },
+    "level_0.5": {
+      "photo_level": 0.5,
+      "n": 100,
+      "corr_mean": 0.8151,
+      "corr_std": 0.049,
+      "corr_p10": 0.7459,
+      "nrmse_mean": 0.6144
+    },
+    "level_1.0": {
+      "photo_level": 1.0,
+      "n": 100,
+      "corr_mean": 0.7056,
+      "corr_std": 0.0763,
+      "corr_p10": 0.6257,
+      "nrmse_mean": 0.802
+    }
+  },
+  "examples": {
+    "render": "examples/ecg20636_render.png",
+    "photo": "examples/ecg20636_photo.jpg",
+    "overlay": "examples/ecg20636_overlay.png"
+  }
+}

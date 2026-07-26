@@ -3,7 +3,7 @@
 Wraps the full pipeline (signal -> detection -> grounding -> generation -> reliability
 -> structured report) behind an authenticated, rate-limited HTTP API:
 
-    POST /analyze   signal file *or* JSON body  -> APEXReport (structured JSON)
+    POST /analyze   signal file, ECG image, or JSON body -> APEXReport (structured JSON)
     POST /validate  JSON body                   -> InputValidation (input gate only)
     GET  /health    model version + status
     GET  /metrics   request count + p50/p95/p99 latency since startup
@@ -139,10 +139,10 @@ async def _signal_from_request(request: Request):
 @app.post("/analyze", response_model=APEXReport,
           dependencies=[Depends(require_api_key), Depends(rate_limit)])
 async def analyze(request: Request) -> APEXReport:
-    """Full pipeline -> structured report. Accepts a signal file or a JSON body.
+    """Full pipeline -> structured report. Accepts a signal file, an ECG image, or JSON.
 
-    422 on a hard input-validation failure, 415 on an unsupported upload (e.g. an ECG
-    image — digitization is out of scope).
+    An uploaded paper-ECG image is digitized to a signal first (Phase 10). 422 on a hard
+    input-validation failure, 415 on an unreadable/unsupported upload.
     """
     try:
         signal, sampling_rate, backend, with_grounding = await _signal_from_request(request)

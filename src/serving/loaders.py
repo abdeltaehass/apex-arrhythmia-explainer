@@ -1,13 +1,13 @@
 """Parse an uploaded recording into a ``(12, T)`` signal array.
 
-``POST /analyze`` accepts a signal *file* (or a JSON body). This module turns the raw
-upload bytes into the ``(leads, samples)`` array the pipeline expects, inferring lead
-orientation. Supported: ``.npy``, ``.csv``/``.txt`` (delimited), ``.json``
-(``{"signal": [[...]], "sampling_rate": N}`` or a bare 2-D array).
+``POST /analyze`` accepts a signal *file*, an ECG *image*, or a JSON body. This module
+turns the raw upload bytes into the ``(leads, samples)`` array the pipeline expects,
+inferring lead orientation. Supported:
 
-ECG *image* uploads are recognized and politely refused — turning a scanned/photographed
-ECG back into a signal (image digitization) is a separate problem this project does not
-implement, and silently faking it would be worse than a clear error.
+- ``.npy``, ``.csv``/``.txt`` (delimited), ``.json`` — already-sampled signals.
+- ``.png``/``.jpg``/... — a photographed/scanned paper ECG, digitized back to a signal
+  by `src.digitization` (Phase 10). This is what makes "upload a photo, get a report"
+  work; earlier phases rejected images.
 """
 
 from __future__ import annotations
@@ -74,10 +74,12 @@ def parse_signal_upload(filename: str, content: bytes) -> tuple[np.ndarray, int 
     """
     ext = _ext(filename)
     if ext in IMAGE_EXTS:
-        raise UnsupportedUploadError(
-            f"ECG image uploads ({ext}) are not supported — image digitization "
-            "(image -> signal) is out of scope. Upload the sampled signal (.npy/.csv/.json)."
-        )
+        from src.digitization.digitize import ImageDecodeError, digitize_bytes  # lazy: pulls in PIL
+
+        try:
+            return digitize_bytes(content)
+        except ImageDecodeError as e:
+            raise UnsupportedUploadError(str(e)) from e
     if ext == ".npy":
         return _orient(np.load(io.BytesIO(content))).astype(np.float32), None
     if ext == ".json":
