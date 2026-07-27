@@ -132,12 +132,20 @@ make api          # uvicorn at http://localhost:8000
 
 make benchmark      # latency/throughput table -> docs/serving/benchmark.md
 make digitize-eval  # paper-ECG digitization fidelity -> docs/digitization/report.md
-make ui             # Gradio UI
 
 # example: analyze an uploaded signal file
 curl -F file=@ecg.npy -F sampling_rate=100 http://localhost:8000/analyze
-# the Phase-10 demo: upload a *photo of a paper ECG* and get the same report back
+# upload a *photo of a paper ECG* and get the same report back
 curl -F file=@paper_ecg_photo.jpg http://localhost:8000/analyze
+```
+
+Run the clinical dashboard (Phase 11):
+
+```bash
+make ui   # or: python app.py   — Gradio at http://localhost:7860
+# upload panel (signal file or paper-ECG photo), ECG + per-finding grounding overlays,
+# structured report with confidence bars + flags, red/yellow/green severity banner.
+# Deploy to Hugging Face Spaces: see docs/frontend/deploy.md
 ```
 
 ## Phase status
@@ -217,7 +225,16 @@ curl -F file=@paper_ecg_photo.jpg http://localhost:8000/analyze
   simulated phone-photo blur+noise+JPEG. Classical (no paired real-photo dataset exists
   to train on); a learned segmentation model is the documented upgrade for real photos
   ([`docs/digitization/report.md`](docs/digitization/report.md)). ✅
-- Phase 11+: calibration, frontend.
+- **Phase 11:** clinical dashboard — a Gradio front end (`app/frontend/`, entry `app.py`)
+  over the full pipeline: upload panel (signal file **or** paper-ECG photo), the 12-lead
+  waveform with per-finding **grounding overlays** (one colour per finding, click a
+  finding to highlight its saliency), a report panel with confidence bars + reliability
+  flags + full explanation, a red/yellow/green **severity banner**
+  (`src/serving/severity.py`: red on ST-elevation / injury), and the fixed
+  decision-support disclaimer. Packaged for **Hugging Face Spaces**
+  ([`docs/frontend/deploy.md`](docs/frontend/deploy.md)); the 12 KB SCP label dictionary
+  is now bundled so the demo runs without the full waveform download. ✅
+- Phase 12+: calibration.
 
 ## Data & ethics
 

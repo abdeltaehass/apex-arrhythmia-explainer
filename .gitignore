@@ -3,6 +3,13 @@ data/raw/*
 data/processed/*
 data/manifests/*
 !data/**/.gitkeep
+# but DO commit the tiny SCP label dictionary (12 KB, openly licensed): the whole
+# pipeline reads it for the 71-code label space + descriptions, so bundling it makes
+# the repo (and the HF Space) runnable without the multi-GB waveform download.
+# (Un-ignore the dir, re-ignore its contents, then un-ignore just the one CSV.)
+!data/raw/ptbxl/
+data/raw/ptbxl/*
+!data/raw/ptbxl/scp_statements.csv
 
 # --- python ---
 __pycache__/

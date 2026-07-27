@@ -1,0 +1,12 @@
+# Slim runtime deps for the Hugging Face Space (the dashboard only).
+# The UI runs the pipeline in-process with the deterministic template backend, so the
+# training/serving-heavy deps (transformers, trl, wandb, fastapi, wfdb, ...) are NOT
+# needed here.
+gradio==4.44.1
+torch>=2.2
+numpy>=1.26
+scipy>=1.11
+pandas>=2.1           # reads the bundled scp_statements.csv label dictionary
+pillow>=10.0          # digitize uploaded paper-ECG photos
+matplotlib>=3.7       # the ECG + grounding figure
+pydantic>=2.6         # the response schema

@@ -15,6 +15,8 @@ Three entry points:
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+
 from src.config import CFG
 from src.eval.reliability import ReliabilityReport, check_reliability
 from src.generation.parse import asserted_findings, parse_report
@@ -195,21 +197,18 @@ def build_report(
 
 
 # --- Model-driven pipeline ---------------------------------------------------
-def analyze_signal(
-    signal,
-    sampling_rate: int = 100,
-    checkpoint=None,
-    backend: str = "template",
-    with_grounding: bool = False,
-    device: str = "cpu",
-) -> APEXReport:
-    """Full pipeline: validate -> preprocess -> detect -> generate -> [ground] -> serialize.
+@dataclass
+class AnalysisResult:
+    """Full pipeline output, including the intermediates the dashboard plots from."""
 
-    Raises :class:`InputValidationError` if the recording fails a hard rule. ``backend``
-    picks the explanation generator (``"template"`` is deterministic and needs no LLM;
-    ``"claude"``/``"local"`` need their deps). ``with_grounding`` runs the (more
-    expensive) per-lead saliency so grounding-conflict flags are populated.
-    """
+    report: APEXReport
+    clean_signal: object          # (12, T) float32 preprocessed signal (numpy)
+    rpeaks: object                # R-peak sample indices (numpy)
+    saliency_by_code: dict        # code -> grounding.LeadSaliency (empty if not grounded)
+    fs: int
+
+
+def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device) -> AnalysisResult:
     import numpy as np
 
     validation = validate_signal(signal, sampling_rate)
@@ -222,7 +221,7 @@ def analyze_signal(
     from src.serving.model_cache import get_detector, get_scp_statements
 
     raw = np.asarray(signal, dtype=np.float32)
-    clean, _ = preprocess(raw, fs_in=sampling_rate, fs_out=CFG.sampling_rate)
+    clean, rpeaks = preprocess(raw, fs_in=sampling_rate, fs_out=CFG.sampling_rate)
 
     model, label_space, _ = get_detector(checkpoint, device=device)
 
@@ -253,7 +252,40 @@ def analyze_signal(
                                      fs=CFG.sampling_rate)
             grounded_leads = {c: leads_for(c) for c in localizing}
 
-    return build_report(
+    report = build_report(
         si, explanation, input_validation=validation,
         grounded_leads=grounded_leads, saliency_by_code=saliency_by_code,
     )
+    return AnalysisResult(report=report, clean_signal=clean, rpeaks=rpeaks,
+                         saliency_by_code=saliency_by_code or {}, fs=CFG.sampling_rate)
+
+
+def analyze_signal(
+    signal,
+    sampling_rate: int = 100,
+    checkpoint=None,
+    backend: str = "template",
+    with_grounding: bool = False,
+    device: str = "cpu",
+) -> APEXReport:
+    """Full pipeline: validate -> preprocess -> detect -> generate -> [ground] -> serialize.
+
+    Raises :class:`InputValidationError` if the recording fails a hard rule. ``backend``
+    picks the explanation generator (``"template"`` is deterministic and needs no LLM;
+    ``"claude"``/``"local"`` need their deps). ``with_grounding`` runs the (more
+    expensive) per-lead saliency so grounding-conflict flags are populated.
+    """
+    return _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device).report
+
+
+def analyze_detailed(
+    signal,
+    sampling_rate: int = 100,
+    checkpoint=None,
+    backend: str = "template",
+    device: str = "cpu",
+) -> AnalysisResult:
+    """Like :func:`analyze_signal` but returns the report *plus* the preprocessed signal,
+    R-peaks, and per-finding saliency — everything the dashboard needs to draw grounding
+    overlays. Always runs grounding."""
+    return _analyze_core(signal, sampling_rate, checkpoint, backend, True, device)

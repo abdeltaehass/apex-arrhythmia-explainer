@@ -21,7 +21,7 @@ help:
 	@echo "  digitize-eval Phase 10 image-digitization fidelity -> docs/digitization/report.md"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
-	@echo "  ui         run the Gradio frontend"
+	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
 	@echo "  test       run pytest"
 	@echo "  lint       run ruff"
 
@@ -84,7 +84,7 @@ api:
 	uvicorn app.backend.main:app --reload
 
 ui:
-	python app/frontend/app.py
+	python app.py
 
 test:
 	pytest -q
