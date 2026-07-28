@@ -19,6 +19,7 @@ matplotlib>=3.7     # EDA/grounding figures + digitization overlays
 
 # --- experiment tracking ---
 wandb>=0.16
+# openai>=1.0        # optional: scripts/gpt4o_baseline.py --openai (Phase-12 GPT-4o baseline)
 
 # --- generation ---
 anthropic>=0.40     # Claude API backend for explanations

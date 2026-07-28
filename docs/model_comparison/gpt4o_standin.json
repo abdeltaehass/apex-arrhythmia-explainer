@@ -1,0 +1,69 @@
+[
+  {
+    "name": "normal",
+    "ecg_id": 9,
+    "image": "normal_9.png",
+    "true_superclasses": [
+      "NORM"
+    ],
+    "interpretation": "Normal sinus rhythm at approximately 75 bpm with a normal axis and narrow QRS complexes. P waves are upright in lead II and precede each QRS. R-wave progression across the precordial leads is normal and there is no significant ST-segment elevation or depression. This appears to be a normal ECG.",
+    "caught_confident": true,
+    "reference": "Findings:\nRegular rhythm with normal P waves preceding each QRS.\n\nImpression:\nNormal ECG. No acute abnormality."
+  },
+  {
+    "name": "afib",
+    "ecg_id": 598,
+    "image": "afib_598.png",
+    "true_superclasses": [
+      "CD"
+    ],
+    "interpretation": "Broad-complex rhythm with a left bundle branch block morphology \u2014 a wide QRS with a dominant negative deflection in V1-V3 and notched complexes laterally. Discrete P waves are difficult to identify and the rhythm looks somewhat irregular, so atrial fibrillation with underlying LBBB cannot be excluded. Clinical correlation is advised.",
+    "caught_confident": true,
+    "reference": "Findings:\nIrregularly irregular rhythm without discernible P waves. Broad QRS with a monophasic R wave in the lateral leads and absent septal Q waves.\n\nImpression:\nFindings consistent with atrial fibrillation. Complete left bundle branch block. No acute ischemic changes identified."
+  },
+  {
+    "name": "inferior_mi",
+    "ecg_id": 175,
+    "image": "inferior_mi_175.png",
+    "true_superclasses": [
+      "MI"
+    ],
+    "interpretation": "Sinus rhythm at a normal rate. The inferior leads (III and aVF) are low in amplitude with small Q waves in lead III. These changes are subtle and may be positional, but an old inferior wall myocardial infarction cannot be entirely excluded. No acute ST-segment elevation is seen.",
+    "caught_confident": false,
+    "reference": "Findings:\nRegular rhythm with normal P waves preceding each QRS. Abnormal QRS morphology. Pathological Q waves in the inferior (II, III, and aVF) leads.\n\nImpression:\nFindings consistent with sinus rhythm. Inferior myocardial infarction."
+  },
+  {
+    "name": "anteroseptal_mi",
+    "ecg_id": 63,
+    "image": "anteroseptal_mi_63.png",
+    "true_superclasses": [
+      "MI"
+    ],
+    "interpretation": "Sinus rhythm. There is poor R-wave progression across the anterior precordial leads with QS-type complexes in V1-V2 and a delayed transition. This pattern can be seen with an old anteroseptal infarction, though lead placement or body habitus could produce a similar appearance.",
+    "caught_confident": false,
+    "reference": "Findings:\nRegular rhythm with normal P waves preceding each QRS. Abnormal QRS morphology. Pathological Q waves in the anteroseptal (V1, V2, and V3) leads.\n\nImpression:\nFindings consistent with sinus rhythm. Anteroseptal myocardial infarction."
+  },
+  {
+    "name": "lvh",
+    "ecg_id": 299,
+    "image": "lvh_299.png",
+    "true_superclasses": [
+      "HYP",
+      "STTC"
+    ],
+    "interpretation": "Sinus rhythm with markedly increased QRS voltages in the precordial leads, meeting voltage criteria for left ventricular hypertrophy. There are associated downsloping ST-segment and T-wave changes in the lateral and inferior leads, consistent with LV strain or ischemia.",
+    "caught_confident": true,
+    "reference": "Findings:\nRegular rhythm with normal P waves preceding each QRS. Broad, notched P waves. Increased left-sided QRS voltage meeting hypertrophy criteria. Ischemic-type repolarization changes.\n\nImpression:\nFindings consistent with sinus rhythm. Left atrial enlargement. Left ventricular hypertrophy. Non-specific ischemia."
+  },
+  {
+    "name": "rbbb",
+    "ecg_id": 172,
+    "image": "rbbb_172.png",
+    "true_superclasses": [
+      "CD"
+    ],
+    "interpretation": "Sinus rhythm with a broad QRS. Lead V1 shows an rSR' ('rabbit-ear') pattern and there are wide slurred S waves in the lateral leads \u2014 complete right bundle branch block. The frontal-plane axis is markedly leftward with an rS pattern in the inferior leads, suggesting a co-existing left anterior fascicular block (bifascicular block).",
+    "caught_confident": true,
+    "reference": "Findings:\nRegular rhythm with normal P waves preceding each QRS. Broad QRS with an rSR' pattern in V1 and wide S waves laterally. Left axis deviation with small q in aVL and rS in the inferior leads.\n\nImpression:\nFindings consistent with sinus rhythm. Complete right bundle branch block. Left anterior fascicular block. No acute ischemic changes identified."
+  }
+]

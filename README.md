@@ -234,7 +234,37 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   decision-support disclaimer. Packaged for **Hugging Face Spaces**
   ([`docs/frontend/deploy.md`](docs/frontend/deploy.md)); the 12 KB SCP label dictionary
   is now bundled so the demo runs without the full waveform download. ✅
-- Phase 12+: calibration.
+- **Phase 12:** evaluation vs published baselines — APEX on the PTB-XL **test split**
+  vs the landmark PTB-XL benchmark (Strodthoff et al. 2021) + a **GPT-4o zero-shot**
+  ECG-image baseline. On the 71-code task APEX matches `resnet1d_wang` (0.920 vs 0.919);
+  a generalist LLM reading the ECG *image* sits at ~41% multiclass (published) — the gap
+  is what domain-specific training buys. Eval notebook
+  [`notebooks/03_baseline_comparison.ipynb`](notebooks/03_baseline_comparison.ipynb),
+  tables in [`docs/model_comparison/`](docs/model_comparison/baseline_comparison.md). ✅
+- Phase 13+: calibration.
+
+## Benchmark comparison (PTB-XL test split)
+
+Macro-AUROC on PTB-XL fold 10 (`make eval-baselines`). Published rows are the landmark
+PTB-XL benchmark ([Strodthoff et al. 2021](https://github.com/helme/ecg_ptbxl_benchmarking)).
+
+| model | all-task AUROC | superclass AUROC | source |
+|---|---:|---:|---|
+| inception1d | 0.925 | 0.921 | Strodthoff 2021 |
+| xresnet1d101 | 0.925 | 0.928 | Strodthoff 2021 |
+| **APEX (cnn_bce)** | **0.920** | 0.893 | **this work** |
+| resnet1d_wang | 0.919 | 0.930 | Strodthoff 2021 |
+| lstm | 0.907 | 0.927 | Strodthoff 2021 |
+| Wavelet+NN | 0.849 | 0.874 | Strodthoff 2021 |
+
+APEX (compact 1D-CNN, no ensembling) matches `resnet1d_wang` on the 71-code task. Its
+superclass column is pooled from the 71-code head, not trained on the 5-class task, so
+the all-task column is the like-for-like comparison. A **GPT-4o zero-shot** ECG-image
+baseline reaches only ~41% multiclass accuracy ([published](https://ai.jmir.org/2025/1/e74426)),
+and its free-text diverges from APEX's clinical template (BLEU-4 ≈ 0.11) —
+[`docs/model_comparison/gpt4o_comparison.md`](docs/model_comparison/gpt4o_comparison.md).
+_Ribeiro et al. 2020 (the landmark deep-ECG paper) was trained on the CODE dataset, not
+PTB-XL, so it has no direct row here._
 
 ## Data & ethics
 

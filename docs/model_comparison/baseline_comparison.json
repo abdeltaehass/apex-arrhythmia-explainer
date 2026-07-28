@@ -1,0 +1,49 @@
+{
+  "apex": {
+    "model": "APEX (cnn_bce)",
+    "all_auroc": 0.9199,
+    "superclass_auroc": {
+      "NORM": 0.9355,
+      "MI": 0.891,
+      "STTC": 0.9149,
+      "CD": 0.8972,
+      "HYP": 0.8262
+    },
+    "superclass_macro_auroc": 0.8929,
+    "macro_f1": 0.3203,
+    "micro_f1": 0.5976,
+    "ece": 0.8973,
+    "n_test": 2198
+  },
+  "published_ptbxl_benchmark": {
+    "inception1d": [
+      0.925,
+      0.921
+    ],
+    "xresnet1d101": [
+      0.925,
+      0.928
+    ],
+    "resnet1d_wang": [
+      0.919,
+      0.93
+    ],
+    "fcn_wang": [
+      0.918,
+      0.925
+    ],
+    "lstm_bidir": [
+      0.914,
+      0.921
+    ],
+    "lstm": [
+      0.907,
+      0.927
+    ],
+    "Wavelet+NN": [
+      0.849,
+      0.874
+    ]
+  },
+  "note": "Published = Strodthoff et al. 2021 (github.com/helme/ecg_ptbxl_benchmarking). APEX is trained on the 71-code 'all' task; its superclass AUROC is pooled from the 71 codes (max over members), not trained on the 5-class superdiagnostic task directly."
+}

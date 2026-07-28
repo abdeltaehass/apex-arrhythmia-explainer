@@ -10,6 +10,11 @@ EDA and experiment logs.
   records across all six diagnostic groups, baseline-wander removal, 500→100 Hz
   resampling, Pan-Tompkins internals, per-lead normalization, and the torch Dataset.
   Needs the curated waveforms (`make data-sample`). Committed with plots.
+- `03_baseline_comparison.ipynb` — Phase 12: APEX on the PTB-XL test split vs the
+  published benchmark (Strodthoff et al. 2021) + a GPT-4o zero-shot ECG-image baseline.
+  Loads the precomputed result JSONs (`docs/model_comparison/`), so it runs in seconds
+  without the model. Committed with tables + charts. Regenerate the results with
+  `make eval-baselines`.
 
 The reusable logic lives in `src/data/eda.py` (analysis + plots) and
 `src/data/manifests.py` (splits). Regenerate the static artifacts with:
