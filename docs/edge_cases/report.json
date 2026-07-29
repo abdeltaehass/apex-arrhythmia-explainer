@@ -1,0 +1,649 @@
+{
+  "model": "APEX (cnn_bce)",
+  "threshold": 0.5,
+  "low_confidence_threshold": 0.7,
+  "n_test": 2198,
+  "urgent_codes": [
+    "ANEUR",
+    "INJAL",
+    "INJAS",
+    "INJIL",
+    "INJIN",
+    "INJLA",
+    "STE_"
+  ],
+  "rare_labels": [
+    "PRC(S)",
+    "INJIL",
+    "2AVB",
+    "3AVB",
+    "INJLA",
+    "PMI",
+    "INJIN",
+    "TRIGU",
+    "PSVT",
+    "SVTAC",
+    "STE_",
+    "SEHYP"
+  ],
+  "rare_label_train_counts": {
+    "PRC(S)": 8,
+    "INJIL": 11,
+    "2AVB": 12,
+    "3AVB": 12,
+    "INJLA": 13,
+    "PMI": 13,
+    "INJIN": 14,
+    "TRIGU": 16,
+    "PSVT": 19,
+    "SVTAC": 21,
+    "STE_": 22,
+    "SEHYP": 24
+  },
+  "cohorts": {
+    "overall (all test)": {
+      "n": 2198,
+      "n_present_labels": 6090,
+      "n_missed_labels": 992,
+      "label_recall": 0.8371,
+      "miss_rate": 0.1629,
+      "overflag_per_record": 5.0905,
+      "records_with_any_miss": 783,
+      "records_with_any_overflag": 1885,
+      "dangerous_miss_records": 16,
+      "dangerous_miss_rate": 0.0073,
+      "near_miss_records": 289,
+      "clean_silent_rate": 0.1301,
+      "review_proxy_rate": 0.7907
+    },
+    "noisy \u2014 significant artifact": {
+      "n": 160,
+      "n_present_labels": 409,
+      "n_missed_labels": 75,
+      "label_recall": 0.8166,
+      "miss_rate": 0.1834,
+      "overflag_per_record": 5.5875,
+      "records_with_any_miss": 62,
+      "records_with_any_overflag": 143,
+      "dangerous_miss_records": 1,
+      "dangerous_miss_rate": 0.0063,
+      "near_miss_records": 22,
+      "clean_silent_rate": 0.1,
+      "review_proxy_rate": 0.8313
+    },
+    "noisy \u2014 whole-record": {
+      "n": 93,
+      "n_present_labels": 238,
+      "n_missed_labels": 49,
+      "label_recall": 0.7941,
+      "miss_rate": 0.2059,
+      "overflag_per_record": 6.2688,
+      "records_with_any_miss": 41,
+      "records_with_any_overflag": 82,
+      "dangerous_miss_records": 0,
+      "dangerous_miss_rate": 0.0,
+      "near_miss_records": 16,
+      "clean_silent_rate": 0.1075,
+      "review_proxy_rate": 0.8065
+    },
+    "borderline (present @ \u00b10.1)": {
+      "n": 441,
+      "n_present_labels": 1466,
+      "n_missed_labels": 358,
+      "label_recall": 0.7558,
+      "miss_rate": 0.2442,
+      "overflag_per_record": 6.7778,
+      "records_with_any_miss": 265,
+      "records_with_any_overflag": 438,
+      "dangerous_miss_records": 6,
+      "dangerous_miss_rate": 0.0136,
+      "near_miss_records": 215,
+      "clean_silent_rate": 0.0045,
+      "review_proxy_rate": 0.9592
+    },
+    "rare labels (12 rarest)": {
+      "n": 24,
+      "n_present_labels": 96,
+      "n_missed_labels": 26,
+      "label_recall": 0.7292,
+      "miss_rate": 0.2708,
+      "overflag_per_record": 11.2917,
+      "records_with_any_miss": 20,
+      "records_with_any_overflag": 24,
+      "dangerous_miss_records": 6,
+      "dangerous_miss_rate": 0.25,
+      "near_miss_records": 3,
+      "clean_silent_rate": 0.0,
+      "review_proxy_rate": 1.0
+    },
+    "multi-condition (\u22655 codes)": {
+      "n": 224,
+      "n_present_labels": 1251,
+      "n_missed_labels": 212,
+      "label_recall": 0.8305,
+      "miss_rate": 0.1695,
+      "overflag_per_record": 9.8929,
+      "records_with_any_miss": 129,
+      "records_with_any_overflag": 224,
+      "dangerous_miss_records": 8,
+      "dangerous_miss_rate": 0.0357,
+      "near_miss_records": 55,
+      "clean_silent_rate": 0.0,
+      "review_proxy_rate": 0.9866
+    },
+    "normal (NORM-only)": {
+      "n": 912,
+      "n_present_labels": 1934,
+      "n_missed_labels": 242,
+      "label_recall": 0.8749,
+      "miss_rate": 0.1251,
+      "overflag_per_record": 2.0033,
+      "records_with_any_miss": 218,
+      "records_with_any_overflag": 626,
+      "dangerous_miss_records": 2,
+      "dangerous_miss_rate": 0.0022,
+      "near_miss_records": 82,
+      "clean_silent_rate": 0.2917,
+      "review_proxy_rate": 0.6206
+    },
+    "clean (no annotated noise)": {
+      "n": 1670,
+      "n_present_labels": 4676,
+      "n_missed_labels": 745,
+      "label_recall": 0.8407,
+      "miss_rate": 0.1593,
+      "overflag_per_record": 5.0479,
+      "records_with_any_miss": 584,
+      "records_with_any_overflag": 1432,
+      "dangerous_miss_records": 13,
+      "dangerous_miss_rate": 0.0078,
+      "near_miss_records": 211,
+      "clean_silent_rate": 0.1299,
+      "review_proxy_rate": 0.7922
+    }
+  },
+  "normal_behaviour": {
+    "n": 912,
+    "surfaces_norm": 795,
+    "surfaces_norm_rate": 0.8717,
+    "overflags_pathology": 444,
+    "overflag_rate": 0.4868
+  },
+  "near_miss_share_of_all_misses": 0.3165,
+  "examples": {
+    "noisy": {
+      "ecg_id": 75,
+      "present": [
+        "NORM",
+        "SR"
+      ],
+      "present_superclasses": [
+        "NORM"
+      ],
+      "surfaced": [
+        {
+          "label": "NORM",
+          "confidence": 0.9867,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "SBRAD",
+          "confidence": 0.8766,
+          "needs_review": false,
+          "flags": []
+        }
+      ],
+      "misses": [
+        "SR"
+      ],
+      "missed_urgent": [],
+      "false_positives": [
+        "SBRAD"
+      ],
+      "review_recommended": false,
+      "severity": "green",
+      "urgent_findings": [],
+      "impression": "Normal ECG, with sinus bradycardia. No acute abnormality."
+    },
+    "borderline": {
+      "ecg_id": 63,
+      "present": [
+        "ABQRS",
+        "ASMI",
+        "SR"
+      ],
+      "present_superclasses": [
+        "MI"
+      ],
+      "surfaced": [
+        {
+          "label": "ABQRS",
+          "confidence": 0.8869,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "AMI",
+          "confidence": 0.8602,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ASMI",
+          "confidence": 0.8558,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "IMI",
+          "confidence": 0.714,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "QWAVE",
+          "confidence": 0.5889,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        },
+        {
+          "label": "SARRH",
+          "confidence": 0.5543,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        }
+      ],
+      "misses": [
+        "SR"
+      ],
+      "missed_urgent": [],
+      "false_positives": [
+        "AMI",
+        "IMI",
+        "QWAVE",
+        "SARRH"
+      ],
+      "review_recommended": true,
+      "severity": "yellow",
+      "urgent_findings": [],
+      "impression": "Findings consistent with sinus arrhythmia. Anterior myocardial infarction. Anteroseptal myocardial infarction. Inferior myocardial infarction."
+    },
+    "rare": {
+      "ecg_id": 968,
+      "present": [
+        "ASMI",
+        "INJIL",
+        "INVT",
+        "SR",
+        "STD_"
+      ],
+      "present_superclasses": [
+        "MI"
+      ],
+      "surfaced": [
+        {
+          "label": "IMI",
+          "confidence": 0.945,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "INVT",
+          "confidence": 0.8853,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ISCLA",
+          "confidence": 0.8821,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "ISC_",
+          "confidence": 0.8799,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ABQRS",
+          "confidence": 0.8687,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "AMI",
+          "confidence": 0.8446,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "ISCAL",
+          "confidence": 0.8234,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "QWAVE",
+          "confidence": 0.8087,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ISCIL",
+          "confidence": 0.7947,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "LVH",
+          "confidence": 0.7935,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "IVCD",
+          "confidence": 0.7406,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ISCIN",
+          "confidence": 0.7338,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "SR",
+          "confidence": 0.7266,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "STD_",
+          "confidence": 0.7072,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ASMI",
+          "confidence": 0.6646,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        },
+        {
+          "label": "SARRH",
+          "confidence": 0.6617,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        },
+        {
+          "label": "LOWT",
+          "confidence": 0.5906,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        }
+      ],
+      "misses": [
+        "INJIL"
+      ],
+      "missed_urgent": [
+        "INJIL"
+      ],
+      "false_positives": [
+        "ABQRS",
+        "AMI",
+        "IMI",
+        "ISCAL",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LOWT",
+        "LVH",
+        "QWAVE",
+        "SARRH"
+      ],
+      "review_recommended": true,
+      "severity": "yellow",
+      "urgent_findings": [],
+      "impression": "Findings consistent with sinus arrhythmia. Sinus rhythm. Non-specific intraventricular conduction delay. Left ventricular hypertrophy. T-wave inversion. Anterolateral ischemia. Inferolateral ischemia. Inferior ischemia. Lateral ischemia. Non-specific ischemia. Low T-wave amplitude. ST-segment depression. Anterior myocardial infarction. Anteroseptal myocardial infarction. Inferior myocardial infarction."
+    },
+    "multi_condition": {
+      "ecg_id": 274,
+      "present": [
+        "ASMI",
+        "INVT",
+        "ISC_",
+        "LAO/LAE",
+        "LVH",
+        "SR",
+        "STD_",
+        "VCLVH"
+      ],
+      "present_superclasses": [
+        "HYP",
+        "MI",
+        "STTC"
+      ],
+      "surfaced": [
+        {
+          "label": "INJAL",
+          "confidence": 0.9767,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "ISCAL",
+          "confidence": 0.9611,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "INVT",
+          "confidence": 0.9501,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ASMI",
+          "confidence": 0.9398,
+          "needs_review": true,
+          "flags": [
+            "grounding_conflict"
+          ]
+        },
+        {
+          "label": "INJAS",
+          "confidence": 0.939,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "LVH",
+          "confidence": 0.8415,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "SR",
+          "confidence": 0.8391,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ISC_",
+          "confidence": 0.82,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "STD_",
+          "confidence": 0.8039,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "LAFB",
+          "confidence": 0.7978,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "ABQRS",
+          "confidence": 0.6907,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        },
+        {
+          "label": "VCLVH",
+          "confidence": 0.6732,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        },
+        {
+          "label": "ISCAN",
+          "confidence": 0.5767,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        },
+        {
+          "label": "ALMI",
+          "confidence": 0.5471,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        }
+      ],
+      "misses": [
+        "LAO/LAE"
+      ],
+      "missed_urgent": [],
+      "false_positives": [
+        "ABQRS",
+        "ALMI",
+        "INJAL",
+        "INJAS",
+        "ISCAL",
+        "ISCAN",
+        "LAFB"
+      ],
+      "review_recommended": true,
+      "severity": "red",
+      "urgent_findings": [
+        "INJAL",
+        "INJAS"
+      ],
+      "impression": "Findings consistent with sinus rhythm. Left anterior fascicular block. Left ventricular hypertrophy. Voltage criteria for left ventricular hypertrophy. T-wave inversion. Anterolateral ischemia. Anterior ischemia. Non-specific ischemia. ST-segment depression. Anterolateral myocardial infarction. Anteroseptal myocardial infarction. Subendocardial injury, anterolateral. Subendocardial injury, anteroseptal."
+    },
+    "normal_clean": {
+      "ecg_id": 57,
+      "present": [
+        "NORM",
+        "SR"
+      ],
+      "present_superclasses": [
+        "NORM"
+      ],
+      "surfaced": [
+        {
+          "label": "SR",
+          "confidence": 0.9922,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "NORM",
+          "confidence": 0.9551,
+          "needs_review": false,
+          "flags": []
+        }
+      ],
+      "misses": [],
+      "missed_urgent": [],
+      "false_positives": [],
+      "review_recommended": false,
+      "severity": "green",
+      "urgent_findings": [],
+      "impression": "Normal ECG. No acute abnormality."
+    },
+    "normal_overflag": {
+      "ecg_id": 9,
+      "present": [
+        "NORM",
+        "SR"
+      ],
+      "present_superclasses": [
+        "NORM"
+      ],
+      "surfaced": [
+        {
+          "label": "NORM",
+          "confidence": 0.938,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "SARRH",
+          "confidence": 0.8229,
+          "needs_review": false,
+          "flags": []
+        },
+        {
+          "label": "SR",
+          "confidence": 0.6075,
+          "needs_review": true,
+          "flags": [
+            "low_confidence"
+          ]
+        }
+      ],
+      "misses": [],
+      "missed_urgent": [],
+      "false_positives": [
+        "SARRH"
+      ],
+      "review_recommended": true,
+      "severity": "yellow",
+      "urgent_findings": [],
+      "impression": "Normal ECG, with sinus arrhythmia. No acute abnormality."
+    }
+  }
+}

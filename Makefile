@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -20,6 +20,7 @@ help:
 	@echo "  benchmark   Phase 9 latency/throughput benchmark -> docs/serving/benchmark.md"
 	@echo "  digitize-eval Phase 10 image-digitization fidelity -> docs/digitization/report.md"
 	@echo "  eval-baselines Phase 12 test-split eval vs published PTB-XL + GPT-4o -> docs/model_comparison/"
+	@echo "  edge-cases  Phase 13 adversarial/edge-case cohorts + failure taxonomy -> docs/edge_cases/"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
 	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
@@ -81,6 +82,9 @@ digitize-eval:
 eval-baselines:
 	python scripts/eval_baselines.py
 	python scripts/gpt4o_baseline.py
+
+edge-cases:
+	python scripts/edge_case_report.py
 
 wandb-init:
 	python scripts/init_wandb.py

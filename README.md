@@ -241,7 +241,16 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   is what domain-specific training buys. Eval notebook
   [`notebooks/03_baseline_comparison.ipynb`](notebooks/03_baseline_comparison.ipynb),
   tables in [`docs/model_comparison/`](docs/model_comparison/baseline_comparison.md). ✅
-- Phase 13+: calibration.
+- **Phase 13:** adversarial & edge-case testing — five curated hard-case cohorts from the
+  test split (significant artifact, borderline-confidence, rare labels, multi-condition,
+  and plain-normal ECGs), measured at the *shipped* surfacing rule rather than a tuned
+  optimum. Failure-mode taxonomy (F1–F6), concrete example records run through the full
+  pipeline, and deployment guardrails in
+  [`docs/edge_cases/report.md`](docs/edge_cases/report.md). Headline: label recall falls
+  from 84% overall to **73% on the rarest labels** and 79% under whole-record noise; 32%
+  of all misses sit silently in 0.35–0.5; and the model over-flags heavily at threshold
+  0.5 — which is a **calibration** problem, not a ranking one. ✅
+- Phase 14+: calibration (the direct follow-up to Phase 13's over-flagging finding).
 
 ## Benchmark comparison (PTB-XL test split)
 
