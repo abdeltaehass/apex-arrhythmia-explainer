@@ -1,0 +1,129 @@
+{
+  "model": "APEX (cnn_bce)",
+  "split": "PTB-XL test (fold 10)",
+  "n_test": 2198,
+  "n_bootstrap": 200,
+  "common_label_count_sex": 64,
+  "common_label_count_age": 26,
+  "sex": {
+    "subgroups": [
+      {
+        "group": "male",
+        "n": 1132,
+        "macro_auroc": 0.925,
+        "ci_low": 0.9144,
+        "ci_high": 0.9337,
+        "n_labels": 64,
+        "reliable": true
+      },
+      {
+        "group": "female",
+        "n": 1066,
+        "macro_auroc": 0.9062,
+        "ci_low": 0.8964,
+        "ci_high": 0.919,
+        "n_labels": 64,
+        "reliable": true
+      }
+    ],
+    "gap": {
+      "gap_male_minus_female": 0.0188,
+      "ci_low": 0.0044,
+      "ci_high": 0.0325,
+      "significant": true
+    },
+    "superclass_auroc": {
+      "male": {
+        "NORM": 0.9413,
+        "MI": 0.8983,
+        "STTC": 0.9341,
+        "CD": 0.9043,
+        "HYP": 0.8182,
+        "macro": 0.8993
+      },
+      "female": {
+        "NORM": 0.9287,
+        "MI": 0.8823,
+        "STTC": 0.8913,
+        "CD": 0.8892,
+        "HYP": 0.8375,
+        "macro": 0.8858
+      }
+    }
+  },
+  "age": {
+    "subgroups": [
+      {
+        "group": "<18",
+        "n": 13,
+        "macro_auroc": 0.7414,
+        "ci_low": 0.6257,
+        "ci_high": 0.8192,
+        "n_labels": 26,
+        "reliable": false
+      },
+      {
+        "group": "18-39",
+        "n": 271,
+        "macro_auroc": 0.9057,
+        "ci_low": 0.8757,
+        "ci_high": 0.9254,
+        "n_labels": 26,
+        "reliable": true
+      },
+      {
+        "group": "40-59",
+        "n": 641,
+        "macro_auroc": 0.9026,
+        "ci_low": 0.8838,
+        "ci_high": 0.9192,
+        "n_labels": 26,
+        "reliable": true
+      },
+      {
+        "group": "60-74",
+        "n": 721,
+        "macro_auroc": 0.8891,
+        "ci_low": 0.8786,
+        "ci_high": 0.9165,
+        "n_labels": 26,
+        "reliable": true
+      },
+      {
+        "group": "75+",
+        "n": 518,
+        "macro_auroc": 0.8639,
+        "ci_low": 0.8458,
+        "ci_high": 0.8786,
+        "n_labels": 26,
+        "reliable": true
+      }
+    ],
+    "gap": {
+      "best": "18-39",
+      "worst": "75+",
+      "gap": 0.0417,
+      "ci_low": 0.0065,
+      "ci_high": 0.0683,
+      "significant": true
+    },
+    "max_gap_reliable": 0.0417
+  },
+  "out_of_scope_coverage": {
+    "n_records_total": 21799,
+    "pediatric_under_18": {
+      "total": 133,
+      "share": 0.0061,
+      "train": 111,
+      "test": 13,
+      "youngest_age_in_dataset": 2.0
+    },
+    "pacemaker_PACE": {
+      "total": 294,
+      "share": 0.01349,
+      "train": 237,
+      "test": 28
+    },
+    "age_sentinel_300_over_89": 293
+  }
+}

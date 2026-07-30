@@ -8,6 +8,10 @@ review — **designed to assist clinicians, not replace them.**
 > ⚠️ Decision support only. Not a diagnostic device. Verify every output against the
 > full clinical picture.
 
+📋 **Read [`MODEL_CARD.md`](MODEL_CARD.md) before using this** — intended use,
+out-of-scope populations, measured limitations, privacy, and the demographic
+performance breakdown (including a documented sex disparity).
+
 See [`docs/problem_statement.md`](docs/problem_statement.md) for scope and
 [`docs/target_metrics.md`](docs/target_metrics.md) for the metrics we track.
 
@@ -250,7 +254,14 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   from 84% overall to **73% on the rarest labels** and 79% under whole-record noise; 32%
   of all misses sit silently in 0.35–0.5; and the model over-flags heavily at threshold
   0.5 — which is a **calibration** problem, not a ranking one. ✅
-- Phase 14+: calibration (the direct follow-up to Phase 13's over-flagging finding).
+- **Phase 14:** model card & ethics statement — a full Hugging Face
+  [`MODEL_CARD.md`](MODEL_CARD.md) (intended use, out-of-scope populations, known
+  limitations, privacy/HIPAA, ethics) backed by a measured **demographic breakdown**
+  ([`docs/model_card/demographics.md`](docs/model_card/demographics.md)). The breakdown
+  found **real disparities in both dimensions**: macro-AUROC is **0.925 male vs 0.906
+  female** (gap +0.019, 95% CI +0.004–+0.033) and declines monotonically with age
+  (0.906 at 18–39 → 0.864 at 75+). Both CIs exclude zero. Documented, not corrected. ✅
+- Phase 15+: calibration (the direct follow-up to Phase 13's over-flagging finding).
 
 ## Benchmark comparison (PTB-XL test split)
 
