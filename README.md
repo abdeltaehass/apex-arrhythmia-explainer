@@ -12,6 +12,9 @@ review — **designed to assist clinicians, not replace them.**
 out-of-scope populations, measured limitations, privacy, and the demographic
 performance breakdown (including a documented sex disparity).
 
+📝 **[Technical write-up](docs/writeup/technical_post.md)** — how it's built, what it
+scores against published baselines, and every failure mode I found.
+
 See [`docs/problem_statement.md`](docs/problem_statement.md) for scope and
 [`docs/target_metrics.md`](docs/target_metrics.md) for the metrics we track.
 
@@ -261,7 +264,12 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   found **real disparities in both dimensions**: macro-AUROC is **0.925 male vs 0.906
   female** (gap +0.019, 95% CI +0.004–+0.033) and declines monotonically with age
   (0.906 at 18–39 → 0.864 at 75+). Both CIs exclude zero. Documented, not corrected. ✅
-- Phase 15+: calibration (the direct follow-up to Phase 13's over-flagging finding).
+- **Phase 15:** technical write-up — a full engineering post covering the clinical problem
+  (with citations), the architecture, the reliability layer, results vs published
+  baselines, the honest failure analysis, and what's next:
+  [`docs/writeup/technical_post.md`](docs/writeup/technical_post.md). LinkedIn cross-post
+  and publishing notes in [`docs/writeup/linkedin_post.md`](docs/writeup/linkedin_post.md). ✅
+- Phase 16+: calibration (the direct follow-up to Phase 13's over-flagging finding).
 
 ## Benchmark comparison (PTB-XL test split)
 
