@@ -140,6 +140,75 @@ def severity_banner_html(level: str, urgent: list[str] | None = None) -> str:
     )
 
 
+def stream_panel_html(update, truth: set[str] | None = None,
+                      descriptions: dict[str, str] | None = None) -> str:
+    """Live-monitor findings panel for a :class:`~src.streaming.StreamUpdate`.
+
+    Two tiers, matching how the monitor actually works: **confirmed** findings have
+    persisted across windows, **pending** ones cleared threshold but haven't held yet.
+    A confirmed finding that has stopped firing is marked *fading* rather than silently
+    kept at full weight — otherwise a collapsed confidence on a confirmed row reads as a
+    bug to whoever is watching.
+    """
+    truth = truth or set()
+    descriptions = descriptions or {}
+
+    def row(f, confirmed: bool) -> str:
+        fading = confirmed and f.releasing(update.confirm_k)
+        colour = "#b3261e" if f.urgent else ("#8a6d00" if confirmed else "#666")
+        opacity = "0.55" if fading else "1"
+        tick = ("✓" if f.code in truth else "?") if truth else ""
+        tip = ("in this record's ground truth" if f.code in truth
+               else "not in ground truth — likely over-flag")
+        note = ' <span style="color:#999;font-size:11px">fading</span>' if fading else ""
+        return (
+            f'<div style="display:flex;align-items:center;gap:8px;padding:4px 0;'
+            f'opacity:{opacity}">'
+            f'<b style="color:{colour};min-width:66px;font-family:monospace">{f.code}</b>'
+            f'{_confidence_bar(f.confidence, colour)}'
+            f'<span style="font-size:11px;color:#888">held {f.hits}/{f.window_of}</span>'
+            f'{note}'
+            f'<span title="{tip}" style="font-size:12px;color:#888">{tick}</span>'
+            f'<span style="font-size:11px;color:#aaa;overflow:hidden;white-space:nowrap;'
+            f'text-overflow:ellipsis">{_html.escape(descriptions.get(f.code, ""))[:44]}</span>'
+            f'</div>'
+        )
+
+    conf = "".join(row(f, True) for f in update.confirmed) or \
+        '<div style="color:#999;font-size:13px">— none —</div>'
+    pend = "".join(row(f, False) for f in update.pending[:6]) or \
+        '<div style="color:#999;font-size:13px">— none —</div>'
+
+    return (
+        f'<div style="font-size:12px;color:#666;margin-bottom:6px">'
+        f'stream <b>{update.t_s:.0f}s</b> · window {update.window_s:.0f}s · '
+        f'inference {update.latency_ms:.1f} ms</div>'
+        f'<div style="font-weight:700;font-size:13px;margin-top:8px">CONFIRMED '
+        f'<span style="font-weight:400;color:#888">(persisted across windows)</span></div>'
+        f'{conf}'
+        f'<div style="font-weight:700;font-size:13px;margin-top:12px">PENDING '
+        f'<span style="font-weight:400;color:#888">(seen, not yet persistent)</span></div>'
+        f'{pend}'
+    )
+
+
+def stream_events_html(log: list) -> str:
+    """Reverse-chronological onset/offset log for the live monitor."""
+    if not log:
+        return '<div style="color:#999;font-size:13px">No events yet.</div>'
+    rows = []
+    for e in reversed(log[-12:]):
+        onset = e.kind == "onset"
+        colour = "#b3261e" if e.urgent else ("#0b6b3a" if onset else "#888")
+        verb = "ONSET" if onset else "resolved"
+        rows.append(
+            f'<div style="font-family:monospace;font-size:12px;padding:2px 0;color:{colour}">'
+            f'[{e.t_s:6.1f}s] {verb} <b>{e.code}</b> '
+            f'<span style="color:#aaa">({e.confidence:.2f})</span></div>'
+        )
+    return "".join(rows)
+
+
 def report_html(report: APEXReport, colors: dict[str, str] | None = None) -> str:
     """Right-panel report: findings with confidence bars + flags, impression, explanation."""
     colors = colors or finding_colors([f.label for f in report.findings])

@@ -1,0 +1,2978 @@
+{
+  "summary": {
+    "n_records": 40,
+    "stream_seconds_each": 40.0,
+    "hop_s": 1.0,
+    "confirm_k": 3,
+    "confirm_m": 5,
+    "updates_per_record": 31.0,
+    "naive": {
+      "spurious_per_record": 9.675,
+      "panel_changes_per_record": 24.35,
+      "true_recall": 0.8908
+    },
+    "persistent": {
+      "spurious_per_record": 7.55,
+      "panel_changes_per_record": 5.725,
+      "true_recall": 0.8487
+    },
+    "mean_confirm_lag_s": 3.3207865100209815,
+    "median_latency_ms": 6.625401075024229,
+    "p95_latency_ms": 7.342029749983681,
+    "cold_latency_ms": 775.1522080000086,
+    "records_with_missed_urgent": 1,
+    "spurious_reduction": 0.2196,
+    "churn_reduction": 0.7649,
+    "realtime_headroom_x": 150.9
+  },
+  "sweep": [
+    {
+      "confirm_k": 1,
+      "confirm_m": 5,
+      "n_records": 20,
+      "panel_changes_per_record": 10.35,
+      "spurious_per_record": 8.55,
+      "true_recall": 0.8571,
+      "mean_confirm_lag_s": 0.0
+    },
+    {
+      "confirm_k": 2,
+      "confirm_m": 5,
+      "n_records": 20,
+      "panel_changes_per_record": 7.4,
+      "spurious_per_record": 7.4,
+      "true_recall": 0.8393,
+      "mean_confirm_lag_s": 2.2983705530580534
+    },
+    {
+      "confirm_k": 3,
+      "confirm_m": 5,
+      "n_records": 20,
+      "panel_changes_per_record": 5.7,
+      "spurious_per_record": 6.6,
+      "true_recall": 0.8214,
+      "mean_confirm_lag_s": 3.5156261574682626
+    },
+    {
+      "confirm_k": 4,
+      "confirm_m": 5,
+      "n_records": 20,
+      "panel_changes_per_record": 4.1,
+      "spurious_per_record": 5.5,
+      "true_recall": 0.7857,
+      "mean_confirm_lag_s": 4.747127074314575
+    }
+  ],
+  "records": [
+    {
+      "ecg_id": 16905,
+      "n_updates": 31,
+      "truth": [
+        "AFIB",
+        "AMI",
+        "IMI",
+        "INJLA",
+        "LOWT",
+        "STD_"
+      ],
+      "naive_seen": [
+        "3AVB",
+        "ABQRS",
+        "AFIB",
+        "AMI",
+        "ASMI",
+        "DIG",
+        "IMI",
+        "INVT",
+        "IPMI",
+        "IRBBB",
+        "ISCAL",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "ABQRS",
+        "AFIB",
+        "AMI",
+        "ASMI",
+        "DIG",
+        "IMI",
+        "IPMI",
+        "IRBBB",
+        "ISCAL",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "STD_",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "3AVB",
+        "ABQRS",
+        "ASMI",
+        "DIG",
+        "INVT",
+        "IPMI",
+        "IRBBB",
+        "ISCAL",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "ABQRS",
+        "ASMI",
+        "DIG",
+        "IPMI",
+        "IRBBB",
+        "ISCAL",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "AFIB",
+        "AMI",
+        "IMI",
+        "LOWT",
+        "STD_"
+      ],
+      "confirmed_true_hits": [
+        "AFIB",
+        "AMI",
+        "IMI",
+        "LOWT",
+        "STD_"
+      ],
+      "naive_churn": 31,
+      "confirmed_churn": 9,
+      "missed_urgent": [
+        "INJLA"
+      ],
+      "median_latency_ms": 5.617333999907714,
+      "p95_latency_ms": 6.091458500009139,
+      "cold_latency_ms": 775.1522080000086,
+      "mean_confirm_lag_s": 2.8214285714285716
+    },
+    {
+      "ecg_id": 1632,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "EL",
+        "LAFB",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NORM",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH",
+        "SR",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "LOWT",
+        "NDT",
+        "NT_",
+        "SARRH",
+        "SR",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "EL",
+        "LAFB",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "LOWT",
+        "NDT",
+        "NT_",
+        "SARRH",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "SR"
+      ],
+      "naive_churn": 28,
+      "confirmed_churn": 7,
+      "missed_urgent": [],
+      "median_latency_ms": 5.728207999936785,
+      "p95_latency_ms": 6.587374999980966,
+      "cold_latency_ms": 6.658000000015818,
+      "mean_confirm_lag_s": 4.708333333333333
+    },
+    {
+      "ecg_id": 18473,
+      "n_updates": 31,
+      "truth": [
+        "LVOLT",
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "EL",
+        "LVOLT",
+        "NDT",
+        "NORM",
+        "NT_",
+        "SARRH",
+        "SBRAD",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "EL",
+        "LVOLT",
+        "NDT",
+        "NORM",
+        "NT_",
+        "SBRAD",
+        "SR"
+      ],
+      "naive_spurious": [
+        "EL",
+        "NDT",
+        "NT_",
+        "SARRH",
+        "SBRAD"
+      ],
+      "confirmed_spurious": [
+        "EL",
+        "NDT",
+        "NT_",
+        "SBRAD"
+      ],
+      "naive_true_hits": [
+        "LVOLT",
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "LVOLT",
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 22,
+      "confirmed_churn": 5,
+      "missed_urgent": [],
+      "median_latency_ms": 5.807833000062601,
+      "p95_latency_ms": 6.50283350000791,
+      "cold_latency_ms": 6.637833000013416,
+      "mean_confirm_lag_s": 3.892857142857143
+    },
+    {
+      "ecg_id": 3484,
+      "n_updates": 31,
+      "truth": [
+        "CLBBB",
+        "ISCAL",
+        "SBRAD"
+      ],
+      "naive_seen": [
+        "1AVB",
+        "AFIB",
+        "ASMI",
+        "CLBBB",
+        "ILBBB",
+        "ISCAL",
+        "ISC_",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LVH",
+        "PAC",
+        "PACE",
+        "PVC",
+        "SBRAD",
+        "SVARR"
+      ],
+      "confirmed_seen": [
+        "1AVB",
+        "AFIB",
+        "ASMI",
+        "CLBBB",
+        "ISCAL",
+        "ISC_",
+        "IVCD",
+        "LAFB",
+        "LVH",
+        "PAC",
+        "PVC",
+        "SBRAD",
+        "SVARR"
+      ],
+      "naive_spurious": [
+        "1AVB",
+        "AFIB",
+        "ASMI",
+        "ILBBB",
+        "ISC_",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LVH",
+        "PAC",
+        "PACE",
+        "PVC",
+        "SVARR"
+      ],
+      "confirmed_spurious": [
+        "1AVB",
+        "AFIB",
+        "ASMI",
+        "ISC_",
+        "IVCD",
+        "LAFB",
+        "LVH",
+        "PAC",
+        "PVC",
+        "SVARR"
+      ],
+      "naive_true_hits": [
+        "CLBBB",
+        "ISCAL",
+        "SBRAD"
+      ],
+      "confirmed_true_hits": [
+        "CLBBB",
+        "ISCAL",
+        "SBRAD"
+      ],
+      "naive_churn": 27,
+      "confirmed_churn": 7,
+      "missed_urgent": [],
+      "median_latency_ms": 5.970292000029076,
+      "p95_latency_ms": 6.4929999999776555,
+      "cold_latency_ms": 7.059291000132362,
+      "mean_confirm_lag_s": 2.1538461538461537
+    },
+    {
+      "ecg_id": 1093,
+      "n_updates": 31,
+      "truth": [
+        "CRBBB",
+        "IMI",
+        "LPR",
+        "NST_",
+        "SR"
+      ],
+      "naive_seen": [
+        "1AVB",
+        "ABQRS",
+        "AFIB",
+        "ALMI",
+        "AMI",
+        "ASMI",
+        "CRBBB",
+        "DIG",
+        "ILMI",
+        "IMI",
+        "INJIN",
+        "IPLMI",
+        "IPMI",
+        "IRBBB",
+        "ISCIN",
+        "IVCD",
+        "LMI",
+        "LPFB",
+        "NST_",
+        "QWAVE",
+        "RVH",
+        "STD_",
+        "SVARR",
+        "WPW"
+      ],
+      "confirmed_seen": [
+        "1AVB",
+        "ABQRS",
+        "AFIB",
+        "AMI",
+        "ASMI",
+        "CRBBB",
+        "DIG",
+        "ILMI",
+        "IMI",
+        "IPMI",
+        "IRBBB",
+        "IVCD",
+        "LMI",
+        "LPFB",
+        "NST_",
+        "QWAVE",
+        "RVH",
+        "STD_",
+        "SVARR"
+      ],
+      "naive_spurious": [
+        "1AVB",
+        "ABQRS",
+        "AFIB",
+        "ALMI",
+        "AMI",
+        "ASMI",
+        "DIG",
+        "ILMI",
+        "INJIN",
+        "IPLMI",
+        "IPMI",
+        "IRBBB",
+        "ISCIN",
+        "IVCD",
+        "LMI",
+        "LPFB",
+        "QWAVE",
+        "RVH",
+        "STD_",
+        "SVARR",
+        "WPW"
+      ],
+      "confirmed_spurious": [
+        "1AVB",
+        "ABQRS",
+        "AFIB",
+        "AMI",
+        "ASMI",
+        "DIG",
+        "ILMI",
+        "IPMI",
+        "IRBBB",
+        "IVCD",
+        "LMI",
+        "LPFB",
+        "QWAVE",
+        "RVH",
+        "STD_",
+        "SVARR"
+      ],
+      "naive_true_hits": [
+        "CRBBB",
+        "IMI",
+        "NST_"
+      ],
+      "confirmed_true_hits": [
+        "CRBBB",
+        "IMI",
+        "NST_"
+      ],
+      "naive_churn": 31,
+      "confirmed_churn": 10,
+      "missed_urgent": [],
+      "median_latency_ms": 6.021750000172688,
+      "p95_latency_ms": 6.584833500028253,
+      "cold_latency_ms": 6.542167000134214,
+      "mean_confirm_lag_s": 4.342105263157895
+    },
+    {
+      "ecg_id": 19287,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "ISCIN",
+        "NDT",
+        "NORM",
+        "NST_",
+        "SARRH",
+        "SBRAD"
+      ],
+      "confirmed_seen": [
+        "NDT",
+        "NORM",
+        "SARRH",
+        "SBRAD"
+      ],
+      "naive_spurious": [
+        "ISCIN",
+        "NDT",
+        "NST_",
+        "SARRH",
+        "SBRAD"
+      ],
+      "confirmed_spurious": [
+        "NDT",
+        "SARRH",
+        "SBRAD"
+      ],
+      "naive_true_hits": [
+        "NORM"
+      ],
+      "confirmed_true_hits": [
+        "NORM"
+      ],
+      "naive_churn": 23,
+      "confirmed_churn": 2,
+      "missed_urgent": [],
+      "median_latency_ms": 6.4082499998221465,
+      "p95_latency_ms": 7.084707999865714,
+      "cold_latency_ms": 6.0603330000503774,
+      "mean_confirm_lag_s": 2.0
+    },
+    {
+      "ecg_id": 20301,
+      "n_updates": 31,
+      "truth": [
+        "ABQRS",
+        "ASMI",
+        "CRBBB",
+        "LAFB",
+        "SR"
+      ],
+      "naive_seen": [
+        "1AVB",
+        "ABQRS",
+        "ALMI",
+        "AMI",
+        "ASMI",
+        "CRBBB",
+        "ILMI",
+        "INVT",
+        "IRBBB",
+        "ISCAL",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LMI",
+        "LPFB",
+        "LPR",
+        "NST_",
+        "QWAVE",
+        "RVH",
+        "SR",
+        "STD_",
+        "SVARR",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "1AVB",
+        "ABQRS",
+        "ALMI",
+        "AMI",
+        "ASMI",
+        "CRBBB",
+        "IRBBB",
+        "ISCAL",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LMI",
+        "LPR",
+        "NST_",
+        "QWAVE",
+        "RVH",
+        "SR",
+        "SVARR",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "1AVB",
+        "ALMI",
+        "AMI",
+        "ILMI",
+        "INVT",
+        "IRBBB",
+        "ISCAL",
+        "IVCD",
+        "LAO/LAE",
+        "LMI",
+        "LPFB",
+        "LPR",
+        "NST_",
+        "QWAVE",
+        "RVH",
+        "STD_",
+        "SVARR",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "1AVB",
+        "ALMI",
+        "AMI",
+        "IRBBB",
+        "ISCAL",
+        "IVCD",
+        "LAO/LAE",
+        "LMI",
+        "LPR",
+        "NST_",
+        "QWAVE",
+        "RVH",
+        "SVARR",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "ABQRS",
+        "ASMI",
+        "CRBBB",
+        "LAFB",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "ABQRS",
+        "ASMI",
+        "CRBBB",
+        "LAFB",
+        "SR"
+      ],
+      "naive_churn": 30,
+      "confirmed_churn": 12,
+      "missed_urgent": [],
+      "median_latency_ms": 6.310917000064364,
+      "p95_latency_ms": 6.832124999959888,
+      "cold_latency_ms": 7.016416999931607,
+      "mean_confirm_lag_s": 4.381578947368421
+    },
+    {
+      "ecg_id": 1618,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "NORM",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "NORM",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "SARRH"
+      ],
+      "confirmed_spurious": [
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 11,
+      "confirmed_churn": 4,
+      "missed_urgent": [],
+      "median_latency_ms": 6.880000000137443,
+      "p95_latency_ms": 7.5037504999500015,
+      "cold_latency_ms": 8.393415999989884,
+      "mean_confirm_lag_s": 2.6666666666666665
+    },
+    {
+      "ecg_id": 8541,
+      "n_updates": 31,
+      "truth": [
+        "HVOLT",
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "HVOLT",
+        "IRBBB",
+        "IVCD",
+        "LVH",
+        "NORM",
+        "PAC",
+        "QWAVE",
+        "SARRH",
+        "SR",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "HVOLT",
+        "IRBBB",
+        "LVH",
+        "NORM",
+        "SR",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "IRBBB",
+        "IVCD",
+        "LVH",
+        "PAC",
+        "QWAVE",
+        "SARRH",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "IRBBB",
+        "LVH",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "HVOLT",
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "HVOLT",
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 23,
+      "confirmed_churn": 2,
+      "missed_urgent": [],
+      "median_latency_ms": 6.913999999824227,
+      "p95_latency_ms": 7.501437499968233,
+      "cold_latency_ms": 7.5010000000474975,
+      "mean_confirm_lag_s": 4.875
+    },
+    {
+      "ecg_id": 13926,
+      "n_updates": 31,
+      "truth": [
+        "IRBBB",
+        "SR"
+      ],
+      "naive_seen": [
+        "CRBBB",
+        "IRBBB",
+        "LPFB",
+        "RVH",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "CRBBB",
+        "IRBBB",
+        "RVH",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "CRBBB",
+        "LPFB",
+        "RVH",
+        "SARRH"
+      ],
+      "confirmed_spurious": [
+        "CRBBB",
+        "RVH",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "IRBBB",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "IRBBB",
+        "SR"
+      ],
+      "naive_churn": 12,
+      "confirmed_churn": 3,
+      "missed_urgent": [],
+      "median_latency_ms": 7.190875000105734,
+      "p95_latency_ms": 7.852062499978274,
+      "cold_latency_ms": 7.532540999818593,
+      "mean_confirm_lag_s": 2.2
+    },
+    {
+      "ecg_id": 10675,
+      "n_updates": 31,
+      "truth": [
+        "ISCLA",
+        "STACH"
+      ],
+      "naive_seen": [
+        "AMI",
+        "IMI",
+        "ISCAN",
+        "ISCLA",
+        "IVCD",
+        "LAO/LAE",
+        "LNGQT",
+        "LVOLT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "PVC",
+        "RAO/RAE",
+        "STACH",
+        "STD_",
+        "TAB_"
+      ],
+      "confirmed_seen": [
+        "AMI",
+        "IMI",
+        "ISCAN",
+        "ISCLA",
+        "IVCD",
+        "LAO/LAE",
+        "LNGQT",
+        "LVOLT",
+        "NDT",
+        "NST_",
+        "PAC",
+        "PVC",
+        "RAO/RAE",
+        "STACH",
+        "STD_"
+      ],
+      "naive_spurious": [
+        "AMI",
+        "IMI",
+        "ISCAN",
+        "IVCD",
+        "LAO/LAE",
+        "LNGQT",
+        "LVOLT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "PVC",
+        "RAO/RAE",
+        "STD_",
+        "TAB_"
+      ],
+      "confirmed_spurious": [
+        "AMI",
+        "IMI",
+        "ISCAN",
+        "IVCD",
+        "LAO/LAE",
+        "LNGQT",
+        "LVOLT",
+        "NDT",
+        "NST_",
+        "PAC",
+        "PVC",
+        "RAO/RAE",
+        "STD_"
+      ],
+      "naive_true_hits": [
+        "ISCLA",
+        "STACH"
+      ],
+      "confirmed_true_hits": [
+        "ISCLA",
+        "STACH"
+      ],
+      "naive_churn": 31,
+      "confirmed_churn": 7,
+      "missed_urgent": [],
+      "median_latency_ms": 6.872459000078379,
+      "p95_latency_ms": 7.489979499951005,
+      "cold_latency_ms": 7.282750000058513,
+      "mean_confirm_lag_s": 4.083333333333333
+    },
+    {
+      "ecg_id": 1494,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "NORM",
+        "PVC",
+        "SARRH",
+        "SBRAD"
+      ],
+      "confirmed_seen": [
+        "NORM",
+        "PVC",
+        "SARRH",
+        "SBRAD"
+      ],
+      "naive_spurious": [
+        "PVC",
+        "SARRH",
+        "SBRAD"
+      ],
+      "confirmed_spurious": [
+        "PVC",
+        "SARRH",
+        "SBRAD"
+      ],
+      "naive_true_hits": [
+        "NORM"
+      ],
+      "confirmed_true_hits": [
+        "NORM"
+      ],
+      "naive_churn": 11,
+      "confirmed_churn": 4,
+      "missed_urgent": [],
+      "median_latency_ms": 7.073083000022962,
+      "p95_latency_ms": 8.061333499995271,
+      "cold_latency_ms": 7.8988750001371955,
+      "mean_confirm_lag_s": 3.0
+    },
+    {
+      "ecg_id": 8507,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "STACH"
+      ],
+      "naive_seen": [
+        "IVCD",
+        "LAO/LAE",
+        "LMI",
+        "LVOLT",
+        "NDT",
+        "NORM",
+        "NST_",
+        "NT_",
+        "PAC",
+        "PVC",
+        "RAO/RAE",
+        "STACH",
+        "STD_"
+      ],
+      "confirmed_seen": [
+        "IVCD",
+        "LAO/LAE",
+        "LMI",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "PVC",
+        "RAO/RAE",
+        "STACH",
+        "STD_"
+      ],
+      "naive_spurious": [
+        "IVCD",
+        "LAO/LAE",
+        "LMI",
+        "LVOLT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "PVC",
+        "RAO/RAE",
+        "STD_"
+      ],
+      "confirmed_spurious": [
+        "IVCD",
+        "LAO/LAE",
+        "LMI",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "PVC",
+        "RAO/RAE",
+        "STD_"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "STACH"
+      ],
+      "confirmed_true_hits": [
+        "STACH"
+      ],
+      "naive_churn": 29,
+      "confirmed_churn": 7,
+      "missed_urgent": [],
+      "median_latency_ms": 7.138209000004281,
+      "p95_latency_ms": 7.792666999989706,
+      "cold_latency_ms": 8.105792000151268,
+      "mean_confirm_lag_s": 4.681818181818182
+    },
+    {
+      "ecg_id": 12709,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "LVOLT",
+        "NDT",
+        "NORM",
+        "SBRAD",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "LVOLT",
+        "NDT",
+        "NORM",
+        "SBRAD",
+        "SR"
+      ],
+      "naive_spurious": [
+        "LVOLT",
+        "NDT",
+        "SBRAD"
+      ],
+      "confirmed_spurious": [
+        "LVOLT",
+        "NDT",
+        "SBRAD"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 18,
+      "confirmed_churn": 2,
+      "missed_urgent": [],
+      "median_latency_ms": 7.473417000028348,
+      "p95_latency_ms": 8.02708299988808,
+      "cold_latency_ms": 8.783750000020518,
+      "mean_confirm_lag_s": 2.2
+    },
+    {
+      "ecg_id": 8147,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "IVCD",
+        "LVOLT",
+        "NORM",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "IVCD",
+        "LVOLT",
+        "NORM",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "IVCD",
+        "LVOLT",
+        "SARRH"
+      ],
+      "confirmed_spurious": [
+        "IVCD",
+        "LVOLT",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 22,
+      "confirmed_churn": 6,
+      "missed_urgent": [],
+      "median_latency_ms": 7.137292000152229,
+      "p95_latency_ms": 7.8271454999594425,
+      "cold_latency_ms": 7.844499999919208,
+      "mean_confirm_lag_s": 4.5
+    },
+    {
+      "ecg_id": 2210,
+      "n_updates": 31,
+      "truth": [
+        "INVT",
+        "LOWT",
+        "NDT",
+        "SR"
+      ],
+      "naive_seen": [
+        "ALMI",
+        "EL",
+        "ILMI",
+        "IRBBB",
+        "ISCAS",
+        "LNGQT",
+        "LOWT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "EL",
+        "ISCAS",
+        "LNGQT",
+        "LOWT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "ALMI",
+        "EL",
+        "ILMI",
+        "IRBBB",
+        "ISCAS",
+        "LNGQT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH"
+      ],
+      "confirmed_spurious": [
+        "EL",
+        "ISCAS",
+        "LNGQT",
+        "NST_",
+        "NT_",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "LOWT",
+        "NDT",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "LOWT",
+        "NDT",
+        "SR"
+      ],
+      "naive_churn": 23,
+      "confirmed_churn": 6,
+      "missed_urgent": [],
+      "median_latency_ms": 7.352291999950467,
+      "p95_latency_ms": 7.997229500006142,
+      "cold_latency_ms": 8.387791000131983,
+      "mean_confirm_lag_s": 2.5555555555555554
+    },
+    {
+      "ecg_id": 3875,
+      "n_updates": 31,
+      "truth": [
+        "ABQRS",
+        "AMI",
+        "SR"
+      ],
+      "naive_seen": [
+        "AMI",
+        "ASMI",
+        "NORM",
+        "SARRH",
+        "SR",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "AMI",
+        "ASMI",
+        "NORM",
+        "SARRH",
+        "SR",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "ASMI",
+        "NORM",
+        "SARRH",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "ASMI",
+        "NORM",
+        "SARRH",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "AMI",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "AMI",
+        "SR"
+      ],
+      "naive_churn": 28,
+      "confirmed_churn": 5,
+      "missed_urgent": [],
+      "median_latency_ms": 7.2877909999533586,
+      "p95_latency_ms": 7.888542000046073,
+      "cold_latency_ms": 7.836207999844191,
+      "mean_confirm_lag_s": 3.875
+    },
+    {
+      "ecg_id": 12577,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR",
+        "VCLVH"
+      ],
+      "naive_seen": [
+        "IMI",
+        "NORM",
+        "QWAVE",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "IMI",
+        "NORM",
+        "QWAVE",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "IMI",
+        "QWAVE",
+        "SARRH"
+      ],
+      "confirmed_spurious": [
+        "IMI",
+        "QWAVE",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 22,
+      "confirmed_churn": 5,
+      "missed_urgent": [],
+      "median_latency_ms": 7.3752089999743475,
+      "p95_latency_ms": 7.949896000013723,
+      "cold_latency_ms": 7.802000000083353,
+      "mean_confirm_lag_s": 2.4
+    },
+    {
+      "ecg_id": 9744,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "HVOLT",
+        "LVH",
+        "NORM",
+        "SR",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "HVOLT",
+        "LVH",
+        "NORM",
+        "SR",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "HVOLT",
+        "LVH",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "HVOLT",
+        "LVH",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 23,
+      "confirmed_churn": 2,
+      "missed_urgent": [],
+      "median_latency_ms": 6.566374999920299,
+      "p95_latency_ms": 7.05454199999167,
+      "cold_latency_ms": 7.876333000012892,
+      "mean_confirm_lag_s": 3.85
+    },
+    {
+      "ecg_id": 17297,
+      "n_updates": 31,
+      "truth": [
+        "LAFB"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "AMI",
+        "IMI",
+        "IRBBB",
+        "IVCD",
+        "LAFB",
+        "LVOLT",
+        "NORM",
+        "PAC",
+        "QWAVE",
+        "SARRH",
+        "SBRAD",
+        "SR",
+        "TAB_"
+      ],
+      "confirmed_seen": [
+        "ABQRS",
+        "AMI",
+        "IMI",
+        "IVCD",
+        "LAFB",
+        "LVOLT",
+        "NORM",
+        "SARRH",
+        "SBRAD",
+        "SR"
+      ],
+      "naive_spurious": [
+        "ABQRS",
+        "AMI",
+        "IMI",
+        "IRBBB",
+        "IVCD",
+        "LVOLT",
+        "NORM",
+        "PAC",
+        "QWAVE",
+        "SARRH",
+        "SBRAD",
+        "SR",
+        "TAB_"
+      ],
+      "confirmed_spurious": [
+        "ABQRS",
+        "AMI",
+        "IMI",
+        "IVCD",
+        "LVOLT",
+        "NORM",
+        "SARRH",
+        "SBRAD",
+        "SR"
+      ],
+      "naive_true_hits": [
+        "LAFB"
+      ],
+      "confirmed_true_hits": [
+        "LAFB"
+      ],
+      "naive_churn": 31,
+      "confirmed_churn": 9,
+      "missed_urgent": [],
+      "median_latency_ms": 6.23025000004418,
+      "p95_latency_ms": 6.750645499892016,
+      "cold_latency_ms": 7.229542000004585,
+      "mean_confirm_lag_s": 5.125
+    },
+    {
+      "ecg_id": 14382,
+      "n_updates": 31,
+      "truth": [
+        "AFIB",
+        "IMI",
+        "LVOLT",
+        "QWAVE"
+      ],
+      "naive_seen": [
+        "1AVB",
+        "ABQRS",
+        "AFIB",
+        "AFLT",
+        "ALMI",
+        "AMI",
+        "ASMI",
+        "ILMI",
+        "IMI",
+        "IVCD",
+        "LAFB",
+        "LVOLT",
+        "NST_",
+        "PVC",
+        "QWAVE",
+        "STACH",
+        "SVARR",
+        "SVTAC"
+      ],
+      "confirmed_seen": [
+        "1AVB",
+        "ABQRS",
+        "AFIB",
+        "AFLT",
+        "ALMI",
+        "AMI",
+        "ASMI",
+        "ILMI",
+        "IMI",
+        "IVCD",
+        "LAFB",
+        "LVOLT",
+        "NST_",
+        "QWAVE",
+        "STACH",
+        "SVARR",
+        "SVTAC"
+      ],
+      "naive_spurious": [
+        "1AVB",
+        "ABQRS",
+        "AFLT",
+        "ALMI",
+        "AMI",
+        "ASMI",
+        "ILMI",
+        "IVCD",
+        "LAFB",
+        "NST_",
+        "PVC",
+        "STACH",
+        "SVARR",
+        "SVTAC"
+      ],
+      "confirmed_spurious": [
+        "1AVB",
+        "ABQRS",
+        "AFLT",
+        "ALMI",
+        "AMI",
+        "ASMI",
+        "ILMI",
+        "IVCD",
+        "LAFB",
+        "NST_",
+        "STACH",
+        "SVARR",
+        "SVTAC"
+      ],
+      "naive_true_hits": [
+        "AFIB",
+        "IMI",
+        "LVOLT",
+        "QWAVE"
+      ],
+      "confirmed_true_hits": [
+        "AFIB",
+        "IMI",
+        "LVOLT",
+        "QWAVE"
+      ],
+      "naive_churn": 28,
+      "confirmed_churn": 8,
+      "missed_urgent": [],
+      "median_latency_ms": 6.182207999927414,
+      "p95_latency_ms": 6.876895499885904,
+      "cold_latency_ms": 6.975374999910855,
+      "mean_confirm_lag_s": 3.1911764705882355
+    },
+    {
+      "ecg_id": 9943,
+      "n_updates": 31,
+      "truth": [
+        "NDT",
+        "SR"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "BIGU",
+        "EL",
+        "ILMI",
+        "IMI",
+        "ISCLA",
+        "ISC_",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "PVC",
+        "QWAVE",
+        "SARRH",
+        "SBRAD",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "BIGU",
+        "ILMI",
+        "IMI",
+        "ISCLA",
+        "ISC_",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "QWAVE",
+        "SARRH",
+        "STD_",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "ABQRS",
+        "BIGU",
+        "EL",
+        "ILMI",
+        "IMI",
+        "ISCLA",
+        "ISC_",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NST_",
+        "NT_",
+        "PAC",
+        "PVC",
+        "QWAVE",
+        "SARRH",
+        "SBRAD",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "BIGU",
+        "ILMI",
+        "IMI",
+        "ISCLA",
+        "ISC_",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NST_",
+        "NT_",
+        "PAC",
+        "QWAVE",
+        "SARRH",
+        "STD_",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "NDT"
+      ],
+      "confirmed_true_hits": [
+        "NDT"
+      ],
+      "naive_churn": 27,
+      "confirmed_churn": 9,
+      "missed_urgent": [],
+      "median_latency_ms": 6.162166999956753,
+      "p95_latency_ms": 7.066333500006294,
+      "cold_latency_ms": 6.523958000116181,
+      "mean_confirm_lag_s": 2.890625
+    },
+    {
+      "ecg_id": 8218,
+      "n_updates": 31,
+      "truth": [
+        "ABQRS",
+        "AFIB",
+        "ASMI",
+        "LAFB"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "AFIB",
+        "AMI",
+        "ASMI",
+        "DIG",
+        "ILMI",
+        "IMI",
+        "INJAL",
+        "INVT",
+        "ISCAL",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LAFB",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "PAC",
+        "QWAVE",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "ABQRS",
+        "AFIB",
+        "AMI",
+        "ASMI",
+        "DIG",
+        "ILMI",
+        "IMI",
+        "INVT",
+        "ISCAL",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LAFB",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "STD_",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "AMI",
+        "DIG",
+        "ILMI",
+        "IMI",
+        "INJAL",
+        "INVT",
+        "ISCAL",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "PAC",
+        "QWAVE",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "AMI",
+        "DIG",
+        "ILMI",
+        "IMI",
+        "INVT",
+        "ISCAL",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "STD_",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "ABQRS",
+        "AFIB",
+        "ASMI",
+        "LAFB"
+      ],
+      "confirmed_true_hits": [
+        "ABQRS",
+        "AFIB",
+        "ASMI",
+        "LAFB"
+      ],
+      "naive_churn": 31,
+      "confirmed_churn": 3,
+      "missed_urgent": [],
+      "median_latency_ms": 6.238708000182669,
+      "p95_latency_ms": 6.811374999983855,
+      "cold_latency_ms": 6.525083000042287,
+      "mean_confirm_lag_s": 3.2125
+    },
+    {
+      "ecg_id": 17818,
+      "n_updates": 31,
+      "truth": [
+        "NDT",
+        "NT_",
+        "SR"
+      ],
+      "naive_seen": [
+        "EL",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "NT_",
+        "SARRH",
+        "SR",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "NT_",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "EL",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NST_",
+        "SARRH",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NST_",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "NDT",
+        "NT_",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NDT",
+        "NT_",
+        "SR"
+      ],
+      "naive_churn": 23,
+      "confirmed_churn": 6,
+      "missed_urgent": [],
+      "median_latency_ms": 6.368292000161091,
+      "p95_latency_ms": 6.896750000123575,
+      "cold_latency_ms": 6.909083000209648,
+      "mean_confirm_lag_s": 3.375
+    },
+    {
+      "ecg_id": 15796,
+      "n_updates": 31,
+      "truth": [
+        "AFIB",
+        "NORM"
+      ],
+      "naive_seen": [
+        "NORM",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "NORM",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_spurious": [
+        "SARRH",
+        "SR"
+      ],
+      "naive_true_hits": [
+        "NORM"
+      ],
+      "confirmed_true_hits": [
+        "NORM"
+      ],
+      "naive_churn": 3,
+      "confirmed_churn": 3,
+      "missed_urgent": [],
+      "median_latency_ms": 6.098125000107757,
+      "p95_latency_ms": 7.177249999926971,
+      "cold_latency_ms": 7.615708000002996,
+      "mean_confirm_lag_s": 2.0
+    },
+    {
+      "ecg_id": 17192,
+      "n_updates": 31,
+      "truth": [
+        "LAFB",
+        "NORM",
+        "STACH"
+      ],
+      "naive_seen": [
+        "HVOLT",
+        "IRBBB",
+        "LAFB",
+        "LVH",
+        "NORM",
+        "STACH",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "HVOLT",
+        "IRBBB",
+        "LVH",
+        "NORM",
+        "STACH",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "HVOLT",
+        "IRBBB",
+        "LVH",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "HVOLT",
+        "IRBBB",
+        "LVH",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "LAFB",
+        "NORM",
+        "STACH"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "STACH"
+      ],
+      "naive_churn": 27,
+      "confirmed_churn": 5,
+      "missed_urgent": [],
+      "median_latency_ms": 6.276374999970358,
+      "p95_latency_ms": 6.937021000112509,
+      "cold_latency_ms": 7.123750000118889,
+      "mean_confirm_lag_s": 5.25
+    },
+    {
+      "ecg_id": 14781,
+      "n_updates": 31,
+      "truth": [
+        "1AVB",
+        "INJAS",
+        "SR"
+      ],
+      "naive_seen": [
+        "1AVB",
+        "AFIB",
+        "ALMI",
+        "ASMI",
+        "INJAL",
+        "INJAS",
+        "INJIL",
+        "INJIN",
+        "INVT",
+        "IRBBB",
+        "ISCAL",
+        "ISCAN",
+        "ISCAS",
+        "ISCIL",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LMI",
+        "LOWT",
+        "LPR",
+        "LVOLT",
+        "NST_",
+        "SR",
+        "STD_"
+      ],
+      "confirmed_seen": [
+        "1AVB",
+        "AFIB",
+        "ALMI",
+        "ASMI",
+        "INJAL",
+        "INJAS",
+        "INJIL",
+        "INJIN",
+        "INVT",
+        "ISCAL",
+        "ISCAN",
+        "ISCAS",
+        "ISCIL",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LMI",
+        "LOWT",
+        "LPR",
+        "LVOLT",
+        "NST_",
+        "STD_"
+      ],
+      "naive_spurious": [
+        "AFIB",
+        "ALMI",
+        "ASMI",
+        "INJAL",
+        "INJIL",
+        "INJIN",
+        "INVT",
+        "IRBBB",
+        "ISCAL",
+        "ISCAN",
+        "ISCAS",
+        "ISCIL",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LMI",
+        "LOWT",
+        "LPR",
+        "LVOLT",
+        "NST_",
+        "STD_"
+      ],
+      "confirmed_spurious": [
+        "AFIB",
+        "ALMI",
+        "ASMI",
+        "INJAL",
+        "INJIL",
+        "INJIN",
+        "INVT",
+        "ISCAL",
+        "ISCAN",
+        "ISCAS",
+        "ISCIL",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LMI",
+        "LOWT",
+        "LPR",
+        "LVOLT",
+        "NST_",
+        "STD_"
+      ],
+      "naive_true_hits": [
+        "1AVB",
+        "INJAS",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "1AVB",
+        "INJAS"
+      ],
+      "naive_churn": 31,
+      "confirmed_churn": 11,
+      "missed_urgent": [],
+      "median_latency_ms": 6.1524170000666345,
+      "p95_latency_ms": 7.02141700003267,
+      "cold_latency_ms": 6.8813749999208085,
+      "mean_confirm_lag_s": 4.5
+    },
+    {
+      "ecg_id": 10180,
+      "n_updates": 31,
+      "truth": [
+        "LVH",
+        "NT_",
+        "SR",
+        "VCLVH"
+      ],
+      "naive_seen": [
+        "DIG",
+        "EL",
+        "HVOLT",
+        "ISC_",
+        "LAO/LAE",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NORM",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH",
+        "SR",
+        "STD_",
+        "VCLVH",
+        "WPW"
+      ],
+      "confirmed_seen": [
+        "HVOLT",
+        "ISC_",
+        "LAO/LAE",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "NT_",
+        "SR",
+        "STD_",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "DIG",
+        "EL",
+        "HVOLT",
+        "ISC_",
+        "LAO/LAE",
+        "LOWT",
+        "NDT",
+        "NORM",
+        "NST_",
+        "PAC",
+        "SARRH",
+        "STD_",
+        "WPW"
+      ],
+      "confirmed_spurious": [
+        "HVOLT",
+        "ISC_",
+        "LAO/LAE",
+        "LOWT",
+        "NDT",
+        "NST_",
+        "STD_"
+      ],
+      "naive_true_hits": [
+        "LVH",
+        "NT_",
+        "SR",
+        "VCLVH"
+      ],
+      "confirmed_true_hits": [
+        "LVH",
+        "NT_",
+        "SR",
+        "VCLVH"
+      ],
+      "naive_churn": 27,
+      "confirmed_churn": 5,
+      "missed_urgent": [],
+      "median_latency_ms": 6.289832999982536,
+      "p95_latency_ms": 7.079228999828047,
+      "cold_latency_ms": 6.739124999967316,
+      "mean_confirm_lag_s": 3.659090909090909
+    },
+    {
+      "ecg_id": 17617,
+      "n_updates": 31,
+      "truth": [
+        "LAFB",
+        "SR"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "AMI",
+        "IMI",
+        "IVCD",
+        "LAFB",
+        "LAO/LAE",
+        "LVOLT",
+        "NORM",
+        "QWAVE",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "ABQRS",
+        "IMI",
+        "IVCD",
+        "LAFB",
+        "LVOLT",
+        "NORM",
+        "SR"
+      ],
+      "naive_spurious": [
+        "ABQRS",
+        "AMI",
+        "IMI",
+        "IVCD",
+        "LAO/LAE",
+        "LVOLT",
+        "NORM",
+        "QWAVE"
+      ],
+      "confirmed_spurious": [
+        "ABQRS",
+        "IMI",
+        "IVCD",
+        "LVOLT",
+        "NORM"
+      ],
+      "naive_true_hits": [
+        "LAFB",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "LAFB",
+        "SR"
+      ],
+      "naive_churn": 28,
+      "confirmed_churn": 4,
+      "missed_urgent": [],
+      "median_latency_ms": 5.957583000054001,
+      "p95_latency_ms": 7.012833000089813,
+      "cold_latency_ms": 7.3829999998906715,
+      "mean_confirm_lag_s": 3.75
+    },
+    {
+      "ecg_id": 3112,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "NORM",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "NORM",
+        "SR"
+      ],
+      "naive_spurious": [
+        "SARRH"
+      ],
+      "confirmed_spurious": [],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 9,
+      "confirmed_churn": 1,
+      "missed_urgent": [],
+      "median_latency_ms": 6.366999999954714,
+      "p95_latency_ms": 7.21220850005011,
+      "cold_latency_ms": 7.230625000147484,
+      "mean_confirm_lag_s": 2.0
+    },
+    {
+      "ecg_id": 16024,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "IMI",
+        "LAFB",
+        "NDT",
+        "NORM",
+        "SBRAD",
+        "SR",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "IMI",
+        "LAFB",
+        "NORM",
+        "SR"
+      ],
+      "naive_spurious": [
+        "IMI",
+        "LAFB",
+        "NDT",
+        "SBRAD",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "IMI",
+        "LAFB"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 30,
+      "confirmed_churn": 4,
+      "missed_urgent": [],
+      "median_latency_ms": 6.287208999992799,
+      "p95_latency_ms": 6.831979499906993,
+      "cold_latency_ms": 7.312583999919298,
+      "mean_confirm_lag_s": 5.0625
+    },
+    {
+      "ecg_id": 6735,
+      "n_updates": 31,
+      "truth": [
+        "AFIB",
+        "LOWT",
+        "NDT",
+        "PVC",
+        "STD_"
+      ],
+      "naive_seen": [
+        "AFIB",
+        "DIG",
+        "ISCAL",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "PSVT",
+        "PVC",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "AFIB",
+        "DIG",
+        "ISCAL",
+        "ISCIL",
+        "ISCLA",
+        "ISC_",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "PVC",
+        "STD_",
+        "VCLVH"
+      ],
+      "naive_spurious": [
+        "DIG",
+        "ISCAL",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "LVH",
+        "NST_",
+        "PSVT",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "DIG",
+        "ISCAL",
+        "ISCIL",
+        "ISCLA",
+        "ISC_",
+        "LVH",
+        "NST_",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "AFIB",
+        "LOWT",
+        "NDT",
+        "PVC",
+        "STD_"
+      ],
+      "confirmed_true_hits": [
+        "AFIB",
+        "LOWT",
+        "NDT",
+        "PVC",
+        "STD_"
+      ],
+      "naive_churn": 22,
+      "confirmed_churn": 3,
+      "missed_urgent": [],
+      "median_latency_ms": 6.1447920002137835,
+      "p95_latency_ms": 7.0253540000067005,
+      "cold_latency_ms": 7.13279199999306,
+      "mean_confirm_lag_s": 3.0961538461538463
+    },
+    {
+      "ecg_id": 4825,
+      "n_updates": 31,
+      "truth": [
+        "ABQRS",
+        "SR",
+        "WPW"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "IMI",
+        "ISCIN",
+        "ISC_",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "SARRH",
+        "SR",
+        "VCLVH",
+        "WPW"
+      ],
+      "confirmed_seen": [
+        "ABQRS",
+        "IMI",
+        "ISCIN",
+        "ISC_",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "SARRH",
+        "SR",
+        "VCLVH",
+        "WPW"
+      ],
+      "naive_spurious": [
+        "IMI",
+        "ISCIN",
+        "ISC_",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "SARRH",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "IMI",
+        "ISCIN",
+        "ISC_",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "QWAVE",
+        "SARRH",
+        "VCLVH"
+      ],
+      "naive_true_hits": [
+        "ABQRS",
+        "SR",
+        "WPW"
+      ],
+      "confirmed_true_hits": [
+        "ABQRS",
+        "SR",
+        "WPW"
+      ],
+      "naive_churn": 27,
+      "confirmed_churn": 10,
+      "missed_urgent": [],
+      "median_latency_ms": 6.22383300014917,
+      "p95_latency_ms": 6.955458499987799,
+      "cold_latency_ms": 7.6375830001325085,
+      "mean_confirm_lag_s": 2.6153846153846154
+    },
+    {
+      "ecg_id": 16038,
+      "n_updates": 31,
+      "truth": [
+        "AMI",
+        "ILBBB",
+        "IMI",
+        "ISC_",
+        "LVH",
+        "STACH"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "AFIB",
+        "ASMI",
+        "CLBBB",
+        "ILBBB",
+        "ILMI",
+        "IMI",
+        "INVT",
+        "ISCAL",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LAO/LAE",
+        "LVH",
+        "PAC",
+        "PVC",
+        "QWAVE",
+        "STACH",
+        "STD_"
+      ],
+      "confirmed_seen": [
+        "ABQRS",
+        "ASMI",
+        "ILBBB",
+        "ILMI",
+        "IMI",
+        "INVT",
+        "ISCAL",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LAO/LAE",
+        "LVH",
+        "PVC",
+        "QWAVE",
+        "STACH",
+        "STD_"
+      ],
+      "naive_spurious": [
+        "ABQRS",
+        "AFIB",
+        "ASMI",
+        "CLBBB",
+        "ILMI",
+        "INVT",
+        "ISCAL",
+        "ISCLA",
+        "IVCD",
+        "LAO/LAE",
+        "PAC",
+        "PVC",
+        "QWAVE",
+        "STD_"
+      ],
+      "confirmed_spurious": [
+        "ABQRS",
+        "ASMI",
+        "ILMI",
+        "INVT",
+        "ISCAL",
+        "ISCLA",
+        "IVCD",
+        "LAO/LAE",
+        "PVC",
+        "QWAVE",
+        "STD_"
+      ],
+      "naive_true_hits": [
+        "ILBBB",
+        "IMI",
+        "ISC_",
+        "LVH",
+        "STACH"
+      ],
+      "confirmed_true_hits": [
+        "ILBBB",
+        "IMI",
+        "ISC_",
+        "LVH",
+        "STACH"
+      ],
+      "naive_churn": 22,
+      "confirmed_churn": 4,
+      "missed_urgent": [],
+      "median_latency_ms": 7.323625000026368,
+      "p95_latency_ms": 8.312896000006731,
+      "cold_latency_ms": 8.914332999893304,
+      "mean_confirm_lag_s": 2.125
+    },
+    {
+      "ecg_id": 10965,
+      "n_updates": 31,
+      "truth": [
+        "ASMI",
+        "IMI",
+        "IRBBB",
+        "PVC",
+        "SR"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "AMI",
+        "ASMI",
+        "CRBBB",
+        "ILMI",
+        "IMI",
+        "IRBBB",
+        "LAFB",
+        "NT_",
+        "PAC",
+        "PVC",
+        "QWAVE",
+        "RAO/RAE",
+        "RVH",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "ABQRS",
+        "AMI",
+        "ASMI",
+        "CRBBB",
+        "IMI",
+        "IRBBB",
+        "LAFB",
+        "NT_",
+        "PAC",
+        "PVC",
+        "QWAVE",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "ABQRS",
+        "AMI",
+        "CRBBB",
+        "ILMI",
+        "LAFB",
+        "NT_",
+        "PAC",
+        "QWAVE",
+        "RAO/RAE",
+        "RVH",
+        "SARRH"
+      ],
+      "confirmed_spurious": [
+        "ABQRS",
+        "AMI",
+        "CRBBB",
+        "LAFB",
+        "NT_",
+        "PAC",
+        "QWAVE",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "ASMI",
+        "IMI",
+        "IRBBB",
+        "PVC",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "ASMI",
+        "IMI",
+        "IRBBB",
+        "PVC",
+        "SR"
+      ],
+      "naive_churn": 29,
+      "confirmed_churn": 6,
+      "missed_urgent": [],
+      "median_latency_ms": 7.435541000177182,
+      "p95_latency_ms": 8.717833499986227,
+      "cold_latency_ms": 8.144749999928536,
+      "mean_confirm_lag_s": 2.076923076923077
+    },
+    {
+      "ecg_id": 12770,
+      "n_updates": 31,
+      "truth": [
+        "1AVB",
+        "NDT",
+        "SR"
+      ],
+      "naive_seen": [
+        "1AVB",
+        "AFIB",
+        "DIG",
+        "EL",
+        "IMI",
+        "ISCAL",
+        "ISC_",
+        "LNGQT",
+        "LOWT",
+        "LPR",
+        "LVH",
+        "NDT",
+        "NST_",
+        "NT_",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_seen": [
+        "1AVB",
+        "AFIB",
+        "DIG",
+        "EL",
+        "IMI",
+        "ISCAL",
+        "ISC_",
+        "LNGQT",
+        "LOWT",
+        "LPR",
+        "LVH",
+        "NDT",
+        "NST_",
+        "NT_",
+        "STD_"
+      ],
+      "naive_spurious": [
+        "AFIB",
+        "DIG",
+        "EL",
+        "IMI",
+        "ISCAL",
+        "ISC_",
+        "LNGQT",
+        "LOWT",
+        "LPR",
+        "LVH",
+        "NST_",
+        "NT_",
+        "STD_",
+        "VCLVH"
+      ],
+      "confirmed_spurious": [
+        "AFIB",
+        "DIG",
+        "EL",
+        "IMI",
+        "ISCAL",
+        "ISC_",
+        "LNGQT",
+        "LOWT",
+        "LPR",
+        "LVH",
+        "NST_",
+        "NT_",
+        "STD_"
+      ],
+      "naive_true_hits": [
+        "1AVB",
+        "NDT"
+      ],
+      "confirmed_true_hits": [
+        "1AVB",
+        "NDT"
+      ],
+      "naive_churn": 26,
+      "confirmed_churn": 8,
+      "missed_urgent": [],
+      "median_latency_ms": 6.62083299994265,
+      "p95_latency_ms": 7.230521499991482,
+      "cold_latency_ms": 6.936833000054321,
+      "mean_confirm_lag_s": 2.1333333333333333
+    },
+    {
+      "ecg_id": 15575,
+      "n_updates": 31,
+      "truth": [
+        "NORM",
+        "SR"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "IMI",
+        "NORM",
+        "QWAVE",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "ABQRS",
+        "IMI",
+        "NORM",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "ABQRS",
+        "IMI",
+        "QWAVE",
+        "SARRH"
+      ],
+      "confirmed_spurious": [
+        "ABQRS",
+        "IMI",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "NORM",
+        "SR"
+      ],
+      "naive_churn": 20,
+      "confirmed_churn": 4,
+      "missed_urgent": [],
+      "median_latency_ms": 7.30929099995592,
+      "p95_latency_ms": 7.99735399994006,
+      "cold_latency_ms": 8.149124999818014,
+      "mean_confirm_lag_s": 3.0
+    },
+    {
+      "ecg_id": 7744,
+      "n_updates": 31,
+      "truth": [
+        "ABQRS",
+        "IMI",
+        "SR"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "IMI",
+        "IVCD",
+        "LNGQT",
+        "LVOLT",
+        "NDT",
+        "NORM",
+        "NST_",
+        "SARRH",
+        "SR",
+        "STD_"
+      ],
+      "confirmed_seen": [
+        "IMI",
+        "IVCD",
+        "LNGQT",
+        "LVOLT",
+        "NDT",
+        "NST_",
+        "SARRH",
+        "SR"
+      ],
+      "naive_spurious": [
+        "IVCD",
+        "LNGQT",
+        "LVOLT",
+        "NDT",
+        "NORM",
+        "NST_",
+        "SARRH",
+        "STD_"
+      ],
+      "confirmed_spurious": [
+        "IVCD",
+        "LNGQT",
+        "LVOLT",
+        "NDT",
+        "NST_",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "ABQRS",
+        "IMI",
+        "SR"
+      ],
+      "confirmed_true_hits": [
+        "IMI",
+        "SR"
+      ],
+      "naive_churn": 29,
+      "confirmed_churn": 12,
+      "missed_urgent": [],
+      "median_latency_ms": 7.478999999875668,
+      "p95_latency_ms": 8.064229000069645,
+      "cold_latency_ms": 7.441666999966401,
+      "mean_confirm_lag_s": 3.53125
+    },
+    {
+      "ecg_id": 8450,
+      "n_updates": 31,
+      "truth": [
+        "ISCAL",
+        "LOWT",
+        "SR",
+        "STD_"
+      ],
+      "naive_seen": [
+        "ABQRS",
+        "AMI",
+        "DIG",
+        "IMI",
+        "INVT",
+        "ISCAL",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LAO/LAE",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "PAC",
+        "QWAVE",
+        "SARRH",
+        "SR",
+        "STD_"
+      ],
+      "confirmed_seen": [
+        "IMI",
+        "INVT",
+        "ISCAL",
+        "ISCIL",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LAO/LAE",
+        "LNGQT",
+        "LOWT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "SARRH",
+        "SR",
+        "STD_"
+      ],
+      "naive_spurious": [
+        "ABQRS",
+        "AMI",
+        "DIG",
+        "IMI",
+        "INVT",
+        "ISCIL",
+        "ISCIN",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LAO/LAE",
+        "LNGQT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "PAC",
+        "QWAVE",
+        "SARRH"
+      ],
+      "confirmed_spurious": [
+        "IMI",
+        "INVT",
+        "ISCIL",
+        "ISCLA",
+        "ISC_",
+        "IVCD",
+        "LAO/LAE",
+        "LNGQT",
+        "LVH",
+        "NDT",
+        "NST_",
+        "SARRH"
+      ],
+      "naive_true_hits": [
+        "ISCAL",
+        "LOWT",
+        "SR",
+        "STD_"
+      ],
+      "confirmed_true_hits": [
+        "ISCAL",
+        "LOWT",
+        "SR",
+        "STD_"
+      ],
+      "naive_churn": 29,
+      "confirmed_churn": 5,
+      "missed_urgent": [],
+      "median_latency_ms": 7.293125000160217,
+      "p95_latency_ms": 8.413187499968444,
+      "cold_latency_ms": 9.108666999964043,
+      "mean_confirm_lag_s": 2.125
+    },
+    {
+      "ecg_id": 1458,
+      "n_updates": 31,
+      "truth": [
+        "NORM"
+      ],
+      "naive_seen": [
+        "EL",
+        "ILMI",
+        "IMI",
+        "ISCAS",
+        "ISCIN",
+        "ISCLA",
+        "LNGQT",
+        "LOWT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_seen": [
+        "ILMI",
+        "ISCAS",
+        "ISCLA",
+        "LNGQT",
+        "LOWT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH"
+      ],
+      "naive_spurious": [
+        "EL",
+        "ILMI",
+        "IMI",
+        "ISCAS",
+        "ISCIN",
+        "ISCLA",
+        "LNGQT",
+        "LOWT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH",
+        "SR"
+      ],
+      "confirmed_spurious": [
+        "ILMI",
+        "ISCAS",
+        "ISCLA",
+        "LNGQT",
+        "LOWT",
+        "NDT",
+        "NST_",
+        "NT_",
+        "PAC",
+        "SARRH"
+      ],
+      "naive_true_hits": [],
+      "confirmed_true_hits": [],
+      "naive_churn": 30,
+      "confirmed_churn": 4,
+      "missed_urgent": [],
+      "median_latency_ms": 7.4502499999198335,
+      "p95_latency_ms": 8.168416499984232,
+      "cold_latency_ms": 8.222875000001295,
+      "mean_confirm_lag_s": 2.925
+    }
+  ]
+}

@@ -269,7 +269,15 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   baselines, the honest failure analysis, and what's next:
   [`docs/writeup/technical_post.md`](docs/writeup/technical_post.md). LinkedIn cross-post
   and publishing notes in [`docs/writeup/linkedin_post.md`](docs/writeup/linkedin_post.md). ✅
-- Phase 16+: calibration (the direct follow-up to Phase 13's over-flagging finding).
+- **Phase 16 (stretch):** real-time wearable stream simulation — replays a PTB-XL record
+  as a live 12-lead stream into a rolling 10 s window re-analyzed every second, with a
+  continuously updating findings panel (`make stream-demo`, plus a **Live monitor** tab in
+  the dashboard). Batch metrics don't transfer to a monitor, so findings are only promoted
+  once they **persist across windows**: that cuts panel churn **76%**, at a measured cost
+  of ~4 points of recall and 3.3 s of detection latency —
+  [`docs/streaming/report.md`](docs/streaming/report.md) has the full trade-off curve.
+  Inference is 6.6 ms/window, ~150x real-time headroom. ✅
+- Phase 17+: calibration (the direct follow-up to Phase 13's over-flagging finding).
 
 ## Benchmark comparison (PTB-XL test split)
 
