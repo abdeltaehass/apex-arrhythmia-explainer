@@ -315,9 +315,11 @@ def _write_markdown(p: dict) -> None:
         "**Systematically over-confident labels survive it.** Debouncing removes findings "
         "that *flicker*; a spurious code that the miscalibrated model asserts in every "
         "single window is confirmed just like a real one. Phase 13 traced the over-flagging "
-        "to calibration (ECE ≈ 0.90), and this phase does not fix that — it only removes "
-        "the noise on top. Calibration remains the outstanding work, and it is what would "
-        "move the remaining "
+        "to calibration (over-confidence: mean probability ~3x the base rate), and this "
+        "phase does not fix that — it only removes the noise on top. **Phase 17 addresses "
+        "it directly** (ECE 0.079 -> 0.002, spurious labels 5.09 -> 0.35 per record); these "
+        "streaming numbers are measured pre-calibration, so re-running this report on "
+        "calibrated probabilities would move the remaining "
         f"{per['spurious_per_record']:.2f} spurious codes per record.",
         "",
         "## Real-time feasibility",

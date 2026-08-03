@@ -36,9 +36,14 @@ around rank instead of magnitude.
 ischemia, where under-recognition in women is already documented. Not corrected. Documented
 as an open safety issue.
 
-→ It over-flags heavily at the shipped threshold — but that's a calibration problem, not a
-ranking problem (ECE ≈ 0.90 while AUROC stays 0.920). Diagnosing that correctly is the
-difference between "retrain everything" and "calibrate the outputs."
+→ It over-flagged heavily at the shipped threshold — a calibration problem, not a ranking
+one. Post-hoc calibration cut ECE 0.079 → 0.002 and spurious labels 5.09 → 0.35 per record
+with AUROC untouched. Plain temperature scaling actually made it *worse*; the error was a
+bias, not sharpness, so it needed a per-label intercept.
+
+→ Writing that code, I found the ECE number I'd quoted for four phases was itself wrong —
+a multi-class metric applied to independent sigmoids. Corrected in the repo, with the
+reason.
 
 Why the reliability layer exists at all: a meta-analysis of 78 studies (Cook et al., JAMA
 Internal Medicine 2020) found pooled ECG interpretation accuracy of 68.5% among practicing
@@ -72,7 +77,7 @@ to the reader.
 → It performs measurably worse on female patients (0.925 vs 0.906, CI excludes zero),
 worst on ST/T changes. Published, not corrected.
 
-→ It over-flags heavily — but that's calibration (ECE ≈ 0.90), not ranking (AUROC 0.920).
+→ It over-flagged heavily — calibration, not ranking. Fixed: ECE 0.079 → 0.002, spurious labels 5.09 → 0.35 per record, AUROC untouched.
 
 → The transformer I built lost to the plain CNN. That's in the repo too.
 

@@ -277,7 +277,15 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   of ~4 points of recall and 3.3 s of detection latency —
   [`docs/streaming/report.md`](docs/streaming/report.md) has the full trade-off curve.
   Inference is 6.6 ms/window, ~150x real-time headroom. ✅
-- Phase 17+: calibration (the direct follow-up to Phase 13's over-flagging finding).
+- **Phase 17:** multi-label confidence calibration — post-hoc calibrators fitted on the
+  validation fold, with before/after reliability diagrams
+  ([`docs/calibration/report.md`](docs/calibration/report.md), `make calibrate`).
+  **ECE 0.079 → 0.002 (97% reduction)** and spurious surfaced labels **5.09 → 0.35 per
+  record**, with macro-AUROC unchanged at 0.920. Two honest findings: plain temperature
+  scaling made ECE *worse* (the error was a bias, not sharpness — it needed a per-label
+  intercept), and the **"ECE ≈ 0.90" quoted in Phases 3 and 12–16 was wrong**, produced by
+  a multi-class metric applied to independent sigmoids. Both documented. ✅
+- Phase 18+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 

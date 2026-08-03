@@ -56,20 +56,20 @@ def tune_thresholds(y_true: np.ndarray, y_prob: np.ndarray) -> np.ndarray:
 
 
 def expected_calibration_error(y_true: np.ndarray, y_prob: np.ndarray, n_bins: int = 15) -> float:
-    """ECE over all label predictions pooled together (15-bin default)."""
-    probs = y_prob.ravel()
-    correct = (y_true.ravel() == (probs >= 0.5)).astype(float)
-    bins = np.linspace(0.0, 1.0, n_bins + 1)
-    ece = 0.0
-    n = len(probs)
-    for lo, hi in zip(bins[:-1], bins[1:], strict=True):
-        mask = (probs >= lo) & (probs < hi)
-        if not mask.any():
-            continue
-        conf = probs[mask].mean()
-        acc = correct[mask].mean()
-        ece += (mask.sum() / n) * abs(acc - conf)
-    return float(ece)
+    """ECE over all label predictions pooled together (15-bin default).
+
+    Delegates to :func:`src.eval.calibration.ece`.
+
+    **Corrected in Phase 17.** This function previously compared each bin's mean
+    probability against the *accuracy of the thresholded decision* — the multi-class
+    softmax formulation, which is wrong for independent per-label sigmoids and inflated
+    the reported value roughly 11x (it charged ~0.99 error to the correctly-predicted,
+    well-calibrated negatives that make up 78% of predictions). Any "ECE ≈ 0.90" figure in
+    docs predating Phase 17 came from that bug; see `docs/calibration/report.md`.
+    """
+    from src.eval.calibration import ece
+
+    return ece(y_true, y_prob, n_bins=n_bins)
 
 
 def summary(y_true: np.ndarray, y_prob: np.ndarray, thresholds: np.ndarray | None = None) -> dict:

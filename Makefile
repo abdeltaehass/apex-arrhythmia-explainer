@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics stream-demo stream-eval wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics stream-demo stream-eval calibrate wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -24,6 +24,7 @@ help:
 	@echo "  demographics Phase 14 AUROC by age/sex w/ bootstrap CIs -> docs/model_card/"
 	@echo "  stream-demo Phase 16 live monitor in the terminal (normal -> AF playlist)"
 	@echo "  stream-eval Phase 16 streaming behaviour + persistence trade-off -> docs/streaming/"
+	@echo "  calibrate   Phase 17 temperature/vector scaling + reliability diagrams -> docs/calibration/"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
 	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
@@ -97,6 +98,9 @@ stream-demo:
 
 stream-eval:
 	python scripts/stream_eval.py
+
+calibrate:
+	python scripts/calibrate.py
 
 wandb-init:
 	python scripts/init_wandb.py

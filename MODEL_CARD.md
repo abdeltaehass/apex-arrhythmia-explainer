@@ -130,11 +130,22 @@ unvalidated.
 
 At threshold 0.5 the model surfaces **5.09 absent labels per record** and tags a spurious
 diagnostic code on **48.7%** of diagnostically normal ECGs. This is the direct consequence
-of the class-weighted training loss, which deliberately inflates probabilities: pooled
-**ECE ≈ 0.90**. The *same* model scores 0.920 AUROC, which is threshold-free — so the
-discrimination is sound and the operating point is wrong. **Probability calibration is the
-single highest-value fix and is not yet applied.** Do not read APEX's probabilities as
-calibrated risks.
+of the class-weighted training loss, which deliberately inflates probabilities: mean
+predicted probability is 0.118 against a true base rate of 0.039, roughly 3x too high
+(pooled **ECE 0.079**). The *same* model scores 0.920 AUROC, which is threshold-free — so
+the discrimination is sound and the operating point is wrong.
+
+**Fixed in Phase 17.** Per-label vector scaling fitted on the validation fold cuts **ECE
+0.079 → 0.002** and spurious surfaced labels **5.09 → 0.35 per record**, with AUROC
+unchanged — see [`docs/calibration/report.md`](docs/calibration/report.md). The calibrator
+is shipped in `outputs/calibration.json` but is **not yet applied by default in the
+serving path**, so the probabilities returned by `analyze_signal` today are still the
+uncalibrated ones. Do not read them as calibrated risks until that is wired in.
+
+> An earlier version of this card quoted "ECE ≈ 0.90". That figure came from a
+> mis-specified metric (a multi-class formulation applied to independent sigmoids) and was
+> about 11x too high; the correct uncalibrated value is 0.079. The correction is documented
+> in `docs/calibration/report.md`.
 
 ### 3. Silent near-misses
 
@@ -288,8 +299,10 @@ transfers unearned confidence to the reader.
 - **No race/ethnicity breakdown is possible** — PTB-XL does not record it. Fairness here is
   therefore verified only along age and sex; disparities on unrecorded axes cannot be ruled
   out and should not be assumed absent.
-- **Probabilities are not calibrated** (ECE ≈ 0.90), so a displayed confidence is not a
-  risk estimate. Presenting one to a clinician as if it were would be misleading.
+- **The probabilities returned by the serving path are not yet calibrated** (ECE 0.079),
+  so a displayed confidence is not a risk estimate. A fitted calibrator exists (Phase 17,
+  ECE → 0.002) but is not applied by default; until it is, presenting a confidence to a
+  clinician as if it were a risk would be misleading.
 - **Ground truth is human annotation**, which carries its own error and its own historical
   biases; the model inherits them.
 - **No prospective or external validation** has been performed. All numbers are
@@ -315,7 +328,8 @@ transfers unearned confidence to the reader.
 | macro-AUROC (71-code "all" task) | **0.920** |
 | macro-AUROC (5 superclasses, pooled) | 0.893 |
 | micro-F1 / macro-F1 (val-tuned thresholds) | 0.598 / 0.320 |
-| ECE (pooled) | ~0.90 ⚠ |
+| ECE (pooled, uncalibrated) | 0.079 |
+| ECE after Phase-17 calibration | **0.002** |
 
 For context, the published PTB-XL benchmark (Strodthoff et al., 2021) reports 0.925 for
 its best models (`inception1d`, `xresnet1d101`) and 0.919 for `resnet1d_wang` on the same

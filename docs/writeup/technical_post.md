@@ -295,9 +295,11 @@ safety analysis that's worth anything.
 threshold 0.5 the model surfaces **5.09 absent labels per record** and tags a spurious
 diagnostic code on **48.7%** of normal ECGs. That looks damning until you notice the same
 model scores 0.920 AUROC, which is *threshold-free*. The discrimination is fine; the
-probabilities are inflated by design, because class-weighted BCE inflates them — pooled
-**ECE ≈ 0.90**. The ranking is good and the operating point is wrong. Diagnosing that
-correctly is the difference between "retrain everything" and "calibrate the outputs."
+probabilities are inflated by design, because class-weighted BCE inflates them — mean
+predicted probability 0.118 against a base rate of 0.039, about 3x too high. The ranking is
+good and the operating point is wrong. Diagnosing that correctly is the difference between
+"retrain everything" and "calibrate the outputs" — and calibrating them is exactly what
+fixed it (below).
 
 ### The demographic result I published anyway
 
@@ -339,10 +341,19 @@ because it means commercial restriction comes from *device regulation*, not lice
 
 ## 6. What I'd do next
 
-**Calibration, first and by a wide margin.** Temperature scaling or per-label isotonic
-regression fitted on the validation fold. Nearly every deployment-facing complaint above —
-5.09 over-flags per record, 48.7% of normals flagged, an unusable 0.5 threshold — traces to
-ECE ≈ 0.90. This is the highest value-per-hour work remaining and it needs no new data.
+**~~Calibration, first and by a wide margin.~~ Done — and it was the whole ballgame.**
+Post-hoc calibration fitted on the validation fold cut **ECE 0.079 → 0.002** and spurious
+surfaced labels **5.09 → 0.35 per record**, with macro-AUROC unchanged at 0.920.
+
+Two things I did not expect. First, plain **temperature scaling made ECE slightly worse**
+(0.079 → 0.088): temperature can only sharpen or soften a distribution, and this model's
+error is a *bias* from class-weighted BCE, which needs a per-label intercept to undo —
+vector scaling did it. Second, while writing the calibration code I found that the
+**"ECE ≈ 0.90" I had been quoting for four phases was wrong**: the old implementation used
+the multi-class formulation (mean probability vs *accuracy*) on independent sigmoids, which
+charges ~0.99 of error to the correctly-predicted negatives that are 78% of all
+predictions. The true uncalibrated value was 0.079. The diagnosis survived — the model was
+genuinely ~3x over-confident — but the magnitude was an artifact of my own metric.
 
 **A sub-threshold tier for high-consequence codes.** Rather than silently dropping a 0.42
 ST-elevation probability, surface it as "possible — below confidence." Directly targets the

@@ -361,15 +361,18 @@ def _write_markdown(p: dict) -> None:
         "",
         f"**Why so many over-flags? The operating point, not the ranking.** The deployed rule "
         f"surfaces every label at probability ≥ {p['threshold']}, but the detector was trained "
-        "with heavy class weighting (Phase 3) that deliberately inflates probabilities — its "
-        "pooled calibration error is large (ECE ≈ 0.90), so 0.5 is far too low a bar. That is "
+        "with heavy class weighting (Phase 3) that deliberately inflates probabilities — mean "
+        "predicted probability is 0.118 against a true base rate of 0.039, about 3x too high "
+        "(pooled ECE 0.079), so 0.5 is far too low a bar. That is "
         f"why the system averages **{c['overall (all test)']['overflag_per_record']:.1f} "
         "surfaced-but-absent labels per record** and tags a spurious diagnostic code on nearly "
         "half of normal ECGs. The Phase-12 per-label F1-tuned thresholds already cut this "
         "sharply (micro-F1 0.60 at tuned thresholds vs the flood at 0.5) — and the *same* model "
         "still scores 0.92 AUROC, which is threshold-free. So most of the over-flagging here is "
-        "a **calibration** problem, not a discrimination one; proper probability calibration is "
-        "the real fix and the subject of the next phase.",
+        "a **calibration** problem, not a discrimination one. **Phase 17 confirmed this and "
+        "fixed it**: per-label vector scaling cut ECE 0.079 -> 0.002 and spurious surfaced "
+        "labels 5.09 -> 0.35 per record at this same threshold, with AUROC unchanged "
+        "(`docs/calibration/report.md`). Numbers on this page are measured pre-calibration.",
         "",
         f"**Noise degrades it, as expected.** Records with significant artifact drop to "
         f"**{_pct(sig.get('label_recall'))}** label recall against **{_pct(clean.get('label_recall'))}** "

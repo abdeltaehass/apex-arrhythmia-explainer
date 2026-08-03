@@ -127,3 +127,5 @@ a target number.
 - **Grounding-conflict sampling (n=250) is smaller than the full validation set**
   because Grad-CAM needs a backward pass per (record, finding); the per-citation rate
   is stable at this sample size (matches the 200-record pilot's 16.0% within noise).
+
+> **Note (Phase 17):** the ECE figure on this page came from a mis-specified metric (multi-class formulation applied to independent sigmoids) and is ~11x too high. The corrected uncalibrated value is **0.079**; see `docs/calibration/report.md`. This page is left as the original artifact.
