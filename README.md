@@ -285,7 +285,14 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   scaling made ECE *worse* (the error was a bias, not sharpness — it needed a per-label
   intercept), and the **"ECE ≈ 0.90" quoted in Phases 3 and 12–16 was wrong**, produced by
   a multi-class metric applied to independent sigmoids. Both documented. ✅
-- Phase 18+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 18:** per-label demographic subgroup analysis (`make subgroups`) — AUROC broken
+  out by sex and age bracket for every label, with a ≥10-positive power floor and
+  Benjamini-Hochberg FDR correction. The sex effect is **diffuse** (34 labels testable,
+  none significant individually, yet the macro gap is real); the age effect is **localized
+  and consistent** — all 9 significant pathology labels are worse in the 60+ group. Tables
+  in [`docs/model_card/subgroup_performance.md`](docs/model_card/subgroup_performance.md),
+  discussion in the model card's *Fairness and equity* section. ✅
+- Phase 19+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 

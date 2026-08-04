@@ -1,4 +1,4 @@
-"""Phase 14 — tests for the demographic subgroup analysis.
+"""Phases 14 & 18 — tests for the demographic subgroup analysis.
 
 Data-independent: synthetic label/probability matrices, no torch, no dataset.
 """
@@ -13,11 +13,15 @@ from src.eval.fairness import (
     ANON_AGE,
     SEX_LABELS,
     age_band,
+    benjamini_hochberg,
     bootstrap_gap_ci,
+    bootstrap_label_gap,
     common_evaluable_labels,
     evaluable_labels,
+    label_auroc,
     macro_auroc_on,
     max_gap,
+    per_label_gaps,
     subgroup_breakdown,
 )
 
@@ -184,3 +188,94 @@ def test_max_gap_nan_when_too_few_groups():
     y, p, _ = _two_group_data()
     results, _ = subgroup_breakdown(y, p, {"only": np.ones(len(y), dtype=bool)}, n_boot=5)
     assert np.isnan(max_gap(results))
+
+
+# --- per-label subgroup analysis (Phase 18) ----------------------------------
+LABELS_3 = ["A", "B", "C"]
+
+
+def test_label_auroc_nan_when_single_class():
+    assert np.isnan(label_auroc(np.zeros(10), np.random.default_rng(0).random(10)))
+    assert label_auroc(np.array([0, 0, 1, 1]), np.array([0.1, 0.2, 0.8, 0.9])) == pytest.approx(1.0)
+
+
+def test_benjamini_hochberg_is_monotone_and_bounded():
+    q = benjamini_hochberg([0.001, 0.01, 0.04, 0.5])
+    assert all(0 <= v <= 1 for v in q)
+    # q-values must be non-decreasing in p
+    assert q == sorted(q)
+    # BH always inflates (or keeps) the raw p-value
+    assert all(qq >= pp - 1e-12 for qq, pp in zip(q, [0.001, 0.01, 0.04, 0.5], strict=True))
+
+
+def test_benjamini_hochberg_controls_a_family_of_nulls():
+    """20 uniform p-values (all null) should yield essentially no discoveries."""
+    rng = np.random.default_rng(4)
+    q = benjamini_hochberg(list(rng.uniform(size=20)))
+    assert sum(v < 0.05 for v in q) == 0
+
+
+def test_benjamini_hochberg_preserves_nans_and_handles_empty():
+    q = benjamini_hochberg([0.01, float("nan"), 0.02])
+    assert np.isnan(q[1]) and np.isfinite(q[0]) and np.isfinite(q[2])
+    assert all(np.isnan(v) for v in benjamini_hochberg([float("nan")]))
+
+
+def test_bootstrap_label_gap_detects_a_real_difference():
+    n = 400
+    y = np.zeros((n, 1))
+    y[::2, 0] = 1
+    p = np.zeros((n, 1))
+    a = np.arange(n) < n // 2
+    p[a, 0] = y[a, 0]                                  # group A: perfect
+    p[~a, 0] = np.random.default_rng(2).random((~a).sum())   # group B: noise
+    gap, lo, hi, pv = bootstrap_label_gap(y, p, a, ~a, 0, n_boot=200)
+    assert gap > 0.2 and lo > 0 and pv < 0.05
+
+
+def test_bootstrap_label_gap_finds_nothing_when_groups_match():
+    rng = np.random.default_rng(5)
+    y = rng.integers(0, 2, size=(600, 1))
+    p = rng.random((600, 1))
+    a = np.arange(600) < 300
+    _, lo, hi, pv = bootstrap_label_gap(y, p, a, ~a, 0, n_boot=200)
+    assert lo <= 0 <= hi and pv > 0.05
+
+
+def _split_data(n=300, seed=6):
+    """Positives interleaved so *both* subgroups carry them (label B deliberately rare)."""
+    rng = np.random.default_rng(seed)
+    y = np.zeros((n, 3))
+    y[::4, 0] = 1                       # ~75 positives, spread across both halves
+    y[:4, 1] = 1                        # 4 positives, both halves starved -> underpowered
+    y[1::5, 2] = 1                      # ~60 positives, spread
+    a = np.arange(n) < n // 2
+    return y, rng.random((n, 3)), a
+
+
+def test_per_label_gaps_marks_underpowered_labels():
+    y, p, a = _split_data()
+    gaps = {g.label: g for g in per_label_gaps(y, p, LABELS_3, a, ~a, n_boot=50)}
+    assert gaps["B"].powered is False
+    assert np.isnan(gaps["B"].gap) and not gaps["B"].significant
+    assert gaps["A"].powered is True and np.isfinite(gaps["A"].gap)
+    assert gaps["A"].n_pos_a >= 10 and gaps["A"].n_pos_b >= 10
+
+
+def test_per_label_gaps_assigns_q_values_only_to_powered_labels():
+    y, p, a = _split_data(seed=7)
+    gaps = per_label_gaps(y, p, LABELS_3, a, ~a, n_boot=50)
+    assert any(g.powered for g in gaps) and any(not g.powered for g in gaps)
+    for g in gaps:
+        assert np.isfinite(g.q_value) if g.powered else np.isnan(g.q_value)
+
+
+def test_significant_requires_both_power_and_fdr():
+    from src.eval.fairness import LabelGap
+
+    assert not LabelGap("X", 0.9, 0.5, 3, 3, 0.4, 0.1, 0.7, 0.001,
+                        q_value=0.001, powered=False).significant
+    assert LabelGap("X", 0.9, 0.5, 50, 50, 0.4, 0.1, 0.7, 0.001,
+                    q_value=0.01, powered=True).significant
+    assert not LabelGap("X", 0.9, 0.5, 50, 50, 0.4, -0.1, 0.7, 0.4,
+                        q_value=0.4, powered=True).significant

@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics stream-demo stream-eval calibrate wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -22,6 +22,7 @@ help:
 	@echo "  eval-baselines Phase 12 test-split eval vs published PTB-XL + GPT-4o -> docs/model_comparison/"
 	@echo "  edge-cases  Phase 13 adversarial/edge-case cohorts + failure taxonomy -> docs/edge_cases/"
 	@echo "  demographics Phase 14 AUROC by age/sex w/ bootstrap CIs -> docs/model_card/"
+	@echo "  subgroups   Phase 18 per-label AUROC by sex/age + FDR -> docs/model_card/"
 	@echo "  stream-demo Phase 16 live monitor in the terminal (normal -> AF playlist)"
 	@echo "  stream-eval Phase 16 streaming behaviour + persistence trade-off -> docs/streaming/"
 	@echo "  calibrate   Phase 17 temperature/vector scaling + reliability diagrams -> docs/calibration/"
@@ -92,6 +93,9 @@ edge-cases:
 
 demographics:
 	python scripts/demographic_breakdown.py
+
+subgroups:
+	python scripts/subgroup_analysis.py
 
 stream-demo:
 	python scripts/stream_demo.py --playlist 9,598 --speed 4 --duration 60

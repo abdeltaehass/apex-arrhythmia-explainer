@@ -273,6 +273,91 @@ deliberately removed.
 
 ---
 
+## Fairness and equity
+
+The section above reports *macro* AUROC by subgroup. A macro average can hide a large
+disparity on one clinically important label behind seventy unaffected ones, so performance
+was also broken out **per label** across sex and age brackets (<40 / 40–60 / 60+). Full
+tables: [`docs/model_card/subgroup_performance.md`](docs/model_card/subgroup_performance.md).
+
+Two guards make these claims defensible. A label is only *tested* when it has ≥10 positives
+in **both** subgroups of a comparison — most of PTB-XL's 71 labels do not clear that bar,
+and an AUROC computed on three cases is noise with a number attached. All p-values within a
+comparison are **Benjamini-Hochberg FDR-corrected**; testing ~30 labels at α = 0.05 would
+otherwise produce one or two "disparities" by chance alone.
+
+### What was found
+
+**The sex gap is diffuse, not localized.** 34 of 71 labels were testable by sex, and
+**none** survives FDR correction individually — yet the macro gap (+0.019, CI excludes zero)
+is real. The largest individual gaps are `NST_` (+0.093, q = 0.34) and `ISCIN` (+0.075,
+q = 0.57): suggestive, not significant. Read together, this means many labels each slightly
+worse for female patients rather than one badly-behaved finding. **There is no single label
+to patch**, which matters for how a mitigation would have to work.
+
+**The age gap is localized, consistent, and points the wrong way.** In the better-powered
+`<60 vs 60+` contrast, 11 of 23 testable labels differ significantly, and **all 9 of the
+significant pathology labels are worse in the 60+ group**:
+
+| label | finding | AUROC <60 | AUROC 60+ | gap | q |
+|---|---|---:|---:|---:|---:|
+| `LAO/LAE` | left atrial overload / enlargement | 0.920 | 0.789 | **+0.131** | 0.023 |
+| `AMI` | anterior MI | 0.931 | 0.817 | **+0.115** | 0.042 |
+| `STD_` | ST depression | 0.910 | 0.811 | **+0.099** | <0.001 |
+| `ISCAL` | anterolateral ischemia | 0.985 | 0.912 | **+0.073** | <0.001 |
+| `NT_` | non-specific T-wave changes | 0.970 | 0.897 | **+0.072** | 0.014 |
+| `IMI` | inferior MI | 0.932 | 0.868 | **+0.063** | <0.001 |
+| `ASMI` | anteroseptal MI | 0.980 | 0.932 | **+0.048** | <0.001 |
+| `LAFB` | left anterior fascicular block | 0.989 | 0.973 | **+0.016** | 0.014 |
+| `PVC` | premature ventricular contraction | 0.997 | 0.988 | **+0.008** | 0.023 |
+
+These are ischemia and infarction findings. **The model is weakest at detecting cardiac
+pathology in exactly the population that has the most of it, and where a miss carries the
+most risk.** `NORM` (−0.038) and `SR` (−0.080) run the other way, which is a case-mix effect:
+`NORM` covers 83% of the under-40 cohort, so separating normal from abnormal in a
+nearly-all-normal group is a harder discrimination problem.
+
+**An honest caveat on the whole approach:** subgroup AUROC gaps reflect the difficulty mix
+within each subgroup, not only model quality (spectrum bias). Part of the age gap is
+plausibly genuine weakness on older, more co-morbid ECGs — consistent with the Phase-13
+finding that multi-condition records lose secondary findings — and part is case mix. This
+analysis cannot separate the two and does not claim to.
+
+### The questions that could not be answered
+
+- **Atrial fibrillation by age:** testable only for 40–60 vs 60+ (14 vs 129 positives),
+  where the gap is −0.045 (q = 0.69) — **no detectable difference**. The <40 bracket contains
+  **one** AFIB positive, so younger-patient AF performance is simply unmeasured.
+- **ST-elevation by sex:** **unanswerable.** `STE_` has 1 male and 2 female positives in the
+  entire test split. Reporting "no disparity found" here would be as misleading as reporting
+  one. The finding whose miss is most dangerous is the one this dataset cannot audit for bias
+  at all.
+
+### What this implies for deployment
+
+1. **Do not deploy on an older population on the strength of the headline 0.920.** Expect
+   degraded ischemia and infarct detection in patients 60+, and set review thresholds for
+   those labels accordingly.
+2. **A sex-fairness mitigation must act on the model, not a label.** Because the effect is
+   diffuse, per-label threshold patching would not address it; reweighting or
+   sex-stratified calibration is the level to intervene at.
+3. **Absence of a documented disparity is not evidence of equity.** For most labels, and for
+   nearly everything in the <40 bracket, the honest status is *unmeasured*. Any equity claim
+   about acute findings needs a dataset enriched for them.
+4. **Monitor subgroup performance in production, stratified by age and sex**, rather than
+   relying on this retrospective single-dataset audit.
+5. **Re-run this analysis after the Phase-17 calibrator is applied in serving.** AUROC is
+   threshold-free, so two subgroups with equal AUROC can still receive different *decisions*
+   at a shared threshold if their score distributions differ.
+
+**Not verifiable here:** PTB-XL records no race or ethnicity, so fairness is checked along
+two axes only; disparities on unrecorded axes cannot be ruled out. Sex is recorded as
+binary, and this analysis inherits that limitation. Ground-truth labels are human
+annotations carrying their own historical biases — a model that matches biased labels can
+look "fair" while reproducing them.
+
+---
+
 ## Ethics statement
 
 **Automation bias is the central risk.** A system that is right most of the time trains

@@ -191,3 +191,137 @@ def max_gap(results: list[SubgroupResult], reliable_only: bool = True) -> float:
     vals = [r.macro_auroc for r in results
             if (r.reliable or not reliable_only) and not np.isnan(r.macro_auroc)]
     return float(max(vals) - min(vals)) if len(vals) >= 2 else float("nan")
+
+
+# --- per-label subgroup analysis (Phase 18) ----------------------------------
+# Going label-by-label rather than macro raises two problems the macro view hides:
+# statistical power (a label needs enough positives *in each subgroup*, and most of the
+# 71 do not have that) and multiple comparisons (testing 71 labels at alpha=0.05 yields
+# ~3.5 false positives by chance alone). Both are handled explicitly below; a per-label
+# fairness table without them is a machine for generating spurious disparities.
+
+MIN_POSITIVES_PER_SUBGROUP = 10
+
+
+def label_auroc(y_col: np.ndarray, p_col: np.ndarray) -> float:
+    """AUROC for one label on one subgroup (NaN if only one class is present)."""
+    from sklearn.metrics import roc_auc_score
+
+    if y_col.min() == y_col.max():
+        return float("nan")
+    return float(roc_auc_score(y_col, p_col))
+
+
+@dataclass
+class LabelGap:
+    """One label's performance in two subgroups, with the gap and its uncertainty."""
+
+    label: str
+    auroc_a: float
+    auroc_b: float
+    n_pos_a: int
+    n_pos_b: int
+    gap: float                 # auroc_a - auroc_b
+    ci_low: float
+    ci_high: float
+    p_value: float
+    q_value: float = float("nan")   # Benjamini-Hochberg adjusted
+    powered: bool = True            # enough positives in both subgroups
+
+    @property
+    def significant(self) -> bool:
+        """Significant after FDR correction — the only claim worth making."""
+        return self.powered and np.isfinite(self.q_value) and self.q_value < 0.05
+
+
+def bootstrap_label_gap(
+    y: np.ndarray, p: np.ndarray, mask_a: np.ndarray, mask_b: np.ndarray, j: int,
+    n_boot: int = 400, alpha: float = 0.05, seed: int = 42,
+) -> tuple[float, float, float, float]:
+    """Gap, CI and a two-sided bootstrap p-value for one label between two subgroups.
+
+    The p-value is the standard bootstrap two-sided proportion: how often the resampled
+    difference lands on the other side of zero, doubled. Returns ``(gap, lo, hi, p)``.
+    """
+    rng = np.random.default_rng(seed)
+    ia, ib = np.flatnonzero(mask_a), np.flatnonzero(mask_b)
+    ya, pa = y[ia, j], p[ia, j]
+    yb, pb = y[ib, j], p[ib, j]
+    gap = label_auroc(ya, pa) - label_auroc(yb, pb)
+    if not np.isfinite(gap):
+        return (gap, float("nan"), float("nan"), float("nan"))
+
+    diffs = []
+    for _ in range(n_boot):
+        sa = rng.integers(0, len(ia), len(ia))
+        sb = rng.integers(0, len(ib), len(ib))
+        va = label_auroc(ya[sa], pa[sa])
+        vb = label_auroc(yb[sb], pb[sb])
+        if np.isfinite(va) and np.isfinite(vb):
+            diffs.append(va - vb)
+    if len(diffs) < 20:
+        return (gap, float("nan"), float("nan"), float("nan"))
+    d = np.asarray(diffs)
+    lo = float(np.percentile(d, 100 * alpha / 2))
+    hi = float(np.percentile(d, 100 * (1 - alpha / 2)))
+    frac_le = float((d <= 0).mean())
+    pval = float(min(1.0, 2 * min(frac_le, 1 - frac_le)))
+    return (gap, lo, hi, pval)
+
+
+def benjamini_hochberg(pvals: list[float]) -> list[float]:
+    """Benjamini-Hochberg adjusted p-values (q-values), NaNs preserved.
+
+    Controls the false discovery rate across the label-wise tests. Without this, testing
+    every label independently guarantees a handful of "disparities" that are pure noise.
+    Returns q-values rather than a reject/accept mask so the caller picks its own
+    threshold (``LabelGap.significant`` uses q < 0.05).
+    """
+    arr = np.asarray(pvals, dtype=float)
+    finite = np.flatnonzero(np.isfinite(arr))
+    q = np.full(arr.shape, np.nan)
+    if finite.size == 0:
+        return q.tolist()
+    order = finite[np.argsort(arr[finite])]
+    m = len(order)
+    prev = 1.0
+    # step-up from the largest p-value, enforcing monotonicity
+    for rank in range(m, 0, -1):
+        idx = order[rank - 1]
+        val = min(prev, arr[idx] * m / rank)
+        q[idx] = prev = val
+    return q.tolist()
+
+
+def per_label_gaps(
+    y: np.ndarray, p: np.ndarray, label_space: list[str],
+    mask_a: np.ndarray, mask_b: np.ndarray,
+    min_positives: int = MIN_POSITIVES_PER_SUBGROUP,
+    n_boot: int = 400, seed: int = 42,
+) -> list[LabelGap]:
+    """Per-label AUROC gap between two subgroups, FDR-corrected across labels.
+
+    Labels without ``min_positives`` positives in *both* subgroups are still returned but
+    marked ``powered=False`` and excluded from the FDR correction — reporting an AUROC
+    computed on three positives as if it were a finding is worse than reporting nothing.
+    """
+    out: list[LabelGap] = []
+    for j, code in enumerate(label_space):
+        na, nb = int(y[mask_a, j].sum()), int(y[mask_b, j].sum())
+        powered = na >= min_positives and nb >= min_positives
+        if not powered:
+            out.append(LabelGap(code, label_auroc(y[mask_a, j], p[mask_a, j]),
+                                label_auroc(y[mask_b, j], p[mask_b, j]), na, nb,
+                                float("nan"), float("nan"), float("nan"), float("nan"),
+                                powered=False))
+            continue
+        gap, lo, hi, pv = bootstrap_label_gap(y, p, mask_a, mask_b, j, n_boot, seed=seed)
+        out.append(LabelGap(code, label_auroc(y[mask_a, j], p[mask_a, j]),
+                            label_auroc(y[mask_b, j], p[mask_b, j]), na, nb,
+                            gap, lo, hi, pv, powered=True))
+
+    powered_idx = [i for i, g in enumerate(out) if g.powered]
+    qs = benjamini_hochberg([out[i].p_value for i in powered_idx])
+    for i, q in zip(powered_idx, qs, strict=True):
+        out[i].q_value = q
+    return out
