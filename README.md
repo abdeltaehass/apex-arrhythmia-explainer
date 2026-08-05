@@ -24,7 +24,7 @@ See [`docs/problem_statement.md`](docs/problem_statement.md) for scope and
 data/                 raw signals, processed splits, annotation manifests (gitignored)
 src/
   preprocessing/      filtering, segmentation, normalization
-  detection/          1D CNN / transformer model + dataset
+  detection/          1D CNN / transformer model + dataset + knowledge distillation
   generation/         LLM prompting / fine-tuning + inference
   grounding/          attention / saliency explainability layer
   eval/               metrics, consistency checker, hallucination flagging, reliability checks
@@ -108,6 +108,25 @@ Reliability — consistency/grounding/confidence/mutual-exclusivity checks on th
 
 ```bash
 make reliability   # runs the full validation set -> docs/reliability/report.md + report.json
+```
+
+Distillation — compress the detector into a lightweight student (Phase 19):
+
+```bash
+make distill-smoke   # tiny end-to-end check on the sample records
+make distill         # 3 student sizes x {distilled, from-scratch control} -> docs/distillation/
+make distill-report  # rebuild the trade-off table from existing checkpoints
+
+# or one student directly:
+python -m src.detection.distill --width 16 --blocks 1 --alpha 0.7 --temperature 2.0
+```
+
+The student is a drop-in — same architecture family, same checkpoint schema — so serving,
+Grad-CAM grounding and the dashboard take it with no code change:
+
+```python
+from src.serving import analyze_signal
+report = analyze_signal(signal, 100, checkpoint="outputs/student_w16b1_kd_best.pt")
 ```
 
 Set up experiment tracking:
@@ -292,7 +311,19 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   and consistent** — all 9 significant pathology labels are worse in the 60+ group. Tables
   in [`docs/model_card/subgroup_performance.md`](docs/model_card/subgroup_performance.md),
   discussion in the model card's *Fairness and equity* section. ✅
-- Phase 19+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 19:** knowledge distillation to a lightweight student (`make distill`) — the
+  8.8M-parameter detector compressed into a **254k-parameter student trained on the
+  teacher's soft per-label probabilities**, not just the 0/1 labels.
+  **35x smaller (35.2 MB → 1.1 MB), ~5x faster per forward pass (81% lower latency),
+  for 0.28% macro-AUROC degradation** (0.920 → 0.917); end-to-end through the API the
+  reduction is 57%, since preprocessing and report generation are untouched. Every student
+  was also trained **from scratch as a control**, which is what makes the result a
+  measurement rather than an assertion: distillation is worth **+1.45 points** of AUROC at
+  254k parameters and only +0.10 at 988k — the gain is real, and largest where capacity is
+  scarcest. A 988k student *beats* the teacher outright, so the shipped model was
+  over-parameterized for this task.
+  [`docs/distillation/report.md`](docs/distillation/report.md). ✅
+- Phase 20+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 

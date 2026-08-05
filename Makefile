@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -26,6 +26,9 @@ help:
 	@echo "  stream-demo Phase 16 live monitor in the terminal (normal -> AF playlist)"
 	@echo "  stream-eval Phase 16 streaming behaviour + persistence trade-off -> docs/streaming/"
 	@echo "  calibrate   Phase 17 temperature/vector scaling + reliability diagrams -> docs/calibration/"
+	@echo "  distill     Phase 19 KD sweep (3 student sizes x distilled/from-scratch) + report"
+	@echo "  distill-smoke  tiny end-to-end distillation check (sample records)"
+	@echo "  distill-report rebuild docs/distillation/report.md from existing checkpoints"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
 	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
@@ -105,6 +108,15 @@ stream-eval:
 
 calibrate:
 	python scripts/calibrate.py
+
+distill:
+	bash scripts/run_distillation.sh
+
+distill-smoke:
+	python -m src.detection.distill --smoke
+
+distill-report:
+	python scripts/distill_report.py
 
 wandb-init:
 	python scripts/init_wandb.py

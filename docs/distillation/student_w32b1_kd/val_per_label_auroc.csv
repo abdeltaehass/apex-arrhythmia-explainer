@@ -1,0 +1,72 @@
+code,description,train_support,val_support,auroc
+TRIGU,"trigeminal pattern (unknown origin, SV or Ventricular)",16,2,0.9983952315451627
+2AVB,second degree AV block,12,1,0.9963336388634281
+CRBBB,complete right bundle branch block,432,55,0.9960526315789473
+PSVT,paroxysmal supraventricular tachycardia,19,3,0.9957186544342508
+INJLA,subendocardial injury in lateral leads,13,2,0.9954149472718936
+BIGU,"bigeminal pattern (unknown origin, SV or Ventricular)",66,8,0.995
+INJIN,subendocardial injury in inferior leads,14,2,0.9928931682714351
+CLBBB,complete left bundle branch block,428,54,0.9926760955412904
+STACH,sinus tachycardia,661,83,0.9921944922547332
+PVC,ventricular premature complex,915,114,0.9921608031679005
+AFLT,atrial flutter,59,7,0.9915966386554622
+AFIB,atrial fibrillation,1211,151,0.9879901705167649
+PACE,normal functioning artificial pacemaker,237,29,0.9867127717478308
+LAFB,left anterior fascicular block,1298,163,0.9829891271335722
+INJAS,subendocardial injury in anteroseptal leads,171,21,0.9796044227126558
+3AVB,third degree AV block,12,2,0.979138010087116
+IPLMI,inferoposterolateral myocardial infarction,41,5,0.9710743801652892
+ISCAS,ischemic in anteroseptal leads,135,17,0.9709684427787736
+SVTAC,supraventricular tachycardia,21,3,0.9678899082568807
+RAO/RAE,right atrial overload/enlargement,79,10,0.9676944316612978
+SBRAD,sinus bradycardia,509,64,0.9670687824445493
+PRC(S),premature complex(es),8,1,0.9660861594867094
+ALMI,anterolateral myocardial infarction,232,29,0.9654692152530976
+RVH,right ventricular hypertrophy,102,12,0.9646860125902043
+1AVB,first degree AV block,634,80,0.964205896338564
+ANEUR,ST-T changes compatible with ventricular aneurysm,84,10,0.9632765761619881
+LPR,prolonged PR interval,272,34,0.9572030766704075
+ISC_,non-specific ischemic,1019,125,0.9546744412050534
+SEHYP,septal hypertrophy,24,3,0.9536697247706422
+IPMI,inferoposterior myocardial infarction,26,4,0.950435979807251
+INJAL,subendocardial injury in anterolateral leads,116,15,0.9502460024600246
+IRBBB,incomplete right bundle branch block,894,112,0.9500931227150445
+LPFB,left posterior fascicular block,141,18,0.9460610726199641
+ASMI,anteroseptal myocardial infarction,1887,236,0.944793380515874
+PAC,atrial premature complex,318,40,0.9406906206252916
+ILMI,inferolateral myocardial infarction,383,47,0.9395868196669057
+ISCIL,ischemic in inferolateral leads,143,18,0.9382602001539646
+EL,electrolytic disturbance or drug (former EDIS),77,10,0.9363552692130694
+ISCAL,ischemic in anterolateral leads,527,66,0.9355935357352458
+NORM,normal ECG,7596,955,0.933286150382864
+ISCAN,ischemic in anterior leads,35,5,0.9277318640955005
+ILBBB,incomplete left bundle branch block,62,7,0.9267988445378151
+SR,sinus rhythm,13404,1670,0.9257064817732955
+INVT,inverted T-waves,235,30,0.9150487691593125
+LOWT,low amplitude T-waves,350,44,0.9148285094989163
+SVARR,supraventricular arrhythmia,128,15,0.9108856088560885
+DIG,digitalis-effect,145,18,0.9108801642288941
+INJIL,subendocardial injury in inferolateral leads,11,2,0.9076111875286565
+NDT,non-diagnostic T abnormalities,1461,182,0.9069366415693253
+LNGQT,long QT-interval,94,12,0.9067250115154307
+ISCIN,ischemic in inferior leads,175,21,0.906678119906612
+IMI,inferior myocardial infarction,2143,266,0.8991806590027495
+LMI,lateral myocardial infarction,161,20,0.8979889042995839
+NT_,non-specific T-wave changes,340,41,0.8960624900366652
+WPW,Wolf-Parkinson-White syndrome,64,7,0.8951549369747899
+STD_,non-specific ST depression,807,101,0.891079597873332
+LVH,left ventricular hypertrophy,1708,210,0.8824270509014553
+AMI,anterior myocardial infarction,282,36,0.8708663251047974
+SARRH,sinus arrhythmia,618,77,0.8652088652088652
+NST_,non-specific ST changes,615,75,0.8539784946236559
+QWAVE,Q waves present,438,55,0.8462747778537252
+PMI,posterior myocardial infarction,13,2,0.843878954607978
+ISCLA,ischemic in lateral leads,113,14,0.8384377264045315
+LVOLT,low QRS voltages in the frontal and horizontal leads,145,19,0.8168596166942309
+VCLVH,voltage criteria (QRS) for left ventricular hypertrophy,701,87,0.8029964025620777
+IVCD,non-specific intraventricular conduction disturbance (block),630,78,0.7923016018027895
+LAO/LAE,left atrial overload/enlargement,341,43,0.7909910888937187
+HVOLT,high QRS voltage,49,7,0.7596507352941178
+ABQRS,abnormal QRS,2683,322,0.7402902333281045
+TAB_,T-wave abnormality,28,4,0.6866681964203762
+STE_,non-specific ST elevation,22,3,0.6755351681957187

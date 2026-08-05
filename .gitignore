@@ -28,6 +28,13 @@ wandb/
 checkpoints/
 outputs/
 lightning_logs/
+# ...except the Phase-19 distilled student (1.0 MB). It is the whole point of that
+# phase: 35x smaller than the teacher and within 0.3% of its AUROC, so committing it
+# makes `analyze_signal(..., checkpoint=...)` runnable straight from a clone — no 20 GB
+# waveform download and no retraining. Same reasoning as the bundled scp_statements.csv.
+!outputs/
+outputs/*
+!outputs/student_w16b1_kd_best.pt
 
 # --- notebooks ---
 .ipynb_checkpoints/
