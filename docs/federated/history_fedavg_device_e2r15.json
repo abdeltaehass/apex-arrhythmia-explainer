@@ -1,0 +1,674 @@
+{
+  "run": {
+    "run_name": "fedavg_device_e2r15",
+    "mode": "fedavg",
+    "partition": "device",
+    "n_clients": 9,
+    "rounds": 15,
+    "local_epochs": 2,
+    "epoch_equivalents": 30,
+    "client_fraction": 1.0,
+    "buffer_mode": "average",
+    "norm": "bn",
+    "pos_weight": "global",
+    "local_only_client": null,
+    "params": 8778055,
+    "lr": 0.001,
+    "seed": 42,
+    "best_round": 14,
+    "train_time_s": 487.0,
+    "checkpoint": "fedavg_device_e2r15_best.pt",
+    "val_macro_auroc": 0.8625082383643046,
+    "val_macro_f1": 0.1951727691463031,
+    "val_micro_f1": 0.43588774449588963,
+    "val_ece": 0.11075579371878815,
+    "final_client_drift": 0.10009,
+    "partition_summary": {
+      "n_clients": 9,
+      "n_records": 17418,
+      "largest_client_share": 0.3455,
+      "size_ratio_max_min": 39.9,
+      "size_gini": 0.4795,
+      "mean_label_skew_tvd": 0.1868,
+      "max_label_skew_tvd": 0.3968,
+      "labels_absent_from_some_client": 47,
+      "clients": [
+        {
+          "name": "CS100    3",
+          "n": 6018,
+          "share": 0.3455,
+          "label_skew_tvd": 0.1651,
+          "labels_with_positives": 59,
+          "labels_trainable": 46,
+          "norm_rate": 0.2896,
+          "mean_labels_per_record": 2.885
+        },
+        {
+          "name": "AT-6 C 5.5",
+          "n": 3169,
+          "share": 0.1819,
+          "label_skew_tvd": 0.1435,
+          "labels_with_positives": 65,
+          "labels_trainable": 51,
+          "norm_rate": 0.48,
+          "mean_labels_per_record": 3.026
+        },
+        {
+          "name": "CS-12",
+          "n": 2701,
+          "share": 0.1551,
+          "label_skew_tvd": 0.1106,
+          "labels_with_positives": 64,
+          "labels_trainable": 47,
+          "norm_rate": 0.4424,
+          "mean_labels_per_record": 2.688
+        },
+        {
+          "name": "CS-12   E",
+          "n": 1987,
+          "share": 0.1141,
+          "label_skew_tvd": 0.3968,
+          "labels_with_positives": 46,
+          "labels_trainable": 16,
+          "norm_rate": 0.8168,
+          "mean_labels_per_record": 2.136
+        },
+        {
+          "name": "AT-6     6",
+          "n": 1811,
+          "share": 0.104,
+          "label_skew_tvd": 0.1442,
+          "labels_with_positives": 64,
+          "labels_trainable": 45,
+          "norm_rate": 0.4406,
+          "mean_labels_per_record": 2.983
+        },
+        {
+          "name": "AT-6 C 5.8",
+          "n": 676,
+          "share": 0.0388,
+          "label_skew_tvd": 0.1674,
+          "labels_with_positives": 60,
+          "labels_trainable": 31,
+          "norm_rate": 0.4112,
+          "mean_labels_per_record": 3.17
+        },
+        {
+          "name": "AT-60    3",
+          "n": 610,
+          "share": 0.035,
+          "label_skew_tvd": 0.1425,
+          "labels_with_positives": 49,
+          "labels_trainable": 21,
+          "norm_rate": 0.4525,
+          "mean_labels_per_record": 2.702
+        },
+        {
+          "name": "AT-6 C",
+          "n": 295,
+          "share": 0.0169,
+          "label_skew_tvd": 0.2307,
+          "labels_with_positives": 43,
+          "labels_trainable": 18,
+          "norm_rate": 0.3085,
+          "mean_labels_per_record": 2.458
+        },
+        {
+          "name": "other(3 small devices)",
+          "n": 151,
+          "share": 0.0087,
+          "label_skew_tvd": 0.1802,
+          "labels_with_positives": 46,
+          "labels_trainable": 14,
+          "norm_rate": 0.4702,
+          "mean_labels_per_record": 3.053
+        }
+      ]
+    },
+    "test_macro_auroc": 0.8555355743952943,
+    "test_macro_f1": 0.2800596534076358,
+    "test_micro_f1": 0.4557936869838375
+  },
+  "history": [
+    {
+      "round": 1,
+      "lr": 0.001,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.6299501939643872,
+      "val": {
+        "macro_auroc": 0.7599972141996724,
+        "ece": 0.2252880855728992,
+        "macro_f1": 0.011557540385184549,
+        "micro_f1": 0.06791415077419741
+      },
+      "seconds": 34.3,
+      "client_drift": 0.69004,
+      "client_losses": {
+        "CS100    3": 0.5753,
+        "AT-6 C 5.5": 0.7176,
+        "CS-12": 0.6671,
+        "CS-12   E": 0.2892,
+        "AT-6     6": 0.7983,
+        "AT-6 C 5.8": 0.9069,
+        "AT-60    3": 0.663,
+        "AT-6 C": 0.8091,
+        "other(3 small devices)": 1.0466
+      }
+    },
+    {
+      "round": 2,
+      "lr": 0.0009890738003669028,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.607185331543995,
+      "val": {
+        "macro_auroc": 0.7892343296453159,
+        "ece": 0.10148945873616927,
+        "macro_f1": 0.058701149472102365,
+        "micro_f1": 0.3559821734658896
+      },
+      "seconds": 32.2,
+      "client_drift": 0.58673,
+      "client_losses": {
+        "CS100    3": 0.5442,
+        "AT-6 C 5.5": 0.7278,
+        "CS-12": 0.6364,
+        "CS-12   E": 0.2241,
+        "AT-6     6": 0.8205,
+        "AT-6 C 5.8": 1.0512,
+        "AT-60    3": 0.4716,
+        "AT-6 C": 0.6416,
+        "other(3 small devices)": 1.039
+      }
+    },
+    {
+      "round": 3,
+      "lr": 0.0009567727288213005,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5890012004404477,
+      "val": {
+        "macro_auroc": 0.8188937017075048,
+        "ece": 0.14438192688958962,
+        "macro_f1": 0.1417841135956644,
+        "micro_f1": 0.395821242019733
+      },
+      "seconds": 32.3,
+      "client_drift": 0.49392,
+      "client_losses": {
+        "CS100    3": 0.5146,
+        "AT-6 C 5.5": 0.7216,
+        "CS-12": 0.6161,
+        "CS-12   E": 0.2115,
+        "AT-6     6": 0.8348,
+        "AT-6 C 5.8": 1.0238,
+        "AT-60    3": 0.4445,
+        "AT-6 C": 0.538,
+        "other(3 small devices)": 1.0422
+      }
+    },
+    {
+      "round": 4,
+      "lr": 0.0009045084971874737,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5806540252055037,
+      "val": {
+        "macro_auroc": 0.8228106570631316,
+        "ece": 0.11704217830099688,
+        "macro_f1": 0.15365532025914622,
+        "micro_f1": 0.4233903179421633
+      },
+      "seconds": 32.2,
+      "client_drift": 0.39356,
+      "client_losses": {
+        "CS100    3": 0.4846,
+        "AT-6 C 5.5": 0.7219,
+        "CS-12": 0.6412,
+        "CS-12   E": 0.2117,
+        "AT-6     6": 0.8248,
+        "AT-6 C 5.8": 1.0457,
+        "AT-60    3": 0.4248,
+        "AT-6 C": 0.5308,
+        "other(3 small devices)": 0.932
+      }
+    },
+    {
+      "round": 5,
+      "lr": 0.0008345653031794292,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5513947915684918,
+      "val": {
+        "macro_auroc": 0.8406520637682733,
+        "ece": 0.11135181270706802,
+        "macro_f1": 0.17261682580854648,
+        "micro_f1": 0.4615303485735379
+      },
+      "seconds": 32.2,
+      "client_drift": 0.33467,
+      "client_losses": {
+        "CS100    3": 0.4556,
+        "AT-6 C 5.5": 0.6969,
+        "CS-12": 0.6168,
+        "CS-12   E": 0.1916,
+        "AT-6     6": 0.7904,
+        "AT-6 C 5.8": 0.9678,
+        "AT-60    3": 0.3882,
+        "AT-6 C": 0.5192,
+        "other(3 small devices)": 0.8716
+      }
+    },
+    {
+      "round": 6,
+      "lr": 0.00075,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5390821689737043,
+      "val": {
+        "macro_auroc": 0.8417232908797069,
+        "ece": 0.10621361869881443,
+        "macro_f1": 0.17516488093399102,
+        "micro_f1": 0.4448448036238225
+      },
+      "seconds": 32.2,
+      "client_drift": 0.30365,
+      "client_losses": {
+        "CS100    3": 0.44,
+        "AT-6 C 5.5": 0.6798,
+        "CS-12": 0.6002,
+        "CS-12   E": 0.1787,
+        "AT-6     6": 0.7934,
+        "AT-6 C 5.8": 0.9841,
+        "AT-60    3": 0.3699,
+        "AT-6 C": 0.5218,
+        "other(3 small devices)": 0.8615
+      }
+    },
+    {
+      "round": 7,
+      "lr": 0.0006545084971874737,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5269845431080891,
+      "val": {
+        "macro_auroc": 0.8482213669061552,
+        "ece": 0.10488604371961484,
+        "macro_f1": 0.17816445672702838,
+        "micro_f1": 0.44957386363636365
+      },
+      "seconds": 32.3,
+      "client_drift": 0.26334,
+      "client_losses": {
+        "CS100    3": 0.4214,
+        "AT-6 C 5.5": 0.6829,
+        "CS-12": 0.5953,
+        "CS-12   E": 0.1793,
+        "AT-6     6": 0.7854,
+        "AT-6 C 5.8": 0.8979,
+        "AT-60    3": 0.3545,
+        "AT-6 C": 0.4917,
+        "other(3 small devices)": 0.8227
+      }
+    },
+    {
+      "round": 8,
+      "lr": 0.0005522642316338268,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5206069531096069,
+      "val": {
+        "macro_auroc": 0.8517980100169157,
+        "ece": 0.10697714840451608,
+        "macro_f1": 0.18456882486526371,
+        "micro_f1": 0.4589337175792507
+      },
+      "seconds": 32.2,
+      "client_drift": 0.24127,
+      "client_losses": {
+        "CS100    3": 0.4097,
+        "AT-6 C 5.5": 0.6792,
+        "CS-12": 0.5724,
+        "CS-12   E": 0.1707,
+        "AT-6     6": 0.7914,
+        "AT-6 C 5.8": 0.9421,
+        "AT-60    3": 0.354,
+        "AT-6 C": 0.4969,
+        "other(3 small devices)": 0.8754
+      }
+    },
+    {
+      "round": 9,
+      "lr": 0.00044773576836617336,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5112134640456146,
+      "val": {
+        "macro_auroc": 0.8537506332537157,
+        "ece": 0.10851771219071842,
+        "macro_f1": 0.1894991733002142,
+        "micro_f1": 0.45191007860611826
+      },
+      "seconds": 32.2,
+      "client_drift": 0.24514,
+      "client_losses": {
+        "CS100    3": 0.3813,
+        "AT-6 C 5.5": 0.6962,
+        "CS-12": 0.5655,
+        "CS-12   E": 0.1726,
+        "AT-6     6": 0.7891,
+        "AT-6 C 5.8": 0.9171,
+        "AT-60    3": 0.3483,
+        "AT-6 C": 0.4996,
+        "other(3 small devices)": 0.8215
+      }
+    },
+    {
+      "round": 10,
+      "lr": 0.00034549150281252633,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5090360274581814,
+      "val": {
+        "macro_auroc": 0.8589293246686952,
+        "ece": 0.11455815791914194,
+        "macro_f1": 0.18904701984425656,
+        "micro_f1": 0.44567219152854515
+      },
+      "seconds": 32.2,
+      "client_drift": 0.24323,
+      "client_losses": {
+        "CS100    3": 0.3666,
+        "AT-6 C 5.5": 0.6922,
+        "CS-12": 0.5797,
+        "CS-12   E": 0.1657,
+        "AT-6     6": 0.7952,
+        "AT-6 C 5.8": 0.9624,
+        "AT-60    3": 0.3411,
+        "AT-6 C": 0.5002,
+        "other(3 small devices)": 0.8283
+      }
+    },
+    {
+      "round": 11,
+      "lr": 0.0002500000000000001,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.4980198854204314,
+      "val": {
+        "macro_auroc": 0.8568961975578324,
+        "ece": 0.10563873071113554,
+        "macro_f1": 0.19276772183742594,
+        "micro_f1": 0.4571255428744571
+      },
+      "seconds": 32.2,
+      "client_drift": 0.24745,
+      "client_losses": {
+        "CS100    3": 0.3598,
+        "AT-6 C 5.5": 0.682,
+        "CS-12": 0.5593,
+        "CS-12   E": 0.1663,
+        "AT-6     6": 0.7771,
+        "AT-6 C 5.8": 0.9126,
+        "AT-60    3": 0.3417,
+        "AT-6 C": 0.5082,
+        "other(3 small devices)": 0.822
+      }
+    },
+    {
+      "round": 12,
+      "lr": 0.00016543469682057105,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.503505830719848,
+      "val": {
+        "macro_auroc": 0.8603804423424936,
+        "ece": 0.11681651113573899,
+        "macro_f1": 0.1932689487616504,
+        "micro_f1": 0.43743147256519044
+      },
+      "seconds": 32.2,
+      "client_drift": 0.22896,
+      "client_losses": {
+        "CS100    3": 0.3504,
+        "AT-6 C 5.5": 0.7008,
+        "CS-12": 0.5641,
+        "CS-12   E": 0.1637,
+        "AT-6     6": 0.8019,
+        "AT-6 C 5.8": 0.9498,
+        "AT-60    3": 0.3532,
+        "AT-6 C": 0.5281,
+        "other(3 small devices)": 0.8356
+      }
+    },
+    {
+      "round": 13,
+      "lr": 9.549150281252633e-05,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5135364026222188,
+      "val": {
+        "macro_auroc": 0.8615465315063271,
+        "ece": 0.11187043066104306,
+        "macro_f1": 0.1947343162205459,
+        "micro_f1": 0.44120188153979073
+      },
+      "seconds": 32.3,
+      "client_drift": 0.22081,
+      "client_losses": {
+        "CS100    3": 0.3413,
+        "AT-6 C 5.5": 0.7231,
+        "CS-12": 0.5804,
+        "CS-12   E": 0.1742,
+        "AT-6     6": 0.8336,
+        "AT-6 C 5.8": 0.9878,
+        "AT-60    3": 0.3582,
+        "AT-6 C": 0.5319,
+        "other(3 small devices)": 0.8774
+      }
+    },
+    {
+      "round": 14,
+      "lr": 4.322727117869951e-05,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.5376668292727504,
+      "val": {
+        "macro_auroc": 0.8625082383643046,
+        "ece": 0.11075579371878815,
+        "macro_f1": 0.1951727691463031,
+        "micro_f1": 0.43588774449588963
+      },
+      "seconds": 32.6,
+      "client_drift": 0.18941,
+      "client_losses": {
+        "CS100    3": 0.3424,
+        "AT-6 C 5.5": 0.7713,
+        "CS-12": 0.5769,
+        "CS-12   E": 0.1886,
+        "AT-6     6": 0.9362,
+        "AT-6 C 5.8": 1.0468,
+        "AT-60    3": 0.3684,
+        "AT-6 C": 0.5488,
+        "other(3 small devices)": 0.9145
+      }
+    },
+    {
+      "round": 15,
+      "lr": 1.0926199633097156e-05,
+      "clients": [
+        "CS100    3",
+        "AT-6 C 5.5",
+        "CS-12",
+        "CS-12   E",
+        "AT-6     6",
+        "AT-6 C 5.8",
+        "AT-60    3",
+        "AT-6 C",
+        "other(3 small devices)"
+      ],
+      "n_total": 17418,
+      "mean_train_loss": 0.6012768320669118,
+      "val": {
+        "macro_auroc": 0.8619956252823185,
+        "ece": 0.0997767580010478,
+        "macro_f1": 0.19665234271885415,
+        "micro_f1": 0.4380329732802729
+      },
+      "seconds": 32.5,
+      "client_drift": 0.10009,
+      "client_losses": {
+        "CS100    3": 0.359,
+        "AT-6 C 5.5": 0.9003,
+        "CS-12": 0.6083,
+        "CS-12   E": 0.2268,
+        "AT-6     6": 1.0895,
+        "AT-6 C 5.8": 1.1926,
+        "AT-60    3": 0.3769,
+        "AT-6 C": 0.5513,
+        "other(3 small devices)": 1.2833
+      }
+    }
+  ]
+}

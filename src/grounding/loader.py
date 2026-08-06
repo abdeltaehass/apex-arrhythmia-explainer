@@ -46,6 +46,9 @@ def load_detector(
         width=args.get("width", 64),
         blocks=args.get("blocks", 2),
         dropout=args.get("dropout", 0.2),
+        # Phase 20 federated runs may use GroupNorm; pre-Phase-20 checkpoints have no
+        # "norm" key and are BatchNorm, which is what the default preserves.
+        norm=args.get("norm", "bn"),
         d_model=args.get("d_model", 128),
         depth=args.get("depth", 3),
         heads=args.get("heads", 4),

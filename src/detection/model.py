@@ -20,19 +20,41 @@ from src.config import NUM_LABELS, NUM_LEADS
 
 if torch is not None:
 
+    def make_norm(kind: str, channels: int) -> nn.Module:
+        """Normalization layer factory: ``"bn"`` (default) or ``"gn"`` (GroupNorm).
+
+        BatchNorm is the right default for centralized training. GroupNorm exists here for
+        Phase 20: BatchNorm keeps ``running_mean``/``running_var`` estimated from whatever
+        data a client holds, and under a non-IID federated split averaging those statistics
+        across hospitals yields a normalization that matches no client's real input
+        distribution. GroupNorm normalizes within each sample and stores no cross-batch
+        statistics, so there is nothing distribution-dependent left for FedAvg to average.
+        """
+        if kind == "bn":
+            return nn.BatchNorm1d(channels)
+        if kind == "gn":
+            # Largest group count <= 32 that divides the channel count (channels here are
+            # powers of two, so this lands on 32 for wide stages and on `channels` itself
+            # for narrow ones — never a non-divisor, which GroupNorm rejects).
+            groups = next(g for g in range(min(32, channels), 0, -1) if channels % g == 0)
+            return nn.GroupNorm(groups, channels)
+        raise ValueError(f"unknown norm: {kind!r} (expected 'bn' or 'gn')")
+
     class ResBlock1d(nn.Module):
         """Two 7-wide conv layers + a projected skip connection."""
 
-        def __init__(self, c_in: int, c_out: int, stride: int = 1, dropout: float = 0.0):
+        def __init__(self, c_in: int, c_out: int, stride: int = 1, dropout: float = 0.0,
+                     norm: str = "bn"):
             super().__init__()
             self.conv1 = nn.Conv1d(c_in, c_out, kernel_size=7, stride=stride, padding=3, bias=False)
-            self.bn1 = nn.BatchNorm1d(c_out)
+            self.bn1 = make_norm(norm, c_out)
             self.conv2 = nn.Conv1d(c_out, c_out, kernel_size=7, padding=3, bias=False)
-            self.bn2 = nn.BatchNorm1d(c_out)
+            self.bn2 = make_norm(norm, c_out)
             self.act = nn.ReLU(inplace=True)
             self.drop = nn.Dropout(dropout) if dropout > 0 else nn.Identity()
             self.down = (
-                nn.Sequential(nn.Conv1d(c_in, c_out, 1, stride=stride, bias=False), nn.BatchNorm1d(c_out))
+                nn.Sequential(nn.Conv1d(c_in, c_out, 1, stride=stride, bias=False),
+                              make_norm(norm, c_out))
                 if (stride != 1 or c_in != c_out)
                 else nn.Identity()
             )
@@ -49,7 +71,7 @@ if torch is not None:
 
         `width` sets the stem/stage-1 channel count (stages double it); `blocks` is the
         number of residual blocks per stage; `dropout` applies inside blocks and before
-        the head.
+        the head; `norm` selects BatchNorm (default) or GroupNorm — see :func:`make_norm`.
         """
 
         def __init__(
@@ -59,11 +81,12 @@ if torch is not None:
             width: int = 64,
             blocks: int = 2,
             dropout: float = 0.2,
+            norm: str = "bn",
         ):
             super().__init__()
             self.stem = nn.Sequential(
                 nn.Conv1d(num_leads, width, kernel_size=15, stride=2, padding=7, bias=False),
-                nn.BatchNorm1d(width),
+                make_norm(norm, width),
                 nn.ReLU(inplace=True),
             )
             channels = [width, width * 2, width * 4, width * 8]
@@ -71,9 +94,9 @@ if torch is not None:
             c_in = width
             for c_out in channels:
                 # first block of each stage downsamples (stride 2); the rest keep shape.
-                stages.append(ResBlock1d(c_in, c_out, stride=2, dropout=dropout))
+                stages.append(ResBlock1d(c_in, c_out, stride=2, dropout=dropout, norm=norm))
                 for _ in range(blocks - 1):
-                    stages.append(ResBlock1d(c_out, c_out, stride=1, dropout=dropout))
+                    stages.append(ResBlock1d(c_out, c_out, stride=1, dropout=dropout, norm=norm))
                 c_in = c_out
             self.stages = nn.Sequential(*stages)
             self.pool = nn.AdaptiveAvgPool1d(1)
@@ -137,7 +160,7 @@ if torch is not None:
     def build_model(name: str, **kwargs) -> nn.Module:
         """Factory: 'cnn' -> ECGResNet1d, 'transformer' -> ECGPatchTransformer."""
         if name == "cnn":
-            keep = ("width", "blocks", "dropout")
+            keep = ("width", "blocks", "dropout", "norm")
             return ECGResNet1d(**{k: v for k, v in kwargs.items() if k in keep})
         if name == "transformer":
             keep = ("patch", "d_model", "depth", "heads", "dropout")

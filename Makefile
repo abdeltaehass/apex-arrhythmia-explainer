@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -29,6 +29,9 @@ help:
 	@echo "  distill     Phase 19 KD sweep (3 student sizes x distilled/from-scratch) + report"
 	@echo "  distill-smoke  tiny end-to-end distillation check (sample records)"
 	@echo "  distill-report rebuild docs/distillation/report.md from existing checkpoints"
+	@echo "  federated   Phase 20 FedAvg sweep over PTB-XL device shards + report"
+	@echo "  federated-smoke  tiny end-to-end federated check"
+	@echo "  federated-report rebuild docs/federated/report.md from existing runs"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
 	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
@@ -117,6 +120,15 @@ distill-smoke:
 
 distill-report:
 	python scripts/distill_report.py
+
+federated:
+	bash scripts/run_federated.sh
+
+federated-smoke:
+	python -m src.federated.train --smoke
+
+federated-report:
+	python scripts/federated_report.py
 
 wandb-init:
 	python scripts/init_wandb.py

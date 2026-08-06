@@ -30,6 +30,7 @@ src/
   eval/               metrics, consistency checker, hallucination flagging, reliability checks
   serving/            structured JSON output schema + serializer + input validation
   digitization/       paper-ECG image <-> signal (render + digitize)
+  federated/          FedAvg simulation over per-hospital data shards
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -108,6 +109,18 @@ Reliability — consistency/grounding/confidence/mutual-exclusivity checks on th
 
 ```bash
 make reliability   # runs the full validation set -> docs/reliability/report.md + report.json
+```
+
+Federated learning — train across simulated hospitals without pooling data (Phase 20):
+
+```bash
+make federated-smoke  # tiny end-to-end check
+make federated        # FedAvg sweep + IID control + local-only baselines -> docs/federated/
+make federated-report # rebuild the comparison from existing runs
+
+# or one configuration directly:
+python -m src.federated.train --by device --rounds 20 --local-epochs 5
+python -m src.federated.train --by iid --rounds 20 --local-epochs 5   # the control
 ```
 
 Distillation — compress the detector into a lightweight student (Phase 19):
@@ -323,7 +336,20 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   scarcest. A 988k student *beats* the teacher outright, so the shipped model was
   over-parameterized for this task.
   [`docs/distillation/report.md`](docs/distillation/report.md). ✅
-- Phase 20+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 20:** federated learning simulation (`make federated`) — PTB-XL's `device`
+  column splits the training folds into **9 simulated hospitals** that never pool data,
+  trained with **FedAvg**. The split is genuinely non-IID: NORM prevalence runs 29%->82%
+  across clients, sizes 6,018->151 (40:1), and **47 of 71 labels are entirely absent from
+  at least one client**. **FedAvg reaches test macro-AUROC 0.8751 vs the centralized
+  0.9199 — a 4.48-point (4.9%) gap with no ECG leaving its hospital**, and it beats the
+  best single hospital training alone (0.8268) by 4.8 points, closing **52% of the
+  distance** to full pooling. An **IID control** with identical client sizes splits the
+  gap: **1.82 points are heterogeneity, the rest is federation's own mechanics** (weight
+  averaging + per-round optimizer restart). Two honest negatives: more local epochs per
+  round *helped* (the optimizer restart binds harder than client drift), and swapping
+  BatchNorm for GroupNorm — the textbook fix for averaged BN statistics — made it **5.9
+  points worse**. [`docs/federated/report.md`](docs/federated/report.md). ✅
+- Phase 21+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 
