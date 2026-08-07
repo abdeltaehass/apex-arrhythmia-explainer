@@ -47,3 +47,11 @@ outputs/*
 .DS_Store
 .idea/
 .vscode/
+
+# --- RAG (Phase 21) ---
+# The corpus IS committed: it is fetched from a live source, so it is the artifact of
+# record for the reported results. The indexes are derived from it deterministically
+# (`make rag-index` / `--no-fetch`, no network needed) and are large — and the TF-IDF one
+# is a pickle, which is not something to ship in a public repo.
+data/reference/dense_index.npz
+data/reference/tfidf_index.pkl

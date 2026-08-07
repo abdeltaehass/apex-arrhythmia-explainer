@@ -14,6 +14,17 @@ Backends:
                  examples in lieu of a GPU to run the LoRA fine-tune end-to-end.
     "local"    — the LoRA-fine-tuned open model from `train_lora.py` (base model +
                  adapter directory), loaded once and reused across calls.
+    "hf"       — any local instruct model by Hub id, no adapter. Added in Phase 21 so the
+                 RAG evaluation can run a competent open model offline: measuring whether
+                 retrieval changes the hallucination rate needs a generator that actually
+                 writes clinical prose, and neither the deterministic template (which
+                 cannot hallucinate by construction) nor the 135M smoke adapter (which
+                 emits no diagnoses at all) can serve as the subject.
+
+Every backend takes an optional ``context`` string — the retrieved reference block from
+`src.rag` — which is appended to the user turn by `prompts.build_user_prompt`. Passing
+nothing reproduces the Phase-6 prompt exactly, which is what makes the RAG on/off
+comparison a controlled one.
 """
 
 from __future__ import annotations
@@ -23,7 +34,7 @@ from src.generation.templater import StructuredInput, render_report
 
 DISCLAIMER = "Decision support only — verify against the full clinical picture."
 
-BACKENDS = ("template", "claude", "local")
+BACKENDS = ("template", "claude", "local", "hf")
 
 
 def generate_with_template(si: StructuredInput) -> str:
@@ -32,7 +43,8 @@ def generate_with_template(si: StructuredInput) -> str:
     return target_text(rep["findings"], rep["impression"])
 
 
-def generate_with_claude(si: StructuredInput, model: str = "claude-fable-5", max_tokens: int = 600) -> str:
+def generate_with_claude(si: StructuredInput, model: str = "claude-fable-5",
+                         max_tokens: int = 600, context: str = "") -> str:
     """Requires ``ANTHROPIC_API_KEY``. Thin by design — see module docstring."""
     try:
         import anthropic
@@ -44,7 +56,7 @@ def generate_with_claude(si: StructuredInput, model: str = "claude-fable-5", max
         model=model,
         max_tokens=max_tokens,
         system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": build_user_prompt(si)}],
+        messages=[{"role": "user", "content": build_user_prompt(si, context)}],
     )
     return resp.content[0].text
 
@@ -81,6 +93,7 @@ def generate_with_local(
     base_model: str = "mistralai/Mistral-7B-Instruct-v0.3",
     max_new_tokens: int = 300,
     device: str = "auto",
+    context: str = "",
 ) -> str:
     """Generate with a `train_lora.py` LoRA adapter. Loads the base + adapter once,
     cached in-process by ``adapter_dir`` (swap adapters to compare runs)."""
@@ -89,7 +102,7 @@ def generate_with_local(
     model, tok = _load_local(base_model, adapter_dir, device)
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": build_user_prompt(si)},
+        {"role": "user", "content": build_user_prompt(si, context)},
     ]
     inputs = tok.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt")
     inputs = inputs.to(model.device)
@@ -99,12 +112,66 @@ def generate_with_local(
     return tok.decode(out[0][inputs.shape[-1]:], skip_special_tokens=True).strip()
 
 
-def generate_explanation(si: StructuredInput, backend: str = "claude", **kwargs) -> str:
-    """Dispatch to a backend by name. See module docstring for the three options."""
+_HF_CACHE: dict[tuple[str, str], tuple] = {}
+
+
+def _load_hf(model_id: str, device: str = "auto"):
+    if device == "auto":
+        import torch
+        device = ("mps" if torch.backends.mps.is_available()
+                  else "cuda" if torch.cuda.is_available() else "cpu")
+    key = (model_id, device)
+    if key not in _HF_CACHE:
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+
+        tok = AutoTokenizer.from_pretrained(model_id)
+        model = AutoModelForCausalLM.from_pretrained(model_id, dtype="auto").to(device).eval()
+        _HF_CACHE[key] = (model, tok)
+    return _HF_CACHE[key]
+
+
+def generate_with_hf(
+    si: StructuredInput,
+    model_id: str = "Qwen/Qwen2.5-1.5B-Instruct",
+    max_new_tokens: int = 320,
+    device: str = "auto",
+    context: str = "",
+) -> str:
+    """Generate with a plain local instruct model (no adapter), cached per process.
+
+    Greedy decoding (``do_sample=False``): the RAG comparison is a paired before/after on
+    the same records, so sampling noise would sit directly on top of the effect being
+    measured.
+    """
+    import torch
+
+    model, tok = _load_hf(model_id, device)
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": build_user_prompt(si, context)},
+    ]
+    text = tok.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
+    enc = tok(text, return_tensors="pt").to(model.device)
+    with torch.no_grad():
+        out = model.generate(**enc, max_new_tokens=max_new_tokens, do_sample=False,
+                             pad_token_id=tok.eos_token_id)
+    return tok.decode(out[0][enc["input_ids"].shape[-1]:], skip_special_tokens=True).strip()
+
+
+def generate_explanation(si: StructuredInput, backend: str = "claude",
+                         context: str = "", **kwargs) -> str:
+    """Dispatch to a backend by name. See module docstring for the four options.
+
+    ``context`` is the optional retrieved reference block (Phase 21). The template backend
+    ignores it — it renders from the structured input alone and so is consistent by
+    construction, which is exactly why it is the wrong thing to measure RAG on.
+    """
     if backend == "template":
         return generate_with_template(si)
     if backend == "claude":
-        return generate_with_claude(si, **kwargs)
+        return generate_with_claude(si, context=context, **kwargs)
     if backend == "local":
-        return generate_with_local(si, **kwargs)
+        return generate_with_local(si, context=context, **kwargs)
+    if backend == "hf":
+        return generate_with_hf(si, context=context, **kwargs)
     raise ValueError(f"unknown backend {backend!r}, expected one of {BACKENDS}")

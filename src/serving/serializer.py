@@ -208,7 +208,8 @@ class AnalysisResult:
     fs: int
 
 
-def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device) -> AnalysisResult:
+def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device,
+                  with_rag: bool = False) -> AnalysisResult:
     import numpy as np
 
     validation = validate_signal(signal, sampling_rate)
@@ -239,7 +240,20 @@ def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, de
         surfaced, confidences=confidences, descriptions=descriptions,
         review_threshold=CFG.review_threshold,
     )
-    explanation = generate_explanation(si, backend=backend)
+    # Phase 21: optionally retrieve clinical reference text for the surfaced findings and
+    # inject it into the generator's prompt. Off by default — the deterministic template
+    # backend ignores context entirely, and retrieval costs an index load plus an
+    # embedding pass that a latency-sensitive caller should opt into knowingly.
+    context = ""
+    if with_rag and surfaced:
+        from src.serving.model_cache import get_rag_index
+
+        index = get_rag_index()
+        if index is not None:
+            from src.rag import format_context, retrieve_for_findings
+
+            context = format_context(retrieve_for_findings(si, index))
+    explanation = generate_explanation(si, backend=backend, context=context)
 
     grounded_leads = saliency_by_code = None
     if with_grounding:
@@ -267,15 +281,20 @@ def analyze_signal(
     backend: str = "template",
     with_grounding: bool = False,
     device: str = "cpu",
+    with_rag: bool = False,
 ) -> APEXReport:
     """Full pipeline: validate -> preprocess -> detect -> generate -> [ground] -> serialize.
 
     Raises :class:`InputValidationError` if the recording fails a hard rule. ``backend``
     picks the explanation generator (``"template"`` is deterministic and needs no LLM;
     ``"claude"``/``"local"`` need their deps). ``with_grounding`` runs the (more
-    expensive) per-lead saliency so grounding-conflict flags are populated.
+    expensive) per-lead saliency so grounding-conflict flags are populated. ``with_rag``
+    (Phase 21) injects retrieved clinical reference passages into the generator's prompt;
+    it needs `make rag-index` to have been run and is ignored by the template backend,
+    which renders from the structured input alone.
     """
-    return _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device).report
+    return _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device,
+                         with_rag).report
 
 
 def analyze_detailed(

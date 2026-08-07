@@ -1,0 +1,39 @@
+{
+  "backend": "hf",
+  "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+  "n_records": 150,
+  "k_per_finding": 2,
+  "max_passages": 5,
+  "threshold": 0.5,
+  "no_rag": {
+    "n": 150,
+    "hallucination_rate": 0.06,
+    "consistency_rate": 0.94,
+    "unsupported_per_record": 0.073,
+    "finding_coverage": 0.3417,
+    "well_formed_rate": 0.7,
+    "treatment_recommendation_rate": 0.18
+  },
+  "rag": {
+    "n": 150,
+    "hallucination_rate": 0.12,
+    "consistency_rate": 0.88,
+    "unsupported_per_record": 0.147,
+    "finding_coverage": 0.4135,
+    "well_formed_rate": 0.54,
+    "treatment_recommendation_rate": 0.4467
+  },
+  "mcnemar": {
+    "b_norag_only": 5,
+    "c_rag_only": 14,
+    "n_discordant": 19,
+    "p_value": 0.06357
+  },
+  "retrieval_attributable": {
+    "rag_unsupported_total": 22,
+    "rag_unsupported_named_in_context": 10,
+    "no_rag_unsupported_total": 11,
+    "no_rag_unsupported_named_in_retrieved_passages": 2
+  },
+  "mean_passages_retrieved": 4.81
+}

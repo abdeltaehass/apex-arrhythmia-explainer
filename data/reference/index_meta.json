@@ -1,0 +1,5 @@
+{
+  "n_passages": 927,
+  "dense": true,
+  "embed_model": "sentence-transformers/all-MiniLM-L6-v2"
+}

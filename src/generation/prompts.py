@@ -77,8 +77,22 @@ def serialize_structured_input(si: StructuredInput) -> str:
     return "\n".join(lines)
 
 
-def build_user_prompt(si: StructuredInput) -> str:
-    return serialize_structured_input(si) + "\n\nWrite the report now."
+def build_user_prompt(si: StructuredInput, context: str = "") -> str:
+    """The user turn: the structured detection block, optional retrieved reference
+    material, then the instruction to write.
+
+    ``context`` (Phase 21) is the RAG block from `src.rag.retrieve.format_context`. It is
+    placed *after* the findings list and *before* the write instruction deliberately: the
+    findings list is the authoritative input and the reference material is subordinate to
+    it, and the block carries its own restatement of the "only assert listed findings"
+    rule, so the last thing the model reads before generating is that boundary rather than
+    a paragraph of unrelated condition names. With no context this returns exactly the
+    Phase-6 prompt, byte for byte, so the fine-tuning data and the no-RAG arm of the
+    Phase-21 comparison are unaffected."""
+    body = serialize_structured_input(si)
+    if context:
+        body += "\n\n" + context
+    return body + "\n\nWrite the report now."
 
 
 def target_text(findings: str, impression: str) -> str:

@@ -1,0 +1,44 @@
+{
+  "n_passages": 927,
+  "by_license": {
+    "CC BY 4.0": 71,
+    "CC BY-SA 4.0": 856
+  },
+  "by_source": {
+    "PTB-XL scp_statements.csv": 71,
+    "Wikipedia": 856
+  },
+  "passage_chars": {
+    "min": 21,
+    "median": 568,
+    "max": 1023
+  },
+  "dense_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "retrieval": {
+    "tfidf (sparse)": {
+      "n_queries": 71,
+      "recall_at_1": 0.8873,
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "missed_entirely": []
+    },
+    "minilm (dense)": {
+      "n_queries": 71,
+      "recall_at_1": 0.7887,
+      "recall_at_3": 0.9296,
+      "recall_at_5": 0.9577,
+      "missed_entirely": [
+        "CRBBB",
+        "CLBBB",
+        "ILBBB"
+      ]
+    },
+    "hybrid (RRF)": {
+      "n_queries": 71,
+      "recall_at_1": 0.8451,
+      "recall_at_3": 0.9718,
+      "recall_at_5": 1.0,
+      "missed_entirely": []
+    }
+  }
+}

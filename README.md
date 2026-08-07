@@ -31,6 +31,7 @@ src/
   serving/            structured JSON output schema + serializer + input validation
   digitization/       paper-ECG image <-> signal (render + digitize)
   federated/          FedAvg simulation over per-hospital data shards
+  rag/                clinical reference corpus + vector index + retrieval
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -110,6 +111,26 @@ Reliability — consistency/grounding/confidence/mutual-exclusivity checks on th
 ```bash
 make reliability   # runs the full validation set -> docs/reliability/report.md + report.json
 ```
+
+Retrieval-augmented generation — ground explanations in clinical reference text (Phase 21):
+
+```bash
+make rag-index    # fetch the openly-licensed corpus + build the vector index
+make rag-eval     # paired RAG on/off hallucination comparison -> docs/rag/report.md
+
+# rebuild the index without re-fetching (no network needed):
+python scripts/build_rag_index.py --no-fetch
+```
+
+```python
+from src.rag import load_index, retrieve_for_findings, format_context
+ctx = retrieve_for_findings(structured_input, load_index(), k_per_finding=2)
+report = analyze_signal(signal, 100)          # unchanged; RAG is opt-in per call
+```
+
+The corpus is **Wikipedia (CC BY-SA 4.0) + PTB-XL's SCP statement definitions (CC BY 4.0)**,
+verbatim and with per-passage provenance — *not* ACC/AHA guidelines, which are copyrighted
+and not redistributable. See [`data/reference/NOTICE.md`](data/reference/NOTICE.md).
 
 Federated learning — train across simulated hospitals without pooling data (Phase 20):
 
@@ -349,7 +370,23 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   round *helped* (the optimizer restart binds harder than client drift), and swapping
   BatchNorm for GroupNorm — the textbook fix for averaged BN statistics — made it **5.9
   points worse**. [`docs/federated/report.md`](docs/federated/report.md). ✅
-- Phase 21+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 21:** retrieval-augmented clinical context (`make rag-index` / `make rag-eval`)
+  — a hybrid dense+sparse vector index over **927 passages** of openly-licensed cardiology
+  reference text, retrieved per detected finding and injected into the generator's prompt.
+  **The honest result is a negative one: RAG *doubled* the hallucination rate** (0.060 →
+  0.120 over 150 paired records, 11 → 22 fabricated findings; McNemar p=0.064), degraded
+  format compliance (0.70 → 0.54) and 2.5x'd the rate of treatment recommendations the
+  prompt forbids. The mechanism is specific to this task: APEX's generator may assert
+  *only* the detector's findings, and retrieved cardiology text is full of other condition
+  names — **`LVH` was fabricated 8 times with RAG, every one of them with LVH named in that
+  record's retrieved passages**, versus 3 times without. Retrieval did improve finding
+  coverage (+7 points), so it belongs on the *wording*, not the assertions; `with_rag` is
+  off by default and Phase 7's consistency gate catches every fabrication before it reaches
+  a clinician. [`docs/rag/report.md`](docs/rag/report.md).
+  **Note:** ACC/AHA guidelines are copyrighted and *not* redistributable, so the corpus is
+  Wikipedia (CC BY-SA 4.0) + PTB-XL SCP definitions (CC BY 4.0), verbatim and fully
+  attributed — see [`data/reference/NOTICE.md`](data/reference/NOTICE.md). ✅
+- Phase 22+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 

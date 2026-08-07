@@ -12,6 +12,8 @@ from src.grounding import load_detector
 
 _DETECTORS: dict[tuple[str, str], tuple] = {}
 _SCP = None
+_RAG_INDEX: object | None = None
+_RAG_UNAVAILABLE = False
 
 
 def get_detector(checkpoint=None, device: str = "cpu"):
@@ -28,6 +30,26 @@ def get_detector(checkpoint=None, device: str = "cpu"):
             else load_detector(device=device)
         )
     return _DETECTORS[key]
+
+
+def get_rag_index():
+    """Cached Phase-21 retrieval index, or ``None`` if it has not been built.
+
+    Returning ``None`` rather than raising is deliberate: retrieval is an *enhancement* to
+    the explanation, and a missing index is a deployment-configuration problem, not a
+    reason to fail an ECG analysis. The caller degrades to the ungrounded prompt — which
+    is exactly the Phase-6 behaviour — and the failure is recorded once rather than
+    retried on every request.
+    """
+    global _RAG_INDEX, _RAG_UNAVAILABLE
+    if _RAG_INDEX is None and not _RAG_UNAVAILABLE:
+        try:
+            from src.rag import load_index
+
+            _RAG_INDEX = load_index()
+        except Exception:
+            _RAG_UNAVAILABLE = True
+    return _RAG_INDEX
 
 
 def get_scp_statements():
@@ -48,6 +70,8 @@ def warmup(checkpoint=None, device: str = "cpu") -> None:
 
 def clear_caches() -> None:
     """Drop the caches (tests / explicit reloads)."""
-    global _SCP
+    global _SCP, _RAG_INDEX, _RAG_UNAVAILABLE
     _DETECTORS.clear()
     _SCP = None
+    _RAG_INDEX = None
+    _RAG_UNAVAILABLE = False
