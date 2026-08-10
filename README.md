@@ -32,6 +32,7 @@ src/
   digitization/       paper-ECG image <-> signal (render + digitize)
   federated/          FedAvg simulation over per-hospital data shards
   rag/                clinical reference corpus + vector index + retrieval
+  longitudinal/       serial (prior vs current) ECG comparison + change reports
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -206,6 +207,27 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
 # upload panel (signal file or paper-ECG photo), ECG + per-finding grounding overlays,
 # structured report with confidence bars + flags, red/yellow/green severity banner.
 # Deploy to Hugging Face Spaces: see docs/frontend/deploy.md
+```
+
+Compare two ECGs from the same patient (Phase 22):
+
+```bash
+make longitudinal            # fit change thresholds + full eval -> docs/longitudinal/
+make longitudinal-examples   # rebuild the 12 cardiologist-graded worked examples
+```
+
+```python
+from src.longitudinal import compare_records
+
+result = compare_records(prior_id=16404, current_id=16408)
+print(result.report.text)
+# Compared with the prior study of 1996-07-16 (53 minutes earlier): Atrial fibrillation
+# has reverted to sinus rhythm. New since the prior study: first-degree AV block. ...
+# Not compared — PR interval not compared: no P wave detected in the prior study
+# (atrial fibrillation) — PR interval is undefined.
+
+result.delta.significant_intervals()   # structured, noise-gated interval changes
+result.consistency.consistent          # the change narrative asserts nothing unmeasured
 ```
 
 ## Phase status
@@ -386,7 +408,30 @@ make ui   # or: python app.py   — Gradio at http://localhost:7860
   **Note:** ACC/AHA guidelines are copyrighted and *not* redistributable, so the corpus is
   Wikipedia (CC BY-SA 4.0) + PTB-XL SCP definitions (CC BY 4.0), verbatim and fully
   attributed — see [`data/reference/NOTICE.md`](data/reference/NOTICE.md). ✅
-- Phase 22+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 22:** longitudinal (serial) ECG comparison (`make longitudinal`) — compares two
+  recordings from the same patient and reports what *changed*. PTB-XL's 2,111 repeat
+  patients give **2,930 prior→current pairs** (294 held out). Intervals are measured from
+  the waveform (PTB-XL ships none): median beat → 500 Hz spline → global delineation, giving
+  PR/QRS/QT/QTc plus per-lead ST levels, validated against labels the delineator never sees
+  (**QRS→LBBB AUROC 0.92, QRS→RBBB 0.93, PR→1AVB 0.84**). **The headline is the cost of
+  differencing: the same detector on the same records scores F1 0.64 at "what is present"
+  and F1 0.32 at "what is new"** — two noisy decisions differenced are noisier than either.
+  Every change must clear a **measured** noise floor, and getting that floor was the
+  interesting part: the obvious null cohort (327 same-day pairs) turned out to be *not* a
+  null — its spread is **larger** than that of year-apart pairs (QRS SD 40.8 vs 27.1 ms),
+  because you only get two ECGs in a day if something is acutely wrong (63% vs 34% carry an
+  acute code). The floor is instead bracketed by within-record split-half repeatability and
+  label-stable between-session pairs, fitted on folds 1–8. Two corrections that matter:
+  the per-lead ST bar is **Bonferroni-widened** (8 leads at 95% would invent a regional ST
+  change in **34%** of unchanged tracings), and raw QT/Bazett are suppressed when the rate
+  moved (Bazett repeats to 34.1 ms between sessions vs Fridericia's 27.3, but the two are
+  identical within a recording — the excess is purely rate-induced). 110 PTB-XL reports
+  contain the reading cardiologist's own comparison sentence; for **12 the prior tracing is
+  recoverable**, so the worked examples are graded against a physician rather than against
+  me — 6/12 concordant on the principal change, with failures clustering on *stable* studies.
+  [`docs/longitudinal/report.md`](docs/longitudinal/report.md) ·
+  [`examples.md`](docs/longitudinal/examples.md). ✅
+- Phase 23+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 

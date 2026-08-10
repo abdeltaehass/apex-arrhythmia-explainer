@@ -1,0 +1,272 @@
+{
+  "cohort": {
+    "n_pairs": 2930,
+    "n_patients": 2111,
+    "n_same_day": 327,
+    "n_label_stable": 789,
+    "label_change_rate": 0.730716723549488,
+    "by_gap_bucket": {
+      "<24h": 327,
+      "1-7d": 992,
+      "8-30d": 545,
+      "31-365d": 766,
+      ">1y": 300
+    },
+    "median_gap_days": 10.0
+  },
+  "measurable": {
+    "n_records": 5041,
+    "unmeasurable": 9,
+    "noisy": 92,
+    "p_detected_rate": 0.8469
+  },
+  "split_half_repeatability": {
+    "heart_rate": {
+      "n": 5018,
+      "rc_robust": 0.58,
+      "rc_sd": 3.51
+    },
+    "pr": {
+      "n": 3976,
+      "rc_robust": 28.04,
+      "rc_sd": 61.75
+    },
+    "qrs": {
+      "n": 5018,
+      "rc_robust": 4.94,
+      "rc_sd": 61.27
+    },
+    "qt": {
+      "n": 3815,
+      "rc_robust": 8.72,
+      "rc_sd": 100.64
+    },
+    "qtc_bazett": {
+      "n": 3815,
+      "rc_robust": 8.14,
+      "rc_sd": 93.65
+    },
+    "qtc_fridericia": {
+      "n": 3815,
+      "rc_robust": 8.43,
+      "rc_sd": 95.4
+    },
+    "st_level": {
+      "n": 40144,
+      "rc_robust": 0.0323,
+      "rc_sd": 0.1314
+    }
+  },
+  "same_day_trap": {
+    "<24h": {
+      "n_pairs": 327,
+      "pct_acute": 63.0,
+      "pct_both_normal": 16.5,
+      "pct_label_changed": 72.2,
+      "rc_qrs_all": 7.7,
+      "rc_qrs_label_stable": 7.26,
+      "sd_qrs_all": 40.81,
+      "n_label_stable": 91
+    },
+    "1-30d": {
+      "n_pairs": 1537,
+      "pct_acute": 66.2,
+      "pct_both_normal": 14.2,
+      "pct_label_changed": 75.4,
+      "rc_qrs_all": 11.62,
+      "rc_qrs_label_stable": 9.59,
+      "sd_qrs_all": 33.52,
+      "n_label_stable": 378
+    },
+    "31-365d": {
+      "n_pairs": 766,
+      "pct_acute": 53.4,
+      "pct_both_normal": 24.3,
+      "pct_label_changed": 73.2,
+      "rc_qrs_all": 10.17,
+      "rc_qrs_label_stable": 7.26,
+      "sd_qrs_all": 36.73,
+      "n_label_stable": 205
+    },
+    ">1y": {
+      "n_pairs": 300,
+      "pct_acute": 34.0,
+      "pct_both_normal": 46.3,
+      "pct_label_changed": 61.7,
+      "rc_qrs_all": 10.03,
+      "rc_qrs_label_stable": 6.97,
+      "sd_qrs_all": 27.09,
+      "n_label_stable": 115
+    }
+  },
+  "mdc_fit": {
+    "fitted_on": "folds 1-8, label-stable pairs",
+    "n_pairs": 655,
+    "mdc": {
+      "heart_rate": 20.0,
+      "pr": 30.0,
+      "qrs": 10.0,
+      "qt": 40.0,
+      "qtc_bazett": 35.0,
+      "qtc_fridericia": 30.0,
+      "st_level": 0.07
+    },
+    "detail": {
+      "heart_rate": {
+        "n": 655,
+        "rc_robust": 15.69,
+        "threshold": 20.0
+      },
+      "pr": {
+        "n": 535,
+        "rc_robust": 29.06,
+        "threshold": 30.0
+      },
+      "qrs": {
+        "n": 655,
+        "rc_robust": 8.72,
+        "threshold": 10.0
+      },
+      "qt": {
+        "n": 628,
+        "rc_robust": 35.02,
+        "threshold": 40.0
+      },
+      "qtc_bazett": {
+        "n": 628,
+        "rc_robust": 34.14,
+        "threshold": 35.0
+      },
+      "qtc_fridericia": {
+        "n": 628,
+        "rc_robust": 27.31,
+        "threshold": 30.0
+      },
+      "st_level": {
+        "n": 5240,
+        "rc_robust_95": 0.0491,
+        "rc_robust_familywise": 0.0685,
+        "threshold": 0.07,
+        "leads_tested": 8,
+        "z_95": 1.959964,
+        "z_familywise": 2.734368,
+        "note": "per-lead bar widened from z=1.96 to z=2.73 so the family-wise false-positive rate across 8 leads stays at 5%; uncorrected it would be 34%"
+      }
+    }
+  },
+  "absolute_accuracy_fold10": {
+    "pr:1AVB": {
+      "auroc": 0.8375,
+      "n_pos": 32,
+      "median_pos": 229.4,
+      "median_neg": 175.1
+    },
+    "qrs:CRBBB": {
+      "auroc": 0.9341,
+      "n_pos": 17,
+      "median_pos": 167.3,
+      "median_neg": 89.2
+    },
+    "qrs:CLBBB": {
+      "auroc": 0.9214,
+      "n_pos": 24,
+      "median_pos": 153.1,
+      "median_neg": 88.3
+    },
+    "qrs:IVCD": {
+      "auroc": 0.6615,
+      "n_pos": 26,
+      "median_pos": 99.8,
+      "median_neg": 89.3
+    },
+    "heart_rate:STACH": {
+      "auroc": 0.9184,
+      "n_pos": 23,
+      "median_pos": 115.4,
+      "median_neg": 75.9
+    },
+    "heart_rate:SBRAD": {
+      "auroc": 0.9471,
+      "n_pos": 19,
+      "median_pos": 50.8,
+      "median_neg": 77.9
+    }
+  },
+  "change_channel_fold10": {
+    "pr:1AVB": {
+      "auroc": null,
+      "n_pos": 3,
+      "underpowered": true
+    },
+    "qrs:CRBBB": {
+      "auroc": null,
+      "n_pos": 0,
+      "underpowered": true
+    },
+    "qrs:CLBBB": {
+      "auroc": null,
+      "n_pos": 3,
+      "underpowered": true
+    },
+    "heart_rate:STACH": {
+      "auroc": 0.8239,
+      "n_pos": 10,
+      "n": 294
+    },
+    "heart_rate:SBRAD": {
+      "auroc": null,
+      "n_pos": 6,
+      "underpowered": true
+    }
+  },
+  "diagnostic_channel_fold10": {
+    "calibrated": true,
+    "variants": {
+      "naive (independent thresholding)": {
+        "new_onset": {
+          "tp": 86,
+          "fp": 94,
+          "fn": 269,
+          "precision": 0.4778,
+          "recall": 0.2423,
+          "f1": 0.3215
+        },
+        "resolved": {
+          "tp": 81,
+          "fp": 99,
+          "fn": 261,
+          "precision": 0.45,
+          "recall": 0.2368,
+          "f1": 0.3103
+        }
+      },
+      "delta-p gated (>0.25)": {
+        "new_onset": {
+          "tp": 81,
+          "fp": 78,
+          "fn": 274,
+          "precision": 0.5094,
+          "recall": 0.2282,
+          "f1": 0.3152
+        },
+        "resolved": {
+          "tp": 76,
+          "fp": 75,
+          "fn": 266,
+          "precision": 0.5033,
+          "recall": 0.2222,
+          "f1": 0.3083
+        }
+      }
+    },
+    "static_contrast": {
+      "tp": 883,
+      "fp": 217,
+      "fn": 778,
+      "precision": 0.8027,
+      "recall": 0.5316,
+      "f1": 0.6396
+    },
+    "n_pairs": 294
+  }
+}

@@ -1,0 +1,218 @@
+[
+  {
+    "prior_id": 857,
+    "current_id": 860,
+    "fold": 3,
+    "gap_days": 0,
+    "cardiologist": "compared with tracing of earlier today. the previously noted st segment depression is now negligible. there is t wave flattening in ii, iii, avf. suggest repeat in one week or so. Edit: NORM 100, (f,29) , ansteigende ST-Senkungen in II,III, flache T V5,6, V.a.RAO",
+    "apex": {
+      "comparison": "Compared with the prior study of 1987-07-02 (4 hours earlier): New since the prior study: non-diagnostic T-wave abnormality and normal ECG. Previously noted ST deviation in lead II has resolved. Measurable but sub-threshold ST shift in leads V3-V5, remaining within normal limits.",
+      "impression": "Impression: interval change since the prior study \u2014 new non-diagnostic T-wave abnormality. Persisting: sinus tachycardia.",
+      "not_compared": "Not compared \u2014 PR interval not compared: no P wave detected in the prior study \u2014 PR interval is undefined; QT interval not compared: not measurable in one or both studies; QTc (Bazett) not compared: not measurable in one or both studies; QTc (Fridericia) not compared: not measurable in one or both studies.",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1987-07-02 (4 hours earlier): New since the prior study: non-diagnostic T-wave abnormality and normal ECG. Previously noted ST deviation in lead II has resolved. Measurable but sub-threshold ST shift in leads V3-V5, remaining within normal limits.\n\nImpression: interval change since the prior study \u2014 new non-diagnostic T-wave abnormality. Persisting: sinus tachycardia.\n\nNot compared \u2014 PR interval not compared: no P wave detected in the prior study \u2014 PR interval is undefined; QT interval not compared: not measurable in one or both studies; QTc (Bazett) not compared: not measurable in one or both studies; QTc (Fridericia) not compared: not measurable in one or both studies."
+    },
+    "verdict": "concordant-incomplete",
+    "note": "Both changes the cardiologist named were caught: the resolving ST depression ('now negligible') and the new T-wave abnormality ('t wave flattening'). APEX localised the resolved ST deviation to lead II, which matches. It did not reproduce the II/III/aVF localisation of the T-wave change, because the diagnostic channel carries no lead information \u2014 only the ST channel does. Listing 'normal ECG' as a new finding alongside a T-wave abnormality is faithful to the annotation but reads oddly.",
+    "consistent": true
+  },
+  {
+    "prior_id": 1514,
+    "current_id": 1516,
+    "fold": 3,
+    "gap_days": 0,
+    "cardiologist": "compared with tracing of earlier today. axis is more to the right. t wave changes in chest leads are not significantly changed.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1988-04-10 (2 hours earlier): New since the prior study: incomplete right bundle branch block. No longer present: anteroseptal ischemia. The heart rate has increased from 69 bpm to 100 bpm (+31 bpm).",
+      "impression": "Impression: interval change since the prior study \u2014 new incomplete right bundle branch block. Persisting: sinus rhythm.",
+      "not_compared": "Not compared \u2014 PR interval not compared: no P wave detected in the current study \u2014 PR interval is undefined; QT interval not compared: heart rate changed by more than the detectable threshold and the QT interval is rate-dependent, so QTc (Fridericia) is reported instead; QTc (Bazett) not compared: heart rate changed by more than the detectable threshold and Bazett's correction is rate-dependent, so QTc (Fridericia) is reported instead.",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1988-04-10 (2 hours earlier): New since the prior study: incomplete right bundle branch block. No longer present: anteroseptal ischemia. The heart rate has increased from 69 bpm to 100 bpm (+31 bpm).\n\nImpression: interval change since the prior study \u2014 new incomplete right bundle branch block. Persisting: sinus rhythm.\n\nNot compared \u2014 PR interval not compared: no P wave detected in the current study \u2014 PR interval is undefined; QT interval not compared: heart rate changed by more than the detectable threshold and the QT interval is rate-dependent, so QTc (Fridericia) is reported instead; QTc (Bazett) not compared: heart rate changed by more than the detectable threshold and Bazett's correction is rate-dependent, so QTc (Fridericia) is reported instead."
+    },
+    "verdict": "discordant",
+    "note": "The cardiologist's headline was 'axis is more to the right', which the annotation records as new LPFB \u2014 left posterior fascicular block is the classic cause of right-axis shift. APEX flagged a conduction change but named the wrong one (incomplete RBBB): a detector error, not a comparison error. It then asserted resolved anteroseptal ischemia against an explicit 't wave changes in chest leads are not significantly changed' \u2014 a false positive from probability flicker. The +31 bpm rate rise is real but went unremarked by the cardiologist.",
+    "consistent": true
+  },
+  {
+    "prior_id": 3176,
+    "current_id": 3181,
+    "fold": 1,
+    "gap_days": 0,
+    "cardiologist": "compared with tracing of earlier today. st segments remain depressed in i, ii, v4,5,6. t waves are now low rather than inverted in i, v5,6. the slightly changed pattern suggests recent ischaemia.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1989-07-24 (4 hours earlier): The PR interval has increased from 98 ms to 176 ms (+78 ms). The QRS duration has increased from 80 ms to 98 ms (+18 ms).",
+      "impression": "Impression: PR interval and QRS duration changed beyond the measurable threshold; no new diagnostic finding. Persisting: non-specific ischemia, left ventricular hypertrophy, and sinus rhythm.",
+      "not_compared": "",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1989-07-24 (4 hours earlier): The PR interval has increased from 98 ms to 176 ms (+78 ms). The QRS duration has increased from 80 ms to 98 ms (+18 ms).\n\nImpression: PR interval and QRS duration changed beyond the measurable threshold; no new diagnostic finding. Persisting: non-specific ischemia, left ventricular hypertrophy, and sinus rhythm."
+    },
+    "verdict": "discordant",
+    "note": "The worst measurement failure in the set. APEX reports PR increasing 98 -> 176 ms, but 98 ms is below the physiologic floor for a conducted P wave and is almost certainly a mis-placed P onset in the prior study; the 80 ms plausibility guard was too permissive to catch it. Meanwhile the change the cardiologist actually described \u2014 't waves are now low rather than inverted in i, v5,6' \u2014 was missed, because T-wave morphology change is not something this module measures. It correctly did not call the persistently depressed ST segments new.",
+    "consistent": true
+  },
+  {
+    "prior_id": 4097,
+    "current_id": 4103,
+    "fold": 10,
+    "gap_days": 0,
+    "cardiologist": "compared with tracing of earlier today. it is not significantly changed except that atrial premature beats are not recorded on this occasion.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1990-04-30 (6 hours earlier): Sinus arrhythmia has reverted to sinus rhythm. No longer present: atrial premature complexes.",
+      "impression": "Impression: interval change since the prior study \u2014 new sinus rhythm. Persisting: normal ECG.",
+      "not_compared": "",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1990-04-30 (6 hours earlier): Sinus arrhythmia has reverted to sinus rhythm. No longer present: atrial premature complexes.\n\nImpression: interval change since the prior study \u2014 new sinus rhythm. Persisting: normal ECG."
+    },
+    "verdict": "concordant",
+    "note": "Near-exact. The cardiologist wrote 'not significantly changed except that atrial premature beats are not recorded on this occasion'; APEX reported the resolved atrial premature complexes and nothing else of substance. The SARRH -> SR transition is an annotation-level distinction the cardiologist did not draw. Before the Bonferroni correction on the ST channel this pair also carried a spurious 'new ST elevation in V3', which the correction removed.",
+    "consistent": true
+  },
+  {
+    "prior_id": 7658,
+    "current_id": 7688,
+    "fold": 3,
+    "gap_days": 4,
+    "cardiologist": "compared with tracing of 24:1,92, it is otherwise  generally similar with st-t wave changes.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1992-01-24 (4 days earlier): No longer present: ventricular premature complexes and sinus rhythm. The heart rate has decreased from 67 bpm to 41 bpm (-26 bpm). The PR interval has decreased from 278 ms to 180 ms (-98 ms).",
+      "impression": "Impression: heart rate and PR interval changed beyond the measurable threshold; no new diagnostic finding.",
+      "not_compared": "Not compared \u2014 QT interval not compared: heart rate changed by more than the detectable threshold and the QT interval is rate-dependent, so QTc (Fridericia) is reported instead; QTc (Bazett) not compared: heart rate changed by more than the detectable threshold and Bazett's correction is rate-dependent, so QTc (Fridericia) is reported instead.",
+      "caveats": "Data quality \u2014 current median beat built from only 4 beats.",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1992-01-24 (4 days earlier): No longer present: ventricular premature complexes and sinus rhythm. The heart rate has decreased from 67 bpm to 41 bpm (-26 bpm). The PR interval has decreased from 278 ms to 180 ms (-98 ms).\n\nImpression: heart rate and PR interval changed beyond the measurable threshold; no new diagnostic finding.\n\nNot compared \u2014 QT interval not compared: heart rate changed by more than the detectable threshold and the QT interval is rate-dependent, so QTc (Fridericia) is reported instead; QTc (Bazett) not compared: heart rate changed by more than the detectable threshold and Bazett's correction is rate-dependent, so QTc (Fridericia) is reported instead.\n\nData quality \u2014 current median beat built from only 4 beats."
+    },
+    "verdict": "mixed",
+    "note": "The patient developed complete heart block (1AVB -> 3AVB). APEX captured its haemodynamic signature exactly \u2014 rate down 67 -> 41 bpm, sinus rhythm no longer present \u2014 but never named third-degree AV block, and worse, reported 'PR decreased from 278 ms to 180 ms'. In complete AV block the P waves are dissociated from the QRS and PR is undefined. The suppression rule added for this case fires on a surfaced 2AVB/3AVB label; here the detector did not surface one, so the guard could not help. The guard is only as good as the rhythm call behind it, which is a real limit worth stating plainly.",
+    "consistent": true
+  },
+  {
+    "prior_id": 7814,
+    "current_id": 7824,
+    "fold": 3,
+    "gap_days": 0,
+    "cardiologist": "compared with tracing of 27:2:92, st segment elevation  in anterior chest is more marked. a recent anterior infarct is likely.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1992-02-27 (23 hours earlier): No longer present: ventricular premature complexes. The QRS duration has decreased from 101 ms to 79 ms (-21 ms).",
+      "impression": "Impression: QRS duration changed beyond the measurable threshold; no new diagnostic finding. Persisting: sinus tachycardia.",
+      "not_compared": "Not compared \u2014 PR interval not compared: no P wave detected in the prior and current study \u2014 PR interval is undefined.",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1992-02-27 (23 hours earlier): No longer present: ventricular premature complexes. The QRS duration has decreased from 101 ms to 79 ms (-21 ms).\n\nImpression: QRS duration changed beyond the measurable threshold; no new diagnostic finding. Persisting: sinus tachycardia.\n\nNot compared \u2014 PR interval not compared: no P wave detected in the prior and current study \u2014 PR interval is undefined."
+    },
+    "verdict": "discordant",
+    "note": "A clean miss on the thing that mattered. The cardiologist: 'st segment elevation in anterior chest is more marked. a recent anterior infarct is likely', and the annotation adds ASMI. APEX reported only resolved PVCs and a QRS narrowing, and said nothing about anterior ST. Both studies are sinus tachycardia at 103-111 bpm with no measurable P wave, and the ST elevation increment fell under the 0.07 mV family-wise bar \u2014 the cost of that correction, paid here.",
+    "consistent": true
+  },
+  {
+    "prior_id": 8450,
+    "current_id": 8475,
+    "fold": 10,
+    "gap_days": 2,
+    "cardiologist": "compared with tracing of 14:7,92, it is very similar    but rate is faster. st-t wave changes are a little more marked.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1992-07-14 (2 days earlier): Sinus rhythm has changed to sinus tachycardia. New since the prior study: non-specific ischemia. New ST-segment depression in lead I (-0.02 mV to -0.16 mV). New ST-segment elevation in lead V1 (-0.00 mV to +0.17 mV). The heart rate has increased from 72 bpm to 128 bpm (+55 bpm). The PR interval has increased from 174 ms to 224 ms (+50 ms).",
+      "impression": "Impression: interval change since the prior study \u2014 new non-specific ischemia.",
+      "not_compared": "Not compared \u2014 QT interval not compared: heart rate changed by more than the detectable threshold and the QT interval is rate-dependent, so QTc (Fridericia) is reported instead; QTc (Bazett) not compared: heart rate changed by more than the detectable threshold and Bazett's correction is rate-dependent, so QTc (Fridericia) is reported instead.",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1992-07-14 (2 days earlier): Sinus rhythm has changed to sinus tachycardia. New since the prior study: non-specific ischemia. New ST-segment depression in lead I (-0.02 mV to -0.16 mV). New ST-segment elevation in lead V1 (-0.00 mV to +0.17 mV). The heart rate has increased from 72 bpm to 128 bpm (+55 bpm). The PR interval has increased from 174 ms to 224 ms (+50 ms).\n\nImpression: interval change since the prior study \u2014 new non-specific ischemia.\n\nNot compared \u2014 QT interval not compared: heart rate changed by more than the detectable threshold and the QT interval is rate-dependent, so QTc (Fridericia) is reported instead; QTc (Bazett) not compared: heart rate changed by more than the detectable threshold and Bazett's correction is rate-dependent, so QTc (Fridericia) is reported instead."
+    },
+    "verdict": "concordant-incomplete",
+    "note": "Matches both of the cardiologist's points: 'rate is faster' (72 -> 128 bpm, and the rhythm transition SR -> sinus tachycardia) and 'st-t wave changes are a little more marked' (new ST depression in I, new elevation in V1). The reported PR lengthening 174 -> 224 ms is doubtful \u2014 PR shortens rather than lengthens as rate rises \u2014 and is more likely P-onset error at 128 bpm than a real finding.",
+    "consistent": true
+  },
+  {
+    "prior_id": 8588,
+    "current_id": 8636,
+    "fold": 8,
+    "gap_days": 2,
+    "cardiologist": "compared with tracing of 26:7:92, it is not    significantly changed. evidence of anterior myocardial infarction, probably  old, is present. persistent st segment elevation may indicate a ventricular aneurysm.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1992-07-26 (2 days earlier): Increased ST-segment elevation in leads V3-V5 (V3 +0.12 mV to +0.27 mV). The QRS duration has decreased from 83 ms to 70 ms (-12 ms).",
+      "impression": "Impression: new or evolving repolarization change since the prior study. Persisting: anteroseptal myocardial infarction and sinus rhythm.",
+      "not_compared": "",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1992-07-26 (2 days earlier): Increased ST-segment elevation in leads V3-V5 (V3 +0.12 mV to +0.27 mV). The QRS duration has decreased from 83 ms to 70 ms (-12 ms).\n\nImpression: new or evolving repolarization change since the prior study. Persisting: anteroseptal myocardial infarction and sinus rhythm."
+    },
+    "verdict": "mixed",
+    "note": "The cardiologist called this 'not significantly changed' while noting persistent ST elevation suggesting aneurysm (the annotation adds ANEUR). APEX agreed the ST elevation is there but called it *increased* in V3-V5 (V3 +0.12 -> +0.27 mV). Both read the same segment; they disagree on whether the change is real. A 0.15 mV shift is twice the fitted threshold, so this is not a threshold failure \u2014 it is the harder question of whether a measured change is a clinical one.",
+    "consistent": true
+  },
+  {
+    "prior_id": 8636,
+    "current_id": 8641,
+    "fold": 8,
+    "gap_days": 1,
+    "cardiologist": "compared with tracing of 29:7:92. st segment elevation in anterior chest leads is a  little more pronounced, but there has not been significant change in the t waves. t waves are now flat rather than slightly inverted  in i. some recent ante",
+    "apex": {
+      "comparison": "Compared with the prior study of 1992-07-29 (1 day earlier): Increased ST-segment elevation in lead V2 (+0.15 mV to +0.27 mV). Measurable but sub-threshold ST shift in lead V3, remaining within normal limits.",
+      "impression": "Impression: new or evolving repolarization change since the prior study. Persisting: anteroseptal myocardial infarction and sinus rhythm.",
+      "not_compared": "",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1992-07-29 (1 day earlier): Increased ST-segment elevation in lead V2 (+0.15 mV to +0.27 mV). Measurable but sub-threshold ST shift in lead V3, remaining within normal limits.\n\nImpression: new or evolving repolarization change since the prior study. Persisting: anteroseptal myocardial infarction and sinus rhythm."
+    },
+    "verdict": "concordant",
+    "note": "'ST segment elevation in anterior chest leads is a little more pronounced' \u2014 APEX: 'Increased ST-segment elevation in lead V2 (+0.15 mV to +0.27 mV)'. Same segment, same direction, same territory, with a number attached. It also correctly declined to call the sub-threshold V3 shift a finding, matching 'there has not been significant change in the t waves'.",
+    "consistent": true
+  },
+  {
+    "prior_id": 8641,
+    "current_id": 8652,
+    "fold": 8,
+    "gap_days": 1,
+    "cardiologist": "compared with tracing of 30:7:92. there is now st segment elevation in v5,6 and to a minimal degree in ii, iii, avf. recent ischaemia or early infarction is possible.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1992-07-30 (1 day earlier): New ST-segment elevation in lead V6 (+0.01 mV to +0.10 mV). Measurable but sub-threshold ST shift in lead V2, remaining within normal limits.",
+      "impression": "Impression: new or evolving repolarization change since the prior study. Persisting: anteroseptal myocardial infarction and sinus rhythm.",
+      "not_compared": "",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1992-07-30 (1 day earlier): New ST-segment elevation in lead V6 (+0.01 mV to +0.10 mV). Measurable but sub-threshold ST shift in lead V2, remaining within normal limits.\n\nImpression: new or evolving repolarization change since the prior study. Persisting: anteroseptal myocardial infarction and sinus rhythm."
+    },
+    "verdict": "concordant-incomplete",
+    "note": "The cardiologist: 'there is now st segment elevation in v5,6 and to a minimal degree in ii, iii, avf'. APEX found V6 (+0.01 -> +0.10 mV) and reported it as new, which is right, but missed V5 and the inferior leads the cardiologist himself called minimal. Sensitivity at the margin is exactly what the family-wise ST correction trades away.",
+    "consistent": true
+  },
+  {
+    "prior_id": 11737,
+    "current_id": 11740,
+    "fold": 7,
+    "gap_days": 0,
+    "cardiologist": "compared with tracing of earlier today. it is not significantly changed.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1994-01-27 (4 hours earlier): No longer present: left ventricular hypertrophy. The PR interval has decreased from 198 ms to 155 ms (-43 ms). The QRS duration has increased from 73 ms to 84 ms (+11 ms).",
+      "impression": "Impression: PR interval and QRS duration changed beyond the measurable threshold; no new diagnostic finding. Persisting: sinus rhythm.",
+      "not_compared": "",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1994-01-27 (4 hours earlier): No longer present: left ventricular hypertrophy. The PR interval has decreased from 198 ms to 155 ms (-43 ms). The QRS duration has increased from 73 ms to 84 ms (+11 ms).\n\nImpression: PR interval and QRS duration changed beyond the measurable threshold; no new diagnostic finding. Persisting: sinus rhythm."
+    },
+    "verdict": "discordant",
+    "note": "The cardiologist: 'it is not significantly changed'. APEX produced three changes \u2014 resolved LVH, PR 198 -> 155 ms, QRS 73 -> 84 ms \u2014 and all three are almost certainly spurious. The LVH call is detector flicker across the 0.5 boundary; the PR and QRS shifts clear their thresholds (30 ms, 10 ms) but only just. This pair is the clearest illustration of the phase's central difficulty: on a genuinely unchanged study, a system that reports anything at all is wrong.",
+    "consistent": true
+  },
+  {
+    "prior_id": 16404,
+    "current_id": 16408,
+    "fold": 4,
+    "gap_days": 0,
+    "cardiologist": "compared with tracing of earlier today. atrial fibrillation has reverted to sinus rhythm. st segments are depressed in i, ii, v4,5,6. non-specific but consistent with myocardial ischaemia and digitalis effect.",
+    "apex": {
+      "comparison": "Compared with the prior study of 1996-07-16 (53 minutes earlier): Atrial fibrillation has reverted to sinus rhythm. New since the prior study: first-degree AV block. Measurable but sub-threshold ST shift in lead V2, remaining within normal limits.",
+      "impression": "Impression: interval change since the prior study \u2014 new first-degree AV block.",
+      "not_compared": "Not compared \u2014 PR interval not compared: no P wave detected in the prior study (atrial fibrillation) \u2014 PR interval is undefined.",
+      "caveats": "",
+      "disclaimer": "Decision support only \u2014 serial comparison must be confirmed against the actual prior tracing and the clinical picture.",
+      "text": "Compared with the prior study of 1996-07-16 (53 minutes earlier): Atrial fibrillation has reverted to sinus rhythm. New since the prior study: first-degree AV block. Measurable but sub-threshold ST shift in lead V2, remaining within normal limits.\n\nImpression: interval change since the prior study \u2014 new first-degree AV block.\n\nNot compared \u2014 PR interval not compared: no P wave detected in the prior study (atrial fibrillation) \u2014 PR interval is undefined."
+    },
+    "verdict": "concordant",
+    "note": "The best output in the set. The cardiologist: 'atrial fibrillation has reverted to sinus rhythm'; APEX: the same sentence, unprompted, from the rhythm-transition rule. It added new first-degree AV block, corroborated both by the annotation (1AVB, LPR) and by its own measured PR of 242 ms in the current study \u2014 and it correctly refused to report a PR *change*, because the prior study was in AF and had no P wave to measure from. The persistent ST depression was rightly not called new, since it was present in both.",
+    "consistent": true
+  }
+]

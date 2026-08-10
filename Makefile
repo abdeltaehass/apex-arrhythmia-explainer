@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report rag-index rag-eval rag-report wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report rag-index rag-eval rag-report longitudinal longitudinal-examples wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -35,6 +35,8 @@ help:
 	@echo "  rag-index   Phase 21 fetch clinical corpus + build vector index + score retrieval"
 	@echo "  rag-eval    Phase 21 paired RAG on/off hallucination comparison -> docs/rag/"
 	@echo "  rag-report  rebuild docs/rag/report.md from existing eval JSON"
+	@echo "  longitudinal Phase 22 serial-ECG comparison: fit change thresholds + eval -> docs/longitudinal/"
+	@echo "  longitudinal-examples  rebuild the 12 cardiologist-graded worked examples"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
 	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
@@ -142,6 +144,13 @@ rag-eval:
 
 rag-report:
 	python scripts/rag_report.py
+
+longitudinal:
+	python scripts/longitudinal_eval.py
+	python scripts/longitudinal_examples.py
+
+longitudinal-examples:
+	python scripts/longitudinal_examples.py
 
 wandb-init:
 	python scripts/init_wandb.py
