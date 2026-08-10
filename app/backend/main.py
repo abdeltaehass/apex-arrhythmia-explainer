@@ -156,6 +156,53 @@ async def analyze(request: Request) -> APEXReport:
         raise HTTPException(status_code=422, detail=e.validation.model_dump()) from e
 
 
+@app.post("/analyze/ehr",
+          dependencies=[Depends(require_api_key), Depends(rate_limit)])
+async def analyze_ehr(request: Request) -> dict:
+    """Full pipeline -> EHR-ready output (Phase 23).
+
+    Same input contract as ``/analyze``, but returns the three things an integration needs
+    rather than APEX's own schema: a one-sentence impression to paste into a note, ICD-10-CM
+    code suggestions, and a validated HL7 FHIR R4 ``Bundle``.
+
+    Two optional fields beyond ``/analyze``:
+
+    - ``patient_reference`` — the caller's own patient reference (``"Patient/1234"``). Supply
+      it and no Patient resource is generated, so identity never enters this service.
+    - ``record_identifier`` — an opaque study identifier for the de-identified Patient used
+      when no reference is given.
+    """
+    try:
+        signal, sampling_rate, backend, with_grounding = await _signal_from_request(request)
+    except UnsupportedUploadError as e:
+        raise HTTPException(status_code=415, detail=str(e)) from e
+
+    patient_reference = record_identifier = None
+    ctype = request.headers.get("content-type", "")
+    if ctype.startswith("multipart/form-data"):
+        form = await request.form()
+        patient_reference = form.get("patient_reference") or None
+        record_identifier = form.get("record_identifier") or None
+    else:
+        try:
+            body = await request.json()
+        except Exception:                                    # noqa: BLE001 — already parsed
+            body = {}
+        patient_reference = body.get("patient_reference")
+        record_identifier = body.get("record_identifier")
+
+    try:
+        report = analyze_signal(signal, sampling_rate, backend=backend,
+                                with_grounding=with_grounding, device=SETTINGS.device)
+    except InputValidationError as e:
+        raise HTTPException(status_code=422, detail=e.validation.model_dump()) from e
+
+    from src.ehr import to_ehr_export
+
+    return to_ehr_export(report, patient_reference=patient_reference,
+                         record_identifier=record_identifier).as_dict()
+
+
 @app.post("/metrics/reset", dependencies=[Depends(require_api_key)])
 def reset_metrics() -> Response:
     """Zero the metrics counters (ops convenience)."""

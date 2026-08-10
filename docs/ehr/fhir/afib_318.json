@@ -1,0 +1,963 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "timestamp": "2026-08-10T18:20:51.362414Z",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9",
+      "resource": {
+        "resourceType": "Device",
+        "status": "active",
+        "deviceName": [
+          {
+            "name": "APEX \u2014 Arrhythmia Pattern Explainer",
+            "type": "user-friendly-name"
+          }
+        ],
+        "type": {
+          "text": "ECG interpretation decision-support software"
+        },
+        "version": [
+          {
+            "value": "1.0"
+          }
+        ],
+        "note": [
+          {
+            "text": "Clinical decision support software. Not a regulated diagnostic device. All findings are machine-generated and require physician confirmation."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f5a94119-0dd3-4d5c-a4ff-70faf3d74341",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "EC",
+                "display": "Electrocardiac"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11524-6",
+              "display": "EKG study"
+            }
+          ],
+          "text": "EKG study"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "issued": "2026-08-10T18:20:51.362414Z",
+        "result": [
+          {
+            "reference": "urn:uuid:cf86cf6d-4024-464f-b7cf-ff79368db049"
+          },
+          {
+            "reference": "urn:uuid:90bfda40-0260-41cb-be75-4b82afbc2bb0"
+          },
+          {
+            "reference": "urn:uuid:f955745f-bc15-4482-a61b-f35c0e53cd7d"
+          },
+          {
+            "reference": "urn:uuid:b0b43768-31b8-4301-8499-521c105ee70d"
+          },
+          {
+            "reference": "urn:uuid:566984e5-7afc-406e-a9cf-efce73304099"
+          },
+          {
+            "reference": "urn:uuid:a3b33304-9f66-4ca7-82c7-5de2ea818761"
+          },
+          {
+            "reference": "urn:uuid:bc0aec0f-4291-4107-8760-94964707d505"
+          },
+          {
+            "reference": "urn:uuid:add6ebe3-dfb1-4653-89c5-85f43966dd91"
+          },
+          {
+            "reference": "urn:uuid:5062ccc8-5f03-4a84-95b3-19511c159392"
+          },
+          {
+            "reference": "urn:uuid:d328aa45-9305-4c68-aa51-7b11eeb7b6a9"
+          },
+          {
+            "reference": "urn:uuid:feda807c-7521-4db0-aa65-eea47fc20ec0"
+          },
+          {
+            "reference": "urn:uuid:3eaeeddd-4b24-49e6-9335-7acf60f8d8b0"
+          },
+          {
+            "reference": "urn:uuid:ce5cef15-4b1f-4fc4-baa1-f0063ff2db64"
+          }
+        ],
+        "conclusion": "Atrial fibrillation at 95 bpm with inferior myocardial infarction, digitalis effect, anterolateral ischemia, and non-specific ischemia, plus 4 further findings; computer-assisted interpretation, requires physician confirmation.",
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-generated-by",
+            "valueReference": {
+              "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+            }
+          }
+        ],
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "I48.91",
+                "display": "Unspecified atrial fibrillation"
+              }
+            ],
+            "text": "Unspecified atrial fibrillation"
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "R94.31",
+                "display": "Abnormal electrocardiogram [ECG] [EKG]"
+              }
+            ],
+            "text": "Abnormal electrocardiogram [ECG] [EKG]"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/identifier/record",
+            "value": "ptbxl-00318"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cf86cf6d-4024-464f-b7cf-ff79368db049",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "AFIB",
+              "display": "atrial fibrillation"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I48.91",
+              "display": "Unspecified atrial fibrillation"
+            }
+          ],
+          "text": "atrial fibrillation"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.9998
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:90bfda40-0260-41cb-be75-4b82afbc2bb0",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "DIG",
+              "display": "digitalis-effect"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "digitalis-effect"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.9846
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f955745f-bc15-4482-a61b-f35c0e53cd7d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "ISCAL",
+              "display": "ischemic in anterolateral leads"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "ischemic in anterolateral leads"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.8048
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ],
+        "note": [
+          {
+            "text": "Implicated leads: I, aVL, V4, V5, V6"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b0b43768-31b8-4301-8499-521c105ee70d",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "ISC_",
+              "display": "non-specific ischemic"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "non-specific ischemic"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.764
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:566984e5-7afc-406e-a9cf-efce73304099",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "LOWT",
+              "display": "low amplitude T-waves"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "low amplitude T-waves"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.9188
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a3b33304-9f66-4ca7-82c7-5de2ea818761",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "NDT",
+              "display": "non-diagnostic T abnormalities"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "non-diagnostic T abnormalities"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.8651
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc0aec0f-4291-4107-8760-94964707d505",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "NST_",
+              "display": "non-specific ST changes"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "non-specific ST changes"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.9709
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:add6ebe3-dfb1-4653-89c5-85f43966dd91",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "STD_",
+              "display": "non-specific ST depression"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "non-specific ST depression"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.8791
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5062ccc8-5f03-4a84-95b3-19511c159392",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "IMI",
+              "display": "inferior myocardial infarction"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "inferior myocardial infarction"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.7702
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ],
+        "note": [
+          {
+            "text": "Implicated leads: II, III, aVF"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d328aa45-9305-4c68-aa51-7b11eeb7b6a9",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ],
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueQuantity": {
+          "value": 95.2,
+          "unit": "beats/minute",
+          "system": "http://unitsofmeasure.org",
+          "code": "/min"
+        },
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:feda807c-7521-4db0-aa65-eea47fc20ec0",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8633-0",
+              "display": "QRS duration"
+            }
+          ],
+          "text": "QRS duration"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueQuantity": {
+          "value": 90.5,
+          "unit": "milliseconds",
+          "system": "http://unitsofmeasure.org",
+          "code": "ms"
+        },
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3eaeeddd-4b24-49e6-9335-7acf60f8d8b0",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8634-8",
+              "display": "Q-T interval"
+            }
+          ],
+          "text": "Q-T interval"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueQuantity": {
+          "value": 308.6,
+          "unit": "milliseconds",
+          "system": "http://unitsofmeasure.org",
+          "code": "ms"
+        },
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ce5cef15-4b1f-4fc4-baa1-f0063ff2db64",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8636-3",
+              "display": "Q-T interval corrected"
+            }
+          ],
+          "text": "Q-T interval corrected"
+        },
+        "subject": {
+          "reference": "urn:uuid:74b16e29-1a17-473d-817a-dd9599007a4c"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.362414Z",
+        "valueQuantity": {
+          "value": 360.0,
+          "unit": "milliseconds",
+          "system": "http://unitsofmeasure.org",
+          "code": "ms"
+        },
+        "device": {
+          "reference": "urn:uuid:aa58effc-81b2-4c10-8c44-3c3fde6e46e9"
+        }
+      }
+    }
+  ]
+}

@@ -184,3 +184,34 @@ def test_analyze_records_into_metrics(client):
     snap = client.get("/metrics").json()
     assert snap["request_count"] >= 1
     assert snap["latency_ms"]["p50"] > 0
+
+
+# --- Phase 23: EHR output endpoint -------------------------------------------
+@needs_model
+def test_analyze_ehr_returns_all_three_deliverables(client):
+    signal = np.random.default_rng(0).normal(0, 0.2, (12, 1000)).tolist()
+    r = client.post("/analyze/ehr", json={"signal": signal, "sampling_rate": 100,
+                                          "record_identifier": "demo-1"})
+    assert r.status_code == 200
+    body = r.json()
+    assert "requires physician confirmation" in body["impression"]
+    assert body["fhir_bundle"]["resourceType"] == "Bundle"
+    assert body["fhir_valid"] and body["validation_errors"] == []
+    assert all("code" in row for row in body["icd10"])
+
+
+@needs_model
+def test_analyze_ehr_omits_patient_when_caller_supplies_a_reference(client):
+    signal = np.random.default_rng(1).normal(0, 0.2, (12, 1000)).tolist()
+    r = client.post("/analyze/ehr", json={"signal": signal, "sampling_rate": 100,
+                                          "patient_reference": "Patient/mrn-99"})
+    assert r.status_code == 200
+    entries = r.json()["fhir_bundle"]["entry"]
+    assert not [e for e in entries if e["resource"]["resourceType"] == "Patient"]
+
+
+@needs_model
+def test_analyze_ehr_rejects_bad_lead_count(client):
+    r = client.post("/analyze/ehr", json={"signal": [[0.0] * 1000] * 3,
+                                          "sampling_rate": 100})
+    assert r.status_code == 422

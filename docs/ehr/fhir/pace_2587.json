@@ -1,0 +1,519 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "timestamp": "2026-08-10T18:20:51.367437Z",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e",
+      "resource": {
+        "resourceType": "Device",
+        "status": "active",
+        "deviceName": [
+          {
+            "name": "APEX \u2014 Arrhythmia Pattern Explainer",
+            "type": "user-friendly-name"
+          }
+        ],
+        "type": {
+          "text": "ECG interpretation decision-support software"
+        },
+        "version": [
+          {
+            "value": "1.0"
+          }
+        ],
+        "note": [
+          {
+            "text": "Clinical decision support software. Not a regulated diagnostic device. All findings are machine-generated and require physician confirmation."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0b1f464b-4383-445b-9798-0859ef26c27d",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "EC",
+                "display": "Electrocardiac"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11524-6",
+              "display": "EKG study"
+            }
+          ],
+          "text": "EKG study"
+        },
+        "subject": {
+          "reference": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.367437Z",
+        "issued": "2026-08-10T18:20:51.367437Z",
+        "result": [
+          {
+            "reference": "urn:uuid:62470738-fcc8-41cd-bc15-3cc3afdfd8d0"
+          },
+          {
+            "reference": "urn:uuid:c84b571a-e990-45f3-8d43-923e93c61d73"
+          },
+          {
+            "reference": "urn:uuid:9480018f-eb38-4f02-99ca-949cd65d68e8"
+          },
+          {
+            "reference": "urn:uuid:f095eac8-9e2f-4f24-9645-6b7bd13b97c4"
+          },
+          {
+            "reference": "urn:uuid:04fca2ac-f4f8-4936-bd73-aee0d0a11c6e"
+          },
+          {
+            "reference": "urn:uuid:14f743a8-45d0-49f8-a773-9c417bd4fd6e"
+          },
+          {
+            "reference": "urn:uuid:9306c1ac-97b1-4110-a3b5-885f2115a805"
+          }
+        ],
+        "conclusion": "URGENT \u2014 subendocardial injury, anterolateral: Normally functioning artificial pacemaker at 71 bpm with subendocardial injury, anteroseptal; computer-assisted interpretation, requires physician confirmation.",
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-generated-by",
+            "valueReference": {
+              "reference": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e"
+            }
+          }
+        ],
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "Z95.0",
+                "display": "Presence of cardiac pacemaker"
+              }
+            ],
+            "text": "Presence of cardiac pacemaker"
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "R94.31",
+                "display": "Abnormal electrocardiogram [ECG] [EKG]"
+              }
+            ],
+            "text": "Abnormal electrocardiogram [ECG] [EKG]"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/identifier/record",
+            "value": "ptbxl-02587"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:62470738-fcc8-41cd-bc15-3cc3afdfd8d0",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.367437Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "PACE",
+              "display": "normal functioning artificial pacemaker"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z95.0",
+              "display": "Presence of cardiac pacemaker"
+            }
+          ],
+          "text": "normal functioning artificial pacemaker"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 1.0
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c84b571a-e990-45f3-8d43-923e93c61d73",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.367437Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "INJAL",
+              "display": "subendocardial injury in anterolateral leads"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "subendocardial injury in anterolateral leads"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.7219
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ],
+        "note": [
+          {
+            "text": "Implicated leads: I, aVL, V4, V5, V6"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9480018f-eb38-4f02-99ca-949cd65d68e8",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8601-7",
+              "display": "EKG impression"
+            }
+          ],
+          "text": "EKG impression"
+        },
+        "subject": {
+          "reference": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.367437Z",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/CodeSystem/scp-ecg",
+              "code": "INJAS",
+              "display": "subendocardial injury in anteroseptal leads"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "R94.31",
+              "display": "Abnormal electrocardiogram [ECG] [EKG]"
+            }
+          ],
+          "text": "subendocardial injury in anteroseptal leads"
+        },
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "A",
+                "display": "Abnormal"
+              }
+            ]
+          }
+        ],
+        "device": {
+          "reference": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e"
+        },
+        "extension": [
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-model-confidence",
+            "valueDecimal": 0.7824
+          },
+          {
+            "url": "https://github.com/abdeltaehass/apex-arrhythmia-explainer/StructureDefinition/apex-needs-review",
+            "valueBoolean": false
+          }
+        ],
+        "note": [
+          {
+            "text": "Implicated leads: V1, V2, V3"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f095eac8-9e2f-4f24-9645-6b7bd13b97c4",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ],
+          "text": "Heart rate"
+        },
+        "subject": {
+          "reference": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.367437Z",
+        "valueQuantity": {
+          "value": 70.6,
+          "unit": "beats/minute",
+          "system": "http://unitsofmeasure.org",
+          "code": "/min"
+        },
+        "device": {
+          "reference": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:04fca2ac-f4f8-4936-bd73-aee0d0a11c6e",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8633-0",
+              "display": "QRS duration"
+            }
+          ],
+          "text": "QRS duration"
+        },
+        "subject": {
+          "reference": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.367437Z",
+        "valueQuantity": {
+          "value": 167.7,
+          "unit": "milliseconds",
+          "system": "http://unitsofmeasure.org",
+          "code": "ms"
+        },
+        "device": {
+          "reference": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:14f743a8-45d0-49f8-a773-9c417bd4fd6e",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8634-8",
+              "display": "Q-T interval"
+            }
+          ],
+          "text": "Q-T interval"
+        },
+        "subject": {
+          "reference": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.367437Z",
+        "valueQuantity": {
+          "value": 478.0,
+          "unit": "milliseconds",
+          "system": "http://unitsofmeasure.org",
+          "code": "ms"
+        },
+        "device": {
+          "reference": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9306c1ac-97b1-4110-a3b5-885f2115a805",
+      "resource": {
+        "resourceType": "Observation",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "procedure",
+                "display": "Procedure"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8636-3",
+              "display": "Q-T interval corrected"
+            }
+          ],
+          "text": "Q-T interval corrected"
+        },
+        "subject": {
+          "reference": "urn:uuid:1f80c98e-ea71-4b9b-8d5a-9acb1afcf8f5"
+        },
+        "effectiveDateTime": "2026-08-10T18:20:51.367437Z",
+        "valueQuantity": {
+          "value": 504.6,
+          "unit": "milliseconds",
+          "system": "http://unitsofmeasure.org",
+          "code": "ms"
+        },
+        "device": {
+          "reference": "urn:uuid:cb2d3569-b4a3-4bec-bd6c-45c6f9e9a39e"
+        }
+      }
+    }
+  ]
+}

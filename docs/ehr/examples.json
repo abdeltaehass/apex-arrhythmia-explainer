@@ -1,0 +1,91 @@
+[
+  {
+    "category": "NORM",
+    "label": "Normal ECG",
+    "ecg_id": 9,
+    "impression": "Sinus arrhythmia at 61 bpm, otherwise normal ECG; low-confidence findings flagged for review; computer-assisted interpretation, requires physician confirmation.",
+    "icd10": [],
+    "fhir_valid": true,
+    "bundle": "fhir/norm_9.json",
+    "diagnostic_report_status": "preliminary"
+  },
+  {
+    "category": "MI",
+    "label": "Myocardial infarction",
+    "ecg_id": 63,
+    "impression": "Sinus arrhythmia at 61 bpm with Abnormal QRS morphology, multi-territory myocardial infarction, and Pathological Q waves; low-confidence findings flagged for review; computer-assisted interpretation, requires physician confirmation.",
+    "icd10": [
+      "R94.31"
+    ],
+    "fhir_valid": true,
+    "bundle": "fhir/mi_63.json",
+    "diagnostic_report_status": "preliminary"
+  },
+  {
+    "category": "STTC",
+    "label": "ST/T change",
+    "ecg_id": 963,
+    "impression": "Atrial fibrillation at 129 bpm with non-diagnostic T-wave abnormality, non-specific ST changes, non-specific T-wave changes, and ST-segment depression, plus 1 further finding; low-confidence findings flagged for review; computer-assisted interpretation, requires physician confirmation.",
+    "icd10": [
+      "I48.91",
+      "R94.31"
+    ],
+    "fhir_valid": true,
+    "bundle": "fhir/sttc_963.json",
+    "diagnostic_report_status": "preliminary"
+  },
+  {
+    "category": "CD",
+    "label": "Conduction disturbance",
+    "ecg_id": 598,
+    "impression": "Atrial fibrillation at 75 bpm with complete left bundle branch block, left anterior fascicular block, supraventricular arrhythmia, and normally functioning artificial pacemaker; low-confidence findings flagged for review; computer-assisted interpretation, requires physician confirmation.",
+    "icd10": [
+      "I44.4",
+      "I44.7",
+      "I48.91",
+      "I49.8",
+      "Z95.0"
+    ],
+    "fhir_valid": true,
+    "bundle": "fhir/cd_598.json",
+    "diagnostic_report_status": "preliminary"
+  },
+  {
+    "category": "HYP",
+    "label": "Hypertrophy",
+    "ecg_id": 1522,
+    "impression": "Sinus rhythm at 54 bpm with Increased QRS voltage, left ventricular hypertrophy, and voltage criteria for left ventricular hypertrophy; computer-assisted interpretation, requires physician confirmation.",
+    "icd10": [
+      "R94.31"
+    ],
+    "fhir_valid": true,
+    "bundle": "fhir/hyp_1522.json",
+    "diagnostic_report_status": "final"
+  },
+  {
+    "category": "AFIB",
+    "label": "Atrial fibrillation (rhythm)",
+    "ecg_id": 318,
+    "impression": "Atrial fibrillation at 95 bpm with inferior myocardial infarction, digitalis effect, anterolateral ischemia, and non-specific ischemia, plus 4 further findings; computer-assisted interpretation, requires physician confirmation.",
+    "icd10": [
+      "I48.91",
+      "R94.31"
+    ],
+    "fhir_valid": true,
+    "bundle": "fhir/afib_318.json",
+    "diagnostic_report_status": "final"
+  },
+  {
+    "category": "PACE",
+    "label": "Paced rhythm",
+    "ecg_id": 2587,
+    "impression": "URGENT \u2014 subendocardial injury, anterolateral: Normally functioning artificial pacemaker at 71 bpm with subendocardial injury, anteroseptal; computer-assisted interpretation, requires physician confirmation.",
+    "icd10": [
+      "Z95.0",
+      "R94.31"
+    ],
+    "fhir_valid": true,
+    "bundle": "fhir/pace_2587.json",
+    "diagnostic_report_status": "final"
+  }
+]

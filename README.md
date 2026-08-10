@@ -33,6 +33,7 @@ src/
   federated/          FedAvg simulation over per-hospital data shards
   rag/                clinical reference corpus + vector index + retrieval
   longitudinal/       serial (prior vs current) ECG comparison + change reports
+  ehr/                EHR integration: one-line impression, ICD-10-CM, HL7 FHIR R4
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -186,6 +187,7 @@ Run the API service (Phase 9):
 ```bash
 make api          # uvicorn at http://localhost:8000
 #   POST /analyze   signal file (.npy/.csv/.json), ECG image, or JSON body -> APEXReport
+#   POST /analyze/ehr  same input -> impression + ICD-10-CM + FHIR R4 bundle (Phase 23)
 #   POST /validate  input gate only (no model load)
 #   GET  /health    model version + status
 #   GET  /metrics   request count + p50/p95/p99 latency since startup
@@ -228,6 +230,29 @@ print(result.report.text)
 
 result.delta.significant_intervals()   # structured, noise-gated interval changes
 result.consistency.consistent          # the change narrative asserts nothing unmeasured
+```
+
+Export a report for an EHR (Phase 23):
+
+```bash
+make ehr-examples        # validated FHIR bundles across 7 categories -> docs/ehr/
+make verify-terminology  # re-check every ICD-10-CM / LOINC code against the live NLM service
+```
+
+```python
+from src.ehr import to_ehr_export
+
+export = to_ehr_export(report, record_identifier="ptbxl-00123")
+export.impression      # 'Atrial fibrillation at 112 bpm with ST-segment depression; ...
+                       #  computer-assisted interpretation, requires physician confirmation.'
+export.icd10_codes()   # ['I48.91', 'R94.31']
+export.fhir_bundle     # HL7 FHIR R4 Bundle (DiagnosticReport + Observations + Device)
+export.valid           # False if the bundle failed schema *or* binding validation
+```
+
+```bash
+# or over HTTP — same input contract as /analyze
+curl -F file=@ecg.npy -F patient_reference=Patient/1234 http://localhost:8000/analyze/ehr
 ```
 
 ## Phase status
@@ -431,7 +456,30 @@ result.consistency.consistent          # the change narrative asserts nothing un
   me — 6/12 concordant on the principal change, with failures clustering on *stable* studies.
   [`docs/longitudinal/report.md`](docs/longitudinal/report.md) ·
   [`examples.md`](docs/longitudinal/examples.md). ✅
-- Phase 23+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 23:** EHR integration layer (`make ehr-examples`) — turns a report into the three
+  things a hospital system can consume: a **single pasteable sentence**, **ICD-10-CM code
+  suggestions**, and a validated **HL7 FHIR R4 `Bundle`**; served at `POST /analyze/ehr`.
+  The work is not plumbing but deciding what APEX may *claim* once its output carries
+  financial weight. **43 of 71 findings are not billable diagnoses at all** and map to
+  **R94.31** (*Abnormal electrocardiogram*): an ECG suggests infarction but the Fourth
+  Universal Definition requires troponin, and ECG voltage criteria for hypertrophy are not
+  an anatomical diagnosis. The 25 findings the ECG genuinely *establishes* (AV block, AF,
+  bundle branch block) get their specific code; the rest carry the specific code a
+  clinician might reach for as a `candidate` alongside the evidence it would need — visible,
+  never auto-suggested. **The brief's own example is a trap worth naming:** I48.0 is
+  *paroxysmal* AF, and paroxysmal means terminating within seven days — invisible in ten
+  seconds of signal, so the only honest code is **I48.91, unspecified**; anything else is
+  upcoding, and that rule is an executable test. All **27 ICD-10-CM and 7 LOINC codes are
+  verified against the live NLM Clinical Tables service** for existence, exact wording, and
+  **billability** — the check that catches FY2024 subdividing I47.1 into I47.10/.11/.19 and
+  quietly turning a billable code into a header. Bundles validate against the published R4B
+  StructureDefinitions, but probing that validator with broken bundles showed it accepts
+  `"status": "definitely-final"` and a Device on `DiagnosticReport.performer`, so a
+  binding/reference-target checker was added to cover what the schema cannot see.
+  7 validated examples across PTB-XL's 5 diagnostic superclasses plus AF and paced rhythm —
+  a normal ECG correctly emits **no code at all**.
+  [`docs/ehr/report.md`](docs/ehr/report.md) · [`examples.md`](docs/ehr/examples.md). ✅
+- Phase 24+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 
