@@ -25,7 +25,7 @@ from pydantic import BaseModel, Field
 from src.config import NUM_LEADS
 
 DISCLAIMER = "Decision support only — verify against the full clinical picture."
-SCHEMA_VERSION = "1.0"
+SCHEMA_VERSION = "1.1"   # 1.1 adds FindingOut.exploratory (Phase 24)
 
 # Input-validation thresholds (Phase-8 spec).
 MIN_LEADS = NUM_LEADS                 # reject recordings with fewer than 12 leads
@@ -67,6 +67,11 @@ class FindingOut(BaseModel):
     leads: list[str] = Field(default_factory=list, description="leads implicated in this finding")
     flags: list[Flag] = Field(default_factory=list, description="per-finding flag status")
     needs_review: bool = Field(..., description="confidence below threshold or any flag present")
+    # Phase 24: surfaced *below* its threshold on purpose, to collect feedback about a
+    # region the model would normally stay silent on. Optional and false by default, so a
+    # 1.0 consumer is unaffected — but a reviewer must be told, or they will read a
+    # deliberate low-confidence probe as an ordinary assertion.
+    exploratory: bool = Field(False, description="surfaced below threshold for feedback")
 
 
 class ConsistencyOut(BaseModel):

@@ -209,7 +209,8 @@ class AnalysisResult:
 
 
 def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device,
-                  with_rag: bool = False) -> AnalysisResult:
+                  with_rag: bool = False, thresholds=None,
+                  exploration: dict[str, float] | None = None) -> AnalysisResult:
     import numpy as np
 
     validation = validate_signal(signal, sampling_rate)
@@ -231,7 +232,17 @@ def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, de
     with torch.no_grad():
         probs = torch.sigmoid(model(torch.from_numpy(clean).unsqueeze(0).to(device)))[0].cpu().numpy()
 
-    surfaced = [label_space[j] for j in range(len(label_space)) if probs[j] >= CFG.review_threshold]
+    # Phase 24: per-label thresholds learned from reviewer feedback, plus optional
+    # exploration below them. With `thresholds=None` and `exploration=None` this is exactly
+    # the global-0.5 behaviour of every earlier phase.
+    if thresholds is None and not exploration:
+        surfaced = [label_space[j] for j in range(len(label_space))
+                    if probs[j] >= CFG.review_threshold]
+        exploratory: set[str] = set()
+    else:
+        from src.feedback.select import select_findings
+
+        surfaced, exploratory = select_findings(probs, label_space, thresholds, exploration)
     confidences = {c: float(probs[label_space.index(c)]) for c in surfaced}
     scp = get_scp_statements()
     descriptions = {c: (scp.loc[c, "description"] if c in scp.index else "") for c in surfaced}
@@ -270,6 +281,9 @@ def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, de
         si, explanation, input_validation=validation,
         grounded_leads=grounded_leads, saliency_by_code=saliency_by_code,
     )
+    for finding in report.findings:
+        if finding.label in exploratory:
+            finding.exploratory = True
     return AnalysisResult(report=report, clean_signal=clean, rpeaks=rpeaks,
                          saliency_by_code=saliency_by_code or {}, fs=CFG.sampling_rate)
 
@@ -282,6 +296,8 @@ def analyze_signal(
     with_grounding: bool = False,
     device: str = "cpu",
     with_rag: bool = False,
+    thresholds=None,
+    exploration: dict[str, float] | None = None,
 ) -> APEXReport:
     """Full pipeline: validate -> preprocess -> detect -> generate -> [ground] -> serialize.
 
@@ -294,7 +310,7 @@ def analyze_signal(
     which renders from the structured input alone.
     """
     return _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device,
-                         with_rag).report
+                         with_rag, thresholds, exploration).report
 
 
 def analyze_detailed(
@@ -303,8 +319,11 @@ def analyze_detailed(
     checkpoint=None,
     backend: str = "template",
     device: str = "cpu",
+    thresholds=None,
+    exploration: dict[str, float] | None = None,
 ) -> AnalysisResult:
     """Like :func:`analyze_signal` but returns the report *plus* the preprocessed signal,
     R-peaks, and per-finding saliency — everything the dashboard needs to draw grounding
     overlays. Always runs grounding."""
-    return _analyze_core(signal, sampling_rate, checkpoint, backend, True, device)
+    return _analyze_core(signal, sampling_rate, checkpoint, backend, True, device,
+                         thresholds=thresholds, exploration=exploration)

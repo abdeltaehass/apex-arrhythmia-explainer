@@ -34,6 +34,7 @@ src/
   rag/                clinical reference corpus + vector index + retrieval
   longitudinal/       serial (prior vs current) ECG comparison + change reports
   ehr/                EHR integration: one-line impression, ICD-10-CM, HL7 FHIR R4
+  feedback/           clinician feedback store + per-label threshold re-tuning
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -253,6 +254,25 @@ export.valid           # False if the bundle failed schema *or* binding validati
 ```bash
 # or over HTTP — same input contract as /analyze
 curl -F file=@ecg.npy -F patient_reference=Patient/1234 http://localhost:8000/analyze/ehr
+```
+
+Collect and use clinician feedback (Phase 24):
+
+```bash
+make feedback-sim   # online-loop experiment (4 arms) -> docs/feedback/
+make ui             # the dashboard now carries a "Review this report" panel
+```
+
+```python
+from src.feedback import FeedbackStore, RatedFinding, ThresholdSet, update_thresholds
+
+with FeedbackStore() as store:                       # outputs/feedback.db
+    store.log_review([RatedFinding("AFIB", 0.93, "correct")],
+                     reviewer_id="dr_a", missed=["1AVB"])
+    update_thresholds(store).save()                  # per-label, with guardrails
+
+from src.serving import analyze_signal
+analyze_signal(signal, 100, thresholds=ThresholdSet.load())
 ```
 
 ## Phase status
@@ -479,7 +499,28 @@ curl -F file=@ecg.npy -F patient_reference=Patient/1234 http://localhost:8000/an
   7 validated examples across PTB-XL's 5 diagnostic superclasses plus AF and paced rhythm —
   a normal ECG correctly emits **no code at all**.
   [`docs/ehr/report.md`](docs/ehr/report.md) · [`examples.md`](docs/ehr/examples.md). ✅
-- Phase 24+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 24:** human-in-the-loop feedback (`make feedback-sim`) — a review panel in the
+  dashboard (rate every finding **correct/incorrect/uncertain**, report what was *missed*),
+  a local SQLite store, and a policy that turns ratings into **per-label decision
+  thresholds** applied via `analyze_signal(..., thresholds=...)`. Then the part that
+  matters: measuring whether the loop works, with a reviewer simulated from PTB-XL labels,
+  feedback streamed from the validation fold and every score on the test fold. **It does
+  not, in its obvious form.** A reviewer can only rate what was *shown*, so the data
+  contains false positives and no false negatives — it can justify raising a threshold and
+  never lowering one. Ratings alone moved **9 thresholds up and 0 down** and cost 2.1% of
+  macro-F1. Letting clinicians report missed findings — the intuitive fix — **does not
+  help**: 1,647 reported misses, still 10 up and 0 down, performance identical to four
+  decimals, because knowing a true positive sits below the threshold says nothing about how
+  many false positives sit beside it. What works is **exploration**: surfacing ~10% of
+  sub-threshold findings for review flips the direction to **1 up, 18 down** and buys
+  **+0.049 macro recall for −0.033 precision, +10.3% macro-F1** — and keeps +9.3% with a
+  reviewer who is wrong 10% of the time. The experiment also caught a bug in my own policy:
+  a "raise a notch when precision is below target" fallback that ratcheted 50 of 71 labels
+  forever, since **only 21 can reach precision 0.70 at any threshold** — a threshold cannot
+  manufacture precision the ROC curve lacks, so those labels are now flagged
+  `target_unreachable` (retrain, don't re-tune) and a test keeps the fallback deleted.
+  [`docs/feedback/report.md`](docs/feedback/report.md). ✅
+- Phase 25+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 

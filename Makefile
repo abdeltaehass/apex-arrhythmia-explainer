@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report rag-index rag-eval rag-report longitudinal longitudinal-examples ehr-examples verify-terminology wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report rag-index rag-eval rag-report longitudinal longitudinal-examples ehr-examples verify-terminology feedback-sim wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -39,6 +39,7 @@ help:
 	@echo "  longitudinal-examples  rebuild the 12 cardiologist-graded worked examples"
 	@echo "  ehr-examples Phase 23 validated FHIR bundles across 7 categories -> docs/ehr/"
 	@echo "  verify-terminology  re-check every ICD-10-CM/LOINC code against the live NLM service"
+	@echo "  feedback-sim Phase 24 online feedback-loop experiment -> docs/feedback/"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
 	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
@@ -160,6 +161,9 @@ ehr-examples:
 
 verify-terminology:
 	python scripts/verify_terminology.py
+
+feedback-sim:
+	python scripts/feedback_sim.py
 
 wandb-init:
 	python scripts/init_wandb.py

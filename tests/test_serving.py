@@ -15,6 +15,7 @@ from src.generation.templater import build_structured_input, render_report
 from src.serving.schema import (
     MIN_LEADS,
     MIN_RELIABLE_SECONDS,
+    SCHEMA_VERSION,
     APEXReport,
     ConsistencyOut,
     FindingOut,
@@ -63,7 +64,7 @@ def test_apex_report_json_round_trips():
     )
     restored = APEXReport.model_validate_json(report.model_dump_json())
     assert restored == report
-    assert restored.schema_version == "1.0"
+    assert restored.schema_version == SCHEMA_VERSION
     assert restored.disclaimer.startswith("Decision support only")
 
 
@@ -234,3 +235,16 @@ def test_endpoint_analyze_end_to_end(with_grounding):
     assert report.input_validation.ok
     assert isinstance(report.review_recommended, bool)
     _ = torch  # silence unused
+
+
+def test_schema_1_1_addition_is_backward_compatible():
+    """A 1.0 payload has no `exploratory` field; it must still parse (Phase 24 bump)."""
+    legacy = {
+        "findings": [{"label": "AFIB", "description": "atrial fibrillation",
+                      "confidence": 0.9, "leads": ["II"], "flags": [], "needs_review": False}],
+        "impression": "", "explanation": "",
+        "consistency": {"consistent": True, "asserted": [], "surfaced": [], "unsupported": []},
+        "review_recommended": False,
+    }
+    restored = APEXReport.model_validate(legacy)
+    assert restored.findings[0].exploratory is False

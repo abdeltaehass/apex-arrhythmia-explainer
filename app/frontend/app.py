@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 import gradio as gr  # noqa: E402
 
+from app.frontend.feedback_panel import FeedbackPanel, build_panel  # noqa: E402
 from app.frontend.views import (  # noqa: E402
     disclaimer_html,
     ecg_figure,
@@ -45,7 +46,7 @@ def _analyze(file_path):
     if not file_path:
         return (severity_banner_html("green"), None,
                 '<div style="color:#888">Upload an ECG to begin.</div>',
-                gr.update(choices=[], value=None), None)
+                gr.update(choices=[], value=None), None, None)
     from src.serving.loaders import parse_signal_upload
 
     content = Path(file_path).read_bytes()
@@ -56,11 +57,11 @@ def _analyze(file_path):
         msg = "; ".join(e.validation.errors) or "invalid input"
         return (severity_banner_html("yellow"), None,
                 f'<div style="color:#b3261e">Input rejected: {msg}</div>',
-                gr.update(choices=[], value=None), None)
+                gr.update(choices=[], value=None), None, None)
     except Exception as e:  # noqa: BLE001 - surface any pipeline error to the user
         return (severity_banner_html("yellow"), None,
                 f'<div style="color:#b3261e">Could not analyze this file: {e}</div>',
-                gr.update(choices=[], value=None), None)
+                gr.update(choices=[], value=None), None, None)
 
     colors = finding_colors([f.label for f in res.report.findings])
     level = severity(res.report)
@@ -70,7 +71,7 @@ def _analyze(file_path):
     choices = list(res.saliency_by_code)
     state = {"clean": res.clean_signal, "saliency": res.saliency_by_code,
              "fs": res.fs, "colors": colors}
-    return banner, fig, html, gr.update(choices=choices, value=None), state
+    return banner, fig, html, gr.update(choices=choices, value=None), state, res.report
 
 
 def _highlight(code, state):
@@ -178,10 +179,16 @@ def build_demo() -> gr.Blocks:
                         report = gr.HTML('<div style="color:#888">Upload an ECG to begin.</div>')
 
                 state = gr.State()
-                analyze_btn.click(_analyze, inputs=file_in,
-                                  outputs=[banner, ecg_plot, report, highlight, state])
-                file_in.change(_analyze, inputs=file_in,
-                               outputs=[banner, ecg_plot, report, highlight, state])
+                report_state = gr.State()
+
+                panel = FeedbackPanel()
+                populate_outputs, _status = build_panel(panel, report_state)
+
+                analyze_outputs = [banner, ecg_plot, report, highlight, state, report_state]
+                analyze_btn.click(_analyze, inputs=file_in, outputs=analyze_outputs).then(
+                    panel.populate, inputs=report_state, outputs=populate_outputs)
+                file_in.change(_analyze, inputs=file_in, outputs=analyze_outputs).then(
+                    panel.populate, inputs=report_state, outputs=populate_outputs)
                 highlight.change(_highlight, inputs=[highlight, state], outputs=ecg_plot)
 
             with gr.Tab("Live monitor"):
