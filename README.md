@@ -35,6 +35,7 @@ src/
   longitudinal/       serial (prior vs current) ECG comparison + change reports
   ehr/                EHR integration: one-line impression, ICD-10-CM, HL7 FHIR R4
   feedback/           clinician feedback store + per-label threshold re-tuning
+  synthesis/          diffusion ECG generation + rare-class augmentation ablation
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/

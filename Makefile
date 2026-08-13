@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report rag-index rag-eval rag-report longitudinal longitudinal-examples ehr-examples verify-terminology feedback-sim wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report rag-index rag-eval rag-report longitudinal longitudinal-examples ehr-examples verify-terminology feedback-sim synth-ablation synth-smoke rare-power wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -40,6 +40,9 @@ help:
 	@echo "  ehr-examples Phase 23 validated FHIR bundles across 7 categories -> docs/ehr/"
 	@echo "  verify-terminology  re-check every ICD-10-CM/LOINC code against the live NLM service"
 	@echo "  feedback-sim Phase 24 online feedback-loop experiment -> docs/feedback/"
+	@echo "  rare-power   Phase 25 power analysis of PTB-XL's rare labels -> docs/synthesis/"
+	@echo "  synth-ablation Phase 25 synthetic-augmentation ablation (hours) -> docs/synthesis/"
+	@echo "  synth-smoke  tiny end-to-end check of the augmentation pipeline"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
 	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
@@ -164,6 +167,15 @@ verify-terminology:
 
 feedback-sim:
 	python scripts/feedback_sim.py
+
+rare-power:
+	python scripts/rare_class_power.py
+
+synth-ablation:
+	python scripts/synth_ablation.py
+
+synth-smoke:
+	python scripts/synth_ablation.py --smoke
 
 wandb-init:
 	python scripts/init_wandb.py
