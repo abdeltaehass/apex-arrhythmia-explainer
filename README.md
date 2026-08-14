@@ -521,7 +521,25 @@ analyze_signal(signal, 100, thresholds=ThresholdSet.load())
   manufacture precision the ROC curve lacks, so those labels are now flagged
   `target_unreachable` (retrain, don't re-tune) and a test keeps the fallback deleted.
   [`docs/feedback/report.md`](docs/feedback/report.md). ✅
-- Phase 25+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 25:** synthetic ECG augmentation for rare classes (`make synth-ablation`) — a
+  conditional 1D diffusion model plus a five-arm ablation, and **a negative result**: no
+  augmentation method beat the un-augmented baseline. First, the question could not be asked
+  as posed — PTB-XL's 17 labels with <50 training examples have **1–5 test positives**, and
+  the usual bootstrap *hides* this, reporting them as measured more tightly (CI 0.035) than
+  well-supported labels (0.041), because with two positives it can only reshuffle the 2,196
+  negatives. Hanley-McNeil, which depends on positive count, puts them **4.0× wider**
+  (0.373). So rarity was **induced** on 8 labels with 40–112 test positives, keeping 50 real
+  examples each, every arm adding the same 350 rows. Results (macro AUROC, 3 seeds):
+  **baseline 0.8960**, oversample 0.8733, classical 0.8810, synthetic 0.8776,
+  synthetic+classical 0.8829 — all worse, with plain oversampling worst and the synthetic
+  arm the only one with several *significant harms*. The mechanism is measured, not guessed:
+  the generator passes every check such papers usually report (memorization ratio 1.08,
+  diversity 1.11, 100% delineable) and fails the one that matters — QRS **227 ms vs 112 ms**
+  real, P waves in **31% vs 85%**. It learned the low-frequency envelope of an ECG, not the
+  sharp deflections that carry the diagnosis, so its samples contradict the definitions of
+  the very classes they were meant to teach.
+  [`docs/synthesis/report.md`](docs/synthesis/report.md). ✅
+- Phase 26+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 
