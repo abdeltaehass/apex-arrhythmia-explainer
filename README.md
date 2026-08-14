@@ -36,6 +36,7 @@ src/
   ehr/                EHR integration: one-line impression, ICD-10-CM, HL7 FHIR R4
   feedback/           clinician feedback store + per-label threshold re-tuning
   synthesis/          diffusion ECG generation + rare-class augmentation ablation
+  i18n/               Spanish clinical explanation + language-aware consistency gate
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -274,6 +275,21 @@ with FeedbackStore() as store:                       # outputs/feedback.db
 
 from src.serving import analyze_signal
 analyze_signal(signal, 100, thresholds=ThresholdSet.load())
+```
+
+Generate the explanation in Spanish (Phase 27):
+
+```bash
+make i18n-eval   # gate parity + terminology validation -> docs/i18n/
+```
+
+```python
+from src.serving import analyze_signal
+report = analyze_signal(signal, 100, backend="template", lang="es")
+# Hallazgos: Ritmo irregularmente irregular sin ondas P identificables.
+# Impresión: Hallazgos compatibles con fibrilación auricular.
+
+report.consistency.consistent   # the Phase-7 gate, now language-aware
 ```
 
 ## Phase status
@@ -539,7 +555,27 @@ analyze_signal(signal, 100, thresholds=ThresholdSet.load())
   sharp deflections that carry the diagnosis, so its samples contradict the definitions of
   the very classes they were meant to teach.
   [`docs/synthesis/report.md`](docs/synthesis/report.md). ✅
-- Phase 26+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 27:** multilingual clinical explanation (`make i18n-eval`) — Spanish output via
+  `analyze_signal(..., lang="es")`, with all 71 SCP statements hand-authored in clinical
+  Spanish (*bloqueo de rama*, not the literal *bloqueo del haz*). **The finding is not the
+  translation.** Phase 7's consistency gate — what stops APEX asserting findings the
+  detector never surfaced — matched *English* phrases, so a Spanish report parsed as
+  asserting nothing and passed **unconditionally**: over 400 records, fabricated findings
+  were caught **100% in English and 0% in Spanish**. A Spanish report inventing *bloqueo
+  completo de rama izquierda* on a patient with only atrial fibrillation was reported
+  consistent. That is what a health-equity failure looks like in code — fluent text, valid
+  JSON, disclaimer present, guardrail silently absent for the second-largest language group
+  in US healthcare. Now at **100% parity** on both fabrication detection and findings
+  round-trip. One renderer serves both languages and English output is **byte-identical** to
+  the Phase-6 templater (200/200), with the parser agreeing with Phase 6 on English
+  (300/300) — anti-drift enforced by test, not intention. The parity check also caught a bug
+  in the *new* code: searching the whole report instead of the Impression section made the
+  Spanish gate noisier than English (`ISCAN`'s finding text is verbatim `INVT`'s impression
+  term), the same second-class treatment through the opposite door. Terminology checked
+  against 26 Spanish cardiology articles: 34/67 confirmed, the rest a clinician review list
+  rather than an error list. [`docs/i18n/report.md`](docs/i18n/report.md) ·
+  [MODEL_CARD](MODEL_CARD.md#language-access-and-health-equity). ✅
+- Phase 26/28+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 

@@ -122,6 +122,7 @@ def build_report(
     input_validation: InputValidation | None = None,
     record_id: str | None = None,
     review_threshold: float = CFG.review_threshold,
+    lang: str = "en",
     low_confidence_threshold: float = CFG.low_confidence_threshold,
     grounded_leads: dict[str, list[str]] | None = None,
     saliency_by_code: dict | None = None,
@@ -137,8 +138,19 @@ def build_report(
     """
     surfaced = set(structured_input.codes())
     confidences = {f.code: f.confidence for f in structured_input.findings if f.confidence is not None}
-    asserted = asserted_findings(explanation)
-    parsed = parse_report(explanation)
+    # Phase 27: the consistency gate must read the language the report was written in. The
+    # English matcher finds no Spanish terms, so a Spanish report would parse as asserting
+    # nothing and pass unconditionally — the guardrail would be off for exactly the patients
+    # the translation exists to serve.
+    if lang and lang != "en":
+        from src.i18n.parse import asserted_findings as asserted_i18n
+        from src.i18n.parse import parse_report as parse_i18n
+
+        asserted = asserted_i18n(explanation, lang)
+        parsed = parse_i18n(explanation, lang)
+    else:
+        asserted = asserted_findings(explanation)
+        parsed = parse_report(explanation)
 
     if reliability is None:
         rid = record_id or (
@@ -210,7 +222,8 @@ class AnalysisResult:
 
 def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device,
                   with_rag: bool = False, thresholds=None,
-                  exploration: dict[str, float] | None = None) -> AnalysisResult:
+                  exploration: dict[str, float] | None = None,
+                  lang: str = "en") -> AnalysisResult:
     import numpy as np
 
     validation = validate_signal(signal, sampling_rate)
@@ -264,7 +277,7 @@ def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, de
             from src.rag import format_context, retrieve_for_findings
 
             context = format_context(retrieve_for_findings(si, index))
-    explanation = generate_explanation(si, backend=backend, context=context)
+    explanation = generate_explanation(si, backend=backend, context=context, lang=lang)
 
     grounded_leads = saliency_by_code = None
     if with_grounding:
@@ -279,7 +292,7 @@ def _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, de
 
     report = build_report(
         si, explanation, input_validation=validation,
-        grounded_leads=grounded_leads, saliency_by_code=saliency_by_code,
+        grounded_leads=grounded_leads, saliency_by_code=saliency_by_code, lang=lang,
     )
     for finding in report.findings:
         if finding.label in exploratory:
@@ -298,6 +311,7 @@ def analyze_signal(
     with_rag: bool = False,
     thresholds=None,
     exploration: dict[str, float] | None = None,
+    lang: str = "en",
 ) -> APEXReport:
     """Full pipeline: validate -> preprocess -> detect -> generate -> [ground] -> serialize.
 
@@ -310,7 +324,7 @@ def analyze_signal(
     which renders from the structured input alone.
     """
     return _analyze_core(signal, sampling_rate, checkpoint, backend, with_grounding, device,
-                         with_rag, thresholds, exploration).report
+                         with_rag, thresholds, exploration, lang).report
 
 
 def analyze_detailed(

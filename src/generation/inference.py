@@ -29,7 +29,11 @@ comparison a controlled one.
 
 from __future__ import annotations
 
-from src.generation.prompts import SYSTEM_PROMPT, build_user_prompt, target_text
+from src.generation.prompts import (
+    build_user_prompt,
+    system_prompt,
+    target_text,
+)
 from src.generation.templater import StructuredInput, render_report
 
 DISCLAIMER = "Decision support only — verify against the full clinical picture."
@@ -37,14 +41,28 @@ DISCLAIMER = "Decision support only — verify against the full clinical picture
 BACKENDS = ("template", "claude", "local", "hf")
 
 
-def generate_with_template(si: StructuredInput) -> str:
-    """The deterministic renderer, wrapped in the same text contract as the LLM backends."""
+def generate_with_template(si: StructuredInput, lang: str = "en") -> str:
+    """The deterministic renderer, wrapped in the same text contract as the LLM backends.
+
+    Phase 27: with ``lang`` it renders through :mod:`src.i18n.render`, which shares one code
+    path across languages — English output is byte-identical to the pre-Phase-27 renderer,
+    asserted by test.
+    """
+    if lang and lang != "en":
+        from src.i18n.languages import get_language
+        from src.i18n.render import render_report as render_i18n
+
+        bank = get_language(lang)
+        rep = render_i18n(si, bank)
+        return (f"{bank.findings_header}:\n{rep['findings']}\n\n"
+                f"{bank.impression_header}:\n{rep['impression']}")
     rep = render_report(si)
     return target_text(rep["findings"], rep["impression"])
 
 
 def generate_with_claude(si: StructuredInput, model: str = "claude-fable-5",
-                         max_tokens: int = 600, context: str = "") -> str:
+                         max_tokens: int = 600, context: str = "",
+                         lang: str = "en") -> str:
     """Requires ``ANTHROPIC_API_KEY``. Thin by design — see module docstring."""
     try:
         import anthropic
@@ -55,7 +73,7 @@ def generate_with_claude(si: StructuredInput, model: str = "claude-fable-5",
     resp = client.messages.create(
         model=model,
         max_tokens=max_tokens,
-        system=SYSTEM_PROMPT,
+        system=system_prompt(lang),
         messages=[{"role": "user", "content": build_user_prompt(si, context)}],
     )
     return resp.content[0].text
@@ -94,6 +112,7 @@ def generate_with_local(
     max_new_tokens: int = 300,
     device: str = "auto",
     context: str = "",
+    lang: str = "en",
 ) -> str:
     """Generate with a `train_lora.py` LoRA adapter. Loads the base + adapter once,
     cached in-process by ``adapter_dir`` (swap adapters to compare runs)."""
@@ -101,7 +120,7 @@ def generate_with_local(
 
     model, tok = _load_local(base_model, adapter_dir, device)
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": system_prompt(lang)},
         {"role": "user", "content": build_user_prompt(si, context)},
     ]
     inputs = tok.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt")
@@ -136,6 +155,7 @@ def generate_with_hf(
     max_new_tokens: int = 320,
     device: str = "auto",
     context: str = "",
+    lang: str = "en",
 ) -> str:
     """Generate with a plain local instruct model (no adapter), cached per process.
 
@@ -147,7 +167,7 @@ def generate_with_hf(
 
     model, tok = _load_hf(model_id, device)
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": system_prompt(lang)},
         {"role": "user", "content": build_user_prompt(si, context)},
     ]
     text = tok.apply_chat_template(messages, add_generation_prompt=True, tokenize=False)
@@ -159,19 +179,27 @@ def generate_with_hf(
 
 
 def generate_explanation(si: StructuredInput, backend: str = "claude",
-                         context: str = "", **kwargs) -> str:
+                         context: str = "", lang: str = "en", **kwargs) -> str:
     """Dispatch to a backend by name. See module docstring for the four options.
 
     ``context`` is the optional retrieved reference block (Phase 21). The template backend
     ignores it — it renders from the structured input alone and so is consistent by
     construction, which is exactly why it is the wrong thing to measure RAG on.
+
+    ``lang`` (Phase 27) selects the output language. The template backend renders it
+    directly; the LLM backends receive a language clause appended to the system prompt.
+    Whatever comes back must still clear the consistency gate in that language — see
+    :mod:`src.i18n.parse`.
     """
+    from src.i18n.languages import get_language
+
+    lang = get_language(lang).code          # validates; raises on an unsupported language
     if backend == "template":
-        return generate_with_template(si)
+        return generate_with_template(si, lang=lang)
     if backend == "claude":
-        return generate_with_claude(si, context=context, **kwargs)
+        return generate_with_claude(si, context=context, lang=lang, **kwargs)
     if backend == "local":
-        return generate_with_local(si, context=context, **kwargs)
+        return generate_with_local(si, context=context, lang=lang, **kwargs)
     if backend == "hf":
-        return generate_with_hf(si, context=context, **kwargs)
+        return generate_with_hf(si, context=context, lang=lang, **kwargs)
     raise ValueError(f"unknown backend {backend!r}, expected one of {BACKENDS}")

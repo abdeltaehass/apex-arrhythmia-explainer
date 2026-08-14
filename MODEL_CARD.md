@@ -358,6 +358,44 @@ look "fair" while reproducing them.
 
 ---
 
+## Language access and health equity
+
+APEX generates its clinical explanation in **English and Spanish** (`lang="es"`). Spanish is
+the second most common language in US healthcare, and language barriers are a documented
+source of worse outcomes — longer stays, more adverse events, lower comprehension of
+discharge instructions. A decision-support tool that speaks only English is one more place
+where that gap widens.
+
+**The equity claim is about the guarantee, not the translation.** Anyone can add a second
+language; the question is whether the second language is held to the same standard. It was
+not, and the failure was invisible from the output.
+
+Phase 7's consistency gate — the mechanism that prevents APEX asserting findings the
+detector never surfaced — matched English phrases only. A Spanish report parsed as
+asserting *nothing*, so it passed the gate unconditionally. Measured over 400 records:
+
+| | English | Spanish (before) | Spanish (now) |
+|---|---|---|---|
+| Fabricated finding detected | 100% | **0%** | **100%** |
+| Findings round-trip exactly | 100% | — | 100% |
+
+A Spanish report inventing *bloqueo completo de rama izquierda* on a patient with only
+atrial fibrillation was reported consistent. The identical English fabrication was caught.
+The text was fluent, the disclaimer was present, the JSON validated — only the guardrail
+was absent, and only for Spanish-speaking patients.
+
+This is the shape a modern equity failure takes in an ML system: not offensive output, but a
+safety mechanism that silently does not extend. It is worth stating plainly because it
+generalizes — any language-bound check (a keyword filter, a regex safety rule, a parser) is
+a candidate for the same defect the moment a second language is added.
+
+**What is and is not established.** The Spanish path now has measured parity with English on
+the safety gate, and its terminology is checked mechanically against Spanish-language
+cardiology prose (34 of 67 terms confirmed; the remainder are a clinician review list, not
+errors). It has **not** been reviewed by a Spanish-speaking cardiologist, only the
+deterministic template backend is validated, and no claim is made for the LLM backends'
+Spanish output. See [`docs/i18n/report.md`](docs/i18n/report.md).
+
 ## Ethics statement
 
 **Automation bias is the central risk.** A system that is right most of the time trains

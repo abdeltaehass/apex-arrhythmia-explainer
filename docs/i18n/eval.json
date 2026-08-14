@@ -1,0 +1,521 @@
+{
+  "gate_parity": {
+    "by_language": {
+      "en": {
+        "n": 200,
+        "well_formed": 200,
+        "roundtrip_exact": 140,
+        "caught": 200,
+        "language_detected": 200,
+        "n_informative": 127,
+        "roundtrip_exact_informative": 127,
+        "well_formed_rate": 1.0,
+        "roundtrip_exact_rate": 0.7,
+        "caught_rate": 1.0,
+        "language_detected_rate": 1.0,
+        "roundtrip_exact_informative_rate": 1.0
+      },
+      "es": {
+        "n": 200,
+        "well_formed": 200,
+        "roundtrip_exact": 140,
+        "caught": 200,
+        "language_detected": 200,
+        "n_informative": 127,
+        "roundtrip_exact_informative": 127,
+        "well_formed_rate": 1.0,
+        "roundtrip_exact_rate": 0.7,
+        "caught_rate": 1.0,
+        "language_detected_rate": 1.0,
+        "roundtrip_exact_informative_rate": 1.0
+      }
+    },
+    "legacy_english_only_parser": {
+      "n": 200,
+      "caught": 0,
+      "asserted_any": 0,
+      "caught_rate": 0.0,
+      "asserted_any_rate": 0.0
+    },
+    "n_norm_collapsed": 73,
+    "roundtrip_misses": []
+  },
+  "terminology": {
+    "n_articles": 26,
+    "n_chars": 264270,
+    "confirmed": 34,
+    "total": 67,
+    "checks": [
+      {
+        "code": "1AVB",
+        "term": "bloqueo AV de primer grado",
+        "found": true,
+        "occurrences": 1,
+        "example": "vedad. == clasificacion == clasificacion segun su gravedad: bloqueo av de primer grado, cuando los impulsos que pasan desde las auriculas a los ve"
+      },
+      {
+        "code": "2AVB",
+        "term": "bloqueo AV de segundo grado",
+        "found": true,
+        "occurrences": 4,
+        "example": "ografico se observa un intervalo pr mayor a 0.20 segundos.​ bloqueo av de segundo grado, cuando parte de los impulsos que se transmiten desde las a"
+      },
+      {
+        "code": "3AVB",
+        "term": "bloqueo AV completo",
+        "found": true,
+        "occurrences": 1,
+        "example": "r de la colocacion de un marcapasos.​puede evolucionar a un bloqueo av completo, el cuadro clinico incluye lipotimia, sincope y falta de to"
+      },
+      {
+        "code": "AFIB",
+        "term": "fibrilación auricular",
+        "found": true,
+        "occurrences": 43,
+        "example": "atura contraccion prematura de la union taquicardia sinusal fibrilacion auricular aleteo auricular taquicardia auricular paroxistica taquicar"
+      },
+      {
+        "code": "AFLT",
+        "term": "flutter auricular",
+        "found": true,
+        "occurrences": 9,
+        "example": "ravenosa de verapamilo, esmolol, digoxina o adenosina. ==== flutter auricular con conduccion constante ==== por lo general, el aleteo aur"
+      },
+      {
+        "code": "ALMI",
+        "term": "infarto de miocardio anterolateral",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "AMI",
+        "term": "infarto de miocardio anterior",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "ANEUR",
+        "term": "cambios ST-T compatibles con aneurisma ventricular",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "ASMI",
+        "term": "infarto de miocardio anteroseptal",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "BIGU",
+        "term": "bigeminismo",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "CLBBB",
+        "term": "bloqueo completo de rama izquierda",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "CRBBB",
+        "term": "bloqueo completo de rama derecha",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "DIG",
+        "term": "efecto digitálico",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "EL",
+        "term": "alteración electrolítica o farmacológica",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "ILBBB",
+        "term": "bloqueo incompleto de rama izquierda",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "ILMI",
+        "term": "infarto de miocardio inferolateral",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "IMI",
+        "term": "infarto de miocardio inferior",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "INJAL",
+        "term": "lesión subendocárdica anterolateral",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "INJAS",
+        "term": "lesión subendocárdica anteroseptal",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "INJIL",
+        "term": "lesión subendocárdica inferolateral",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "INJIN",
+        "term": "lesión subendocárdica inferior",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "INJLA",
+        "term": "lesión subendocárdica lateral",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "INVT",
+        "term": "inversión de la onda T",
+        "found": true,
+        "occurrences": 5,
+        "example": "lizado o con una tendencia hacia la desviacion inferior. la inversion de la onda t es tambien frecuente, pero pierde especificidad si aparece"
+      },
+      {
+        "code": "IPLMI",
+        "term": "infarto de miocardio inferoposterolateral",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "IPMI",
+        "term": "infarto de miocardio inferoposterior",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "IRBBB",
+        "term": "bloqueo incompleto de rama derecha",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "ISCAL",
+        "term": "isquemia anterolateral",
+        "found": true,
+        "occurrences": 31,
+        "example": "a taquicardia sinusal debe ser controlada para prevenir una isquemia cardiaca. en tal sentido, los agentes betabloqueantes o los"
+      },
+      {
+        "code": "ISCAN",
+        "term": "isquemia anterior",
+        "found": true,
+        "occurrences": 31,
+        "example": "a taquicardia sinusal debe ser controlada para prevenir una isquemia cardiaca. en tal sentido, los agentes betabloqueantes o los"
+      },
+      {
+        "code": "ISCAS",
+        "term": "isquemia anteroseptal",
+        "found": true,
+        "occurrences": 31,
+        "example": "a taquicardia sinusal debe ser controlada para prevenir una isquemia cardiaca. en tal sentido, los agentes betabloqueantes o los"
+      },
+      {
+        "code": "ISCIL",
+        "term": "isquemia inferolateral",
+        "found": true,
+        "occurrences": 31,
+        "example": "a taquicardia sinusal debe ser controlada para prevenir una isquemia cardiaca. en tal sentido, los agentes betabloqueantes o los"
+      },
+      {
+        "code": "ISCIN",
+        "term": "isquemia inferior",
+        "found": true,
+        "occurrences": 31,
+        "example": "a taquicardia sinusal debe ser controlada para prevenir una isquemia cardiaca. en tal sentido, los agentes betabloqueantes o los"
+      },
+      {
+        "code": "ISCLA",
+        "term": "isquemia lateral",
+        "found": true,
+        "occurrences": 31,
+        "example": "a taquicardia sinusal debe ser controlada para prevenir una isquemia cardiaca. en tal sentido, los agentes betabloqueantes o los"
+      },
+      {
+        "code": "ISC_",
+        "term": "isquemia inespecífica",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "IVCD",
+        "term": "trastorno inespecífico de la conducción intraventricular",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "LAFB",
+        "term": "hemibloqueo anterior izquierdo",
+        "found": true,
+        "occurrences": 1,
+        "example": "de extrasistoles ventriculares (esv), sindrome de brugada, hemibloqueo anterior izquierdo, hemibloqueo posterior izquierdo y bloqueo trifascicular.​​"
+      },
+      {
+        "code": "LAO/LAE",
+        "term": "crecimiento auricular izquierdo",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "LMI",
+        "term": "infarto de miocardio lateral",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "LNGQT",
+        "term": "intervalo QT largo",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "LOWT",
+        "term": "onda T de baja amplitud",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "LPFB",
+        "term": "hemibloqueo posterior izquierdo",
+        "found": true,
+        "occurrences": 1,
+        "example": "(esv), sindrome de brugada, hemibloqueo anterior izquierdo, hemibloqueo posterior izquierdo y bloqueo trifascicular.​​​ no se requiere ningun tratamien"
+      },
+      {
+        "code": "LPR",
+        "term": "conducción AV prolongada",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "LVH",
+        "term": "hipertrofia ventricular izquierda",
+        "found": true,
+        "occurrences": 7,
+        "example": "mento de presion, volumen y tamano auricular izquierdo y la hipertrofia ventricular izquierda propias de la hipertension cronica. todas estas remodelacio"
+      },
+      {
+        "code": "NDT",
+        "term": "alteración no diagnóstica de la onda T",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "NORM",
+        "term": "ECG normal",
+        "found": true,
+        "occurrences": 2,
+        "example": "tipo silla de montar. p (mayor amplitud di que dii). == el ecg normal == el trazado tipico de un electrocardiograma registrando u"
+      },
+      {
+        "code": "NST_",
+        "term": "cambios inespecíficos del segmento ST",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "NT_",
+        "term": "cambios inespecíficos de la onda T",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "PAC",
+        "term": "extrasístoles auriculares",
+        "found": true,
+        "occurrences": 1,
+        "example": "ccion. == vease tambien == bradicardia marcapaso migratorio extrasistole auricular sindrome del nodo enfermo taquicardia ventricular polimorfi"
+      },
+      {
+        "code": "PACE",
+        "term": "marcapasos artificial con funcionamiento normal",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "PMI",
+        "term": "infarto de miocardio posterior",
+        "found": true,
+        "occurrences": 33,
+        "example": "da continuan siendo mayores aun en ausencia de icc previa o infarto de miocardio (1 de 6).​ el tratamiento de los pacientes con fa y sus ent"
+      },
+      {
+        "code": "PRC(S)",
+        "term": "extrasístoles",
+        "found": true,
+        "occurrences": 26,
+        "example": "razon y dispara un \"latido extra\", lo cual es conocido como extrasistole y se manifiesta con un sintoma muy conocido, la sensacion d"
+      },
+      {
+        "code": "PSVT",
+        "term": "taquicardia supraventricular paroxística",
+        "found": true,
+        "occurrences": 2,
+        "example": "sinusal. sin embargo, a menudo se usa como sinonimo de una taquicardia supraventricular paroxistica, el cual tiene un comienzo inmediato, mientras que las verd"
+      },
+      {
+        "code": "PVC",
+        "term": "extrasístoles ventriculares",
+        "found": true,
+        "occurrences": 2,
+        "example": "nera similar incluyen taquicardia ventricular, una serie de extrasistoles ventriculares (esv), sindrome de brugada, hemibloqueo anterior izquierdo,"
+      },
+      {
+        "code": "RAO/RAE",
+        "term": "crecimiento auricular derecho",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "RVH",
+        "term": "hipertrofia ventricular derecha",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "SARRH",
+        "term": "arritmia sinusal",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "SBRAD",
+        "term": "bradicardia sinusal",
+        "found": true,
+        "occurrences": 5,
+        "example": "uicardia ventricular fibrilacion ventricular bradiarritmias bradicardia sinusal sindrome del nodo enfermo bloqueo auriculoventricular == et"
+      },
+      {
+        "code": "SEHYP",
+        "term": "hipertrofia septal",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "SR",
+        "term": "ritmo sinusal",
+        "found": true,
+        "occurrences": 14,
+        "example": "er un trastorno patologico caracterizado por un aumento del ritmo sinusal (mas de 100 latidos por minuto) y suele ser consecuencia de"
+      },
+      {
+        "code": "STACH",
+        "term": "taquicardia sinusal",
+        "found": true,
+        "occurrences": 10,
+        "example": "ccion auricular prematura contraccion prematura de la union taquicardia sinusal fibrilacion auricular aleteo auricular taquicardia auricula"
+      },
+      {
+        "code": "STD_",
+        "term": "descenso del segmento ST",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "STE_",
+        "term": "elevación del segmento ST",
+        "found": true,
+        "occurrences": 3,
+        "example": "drome coronario agudo, a saber, el infarto de miocardio sin elevacion del segmento st y el infarto de miocardio con elevacion del segmento st, lo"
+      },
+      {
+        "code": "SVARR",
+        "term": "arritmia supraventricular",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "SVTAC",
+        "term": "taquicardia supraventricular",
+        "found": true,
+        "occurrences": 20,
+        "example": "da o taquicardia, por lo que cabe dentro de la categoria de taquicardia supraventricular. es una arritmia frecuente en individuos con una cardiopati"
+      },
+      {
+        "code": "TAB_",
+        "term": "alteración de la onda T",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "TRIGU",
+        "term": "trigeminismo",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "VCLVH",
+        "term": "criterios de voltaje para hipertrofia ventricular izquierda",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      },
+      {
+        "code": "WPW",
+        "term": "preexcitación ventricular (Wolff-Parkinson-White)",
+        "found": false,
+        "occurrences": 0,
+        "example": ""
+      }
+    ],
+    "source": "Spanish Wikipedia (CC BY-SA 4.0), quoted for validation only"
+  }
+}

@@ -43,6 +43,35 @@ Strict rules:
 """
 
 
+# Phase 27: the language clause appended to SYSTEM_PROMPT for non-English output. Kept
+# separate from the rules above so the *constraints* are identical in every language —
+# translating the rule block risks weakening a rule in translation, and the rule that
+# forbids inventing findings is the one holding the hallucination gate up.
+LANGUAGE_INSTRUCTIONS = {
+    "en": "",
+    "es": (
+        "\n\nWrite the entire report in Spanish, using the section headers "
+        "\"Hallazgos:\" and \"Impresión:\" exactly. Use standard Spanish cardiology "
+        "terminology as a cardiologist in a Spanish-speaking clinical setting would write "
+        "it (for example \"bloqueo de rama\", not a literal translation). Do not include "
+        "any English text. The rules above apply unchanged."
+    ),
+}
+
+
+def system_prompt(lang: str = "en") -> str:
+    """The system prompt for a target language.
+
+    The constraint block is never translated — only extended. A rule that survives in
+    English and softens in Spanish would produce exactly the asymmetry Phase 27 exists to
+    prevent.
+    """
+    from src.i18n.languages import get_language
+
+    bank = get_language(lang)
+    return SYSTEM_PROMPT + LANGUAGE_INSTRUCTIONS.get(bank.code, "")
+
+
 def serialize_structured_input(si: StructuredInput) -> str:
     """The structured-detection block shared by every backend's user turn.
 
