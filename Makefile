@@ -1,4 +1,4 @@
-.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report rag-index rag-eval rag-report longitudinal longitudinal-examples ehr-examples verify-terminology feedback-sim synth-ablation synth-smoke rare-power i18n-eval wandb-init api ui test lint
+.PHONY: help setup data data-meta data-sample data-100 eda manifests train experiments compare grounding gen-data gen-train gen-train-smoke reliability benchmark digitize-eval eval-baselines edge-cases demographics subgroups stream-demo stream-eval calibrate distill distill-smoke distill-report federated federated-smoke federated-report rag-index rag-eval rag-report longitudinal longitudinal-examples ehr-examples verify-terminology feedback-sim synth-ablation synth-smoke rare-power i18n-eval benchmark-foundation wandb-init api ui test lint
 
 help:
 	@echo "APEX targets:"
@@ -44,6 +44,7 @@ help:
 	@echo "  synth-ablation Phase 25 synthetic-augmentation ablation (hours) -> docs/synthesis/"
 	@echo "  synth-smoke  tiny end-to-end check of the augmentation pipeline"
 	@echo "  i18n-eval    Phase 27 Spanish gate-parity + terminology check -> docs/i18n/"
+	@echo "  benchmark-foundation  Phase 28 APEX vs general-purpose models -> docs/benchmark/"
 	@echo "  wandb-init  initialize the W&B project"
 	@echo "  api        run the FastAPI service (/analyze /validate /health /metrics)"
 	@echo "  ui         run the Gradio clinical dashboard (Phase 11; see docs/frontend/deploy.md)"
@@ -180,6 +181,11 @@ synth-smoke:
 
 i18n-eval:
 	python scripts/i18n_eval.py
+
+# Hosted arms need OPENAI_API_KEY / ANTHROPIC_API_KEY; without them they are recorded
+# as "not run" rather than silently omitted.
+benchmark-foundation:
+	python scripts/foundation_benchmark.py
 
 wandb-init:
 	python scripts/init_wandb.py

@@ -1,0 +1,2402 @@
+[
+  {
+    "ecg_id": 9,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 7.787792250000166,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 38,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.7,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities noted, including a slightly prolonged PR interval and a relatively long QTc interval. There is also a mild ST-T segment elevation in leads V1 to V6, which could suggest ischemic changes but does not meet the criteria for definite myocardial infarction. No significant conduction disturbances or hypertrophic patterns are evident.",
+    "latency_s": 5.932418792000135,
+    "tokens_in": 401,
+    "tokens_out": 111,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 7\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities noted, including a slightly prolonged PR interval and a relatively long QTc interval. There is also a mild ST-T segment elevation in leads V1 to V6, which could suggest ischemic changes but does not meet the criteria for definite myocardial infarction. No significant conduction disturbances or hypertrophic patterns are evident."
+  },
+  {
+    "ecg_id": 40,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.437879082999643,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 57,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.447643542000151,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 59,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.432350791999852,
+    "tokens_in": 401,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 63,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 185 ms, QRS duration of 94 ms, QT interval of 346 ms, and QTc (Fridericia) of 348 ms. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 6.024338625000382,
+    "tokens_in": 400,
+    "tokens_out": 114,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 185 ms, QRS duration of 94 ms, QT interval of 346 ms, and QTc (Fridericia) of 348 ms. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 65,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T change. No signs of AV block, bundle branch block, or fascicular block are observed. The QTc interval is slightly prolonged, suggesting possible left ventricular hypertrophy.",
+    "latency_s": 6.251863292000053,
+    "tokens_in": 400,
+    "tokens_out": 119,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T change. No signs of AV block, bundle branch block, or fascicular block are observed. The QTc interval is slightly prolonged, suggesting possible left ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 75,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 101 ms, QRS duration of 75 ms, QT interval of 386 ms, and QTc (Fridericia) of 367 ms. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 6.007055041000058,
+    "tokens_in": 400,
+    "tokens_out": 114,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 101 ms, QRS duration of 75 ms, QT interval of 386 ms, and QTc (Fridericia) of 367 ms. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 76,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.47322612500011,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 79,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.520565917000567,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 93,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.7655090830003246,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 100,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a relatively slow heart rate but without any signs of ischemic changes, arrhythmias, or structural abnormalities that would suggest myocardial infarction, hypertrophy, or conduction disturbances. The presence of ST-T wave changes is likely due to ischemia rather than being indicative of a specific condition.",
+    "latency_s": 5.6318608750007115,
+    "tokens_in": 400,
+    "tokens_out": 103,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a relatively slow heart rate but without any signs of ischemic changes, arrhythmias, or structural abnormalities that would suggest myocardial infarction, hypertrophy, or conduction disturbances. The presence of ST-T wave changes is likely due to ischemia rather than being indicative of a specific condition."
+  },
+  {
+    "ecg_id": 112,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.4774151250003342,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 115,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.830562249999275,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 116,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.922483958000157,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 117,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.443324291999488,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 119,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy.",
+    "latency_s": 4.557357540999874,
+    "tokens_in": 400,
+    "tokens_out": 83,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 121,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.496905625000181,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 122,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG is predominantly normal with some minor ST-T changes noted in leads V1 to V6, suggesting possible ischemic stress but not indicative of acute myocardial infarction. The signal quality is described as noisy, which could affect interpretation.",
+    "latency_s": 4.784458041999642,
+    "tokens_in": 405,
+    "tokens_out": 85,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 0\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG is predominantly normal with some minor ST-T changes noted in leads V1 to V6, suggesting possible ischemic stress but not indicative of acute myocardial infarction. The signal quality is described as noisy, which could affect interpretation."
+  },
+  {
+    "ecg_id": 128,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly elevated PR interval, prolonged QTc duration, and T-wave changes indicative of ischemic stress, suggesting possible old myocardial infarction. There is also evidence of left ventricular hypertrophy noted by the ST-T wave abnormalities in leads V1-V6. No significant QRS or QT intervals suggest acute myocardial infarction. The PR interval measurement is not measurable, which could indicate",
+    "latency_s": 6.497257291999631,
+    "tokens_in": 404,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows sinus rhythm with a slightly elevated PR interval, prolonged QTc duration, and T-wave changes indicative of ischemic stress, suggesting possible old myocardial infarction. There is also evidence of left ventricular hypertrophy noted by the ST-T wave abnormalities in leads V1-V6. No significant QRS or QT intervals suggest acute myocardial infarction. The PR interval measurement is not measurable, which could indicate"
+  },
+  {
+    "ecg_id": 129,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.543284416000461,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 132,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a typical sinus rhythm with a PR interval of 147 ms, QRS duration of 84 ms, QT interval of 327 ms, and QTc (Fridericia) of 360 ms. There is no evidence of ischemic changes as indicated by the ST-T wave pattern, and there are no signs of conduction disturbances or hypertrophic changes. The heart rate is",
+    "latency_s": 6.456317250000211,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a typical sinus rhythm with a PR interval of 147 ms, QRS duration of 84 ms, QT interval of 327 ms, and QTc (Fridericia) of 360 ms. There is no evidence of ischemic changes as indicated by the ST-T wave pattern, and there are no signs of conduction disturbances or hypertrophic changes. The heart rate is"
+  },
+  {
+    "ecg_id": 157,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.489269041000625,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 160,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.46025204200032,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 162,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.451696082999661,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 167,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that do not necessarily indicate significant pathology. There is evidence of old ischemic damage (MI) but no recent infarction. The presence of ST-T changes suggests possible ischemia or repolarization abnormalities, which could be due to either old or new ischemia. Conduction disturbances are noted as well, including AV block, suggesting potential bundle branch block or fascicular block",
+    "latency_s": 6.365751833999639,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that do not necessarily indicate significant pathology. There is evidence of old ischemic damage (MI) but no recent infarction. The presence of ST-T changes suggests possible ischemia or repolarization abnormalities, which could be due to either old or new ischemia. Conduction disturbances are noted as well, including AV block, suggesting potential bundle branch block or fascicular block"
+  },
+  {
+    "ecg_id": 172,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.403846041999714,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 175,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that do not necessarily indicate significant pathology. There is evidence of old ischemic damage (MI) but no recent infarction. The presence of ST-T changes suggests possible ischemia or repolarization abnormalities, which could be due to either old or new ischemia. Conduction disturbances are noted as well, including AV block, suggesting potential bundle branch block or fascicular block",
+    "latency_s": 6.304994166000142,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that do not necessarily indicate significant pathology. There is evidence of old ischemic damage (MI) but no recent infarction. The presence of ST-T changes suggests possible ischemia or repolarization abnormalities, which could be due to either old or new ischemia. Conduction disturbances are noted as well, including AV block, suggesting potential bundle branch block or fascicular block"
+  },
+  {
+    "ecg_id": 180,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.381677958000182,
+    "tokens_in": 405,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 201,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.490018499999678,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 203,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.467428041999483,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 208,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.8694076249994396,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 210,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.524876000000404,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 218,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.3753008749999935,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 240,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 111 ms, QRS duration of 86 ms, QT interval of 399 ms, and QTc (Fridericia) of 374 ms within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 6.17491233400051,
+    "tokens_in": 400,
+    "tokens_out": 117,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 111 ms, QRS duration of 86 ms, QT interval of 399 ms, and QTc (Fridericia) of 374 ms within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 241,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.4420655419999093,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 243,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1-V6. The PR interval is slightly prolonged, which could indicate AV nodal involvement, while the QTc interval is within the normal range. No significant ST-T wave changes are observed, ruling out ST",
+    "latency_s": 6.439372416999504,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1-V6. The PR interval is slightly prolonged, which could indicate AV nodal involvement, while the QTc interval is within the normal range. No significant ST-T wave changes are observed, ruling out ST"
+  },
+  {
+    "ecg_id": 245,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.853135542000018,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 252,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T change. No signs of AV block, bundle branch block, or fascicular block are observed. The QTc interval is slightly prolonged, suggesting possible left ventricular hypertrophy.",
+    "latency_s": 6.227851499999815,
+    "tokens_in": 400,
+    "tokens_out": 119,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T change. No signs of AV block, bundle branch block, or fascicular block are observed. The QTc interval is slightly prolonged, suggesting possible left ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 271,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.379663374999836,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 274,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 136 ms, QRS duration of 96 ms, QT interval of 382 ms, and QTc (Fridericia) of 394 ms within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any conduction disturbances. The T-wave amplitudes suggest mild left vent",
+    "latency_s": 6.266578124999796,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 136 ms, QRS duration of 96 ms, QT interval of 382 ms, and QTc (Fridericia) of 394 ms within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any conduction disturbances. The T-wave amplitudes suggest mild left vent"
+  },
+  {
+    "ecg_id": 299,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1-V6. The PR interval is slightly prolonged, which could indicate AV nodal involvement, while the QTc interval is within the normal range. No significant ST-T wave changes are observed, ruling out ST",
+    "latency_s": 6.299337500000547,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1-V6. The PR interval is slightly prolonged, which could indicate AV nodal involvement, while the QTc interval is within the normal range. No significant ST-T wave changes are observed, ruling out ST"
+  },
+  {
+    "ecg_id": 318,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.2507843749999665,
+    "tokens_in": 404,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 334,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 136 ms, QRS duration of 93 ms, QT interval of 383 ms, and QTc of 381 ms within normal limits. There is no evidence of ischemic changes as indicated by the ST-T wave pattern, and there are no signs of conduction disturbances or hypertrophic changes.",
+    "latency_s": 5.982860416999756,
+    "tokens_in": 400,
+    "tokens_out": 114,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 136 ms, QRS duration of 93 ms, QT interval of 383 ms, and QTc of 381 ms within normal limits. There is no evidence of ischemic changes as indicated by the ST-T wave pattern, and there are no signs of conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 336,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus tachycardia with no evidence of ischemic changes or structural abnormalities. There is a mild left ventricular hypertrophy noted in leads V1-V6.",
+    "latency_s": 3.923619832999975,
+    "tokens_in": 402,
+    "tokens_out": 73,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus tachycardia with no evidence of ischemic changes or structural abnormalities. There is a mild left ventricular hypertrophy noted in leads V1-V6."
+  },
+  {
+    "ecg_id": 347,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.276104874999874,
+    "tokens_in": 401,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 361,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.34991699999955,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 364,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.385350749999816,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 377,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.2481037079996895,
+    "tokens_in": 404,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 378,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.8359063329999117,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 382,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.7732503749994066,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 388,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities noted, including a slightly prolonged PR interval and a longer QTc interval suggestive of possible torsades de pointes. There is also a mild T-wave inversion in leads V1 to V6, which could indicate ischemic changes but does not meet the criteria for ST-T change. No significant evidence of myocardial infarction or conduction disturbances is observed. The patient",
+    "latency_s": 6.325813625000592,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities noted, including a slightly prolonged PR interval and a longer QTc interval suggestive of possible torsades de pointes. There is also a mild T-wave inversion in leads V1 to V6, which could indicate ischemic changes but does not meet the criteria for ST-T change. No significant evidence of myocardial infarction or conduction disturbances is observed. The patient"
+  },
+  {
+    "ecg_id": 397,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.419210875000317,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 400,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a typical sinus rhythm with a PR interval of 156 ms, QRS duration of 80 ms, QT interval of 388 ms, and QTc (Fridericia) of 408 ms. There is no evidence of ischemic changes as indicated by the ST-T wave pattern (-0.00 to +0.04 mV), and there are no signs",
+    "latency_s": 6.2884248330001355,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a typical sinus rhythm with a PR interval of 156 ms, QRS duration of 80 ms, QT interval of 388 ms, and QTc (Fridericia) of 408 ms. There is no evidence of ischemic changes as indicated by the ST-T wave pattern (-0.00 to +0.04 mV), and there are no signs"
+  },
+  {
+    "ecg_id": 405,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.423167791000196,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 417,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.3673259170000165,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 427,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.749991165999745,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 430,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.366620875000081,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 440,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T wave changes indicative of acute coronary syndrome. The PR interval is within normal limits, and there are no signs of AV block or other conduction disturbances. The QT interval is slightly prolonged by",
+    "latency_s": 6.2824987499998315,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T wave changes indicative of acute coronary syndrome. The PR interval is within normal limits, and there are no signs of AV block or other conduction disturbances. The QT interval is slightly prolonged by"
+  },
+  {
+    "ecg_id": 448,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.359049333000257,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 449,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG is predominantly normal with some minor abnormalities noted, including a high heart rate and a short PR interval. There are no signs of myocardial infarction, significant ST-T changes, conduction disturbances, or evidence of ventricular or atrial enlargement. The signal quality is described as noisy.",
+    "latency_s": 5.3250690419999955,
+    "tokens_in": 406,
+    "tokens_out": 96,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 0\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG is predominantly normal with some minor abnormalities noted, including a high heart rate and a short PR interval. There are no signs of myocardial infarction, significant ST-T changes, conduction disturbances, or evidence of ventricular or atrial enlargement. The signal quality is described as noisy."
+  },
+  {
+    "ecg_id": 452,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.316974375000427,
+    "tokens_in": 405,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 472,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.415954499999316,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 473,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities noted in the T-waves. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy.",
+    "latency_s": 4.502209666999988,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities noted in the T-waves. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 478,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.388103207999848,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 499,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There are no signs of myocardial infarction, ST-T wave changes, conduction disturbances, or evidence of ventricular or atrial enlargement.",
+    "latency_s": 4.5395394170000145,
+    "tokens_in": 400,
+    "tokens_out": 85,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There are no signs of myocardial infarction, ST-T wave changes, conduction disturbances, or evidence of ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 504,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.787618041999849,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 512,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.331534208000448,
+    "tokens_in": 405,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 514,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.491291166001247,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 516,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.3261991670005955,
+    "tokens_in": 405,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 526,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 202 ms, QRS duration of 84 ms, QT interval of 351 ms, and QTc of 352 ms within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 5.900763166999241,
+    "tokens_in": 400,
+    "tokens_out": 112,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 202 ms, QRS duration of 84 ms, QT interval of 351 ms, and QTc of 352 ms within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 527,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor ST-T changes that could suggest ischemic stress but do not meet the criteria for myocardial infarction. There is no evidence of significant conduction disturbances or hypertrophic changes.",
+    "latency_s": 4.350904084001741,
+    "tokens_in": 401,
+    "tokens_out": 81,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor ST-T changes that could suggest ischemic stress but do not meet the criteria for myocardial infarction. There is no evidence of significant conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 534,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy.",
+    "latency_s": 4.398229374999573,
+    "tokens_in": 400,
+    "tokens_out": 83,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 559,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.366682416999538,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 564,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.7,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities noted in the T-waves. There is no evidence of myocardial infarction, significant ST-T wave changes, or any major conduction disturbances. The patient's heart rate is within normal limits, but there is mild left ventricular hypertrophy indicated by the elevated T-waves in leads V1-V6.",
+    "latency_s": 5.789045041999998,
+    "tokens_in": 400,
+    "tokens_out": 110,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 7\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities noted in the T-waves. There is no evidence of myocardial infarction, significant ST-T wave changes, or any major conduction disturbances. The patient's heart rate is within normal limits, but there is mild left ventricular hypertrophy indicated by the elevated T-waves in leads V1-V6."
+  },
+  {
+    "ecg_id": 569,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly elevated PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy.",
+    "latency_s": 4.444065624998984,
+    "tokens_in": 406,
+    "tokens_out": 83,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly elevated PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 570,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that do not necessarily indicate significant pathology. There is evidence of old ischemic damage (MI) but no recent infarction. The presence of ST-T changes suggests possible ischemia or repolarization abnormalities, which could be due to either old or new ischemia. Conduction disturbances are noted as well, including AV block, suggesting potential bundle branch block or fascicular block",
+    "latency_s": 6.252887458000259,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that do not necessarily indicate significant pathology. There is evidence of old ischemic damage (MI) but no recent infarction. The presence of ST-T changes suggests possible ischemia or repolarization abnormalities, which could be due to either old or new ischemia. Conduction disturbances are noted as well, including AV block, suggesting potential bundle branch block or fascicular block"
+  },
+  {
+    "ecg_id": 573,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG is predominantly normal with some minor ST-T changes noted in leads V1 to V6, suggesting possible ischemic stress but not indicative of acute myocardial infarction. The signal quality is described as noisy, which could affect interpretation.",
+    "latency_s": 4.524319666001247,
+    "tokens_in": 405,
+    "tokens_out": 85,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 0\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG is predominantly normal with some minor ST-T changes noted in leads V1 to V6, suggesting possible ischemic stress but not indicative of acute myocardial infarction. The signal quality is described as noisy, which could affect interpretation."
+  },
+  {
+    "ecg_id": 581,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.298466207999809,
+    "tokens_in": 404,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 582,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 155 ms, QRS duration of 75 ms, QT interval of 377 ms, and QTc (Fridericia) of 378 ms. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 6.045761583000058,
+    "tokens_in": 400,
+    "tokens_out": 114,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 155 ms, QRS duration of 75 ms, QT interval of 377 ms, and QTc (Fridericia) of 378 ms. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 584,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.263998708000145,
+    "tokens_in": 404,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 598,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.460964707999665,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 611,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a heart rate within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.17015904100117,
+    "tokens_in": 400,
+    "tokens_out": 78,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a heart rate within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 618,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.413811125001303,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 619,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T wave changes indicative of acute coronary syndrome. The PR interval is within normal limits, and there are no signs of AV block or other conduction disturbances. The QTc interval is slightly prolonged",
+    "latency_s": 6.292622167000445,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T wave changes indicative of acute coronary syndrome. The PR interval is within normal limits, and there are no signs of AV block or other conduction disturbances. The QTc interval is slightly prolonged"
+  },
+  {
+    "ecg_id": 658,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.365494833999037,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 685,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.375544374999663,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 687,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.752336916999411,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 688,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.37965450000047,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 694,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T wave changes indicative of acute coronary syndrome. The PR interval is within normal limits, and there are no signs of AV block or other conduction disturbances. The QT interval is slightly prolonged by",
+    "latency_s": 6.277697207999154,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T wave changes indicative of acute coronary syndrome. The PR interval is within normal limits, and there are no signs of AV block or other conduction disturbances. The QT interval is slightly prolonged by"
+  },
+  {
+    "ecg_id": 696,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor ST-T changes that could suggest ischemic stress but do not meet the criteria for myocardial infarction. There is no evidence of significant conduction disturbances or hypertrophic changes.",
+    "latency_s": 4.309219416001724,
+    "tokens_in": 400,
+    "tokens_out": 81,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor ST-T changes that could suggest ischemic stress but do not meet the criteria for myocardial infarction. There is no evidence of significant conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 707,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.407019124999351,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 723,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.409398833000523,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 726,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.783040415999494,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 732,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.4548943340014375,
+    "tokens_in": 401,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 751,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.347214499999609,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 756,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.336130083000171,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 758,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 249 ms, which is within the normal range for adults. There is no evidence of ischemic changes as indicated by the ST-T wave abnormalities (-0.03 to +0.01), suggesting that there is likely no myocardial infarction. However, the presence of a QRS duration of 75 ms and QT intervals of 42",
+    "latency_s": 6.296480166998663,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 249 ms, which is within the normal range for adults. There is no evidence of ischemic changes as indicated by the ST-T wave abnormalities (-0.03 to +0.01), suggesting that there is likely no myocardial infarction. However, the presence of a QRS duration of 75 ms and QT intervals of 42"
+  },
+  {
+    "ecg_id": 764,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.341868792000241,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 765,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.3962657089996355,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 775,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.368101832998946,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 779,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.359006708000379,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 789,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.4427555420006684,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 795,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1-V6. The PR interval is within normal limits, and there are no significant QRS-T wave abnormalities indicative of conduction disturbances or hypertrophic changes.",
+    "latency_s": 5.884532042000501,
+    "tokens_in": 400,
+    "tokens_out": 111,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1-V6. The PR interval is within normal limits, and there are no significant QRS-T wave abnormalities indicative of conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 799,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.4456426249998913,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 805,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.7812465829993016,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 806,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.461928291999357,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 821,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.3503031250002095,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 848,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 194 ms, QRS duration of 76 ms, QT interval of 422 ms, and QTc of 421 ms within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 5.866637540999363,
+    "tokens_in": 400,
+    "tokens_out": 112,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 194 ms, QRS duration of 76 ms, QT interval of 422 ms, and QTc of 421 ms within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 854,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.7495253329998377,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 861,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.373777458000404,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 886,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.7488007500014646,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 892,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.361857249999957,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 911,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads I, II, V1-V6. The PR interval is prolonged, which suggests possible AV nodal involvement, and there is a slight QT prolongation suggestive of potential torsades de pointes. No significant Q",
+    "latency_s": 6.2561537090005,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads I, II, V1-V6. The PR interval is prolonged, which suggests possible AV nodal involvement, and there is a slight QT prolongation suggestive of potential torsades de pointes. No significant Q"
+  },
+  {
+    "ecg_id": 917,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.3888304170013726,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 928,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.464692499999728,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 931,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.391706541000531,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 935,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.370535874999405,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 943,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a heart rate within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.160599834000095,
+    "tokens_in": 402,
+    "tokens_out": 78,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a heart rate within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 947,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1-V6. The PR interval is slightly prolonged, which could indicate AV nodal involvement, while the QTc interval is mildly prolonged, suggesting possible torsades de pointes. No significant QRS-T wave",
+    "latency_s": 6.273514458000136,
+    "tokens_in": 401,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1-V6. The PR interval is slightly prolonged, which could indicate AV nodal involvement, while the QTc interval is mildly prolonged, suggesting possible torsades de pointes. No significant QRS-T wave"
+  },
+  {
+    "ecg_id": 949,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads I, II, V1-V6. The PR interval is prolonged, which suggests possible AV nodal involvement, and there is a slight QT prolongation suggestive of potential torsades de pointes. No significant Q",
+    "latency_s": 6.263138000000254,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads I, II, V1-V6. The PR interval is prolonged, which suggests possible AV nodal involvement, and there is a slight QT prolongation suggestive of potential torsades de pointes. No significant Q"
+  },
+  {
+    "ecg_id": 950,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.4465535420004016,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 952,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.4662564169993857,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 958,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.437623791000078,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 959,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.345432166001046,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 963,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus tachycardia without any other significant abnormalities. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.275028666999788,
+    "tokens_in": 405,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus tachycardia without any other significant abnormalities. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 968,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.381415583000489,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 975,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There are no signs of myocardial infarction, significant ST-T wave changes, or conduction disturbances. The patient does not appear to have any evidence of ventricular or atrial enlargement.",
+    "latency_s": 4.968246415999602,
+    "tokens_in": 402,
+    "tokens_out": 94,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There are no signs of myocardial infarction, significant ST-T wave changes, or conduction disturbances. The patient does not appear to have any evidence of ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1009,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild left ventricular hypertrophy noted in leads V1-V6.",
+    "latency_s": 3.8130996670006425,
+    "tokens_in": 400,
+    "tokens_out": 71,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild left ventricular hypertrophy noted in leads V1-V6."
+  },
+  {
+    "ecg_id": 1013,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.351464125000348,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1014,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.8,
+      "STTC": 0.7,
+      "CD": 0.6,
+      "HYP": 0.5
+    },
+    "explanation": "The ECG shows a predominantly normal pattern with some minor abnormalities that do not necessarily indicate specific diagnoses but suggest a relatively stable heart condition without significant ischemic changes or structural abnormalities.",
+    "latency_s": 3.7109311249987513,
+    "tokens_in": 401,
+    "tokens_out": 69,
+    "error": "",
+    "raw": "NORM: 9\nMI: 8\nSTTC: 7\nCD: 6\nHYP: 5\nINTERPRETATION: The ECG shows a predominantly normal pattern with some minor abnormalities that do not necessarily indicate specific diagnoses but suggest a relatively stable heart condition without significant ischemic changes or structural abnormalities."
+  },
+  {
+    "ecg_id": 1016,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy.",
+    "latency_s": 4.418709625000702,
+    "tokens_in": 400,
+    "tokens_out": 83,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 1031,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement.",
+    "latency_s": 3.5144720419993973,
+    "tokens_in": 400,
+    "tokens_out": 64,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1051,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.7502639579997776,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 1054,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.35640925000007,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1056,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.376607207999768,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1061,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes.",
+    "latency_s": 3.754217042000164,
+    "tokens_in": 400,
+    "tokens_out": 70,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a normal sinus rhythm with no evidence of ischemic changes or structural abnormalities. There is also no indication of any conduction disturbances or hypertrophic changes."
+  },
+  {
+    "ecg_id": 1068,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 221 ms, QRS duration of 83 ms, QT interval of 308 ms, and QTc (Fridericia) of 340 ms. There is no evidence of ischemic changes as indicated by the ST-T wave abnormalities (-0.01 to +0.08 mV), and there are no signs of",
+    "latency_s": 6.26713191700037,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 221 ms, QRS duration of 83 ms, QT interval of 308 ms, and QTc (Fridericia) of 340 ms. There is no evidence of ischemic changes as indicated by the ST-T wave abnormalities (-0.01 to +0.08 mV), and there are no signs of"
+  },
+  {
+    "ecg_id": 1078,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1-V6, which could suggest subtle ischemia but does not meet the criteria for ST-T change. No signs of AV block, bundle branch block, or fascicular block are observed. The QTc interval is slightly prolonged, suggesting possible left ventricular hypertrophy.",
+    "latency_s": 6.170714457999566,
+    "tokens_in": 400,
+    "tokens_out": 118,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1-V6, which could suggest subtle ischemia but does not meet the criteria for ST-T change. No signs of AV block, bundle branch block, or fascicular block are observed. The QTc interval is slightly prolonged, suggesting possible left ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 1084,
+    "scores": {
+      "NORM": 0.9,
+      "MI": 0.0,
+      "STTC": 0.8,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T wave changes indicative of acute coronary syndrome. The PR interval is within normal limits, and there are no signs of AV block or other conduction disturbances. The QT interval is slightly prolonged by",
+    "latency_s": 6.312428917000943,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 9\nMI: 0\nSTTC: 8\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows a predominantly normal rhythm with no evidence of ischemic changes or significant conduction abnormalities. There is mild T-wave inversion in leads V1 to V6, which could suggest subtle ischemia but does not meet the criteria for ST-T wave changes indicative of acute coronary syndrome. The PR interval is within normal limits, and there are no signs of AV block or other conduction disturbances. The QT interval is slightly prolonged by"
+  },
+  {
+    "ecg_id": 1093,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes.",
+    "latency_s": 4.312450707999233,
+    "tokens_in": 405,
+    "tokens_out": 80,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with no evidence of ischemic changes, conduction abnormalities, or ventricular or atrial enlargement. There is also no indication of myocardial infarction or significant ST-T wave changes."
+  },
+  {
+    "ecg_id": 1094,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy.",
+    "latency_s": 4.406665084001361,
+    "tokens_in": 400,
+    "tokens_out": 83,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 1100,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.34670316699885,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1101,
+    "scores": {
+      "NORM": 0.8,
+      "MI": 0.2,
+      "STTC": 0.9,
+      "CD": 0.7,
+      "HYP": 0.3
+    },
+    "explanation": "The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1 to V6. The PR interval is slightly prolonged, which could indicate AV nodal involvement, and there is a slight QT prolongation suggestive of possible torsades de pointes. No significant QRS-T",
+    "latency_s": 6.25240470800054,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 8\nMI: 2\nSTTC: 9\nCD: 7\nHYP: 3\nINTERPRETATION: The ECG shows a predominantly normal rhythm with some minor abnormalities that could suggest ischemic changes but do not meet the criteria for myocardial infarction. There is also evidence of left ventricular hypertrophy noted in leads V1 to V6. The PR interval is slightly prolonged, which could indicate AV nodal involvement, and there is a slight QT prolongation suggestive of possible torsades de pointes. No significant QRS-T"
+  },
+  {
+    "ecg_id": 1113,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 118 ms, QRS duration of 94 ms, QT interval of 343 ms, and QTc (Fridericia) of 358 ms. There is no evidence of ischemic changes as indicated by the ST-T wave abnormalities (-0.00 to +0.01 mV), and there are no signs of",
+    "latency_s": 6.2789249580000615,
+    "tokens_in": 400,
+    "tokens_out": 120,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 118 ms, QRS duration of 94 ms, QT interval of 343 ms, and QTc (Fridericia) of 358 ms. There is no evidence of ischemic changes as indicated by the ST-T wave abnormalities (-0.00 to +0.01 mV), and there are no signs of"
+  },
+  {
+    "ecg_id": 1120,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.353824707999593,
+    "tokens_in": 401,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1133,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 4.367743959001018,
+    "tokens_in": 400,
+    "tokens_out": 82,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a normal PR interval and QT intervals within normal limits. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1147,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a PR interval of 195 ms, QRS duration of 77 ms, QT interval of 340 ms, and QTc (Fridericia) of 345 ms. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement.",
+    "latency_s": 6.029092250000758,
+    "tokens_in": 400,
+    "tokens_out": 114,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a PR interval of 195 ms, QRS duration of 77 ms, QT interval of 340 ms, and QTc (Fridericia) of 345 ms. There is no evidence of myocardial infarction, ST-T wave changes, conduction disturbances, or ventricular or atrial enlargement."
+  },
+  {
+    "ecg_id": 1157,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 0.7,
+      "CD": 0.8,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy.",
+    "latency_s": 4.537063166000735,
+    "tokens_in": 405,
+    "tokens_out": 83,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 7\nCD: 8\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There is no evidence of myocardial infarction, significant ST-T wave changes, or any notable conduction disturbances or ventricular hypertrophy."
+  },
+  {
+    "ecg_id": 1158,
+    "scores": {
+      "NORM": 1.0,
+      "MI": 0.0,
+      "STTC": 1.0,
+      "CD": 0.0,
+      "HYP": 0.0
+    },
+    "explanation": "The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There are no signs of myocardial infarction, significant ST-T wave changes, or conduction disturbances. The patient does not appear to have any evidence of ventricular or atrial enlargement.",
+    "latency_s": 4.9690552089996345,
+    "tokens_in": 401,
+    "tokens_out": 94,
+    "error": "",
+    "raw": "NORM: 10\nMI: 0\nSTTC: 10\nCD: 0\nHYP: 0\nINTERPRETATION: The ECG shows sinus rhythm with a slightly prolonged PR interval but otherwise is within normal limits. There are no signs of myocardial infarction, significant ST-T wave changes, or conduction disturbances. The patient does not appear to have any evidence of ventricular or atrial enlargement."
+  }
+]

@@ -55,3 +55,11 @@ outputs/*
 # is a pickle, which is not something to ship in a public repo.
 data/reference/dense_index.npz
 data/reference/tfidf_index.pkl
+
+# --- Phase 28 benchmark ---
+# Per-record outputs for the APEX arms are ~3 MB each and regenerate in ~12 s
+# (`make benchmark-foundation`). The local-LLM arm's outputs ARE committed: they take 18
+# minutes of inference to reproduce and are the evidence behind the self-contradiction
+# denominator and the quoted example replies.
+docs/benchmark/raw/apex.json
+docs/benchmark/raw/apex-student.json

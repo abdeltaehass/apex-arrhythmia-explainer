@@ -37,6 +37,7 @@ src/
   feedback/           clinician feedback store + per-label threshold re-tuning
   synthesis/          diffusion ECG generation + rare-class augmentation ablation
   i18n/               Spanish clinical explanation + language-aware consistency gate
+  benchmark/          specialist-vs-generalist comparison harness (Phase 28)
   data/               PTB-XL download helpers + SCP label handling
   config.py           single source of truth (paths, targets, W&B)
 app/
@@ -290,6 +291,20 @@ report = analyze_signal(signal, 100, backend="template", lang="es")
 # Impresión: Hallazgos compatibles con fibrilación auricular.
 
 report.consistency.consistent   # the Phase-7 gate, now language-aware
+```
+
+Benchmark against general-purpose models (Phase 28):
+
+```bash
+make benchmark-foundation                          # local arms; hosted arms recorded as not-run
+OPENAI_API_KEY=... make benchmark-foundation       # adds the GPT-4o arm
+```
+
+```python
+from src.benchmark import build_system, summarize
+system = build_system("apex")                      # or "apex-student", "local-llm", "gpt-4o"
+outputs = [system.predict(sig) for sig in signals]
+summarize(system, outputs, y_true).macro_auroc
 ```
 
 ## Phase status
@@ -575,7 +590,24 @@ report.consistency.consistent   # the Phase-7 gate, now language-aware
   against 26 Spanish cardiology articles: 34/67 confirmed, the rest a clinician review list
   rather than an error list. [`docs/i18n/report.md`](docs/i18n/report.md) ·
   [MODEL_CARD](MODEL_CARD.md#language-access-and-health-equity). ✅
-- Phase 26/28+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 28:** benchmarking against general-purpose models (`make benchmark-foundation`) —
+  one harness, one protocol, every arm scored on discrimination, self-consistency, latency,
+  cost and privacy. **Measured on the full 2,198-record test fold:** APEX macro AUROC
+  **0.8929**, the Phase-19 distilled student **0.8944** (beating its 35×-larger teacher
+  again), both at **0% self-contradiction over n≈2,190** and 5 ms / 2 ms p50. A local
+  general-purpose LLM given the *same measured intervals* APEX's own front end produces —
+  a deliberately generous protocol, since it never has to find a QRS complex — scores
+  **0.4681**, with every superclass CI containing 0.5: **no measurable discrimination**,
+  not "worse than chance". Cost, projected from measured tokens at list prices: **$0.0001
+  vs $2.07 per 1k inferences**, ~15,000×, before the column that actually decides clinical
+  deployments — nothing leaves the host. **The GPT-4o arm was not run** (no API key) and is
+  recorded as such rather than quietly omitted; the harness runs it with one env var, and
+  published image-based GPT-4o figures (~41% multiclass) are carried as a *cited* anchor.
+  The benchmark also caught a defect in its own metric: self-contradiction was reported as
+  a bare rate, and a 12-record probe showed a "100%" resting on a single record, because
+  most generalist replies hedge and assert nothing — the rate now travels with its
+  denominator, enforced by test. [`docs/benchmark/report.md`](docs/benchmark/report.md). ✅
+- Phase 26/29+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 

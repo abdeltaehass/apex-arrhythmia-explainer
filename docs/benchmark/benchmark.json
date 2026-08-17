@@ -1,0 +1,123 @@
+{
+  "config": {
+    "n_records": 2198,
+    "llm_n": 150,
+    "hourly_usd": 0.1,
+    "pricing_as_of": "2026-08 (list prices; verify before citing)",
+    "device": "cpu"
+  },
+  "systems": {
+    "apex": {
+      "name": "APEX (CNN)",
+      "kind": "specialist",
+      "hosting": "local",
+      "auroc": {
+        "NORM": 0.9354732385721072,
+        "MI": 0.8910028684907325,
+        "STTC": 0.9149335539997505,
+        "CD": 0.8971501743679162,
+        "HYP": 0.8261584442621916
+      },
+      "macro_auroc": 0.8929436559385397,
+      "coverage": 1.0,
+      "n_records": 2198,
+      "n_errors": 0,
+      "latency_p50": 0.005299625000589003,
+      "latency_p95": 0.005965074949472182,
+      "self_contradiction": 0.0,
+      "self_contradiction_n": 2189,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "usd_per_1k": 0.00014975485388247578,
+      "notes": [],
+      "describe": {
+        "name": "APEX (CNN)",
+        "kind": "specialist",
+        "hosting": "local",
+        "checkpoint": "default"
+      },
+      "n_scored": 2198
+    },
+    "apex-student": {
+      "name": "APEX distilled student",
+      "kind": "specialist",
+      "hosting": "local",
+      "auroc": {
+        "NORM": 0.935720441770614,
+        "MI": 0.8944759488084731,
+        "STTC": 0.9205062966612759,
+        "CD": 0.9024108259732383,
+        "HYP": 0.8188008642987823
+      },
+      "macro_auroc": 0.8943828755024767,
+      "coverage": 1.0,
+      "n_records": 2198,
+      "n_errors": 0,
+      "latency_p50": 0.0022778534998906252,
+      "latency_p95": 0.0026088473500749387,
+      "self_contradiction": 0.0,
+      "self_contradiction_n": 2182,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "usd_per_1k": 6.41565812612145e-05,
+      "notes": [],
+      "describe": {
+        "name": "APEX distilled student",
+        "kind": "specialist",
+        "hosting": "local",
+        "checkpoint": "/Users/abdeltaeha/Desktop/Coding/Personal Project/APEX(Arrhythmia Pattern Explainer)/outputs/student_w16b1_kd_best.pt"
+      },
+      "n_scored": 2198
+    },
+    "local-llm": {
+      "name": "Qwen2.5-1.5B-Instruct (local)",
+      "kind": "generalist",
+      "hosting": "local",
+      "auroc": {
+        "NORM": 0.4730357142857143,
+        "MI": 0.5140515222482436,
+        "STTC": 0.4096095334685598,
+        "CD": 0.4457097457627119,
+        "HYP": 0.4978864734299517
+      },
+      "macro_auroc": 0.46805859783903625,
+      "coverage": 1.0,
+      "n_records": 150,
+      "n_errors": 0,
+      "latency_p50": 4.386726978999832,
+      "latency_p95": 6.302448666300324,
+      "self_contradiction": 1.0,
+      "self_contradiction_n": 14,
+      "tokens_in": 60106,
+      "tokens_out": 13114,
+      "usd_per_1k": 0.1306223994825942,
+      "notes": [],
+      "describe": {
+        "name": "Qwen2.5-1.5B-Instruct (local)",
+        "kind": "generalist",
+        "hosting": "local",
+        "model_id": "Qwen/Qwen2.5-1.5B-Instruct"
+      },
+      "n_scored": 150
+    }
+  },
+  "skipped": {
+    "gpt-4o": {
+      "reason": "OPENAI_API_KEY not set",
+      "how_to_run": "OPENAI_API_KEY=... make benchmark-foundation"
+    },
+    "claude": {
+      "reason": "ANTHROPIC_API_KEY not set",
+      "how_to_run": "ANTHROPIC_API_KEY=... make benchmark-foundation"
+    }
+  },
+  "cited": [
+    {
+      "system": "GPT-4o (published, ECG images)",
+      "multiclass_accuracy": 0.41,
+      "binary_normal_abnormal": 0.53,
+      "source": "Zaboli et al., JMIR AI 2025 (ai.jmir.org/2025/1/e74426)",
+      "provenance": "cited"
+    }
+  ]
+}
