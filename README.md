@@ -607,7 +607,22 @@ summarize(system, outputs, y_true).macro_auroc
   a bare rate, and a 12-record probe showed a "100%" resting on a single record, because
   most generalist replies hedge and assert nothing — the rate now travels with its
   denominator, enforced by test. [`docs/benchmark/report.md`](docs/benchmark/report.md). ✅
-- Phase 26/29+: apply the calibrator in the serving path and re-tune the operating threshold.
+- **Phase 29:** workshop paper draft ([`paper/`](paper/)) — a complete ML4H 2026 submission
+  (Proceedings track, JMLR class, double-blind, deadline 10 Sep 2026), built entirely from
+  committed artefacts. The thesis is not the model: at 0.9199 macro-AUROC against 0.925 for
+  the best published PTB-XL baseline, the detector is deliberately unremarkable, and the
+  paper says so in its introduction. The contribution is **six measured failures of
+  pipeline-level guarantees** — retrieval doubling hallucination, feedback loops moving 19
+  thresholds without one going down, a hallucination gate that read English only, rare-class
+  intervals 4× narrower than the analytic truth, a generator that passed every sample-quality
+  check while emitting 227 ms QRS complexes, and differencing halving F1 — argued into a
+  claim that clinical ML needs *guardrail regression tests*. Writing it caught one more
+  error: a calibration figure I had written from memory (0.043) was wrong, and the real
+  number is **0.0875 — temperature scaling makes ECE worse than leaving it alone**, which is
+  a better fact than the invented one. Every cited number is traced to its artefact in
+  [`paper/README.md`](paper/README.md). Not compiled (no TeX toolchain here); validated
+  structurally instead. ✅
+- Phase 26/30+: apply the calibrator in the serving path and re-tune the operating threshold.
 
 ## Benchmark comparison (PTB-XL test split)
 
